@@ -1,0 +1,273 @@
+/* Curriculum Page Styles */
+.curriculum {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.intro-section {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.phase-intro {
+    margin-bottom: 1.5rem;
+    color: #666;
+    font-style: italic;
+}
+
+.skill-progression,
+.game-progression,
+.advanced-progression {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.skill-card,
+.game-card,
+.advanced-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.skill-card:hover,
+.game-card:hover,
+.advanced-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card h4,
+.game-card h4,
+.advanced-card h4 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+h3 {
+    color: var(--primary-dark);
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .skill-progression,
+    .game-progression,
+    .advanced-progression {
+        grid-template-columns: 1fr;
+    }
+
+    /* Calendar-specific styles - add to curriculum.css */
+
+.confirmation-note {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin: -1rem 0 2rem;
+}
+
+.session-detail {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.date-list {
+    margin: 0;
+    padding: 0;
+}
+
+.date-list li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+}
+
+.tournament-date {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin: 0.5rem 0 1.5rem;
+    font-weight: 500;
+}
+
+.schedule-list li {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.schedule-list li:last-child {
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+.skill-card,
+.advanced-card {
+    padding: 2rem;
+}
+
+/* Improved spacing for tournament cards */
+.advanced-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.advanced-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .skill-card,
+    .advanced-card {
+        padding: 1.5rem;
+    }
+}
+}
+
+/* Calendar-specific styles - add to curriculum.css */
+
+.confirmation-note {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin: -1rem 0 2rem;
+}
+
+.session-detail {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.date-list {
+    margin: 0;
+    padding: 0;
+}
+
+.date-list li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+}
+
+.tournament-date {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin: 0.5rem 0 1.5rem;
+    font-weight: 500;
+}
+
+.schedule-list li {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.schedule-list li:last-child {
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+.skill-card,
+.advanced-card {
+    padding: 2rem;
+}
+
+/* Improved spacing for tournament cards */
+.advanced-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.advanced-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .skill-card,
+    .advanced-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Updated spacing styles - add to curriculum.css */
+
+.skill-card li,
+.game-card li,
+.advanced-card li {
+    margin-bottom: 0.5rem;  /* Reduced from 0.8rem */
+    line-height: 1.3;      /* Reduced from default */
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.session-detail {
+    font-size: 1.1rem;
+    line-height: 1.3;     /* Reduced from 1.6 */
+    color: #444;
+    margin-bottom: 1rem;  /* Reduced from 1.5rem */
+}
+
+.date-list li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;  /* Reduced from 1rem */
+    padding-left: 0;
+    line-height: 1.3;
+}
+
+.schedule-list li {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;  /* Reduced from 1rem */
+    color: #333;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;  /* Reduced from 1rem */
+    line-height: 1.2;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.75rem;  /* Reduced from 1rem */
+    line-height: 1.2;
+}
+
+.tournament-date {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin: 0.5rem 0 1rem;   /* Reduced bottom margin */
+    font-weight: 500;
+    line-height: 1.2;
+}

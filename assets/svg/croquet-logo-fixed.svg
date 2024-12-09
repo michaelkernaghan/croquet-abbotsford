@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+    <!-- Background gradient -->
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3B513B"/>
+            <stop offset="100%" style="stop-color:#2B3B2B"/>
+        </linearGradient>
+    </defs>
+    <rect width="800" height="200" fill="url(#bgGradient)"/>
+    
+    <!-- Mallets and Balls Group - Behind text -->
+    <g transform="translate(600, 100) scale(1.2)">
+        <!-- Four balls -->
+        <circle cx="15" cy="0" r="10" fill="#FF0000"/> <!-- Red ball left -->
+        <circle cx="65" cy="0" r="10" fill="#FFD700"/> <!-- Yellow ball right -->
+        <circle cx="40" cy="-25" r="10" fill="#4169E1"/> <!-- Blue ball top -->
+        <circle cx="40" cy="25" r="10" fill="#000000"/> <!-- Black ball bottom -->
+        
+        <!-- Mallet 1 - centered, wider angle (-45 instead of -35) -->
+        <g transform="translate(40, 0)">
+            <g transform="rotate(-45)">
+                <!-- Handle -->
+                <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                <!-- Head -->
+                <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+            </g>
+        </g>
+        
+        <!-- Mallet 2 - centered, wider angle (45 instead of 35) -->
+        <g transform="translate(40, 0)">
+            <g transform="rotate(45)">
+                <!-- Handle -->
+                <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                <!-- Head -->
+                <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+            </g>
+        </g>
+    </g>
+    
+    <!-- Text on top -->
+    <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+    <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+</svg>
