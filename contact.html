@@ -5,22 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Abbotsford Croquet</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/curriculum.css">
 </head>
 <body>
-    <!-- Header and nav sections -->
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+                
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+                
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="curriculum.html">Curriculum</a></li>
+                <li><a href="variations.html">Variations</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="mallets.html">Mallets</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <main>
-        <section class="membership-info">
+        <section class="curriculum">
             <h1>Contact Us</h1>
-            <div class="contact-info">
-                <p>Get in touch with us:</p>
-                <p class="phone">604-615-9138</p>
-                <p class="email">abbotsfordcroquet@gmail.com</p>
-                <h3>Location</h3>
-                <p>Mill Lake Park</p>
-                <p>Abbotsford, BC</p>
+
+            <div class="skill-progression">
+                <!-- Image Card -->
+                <div class="skill-card" style="grid-column: 1 / -1;">
+                    <img src="assets/images/contact-croquet.jpg" alt="Croquet mallet and balls by a hoop on green lawn" style="width: 100%; height: auto; border-radius: 8px;">
+                    <p class="note" style="text-align: center; margin-top: 1rem;">Welcome to Abbotsford Croquet at Mill Lake Park</p>
+                </div>
+
+                <!-- Contact Info Card -->
+                <div class="skill-card">
+                    <h3>Phone</h3>
+                    <p class="session-detail">604-615-9138</p>
+                    <h3>Email</h3>
+                    <p class="session-detail">abbotsfordcroquet@gmail.com</p>
+                </div>
+
+                <!-- Location Card -->
+                <div class="skill-card">
+                    <h3>Location</h3>
+                    <p class="session-detail">Mill Lake Park</p>
+                    <p class="session-detail">2387 Ware Street</p>
+                    <p class="session-detail">Abbotsford, BC V2S 3E3</p>
+                    <p class="note">Located at the Abbotsford Lawn Bowling Club facility</p>
+                </div>
+
+                <!-- Playing Times Card -->
+                <div class="skill-card">
+                    <h3>Playing Times</h3>
+                    <ul class="date-list">
+                        <li>Tuesday evenings at 6:00 PM</li>
+                        <li>Thursday evenings at 6:00 PM</li>
+                        <li>April through September</li>
+                        <li>Monthly Saturday Open Houses</li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
+
     <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>
