@@ -2,7 +2,7 @@
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         // Handle contact link specially
-        if (this.getAttribute('href') === '#contact') {
+        if (this.getAttribute('href') === 'contact') {
             e.preventDefault();
             window.location.href = 'contact.html';
             return;
