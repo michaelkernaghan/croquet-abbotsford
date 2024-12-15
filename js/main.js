@@ -1,8 +1,13 @@
 // Add smooth scrolling for navigation links
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const section = document.querySelector(this.getAttribute('href'));
-        section.scrollIntoView({ behavior: 'smooth' });
+        // Only prevent default and do smooth scroll for hash links
+        if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            const section = document.querySelector(this.getAttribute('href'));
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     });
 });
