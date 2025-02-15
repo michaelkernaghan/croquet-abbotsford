@@ -1,0 +1,29 @@
+{
+    "name": "Abbotsford Croquet Club",
+    "short_name": "Abbotsford Croquet",
+    "icons": [
+        {
+            "src": "/assets/images/favicons/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/favicons/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/favicons/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#3B513B",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "/",
+    "description": "Join Abbotsford's premier croquet club at Mill Lake Park. Regular play sessions, professional facilities, and instruction for all skill levels.",
+    "orientation": "any",
+    "categories": ["sports", "recreation", "community"],
+    "lang": "en-CA"
+} 
