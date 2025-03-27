@@ -1,0 +1,74 @@
+# robots.txt for Abbotsford Croquet Club
+# https://abbotsfordcroquet.ca
+
+# Allow all crawlers full access
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://abbotsfordcroquet.ca/sitemap.xml
+
+# Allow crawling of all content types
+Allow: /*.html
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.svg
+Allow: /assets/
+Allow: /images/
+
+# Prevent crawling of utility pages and temporary files
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /*.php$
+Disallow: /*?*
+Disallow: /*?
+Disallow: /*&
+Disallow: /*#
+Disallow: /*/trackback/
+Disallow: /*/feed/
+Disallow: /search?
+Disallow: /search/
+Disallow: /*?s=
+Disallow: /*?p=
+
+# Prevent duplicate content
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?tag=
+Disallow: /*?view=
+
+# Special directives for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.png
+Allow: /*.svg
+Allow: /assets/images/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+# Rate limiting for other bots
+User-agent: *
+Crawl-delay: 5
+
+# Clean parameters
+Allow: /*?utm_source=
+Allow: /*?utm_medium=
+Allow: /*?utm_campaign=
+Allow: /*?utm_content=
+Allow: /*?utm_term= 

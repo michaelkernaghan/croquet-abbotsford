@@ -3,7 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Abbotsford Croquet</title>
+    <title>Croquet Photo Gallery - Abbotsford Croquet Club | Mill Lake Park Activities</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <meta name="description" content="Browse photos of croquet activities at Mill Lake Park in Abbotsford. See our professional facilities, community events, and club activities. Join our welcoming croquet community in the Fraser Valley.">
+    <meta name="keywords" content="croquet photos, Mill Lake Park activities, Abbotsford sports photos, croquet club gallery, Fraser Valley recreation, lawn sports images">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Croquet Photo Gallery - Abbotsford Croquet Club">
+    <meta property="og:description" content="Browse photos of croquet activities at Mill Lake Park in Abbotsford. See our professional facilities, community events, and club activities.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_CA">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Abbotsford Croquet Club Photo Gallery",
+      "description": "Photo gallery showcasing croquet activities, events, and facilities at Mill Lake Park in Abbotsford",
+      "about": {
+        "@type": "SportsClub",
+        "name": "Abbotsford Croquet Club",
+        "location": {
+          "@type": "Place",
+          "name": "Mill Lake Park",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Abbotsford",
+            "addressRegion": "BC",
+            "addressCountry": "CA"
+          }
+        }
+      },
+      "image": [
+        {
+          "@type": "ImageObject",
+          "name": "Tournament Gameplay",
+          "description": "Michael Essick demonstrating advanced croquet techniques during a tournament at Mill Lake Park",
+          "contentUrl": "assets/images/essick.jpg"
+        },
+        {
+          "@type": "ImageObject",
+          "name": "Mayor's Visit",
+          "description": "Abbotsford Mayor visiting the croquet club, observing a demonstration game at Mill Lake Park",
+          "contentUrl": "assets/images/mayor.png"
+        },
+        {
+          "@type": "ImageObject",
+          "name": "Club Library",
+          "description": "Comprehensive collection of croquet reference books and guides available to club members",
+          "contentUrl": "assets/images/bookshelf.png"
+        },
+        {
+          "@type": "ImageObject",
+          "name": "Historic Moment",
+          "description": "First ever croquet shot played across the equator, demonstrating the global reach of the sport",
+          "contentUrl": "assets/images/equator.png"
+        }
+      ]
+    }
+    </script>
+    
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/gallery.css">
 </head>
@@ -11,7 +76,9 @@
     <!-- Header with SVG logo -->
     <header>
         <div class="header-container">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" role="img" aria-labelledby="logo-title logo-desc">
+                <title id="logo-title">Abbotsford Croquet Club Logo</title>
+                <desc id="logo-desc">A stylized logo featuring croquet mallets and balls in red, gold, blue, and black, with the text 'ABBOTSFORD Croquet' on a green gradient background</desc>
                 <defs>
                     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" style="stop-color:#3B513B"/>
@@ -69,28 +136,44 @@
         <div class="gallery-grid">
            
             <div class="gallery-item">
-                <img src="assets/images/essick.jpg" alt="Michael Essick" loading="lazy">
+                <img src="assets/images/essick.jpg" 
+                     alt="Michael Essick demonstrating advanced croquet techniques during a tournament at Mill Lake Park" 
+                     loading="lazy"
+                     width="800"
+                     height="600">
                 <div class="image-caption">
                     <p>Strategic gameplay in action</p>
                 </div>
             </div>
             
             <div class="gallery-item">
-                <img src="assets/images/mayor.png" alt="Mayor visiting Abbotsford Croquet" loading="lazy">
+                <img src="assets/images/mayor.png" 
+                     alt="Abbotsford Mayor visiting the croquet club, observing a demonstration game at Mill Lake Park" 
+                     loading="lazy"
+                     width="800"
+                     height="600">
                 <div class="image-caption">
                     <p>Mayor's visit to our croquet lawn</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/bookshelf.png" alt="The club's collection of croquet reference books and guides" loading="lazy">
+                <img src="assets/images/bookshelf.png" 
+                     alt="Comprehensive collection of croquet reference books and guides available to club members" 
+                     loading="lazy"
+                     width="800"
+                     height="600">
                 <div class="image-caption">
                     <p>The club's collection of essential croquet literature</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/equator.png" alt="First ever croquet shot across the equator" loading="lazy">
+                <img src="assets/images/equator.png" 
+                     alt="Historic moment: The first ever croquet shot played across the equator, demonstrating the global reach of the sport" 
+                     loading="lazy"
+                     width="800"
+                     height="600">
                 <div class="image-caption">
                     <p>First ever croquet shot across the equator</p>
                 </div>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://abbotsfordcroquet.ca/</loc>
+        <lastmod>2024-03-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://abbotsfordcroquet.ca/assets/images/onthelawn.jpg</image:loc>
+            <image:title>Members playing croquet at Mill Lake Park</image:title>
+            <image:caption>Active croquet game on the well-maintained lawn at Mill Lake Park in Abbotsford</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Calendar - High Priority due to regular updates -->
+    <url>
+        <loc>https://abbotsfordcroquet.ca/calendar.html</loc>
+        <lastmod>2024-03-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Membership - High Priority for conversions -->
+    <url>
+        <loc>https://abbotsfordcroquet.ca/membership.html</loc>
+        <lastmod>2024-03-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Contact - High Priority for user engagement -->
+    <url>
+        <loc>https://abbotsfordcroquet.ca/contact.html</loc>
+        <lastmod>2024-03-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Curriculum - Important for new players -->
+    <url>
+        <loc>https://abbotsfordcroquet.ca/curriculum.html</loc>
+        <lastmod>2024-03-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Gallery - Regular content updates -->
+    <url>
+        <loc>https://abbotsfordcroquet.ca/gallery.html</loc>
+        <lastmod>2024-03-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://abbotsfordcroquet.ca/assets/images/essick.jpg</image:loc>
+            <image:title>Tournament gameplay at Mill Lake Park</image:title>
+            <image:caption>Michael Essick demonstrating advanced croquet techniques during a tournament</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://abbotsfordcroquet.ca/assets/images/mayor.png</image:loc>
+            <image:title>Mayor's visit to Abbotsford Croquet Club</image:title>
+            <image:caption>Abbotsford Mayor visiting the croquet club and observing a demonstration game</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Mallets - Equipment information -->
+    <url>
+        <loc>https://abbotsfordcroquet.ca/mallets.html</loc>
+        <lastmod>2024-03-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Game Variations -->
+    <url>
+        <loc>https://abbotsfordcroquet.ca/variations.html</loc>
+        <lastmod>2024-03-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Resources -->
+    <url>
+        <loc>https://abbotsfordcroquet.ca/resources.html</loc>
+        <lastmod>2024-03-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+</urlset> 
