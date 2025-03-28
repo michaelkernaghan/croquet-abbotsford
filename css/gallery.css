@@ -34,9 +34,9 @@ h1 {
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    max-height: 400px;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
     margin-bottom: 0.5rem;
 }
@@ -46,7 +46,7 @@ h1 {
     background: var(--primary-dark);
     color: white;
     border-radius: 8px;
-    margin-top: 0;
+    margin-top: auto;
 }
 
 .image-caption p {
