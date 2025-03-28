@@ -24,7 +24,6 @@ h1 {
     position: relative;
     display: flex;
     flex-direction: column;
-    aspect-ratio: auto;
     padding: 1rem;
 }
 
@@ -37,7 +36,7 @@ h1 {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 8px;
     margin-bottom: 0.5rem;
 }
@@ -46,8 +45,8 @@ h1 {
     padding: 0.75rem;
     background: var(--primary-dark);
     color: white;
-    border-radius: 0 0 8px 8px;
-    margin-top: auto;
+    border-radius: 8px;
+    margin-top: 0;
 }
 
 .image-caption p {
