@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Abbotsford Golf Croquet Entry Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #3B513B;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3B513B;
+            padding-bottom: 20px;
+        }
+        .form-section {
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        .submit-section {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .print-button {
+            display: block;
+            background: #3B513B;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 20px auto;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+        }
+        .agreement {
+            font-size: 0.9em;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .signature-line {
+            border-top: 1px solid #000;
+            margin-top: 50px;
+            padding-top: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>2025 Abbotsford Golf Croquet Invitational</h1>
+        <h2>Entry Form</h2>
+        <p><strong>Saturday, May 3, 2025</strong> | Mill Lake Park, Abbotsford, BC</p>
+    </div>
+
+    <div class="form-section">
+        <h2>Player Information</h2>
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+            <label for="address">Mailing Address:</label>
+            <textarea id="address" name="address" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="handicap">USCA Handicap (if known):</label>
+            <input type="text" id="handicap" name="handicap">
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h2>Event Registration</h2>
+        <div class="checkbox-group">
+            <input type="checkbox" id="singles" name="singles">
+            <label for="singles">Singles Competition ($95)</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="doubles" name="doubles">
+            <label for="doubles">Doubles Competition ($95)</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="both" name="both">
+            <label for="both">Both Singles and Doubles ($145)</label>
+        </div>
+        <div class="form-group">
+            <label for="partner-preference">Doubles Partner Preference (if any):</label>
+            <input type="text" id="partner-preference" name="partner-preference">
+            <p><small>Note: The Tournament Director will make final partner assignments based on handicaps.</small></p>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="friday-practice" name="friday-practice">
+            <label for="friday-practice">I will attend Friday evening practice and reception</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="dinner" name="dinner">
+            <label for="dinner">I will attend Saturday evening dinner (Dutch treat)</label>
+        </div>
+        <div class="form-group">
+            <label for="dietary">Dietary Restrictions or Special Requests:</label>
+            <textarea id="dietary" name="dietary" rows="2"></textarea>
+        </div>
+    </div>
+
+    <div class="agreement">
+        <p>By submitting this entry form, I acknowledge that I am participating in this tournament voluntarily and at my own risk. I agree to abide by all rules and regulations set forth by the Abbotsford Croquet Club and the USCA.</p>
+        <p>I understand that the entry fee is non-refundable after April 15, 2025, unless a substitute player can be found.</p>
+        <div class="signature-line">
+            <span>Signature: ________________________________</span>
+            <span>Date: ______________</span>
+        </div>
+    </div>
+
+    <div class="submit-section">
+        <p>Please complete this form and email it to <strong>info@abbotsfordcroquet.ca</strong> or mail it with payment to:</p>
+        <p style="text-align: center;">
+            <strong>Abbotsford Croquet Club</strong><br>
+            P.O. Box 12345<br>
+            Abbotsford, BC V2S 1A1
+        </p>
+        <p>Payment Methods: Cheque payable to "Abbotsford Croquet Club" or e-transfer to treasurer@abbotsfordcroquet.ca</p>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">Print This Form</button>
+</body>
+</html> 
