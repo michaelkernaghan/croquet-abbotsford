@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Schedule Template | Abbotsford Croquet Club</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <meta name="description" content="Round Robin Tournament Schedule Template for Abbotsford Croquet Club events">
+    <meta name="keywords" content="croquet tournament schedule, round robin, Abbotsford croquet">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/curriculum.css">
+    <style>
+        .tournament-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .tournament-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .tournament-header h1 {
+            color: var(--primary-dark);
+            margin: 0;
+            flex-grow: 1;
+        }
+        
+        .tournament-header .trophy-icon {
+            font-size: 2rem;
+            color: goldenrod;
+            margin-right: 0.5rem;
+        }
+        
+        .setup-section {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+        }
+        
+        .block-header {
+            background-color: #f5f5f5;
+            padding: 0.5rem 1rem;
+            margin: 2rem 0 1rem 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .block-header .diamond {
+            width: 20px;
+            height: 20px;
+            background-color: #2196F3;
+            transform: rotate(45deg);
+            margin-right: 1rem;
+        }
+        
+        .block-header .diamond.orange {
+            background-color: #FF9800;
+        }
+        
+        .block-header h2 {
+            margin: 0;
+            color: #333;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .timing-notes {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
+        
+        .timing-notes h2 {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+        }
+        
+        .timing-notes .clock-icon {
+            margin-right: 0.5rem;
+        }
+        
+        .player-summary {
+            margin-top: 2rem;
+        }
+        
+        .player-summary h2 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .player-summary .clipboard-icon {
+            margin-right: 0.5rem;
+        }
+        
+        .vs {
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .results-section {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .results-section h2 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .results-section h2 span {
+            margin-right: 0.5rem;
+            color: goldenrod;
+        }
+        
+        .results-section h3 {
+            margin: 1.5rem 0 0.75rem;
+            color: var(--primary-dark);
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .results-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .results-table td {
+            text-align: center;
+            padding: 0.5rem;
+        }
+        
+        .results-table td:first-child {
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .diagonal {
+            background-color: #000;
+        }
+        
+        /* Style for 7s to indicate wins */
+        .results-table td:contains('7') {
+            color: red;
+            font-weight: bold;
+        }
+        
+        .knockout-section {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .knockout-section h2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .knockout-section h2 span {
+            margin-right: 0.5rem;
+            color: goldenrod;
+        }
+        
+        .knockout-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            min-height: 300px;
+        }
+        
+        .knockout-match {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .semifinal1 {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .semifinal2 {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        
+        .final {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .match-pair {
+            border: 1px solid #ddd;
+            width: 300px;
+        }
+        
+        .match-time {
+            background-color: #f2f2f2;
+            padding: 0.3rem 0.5rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .match-player {
+            display: flex;
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        
+        .match-player:last-child {
+            border-bottom: none;
+        }
+        
+        .player-name {
+            flex: 1;
+            font-weight: bold;
+        }
+        
+        .player-club {
+            color: #666;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        
+        .player-score {
+            width: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .player-score:contains('7') {
+            color: red;
+        }
+        
+        .connector-right {
+            width: 50px;
+            height: 2px;
+            background-color: #000;
+            position: relative;
+        }
+        
+        .connector-right::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100px;
+            width: 2px;
+            background-color: #000;
+        }
+        
+        .semifinal1 .connector-right::after {
+            top: 0;
+        }
+        
+        .semifinal2 .connector-right::after {
+            bottom: 0;
+            top: auto;
+        }
+        
+        .connector-left {
+            width: 50px;
+            height: 2px;
+            background-color: #000;
+        }
+        
+        .champion-box {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 100px;
+        }
+        
+        .champion {
+            border: 2px solid goldenrod;
+            padding: 1rem;
+            text-align: center;
+            width: 200px;
+            background-color: #fffaf0;
+        }
+        
+        .champion h3 {
+            margin-top: 0;
+            color: goldenrod;
+        }
+        
+        .champion-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .champion-club {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .match-note {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+            padding: 0.3rem 0.5rem;
+            border-top: 1px solid #eee;
+            font-style: italic;
+        }
+        
+        .player-score:contains('7') {
+            color: red;
+        }
+        
+        @media (max-width: 768px) {
+            .knockout-container {
+                flex-direction: column;
+                align-items: center;
+                min-height: auto;
+            }
+            
+            .knockout-match {
+                position: static;
+                margin-bottom: 1rem;
+            }
+            
+            .connector-right, .connector-left, .connector-right::after {
+                display: none;
+            }
+            
+            .champion-box {
+                margin-right: 0;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" role="img" aria-labelledby="logo-title logo-desc">
+                <title id="logo-title">Abbotsford Croquet Club Logo</title>
+                <desc id="logo-desc">A stylized logo featuring croquet mallets and balls in red, gold, blue, and black, with the text 'ABBOTSFORD Croquet' on a green gradient background</desc>
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+                
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+                
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="variations.html">Variations</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="mallets.html">Mallets</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="tournament-container">
+            <div class="tournament-header">
+                <span class="trophy-icon">🏆</span>
+                <h1>Round Robin Tournament Schedule</h1>
+            </div>
+            
+            <div class="setup-section">
+                <h2>Tournament Setup:</h2>
+                <ul>
+                    <li>Two blocks of four players each.</li>
+                    <li>Games start at 10:00 AM, each lasting 30 minutes.</li>
+                    <li>Games are double-banked (two games played simultaneously on the same lawn).</li>
+                </ul>
+            </div>
+            
+            <div class="block-section">
+                <div class="block-header">
+                    <div class="diamond"></div>
+                    <h2>Tournament Schedule (6 Rounds)</h2>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Round</th>
+                            <th>Time</th>
+                            <th>Block</th>
+                            <th>Game</th>
+                            <th>Player 1</th>
+                            <th class="vs">vs</th>
+                            <th>Player 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>10:00 AM</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>John</td>
+                            <td class="vs">vs</td>
+                            <td>Paul</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>10:00 AM</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>Ringo</td>
+                            <td class="vs">vs</td>
+                            <td>George</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>10:30 AM</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>Mick</td>
+                            <td class="vs">vs</td>
+                            <td>Keith</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>10:30 AM</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>Charlie</td>
+                            <td class="vs">vs</td>
+                            <td>Bill</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>11:00 AM</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>John</td>
+                            <td class="vs">vs</td>
+                            <td>George</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>11:00 AM</td>
+                            <td>1</td>
+                            <td>6</td>
+                            <td>Paul</td>
+                            <td class="vs">vs</td>
+                            <td>Ringo</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>11:30 AM</td>
+                            <td>2</td>
+                            <td>7</td>
+                            <td>Mick</td>
+                            <td class="vs">vs</td>
+                            <td>Charlie</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>11:30 AM</td>
+                            <td>2</td>
+                            <td>8</td>
+                            <td>Keith</td>
+                            <td class="vs">vs</td>
+                            <td>Bill</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>12:00 PM</td>
+                            <td>1</td>
+                            <td>9</td>
+                            <td>John</td>
+                            <td class="vs">vs</td>
+                            <td>Ringo</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>12:00 PM</td>
+                            <td>1</td>
+                            <td>10</td>
+                            <td>George</td>
+                            <td class="vs">vs</td>
+                            <td>Paul</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>12:30 PM</td>
+                            <td>2</td>
+                            <td>11</td>
+                            <td>Mick</td>
+                            <td class="vs">vs</td>
+                            <td>Bill</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>12:30 PM</td>
+                            <td>2</td>
+                            <td>12</td>
+                            <td>Charlie</td>
+                            <td class="vs">vs</td>
+                            <td>Keith</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="timing-notes">
+                <h2><span class="clock-icon">⏱️</span> Game Timing Notes:</h2>
+                <ul>
+                    <li>Matches have a 30-minute time limit.</li>
+                    <li>Games start promptly; players should be ready 5 minutes before their start time.</li>
+                </ul>
+            </div>
+            
+            <div class="player-summary">
+                <h2><span class="clipboard-icon">📋</span> Player Schedule Summary:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Matches & Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>10:00 (vs Paul), 11:00 (vs George), 12:00 (vs Ringo)</td>
+                        </tr>
+                        <tr>
+                            <td>Paul</td>
+                            <td>10:00 (vs John), 11:00 (vs Ringo), 12:00 (vs George)</td>
+                        </tr>
+                        <tr>
+                            <td>George</td>
+                            <td>10:00 (vs Ringo), 11:00 (vs John), 12:00 (vs Paul)</td>
+                        </tr>
+                        <tr>
+                            <td>Ringo</td>
+                            <td>10:00 (vs George), 11:00 (vs Paul), 12:00 (vs John)</td>
+                        </tr>
+                        <tr>
+                            <td>Mick</td>
+                            <td>10:30 (vs Keith), 11:30 (vs Charlie), 12:30 (vs Bill)</td>
+                        </tr>
+                        <tr>
+                            <td>Keith</td>
+                            <td>10:30 (vs Mick), 11:30 (vs Bill), 12:30 (vs Charlie)</td>
+                        </tr>
+                        <tr>
+                            <td>Charlie</td>
+                            <td>10:30 (vs Bill), 11:30 (vs Mick), 12:30 (vs Keith)</td>
+                        </tr>
+                        <tr>
+                            <td>Bill</td>
+                            <td>10:30 (vs Charlie), 11:30 (vs Keith), 12:30 (vs Mick)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="results-section">
+                <h2><span>🏆</span> Tournament Results</h2>
+                
+                <h3>Block 1 Results</h3>
+                <div class="table-responsive">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Block 1</th>
+                                <th>John</th>
+                                <th>Paul</th>
+                                <th>George</th>
+                                <th>Ringo</th>
+                                <th>Wins</th>
+                                <th>Net Hoops</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John (Abbotsford CC)</td>
+                                <td class="diagonal"></td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>4</td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>2</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Paul (Mill Lake PC)</td>
+                                <td>5</td>
+                                <td class="diagonal"></td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>-2</td>
+                            </tr>
+                            <tr>
+                                <td>George (Abbotsford CC)</td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>4</td>
+                                <td class="diagonal"></td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>2</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Ringo (Mill Lake PC)</td>
+                                <td>2</td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>3</td>
+                                <td class="diagonal"></td>
+                                <td>1</td>
+                                <td>-7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Block 2 Results</h3>
+                <div class="table-responsive">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Block 2</th>
+                                <th>Mick</th>
+                                <th>Keith</th>
+                                <th>Charlie</th>
+                                <th>Bill</th>
+                                <th>Wins</th>
+                                <th>Net Hoops</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mick (Fraser Valley CC)</td>
+                                <td class="diagonal"></td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>5</td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>2</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>Keith (Mission CC)</td>
+                                <td>3</td>
+                                <td class="diagonal"></td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>4</td>
+                                <td>1</td>
+                                <td>-4</td>
+                            </tr>
+                            <tr>
+                                <td>Charlie (Fraser Valley CC)</td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>6</td>
+                                <td class="diagonal"></td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>3</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>Bill (Mission CC)</td>
+                                <td>2</td>
+                                <td style="color: red; font-weight: bold;">7</td>
+                                <td>4</td>
+                                <td class="diagonal"></td>
+                                <td>1</td>
+                                <td>-11</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="knockout-section">
+                <h2><span>🏆</span> Main Championship Knockout</h2>
+                
+                <div class="knockout-container">
+                    <!-- Round 1 - Semifinals -->
+                    <div class="knockout-match semifinal1">
+                        <div class="match-pair">
+                            <div class="match-time">1:30 PM</div>
+                            <div class="match-player">
+                                <span class="player-name">John</span>
+                                <span class="player-club">(Abbotsford CC)</span>
+                                <span class="player-score">7</span>
+                            </div>
+                            <div class="match-player">
+                                <span class="player-name">Mick</span>
+                                <span class="player-club">(Fraser Valley CC)</span>
+                                <span class="player-score">5</span>
+                            </div>
+                        </div>
+                        <div class="connector-right"></div>
+                    </div>
+                    
+                    <div class="knockout-match semifinal2">
+                        <div class="match-pair">
+                            <div class="match-time">1:30 PM</div>
+                            <div class="match-player">
+                                <span class="player-name">Charlie</span>
+                                <span class="player-club">(Fraser Valley CC)</span>
+                                <span class="player-score">7</span>
+                            </div>
+                            <div class="match-player">
+                                <span class="player-name">George</span>
+                                <span class="player-club">(Abbotsford CC)</span>
+                                <span class="player-score">6</span>
+                            </div>
+                        </div>
+                        <div class="connector-right"></div>
+                    </div>
+                    
+                    <!-- Round 2 - Final -->
+                    <div class="knockout-match final">
+                        <div class="connector-left"></div>
+                        <div class="match-pair">
+                            <div class="match-time">Final (Best 2 of 3) - 2:30 PM to 3:30 PM</div>
+                            <div class="match-player">
+                                <span class="player-name">John</span>
+                                <span class="player-club">(Abbotsford CC)</span>
+                                <span class="player-score">5-7-4</span>
+                            </div>
+                            <div class="match-player">
+                                <span class="player-name">Charlie</span>
+                                <span class="player-club">(Fraser Valley CC)</span>
+                                <span class="player-score">7-4-7</span>
+                            </div>
+                            <div class="match-note">Game 3 was required (1-1 after two games)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="champion-box">
+                    <div class="champion">
+                        <h3>Champion</h3>
+                        <div class="champion-name">Charlie</div>
+                        <div class="champion-club">(Fraser Valley CC)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
