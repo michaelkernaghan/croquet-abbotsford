@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courts | Abbotsford Croquet Club</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <meta name="description" content="View current court status and conditions at Abbotsford Croquet Club. Check if courts are open or closed for play.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .court-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Status Panel Styles */
+        .status-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .status-panel {
+            background-color: #f0f8f0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 5px solid #3B513B;
+        }
+        
+        .status-panel h2 {
+            color: #3B513B;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #cce0cc;
+            padding-bottom: 8px;
+        }
+        
+        .status-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .status-item {
+            flex: 1;
+            min-width: 180px;
+        }
+        
+        .status-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .status-value {
+            font-size: 1.1rem;
+        }
+        
+        #lawnStatus.open {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        
+        #lawnStatus.closed {
+            color: #c62828;
+            font-weight: bold;
+        }
+        
+        .status-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .status-card h3 {
+            color: #3B513B;
+            margin-top: 0;
+        }
+        
+        .status-icon {
+            font-size: 64px;
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .status-description {
+            margin-bottom: 20px;
+        }
+        
+        .register-button {
+            display: inline-block;
+            background-color: #3B513B;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 20px 0;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        
+        .register-button:hover {
+            background-color: #2B3B2B;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" role="img" aria-labelledby="logo-title logo-desc">
+                <title id="logo-title">Abbotsford Croquet Club Logo</title>
+                <desc id="logo-desc">A stylized logo featuring croquet mallets and balls in red, gold, blue, and black, with the text 'ABBOTSFORD Croquet' on a green gradient background</desc>
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+                
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+                
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="variations.html">Variations</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="mallets.html">Mallets</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="court-status.html" class="active">Courts</a></li>
+                <li><a href="session-registration.html">Sign Up</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Court Status Section -->
+        <div class="court-container">
+            <h1>Court Status</h1>
+            
+            <div class="status-panel">
+                <h2>Current Status</h2>
+                <div class="status-info">
+                    <div class="status-item">
+                        <span class="status-label">Date:</span>
+                        <span class="status-value" id="currentDate"></span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Court Condition:</span>
+                        <span class="status-value" id="lawnStatus"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="status-card" id="statusCard">
+                <div id="statusIcon" class="status-icon"></div>
+                <div id="statusDescription" class="status-description"></div>
+                
+                <div style="text-align: center;">
+                    <a href="session-registration.html" class="register-button">Register for Play</a>
+                </div>
+            </div>
+            
+            <h2>Court Information</h2>
+            <p>Our croquet courts at Mill Lake Park are maintained to provide an enjoyable playing experience. Regular maintenance ensures optimal playing conditions throughout the season.</p>
+            
+            <h3>Court Availability</h3>
+            <p>Courts are typically available for play during our regular session times (Tuesdays and Thursdays at 5:30 PM). Courts may occasionally be closed due to maintenance, tournaments, or inclement weather.</p>
+            
+            <h3>Court Rules</h3>
+            <ul>
+                <li>Please wear flat-soled shoes on the courts</li>
+                <li>No food or beverages on the playing surface</li>
+                <li>Return all equipment to the storage area after use</li>
+                <li>Respect other players and follow croquet etiquette</li>
+                <li>Report any court issues to club staff</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // =====================================================
+            // OPERATOR: UPDATE THIS VARIABLE BEFORE EACH SESSION
+            // =====================================================
+            const LAWN_STATUS = "OPEN"; // Set to "OPEN" or "CLOSED"
+            // =====================================================
+            
+            // Display current date
+            const today = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDate').textContent = today.toLocaleDateString('en-US', dateOptions);
+            
+            // Display lawn status
+            const lawnStatusElement = document.getElementById('lawnStatus');
+            const statusIcon = document.getElementById('statusIcon');
+            const statusDescription = document.getElementById('statusDescription');
+            
+            if (LAWN_STATUS === "OPEN") {
+                lawnStatusElement.textContent = "OPEN";
+                lawnStatusElement.className = "status-value open";
+                
+                statusIcon.textContent = "✅";
+                statusDescription.innerHTML = `
+                    <h3>Courts are OPEN for play</h3>
+                    <p>The courts are currently available for play. Please register for a session using the button below.</p>
+                `;
+            } else {
+                lawnStatusElement.textContent = "CLOSED";
+                lawnStatusElement.className = "status-value closed";
+                
+                statusIcon.textContent = "❌";
+                statusDescription.innerHTML = `
+                    <h3>Courts are CLOSED</h3>
+                    <p>The courts are currently unavailable for play. This may be due to maintenance, weather conditions, or a scheduled event.</p>
+                    <p>Please check back later for updates on court availability.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html> 

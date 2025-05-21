@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Registration | Abbotsford Croquet Club</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <meta name="description" content="Register for croquet sessions at Abbotsford Croquet Club. Reserve your spot for Tuesday and Thursday evening sessions at Mill Lake Park.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .signup-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        button.signup-button {
+            background-color: #3B513B;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        button.signup-button:hover {
+            background-color: #2B3B2B;
+        }
+        
+        .confirmation-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        /* Status Panel Styles */
+        .status-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .status-panel {
+            background-color: #f0f8f0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 5px solid #3B513B;
+        }
+        
+        .status-panel h2 {
+            color: #3B513B;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #cce0cc;
+            padding-bottom: 8px;
+        }
+        
+        .status-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .status-item {
+            flex: 1;
+            min-width: 180px;
+        }
+        
+        .status-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .status-value {
+            font-size: 1.1rem;
+        }
+        
+        .weather-display {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        #lawnStatus.open {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        
+        #lawnStatus.closed {
+            color: #c62828;
+            font-weight: bold;
+        }
+        
+        #weatherIcon {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" role="img" aria-labelledby="logo-title logo-desc">
+                <title id="logo-title">Abbotsford Croquet Club Logo</title>
+                <desc id="logo-desc">A stylized logo featuring croquet mallets and balls in red, gold, blue, and black, with the text 'ABBOTSFORD Croquet' on a green gradient background</desc>
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+                
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+                
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="variations.html">Variations</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="mallets.html">Mallets</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="court-status.html">Courts</a></li>
+                <li><a href="session-registration.html" class="active">Sign Up</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Lawn Status Section -->
+        <div class="status-container">
+            <div class="status-panel">
+                <h2>Court Status</h2>
+                <div class="status-info">
+                    <div class="status-item">
+                        <span class="status-label">Date:</span>
+                        <span class="status-value" id="currentDate"></span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Court Condition:</span>
+                        <span class="status-value" id="lawnStatus"></span>
+                    </div>
+                </div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    <a href="court-status.html">View detailed court information →</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="signup-container">
+            <h1>Session Registration Form</h1>
+            
+            <p>Complete the form below to register for our regular croquet sessions starting May 6, 2025. Sessions are held on Tuesdays and Thursdays at 5:30 PM, with a maximum of 8 players per session.</p>
+            
+            <div class="signup-form">
+                <h2>Player Information</h2>
+                <form id="sessionSignupForm">
+                    <div class="form-group">
+                        <label for="playerName">Name:</label>
+                        <input type="text" id="playerName" name="playerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="playerEmail">Email:</label>
+                        <input type="email" id="playerEmail" name="playerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="playerPhone">Phone (optional):</label>
+                        <input type="tel" id="playerPhone" name="playerPhone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sessionType">Session Type:</label>
+                        <select id="sessionType" name="sessionType" required>
+                            <option value="">Select a session type</option>
+                            <option value="tuesday">Tuesday Evening (5:30 PM)</option>
+                            <option value="thursday">Thursday Evening (5:30 PM)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sessionDate">Session Date:</label>
+                        <select id="sessionDate" name="sessionDate" required>
+                            <option value="">First select a session type</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="playerLevel">Experience Level:</label>
+                        <select id="playerLevel" name="playerLevel">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="playerComments">Comments or Questions:</label>
+                        <input type="text" id="playerComments" name="playerComments">
+                    </div>
+                    
+                    <button type="submit" class="signup-button">Register for Session</button>
+                </form>
+                
+                <div id="confirmationMessage" class="confirmation-message">
+                    Thank you for signing up! We look forward to seeing you at the session. You'll receive a confirmation email shortly.
+                    <div id="sessionDetails"></div>
+                </div>
+                
+                <div id="errorMessage" class="error-message">
+                    Sorry, there was an error processing your registration. Please try again or contact us directly.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // =====================================================
+            // OPERATOR: UPDATE THIS VARIABLE BEFORE EACH SESSION
+            // =====================================================
+            const LAWN_STATUS = "OPEN"; // Set to "OPEN" or "CLOSED"
+            // =====================================================
+            
+            // Display current date
+            const today = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDate').textContent = today.toLocaleDateString('en-US', dateOptions);
+            
+            // Display lawn status
+            const lawnStatusElement = document.getElementById('lawnStatus');
+            if (LAWN_STATUS === "OPEN") {
+                lawnStatusElement.textContent = "OPEN";
+                lawnStatusElement.className = "status-value open";
+            } else {
+                lawnStatusElement.textContent = "CLOSED";
+                lawnStatusElement.className = "status-value closed";
+            }
+            
+            // Initialize session dates starting from May 6, 2025
+            const startDate = new Date(2025, 4, 6); // May 6, 2025 (months are 0-indexed)
+            const sessions = [];
+            
+            // Generate sessions for 12 weeks
+            for (let i = 0; i < 12; i++) {
+                // Tuesday sessions
+                const tuesdayDate = new Date(startDate);
+                tuesdayDate.setDate(startDate.getDate() + (i * 7));
+                if (tuesdayDate.getDay() !== 2) { // If not Tuesday
+                    tuesdayDate.setDate(tuesdayDate.getDate() + (2 - tuesdayDate.getDay() + 7) % 7);
+                }
+                
+                sessions.push({
+                    id: `tue-${i}`,
+                    type: 'tuesday',
+                    date: new Date(tuesdayDate),
+                    spotsTotal: 8,
+                    spotsAvailable: 8,
+                    registrations: []
+                });
+                
+                // Thursday sessions
+                const thursdayDate = new Date(startDate);
+                thursdayDate.setDate(startDate.getDate() + (i * 7));
+                if (thursdayDate.getDay() !== 4) { // If not Thursday
+                    thursdayDate.setDate(thursdayDate.getDate() + (4 - thursdayDate.getDay() + 7) % 7);
+                }
+                
+                sessions.push({
+                    id: `thu-${i}`,
+                    type: 'thursday',
+                    date: new Date(thursdayDate),
+                    spotsTotal: 8,
+                    spotsAvailable: 8,
+                    registrations: []
+                });
+            }
+            
+            // Populate date dropdown based on session type selection
+            const sessionTypeSelect = document.getElementById('sessionType');
+            const sessionDateSelect = document.getElementById('sessionDate');
+            
+            sessionTypeSelect.addEventListener('change', function() {
+                const selectedType = this.value;
+                sessionDateSelect.innerHTML = '<option value="">Select a date</option>';
+                
+                if (selectedType) {
+                    const currentDate = new Date();
+                    const filteredSessions = sessions.filter(session => 
+                        session.type === selectedType && 
+                        session.date > currentDate &&
+                        session.spotsAvailable > 0
+                    );
+                    
+                    filteredSessions.forEach(session => {
+                        const dateStr = session.date.toLocaleDateString('en-US', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        });
+                        
+                        const option = document.createElement('option');
+                        option.value = session.id;
+                        option.textContent = dateStr;
+                        sessionDateSelect.appendChild(option);
+                    });
+                }
+            });
+            
+            // Handle form submission
+            const signupForm = document.getElementById('sessionSignupForm');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const playerName = document.getElementById('playerName').value;
+                const playerEmail = document.getElementById('playerEmail').value;
+                const sessionId = document.getElementById('sessionDate').value;
+                
+                if (!sessionId) {
+                    errorMessage.textContent = 'Please select a valid session date.';
+                    errorMessage.style.display = 'block';
+                    confirmationMessage.style.display = 'none';
+                    return;
+                }
+                
+                // Find the selected session
+                const selectedSession = sessions.find(session => session.id === sessionId);
+                
+                if (selectedSession && selectedSession.spotsAvailable > 0) {
+                    // Register the player (in a real app, this would send data to a server)
+                    selectedSession.registrations.push({
+                        name: playerName,
+                        email: playerEmail,
+                        timestamp: new Date()
+                    });
+                    
+                    selectedSession.spotsAvailable--;
+                    
+                    // Format the date for confirmation
+                    const dateStr = selectedSession.date.toLocaleDateString('en-US', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+                    
+                    // Add session details to confirmation
+                    const sessionDetails = document.getElementById('sessionDetails');
+                    sessionDetails.innerHTML = `
+                        <p><strong>Session Details:</strong></p>
+                        <p>Date: ${dateStr}</p>
+                        <p>Time: 5:30 PM</p>
+                        <p>Players: ${selectedSession.registrations.length} / ${selectedSession.spotsTotal}</p>
+                    `;
+                    
+                    // Show confirmation
+                    confirmationMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    
+                    // Reset form
+                    signupForm.reset();
+                } else {
+                    errorMessage.textContent = 'Sorry, this session is already full.';
+                    errorMessage.style.display = 'block';
+                    confirmationMessage.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
