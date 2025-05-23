@@ -1,0 +1,22 @@
+# Ignore environment files
+.env
+.env.local
+.env.*.local
+
+# Ignore configuration with sensitive data
+js/config.js
+
+# Dependencies and build artifacts
+node_modules/
+dist/
+build/
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db 
