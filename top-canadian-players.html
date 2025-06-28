@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Canadian Croquet Players | Abbotsford Croquet Club</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="description" content="Meet the top Canadian croquet players based on the Croquet Grading System rankings. Learn about their stats, rankings, and achievements.">
+    <meta property="og:title" content="Top Canadian Croquet Players | Abbotsford Croquet Club">
+    <meta property="og:description" content="Discover the leading croquet talent in Canada with player cards featuring rankings and stats.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_CA">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .player-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .player-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .player-card h3 {
+            margin: 0.5rem 0;
+            color: var(--primary-dark);
+        }
+
+        .player-stats {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .player-stats li {
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" role="img" aria-labelledby="logo-title logo-desc">
+                <title id="logo-title">Abbotsford Croquet Club Logo</title>
+                <desc id="logo-desc">A stylized logo featuring croquet mallets and balls in red, gold, blue, and black, with the text 'ABBOTSFORD Croquet' on a green gradient background</desc>
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="membership.html">Membership</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="active">Learn</a>
+                    <div class="dropdown-content">
+                        <a href="lessons.html">Lessons</a>
+                        <a href="variations.html">Variations</a>
+                        <a href="resources.html">Resources</a>
+                        <a href="top-canadian-players.html" class="active">Top Players</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Play</a>
+                    <div class="dropdown-content">
+                        <a href="calendar.html">Calendar</a>
+                        <a href="court-status.html">Courts</a>
+                        <a href="session-registration.html">Sign Up</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Equipment</a>
+                    <div class="dropdown-content">
+                        <a href="mallets.html">Mallets</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="curriculum">
+            <h1>Top Canadian Croquet Players</h1>
+            <p style="text-align:center; max-width:800px; margin:0 auto;">The following rankings are based on the <a href="http://butedock.com/cgs/rank.php" target="_blank">Croquet Grading System</a> (updated June&nbsp;2025). These baseball-card style profiles showcase Canada's leading croquet talent.</p>
+
+            <div class="player-grid">
+                <!-- Player 1 -->
+                <div class="player-card">
+                    <img src="assets/images/top-players/alain-giraud.jpg" alt="Alain Giraud">
+                    <h3>Alain Giraud</h3>
+                    <ul class="player-stats">
+                        <li><strong>Canadian Rank:</strong> #1</li>
+                        <li><strong>World Rank:</strong> 21</li>
+                        <li><strong>DGrade:</strong> 2433</li>
+                        <li><strong>Games:</strong> 25</li>
+                        <li><strong>Wins:</strong> 21 (84%)</li>
+                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
+                    </ul>
+                </div>
+
+                <!-- Player 2 -->
+                <div class="player-card">
+                    <img src="assets/images/top-players/brian-cumming.jpg" alt="Brian Cumming">
+                    <h3>Brian Cumming</h3>
+                    <ul class="player-stats">
+                        <li><strong>Canadian Rank:</strong> #2</li>
+                        <li><strong>World Rank:</strong> 79</li>
+                        <li><strong>DGrade:</strong> 2189</li>
+                        <li><strong>Games:</strong> 116</li>
+                        <li><strong>Wins:</strong> 77 (66%)</li>
+                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
+                    </ul>
+                </div>
+
+                <!-- Player 3 -->
+                <div class="player-card">
+                    <img src="assets/images/top-players/chris-percival-smith.jpg" alt="Chris Percival-Smith">
+                    <h3>Chris Percival-Smith</h3>
+                    <ul class="player-stats">
+                        <li><strong>Canadian Rank:</strong> #3</li>
+                        <li><strong>World Rank:</strong> 221</li>
+                        <li><strong>DGrade:</strong> 1864</li>
+                        <li><strong>Games:</strong> 32</li>
+                        <li><strong>Wins:</strong> 16 (50%)</li>
+                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
+                    </ul>
+                </div>
+
+                <!-- Player 4 -->
+                <div class="player-card">
+                    <img src="assets/images/top-players/nick-howell.jpg" alt="Nick Howell">
+                    <h3>Nick Howell</h3>
+                    <ul class="player-stats">
+                        <li><strong>Canadian Rank:</strong> #4</li>
+                        <li><strong>World Rank:</strong> 252</li>
+                        <li><strong>DGrade:</strong> 1823</li>
+                        <li><strong>Games:</strong> 29</li>
+                        <li><strong>Wins:</strong> 17 (59%)</li>
+                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
+                    </ul>
+                </div>
+
+                <!-- Player 5 -->
+                <div class="player-card">
+                    <img src="assets/images/top-players/jim-wright.jpg" alt="Jim Wright">
+                    <h3>Jim Wright</h3>
+                    <ul class="player-stats">
+                        <li><strong>Canadian Rank:</strong> #5</li>
+                        <li><strong>World Rank:</strong> 275</li>
+                        <li><strong>DGrade:</strong> 1786</li>
+                        <li><strong>Games:</strong> 8</li>
+                        <li><strong>Wins:</strong> 4 (50%)</li>
+                        <li><strong>Last Update:</strong> Aug&nbsp;2024</li>
+                    </ul>
+                </div>
+
+                <!-- Player 6 -->
+                <div class="player-card">
+                    <img src="assets/images/top-players/lou-schenck.jpg" alt="Lou Schenck">
+                    <h3>Lou Schenck</h3>
+                    <ul class="player-stats">
+                        <li><strong>Canadian Rank:</strong> #6</li>
+                        <li><strong>World Rank:</strong> 298</li>
+                        <li><strong>DGrade:</strong> 1743</li>
+                        <li><strong>Games:</strong> 21</li>
+                        <li><strong>Wins:</strong> 9 (43%)</li>
+                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
+                    </ul>
+                </div>
+
+                <!-- Player 7 -->
+                <div class="player-card">
+                    <img src="assets/images/top-players/david-druiett.jpg" alt="David Druiett">
+                    <h3>David Druiett</h3>
+                    <ul class="player-stats">
+                        <li><strong>Canadian Rank:</strong> #7</li>
+                        <li><strong>World Rank:</strong> 300</li>
+                        <li><strong>DGrade:</strong> 1740</li>
+                        <li><strong>Games:</strong> 80</li>
+                        <li><strong>Wins:</strong> 34 (43%)</li>
+                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
+                    </ul>
+                </div>
+
+                <!-- Player 8+ cards removed -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
