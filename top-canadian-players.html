@@ -27,10 +27,12 @@
         }
 
         .player-card {
-            background: white;
+            position: relative;
+            background: #ffffff;
+            border: 4px solid var(--primary-dark);
             border-radius: 12px;
-            box-shadow: var(--shadow);
-            padding: 1rem;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -45,8 +47,13 @@
         }
 
         .player-card h3 {
-            margin: 0.5rem 0;
-            color: var(--primary-dark);
+            background: var(--primary-dark);
+            color: #fff;
+            margin: 0;
+            padding: 0.5rem 0.25rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .player-stats {
@@ -222,7 +229,7 @@
 
                 <!-- Player 6 -->
                 <div class="player-card">
-                    <img src="assets/images/top-players/lou-schenck.jpg" alt="Lou Schenck">
+                    <img src="assets/images/top-players/lou-schenck.png" alt="Lou Schenck">
                     <h3>Lou Schenck</h3>
                     <ul class="player-stats">
                         <li><strong>Canadian Rank:</strong> #6</li>
