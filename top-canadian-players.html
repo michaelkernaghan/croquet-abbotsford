@@ -40,10 +40,8 @@
 
         .player-card img {
             width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            height: auto;
+            display: block;
         }
 
         .player-card h3 {
@@ -67,6 +65,26 @@
         .player-stats li {
             margin-bottom: 0.25rem;
         }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 90%);
+            color: #fff;
+            padding: 0.75rem 0.5rem 0.5rem;
+            box-sizing: border-box;
+            font-size: 0.85rem;
+        }
+        .card-overlay h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-overlay ul { list-style:none; padding:0; margin:0; }
+        .card-overlay li { margin:0; line-height:1.2rem; }
     </style>
 </head>
 <body>
@@ -160,99 +178,92 @@
                 <!-- Player 1 -->
                 <div class="player-card">
                     <img src="assets/images/top-players/alain-giraud.jpg" alt="Alain Giraud">
-                    <h3>Alain Giraud</h3>
-                    <ul class="player-stats">
-                        <li><strong>Canadian Rank:</strong> #1</li>
-                        <li><strong>World Rank:</strong> 21</li>
-                        <li><strong>DGrade:</strong> 2433</li>
-                        <li><strong>Games:</strong> 25</li>
-                        <li><strong>Wins:</strong> 21 (84%)</li>
-                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
-                    </ul>
+                    <div class="card-overlay">
+                        <h3>Alain Giraud</h3>
+                        <ul>
+                            <li>World Rank: 21 • Cdn #1</li>
+                            <li>DGrade: 2433</li>
+                            <li>Wins: 21 / 25 (84%)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Player 2 -->
                 <div class="player-card">
                     <img src="assets/images/top-players/brian-cumming.jpg" alt="Brian Cumming">
-                    <h3>Brian Cumming</h3>
-                    <ul class="player-stats">
-                        <li><strong>Canadian Rank:</strong> #2</li>
-                        <li><strong>World Rank:</strong> 79</li>
-                        <li><strong>DGrade:</strong> 2189</li>
-                        <li><strong>Games:</strong> 116</li>
-                        <li><strong>Wins:</strong> 77 (66%)</li>
-                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
-                    </ul>
+                    <div class="card-overlay">
+                        <h3>Brian Cumming</h3>
+                        <ul>
+                            <li>World Rank: 79 • Cdn #2</li>
+                            <li>DGrade: 2189</li>
+                            <li>Wins: 77 / 116 (66%)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Player 3 -->
                 <div class="player-card">
                     <img src="assets/images/top-players/chris-percival-smith.jpg" alt="Chris Percival-Smith">
-                    <h3>Chris Percival-Smith</h3>
-                    <ul class="player-stats">
-                        <li><strong>Canadian Rank:</strong> #3</li>
-                        <li><strong>World Rank:</strong> 221</li>
-                        <li><strong>DGrade:</strong> 1864</li>
-                        <li><strong>Games:</strong> 32</li>
-                        <li><strong>Wins:</strong> 16 (50%)</li>
-                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
-                    </ul>
+                    <div class="card-overlay">
+                        <h3>Chris Percival-Smith</h3>
+                        <ul>
+                            <li>World Rank: 221 • Cdn #3</li>
+                            <li>DGrade: 1864</li>
+                            <li>Wins: 16 / 32 (50%)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Player 4 -->
                 <div class="player-card">
                     <img src="assets/images/top-players/nick-howell.jpg" alt="Nick Howell">
-                    <h3>Nick Howell</h3>
-                    <ul class="player-stats">
-                        <li><strong>Canadian Rank:</strong> #4</li>
-                        <li><strong>World Rank:</strong> 252</li>
-                        <li><strong>DGrade:</strong> 1823</li>
-                        <li><strong>Games:</strong> 29</li>
-                        <li><strong>Wins:</strong> 17 (59%)</li>
-                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
-                    </ul>
+                    <div class="card-overlay">
+                        <h3>Nick Howell</h3>
+                        <ul>
+                            <li>World Rank: 252 • Cdn #4</li>
+                            <li>DGrade: 1823</li>
+                            <li>Wins: 17 / 29 (59%)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Player 5 -->
                 <div class="player-card">
                     <img src="assets/images/top-players/jim-wright.jpg" alt="Jim Wright">
-                    <h3>Jim Wright</h3>
-                    <ul class="player-stats">
-                        <li><strong>Canadian Rank:</strong> #5</li>
-                        <li><strong>World Rank:</strong> 275</li>
-                        <li><strong>DGrade:</strong> 1786</li>
-                        <li><strong>Games:</strong> 8</li>
-                        <li><strong>Wins:</strong> 4 (50%)</li>
-                        <li><strong>Last Update:</strong> Aug&nbsp;2024</li>
-                    </ul>
+                    <div class="card-overlay">
+                        <h3>Jim Wright</h3>
+                        <ul>
+                            <li>World Rank: 275 • Cdn #5</li>
+                            <li>DGrade: 1786</li>
+                            <li>Wins: 4 / 8 (50%)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Player 6 -->
                 <div class="player-card">
                     <img src="assets/images/top-players/lou-schenck.png" alt="Lou Schenck">
-                    <h3>Lou Schenck</h3>
-                    <ul class="player-stats">
-                        <li><strong>Canadian Rank:</strong> #6</li>
-                        <li><strong>World Rank:</strong> 298</li>
-                        <li><strong>DGrade:</strong> 1743</li>
-                        <li><strong>Games:</strong> 21</li>
-                        <li><strong>Wins:</strong> 9 (43%)</li>
-                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
-                    </ul>
+                    <div class="card-overlay">
+                        <h3>Lou Schenck</h3>
+                        <ul>
+                            <li>World Rank: 298 • Cdn #6</li>
+                            <li>DGrade: 1743</li>
+                            <li>Wins: 9 / 21 (43%)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Player 7 -->
                 <div class="player-card">
                     <img src="assets/images/top-players/david-druiett.jpg" alt="David Druiett">
-                    <h3>David Druiett</h3>
-                    <ul class="player-stats">
-                        <li><strong>Canadian Rank:</strong> #7</li>
-                        <li><strong>World Rank:</strong> 300</li>
-                        <li><strong>DGrade:</strong> 1740</li>
-                        <li><strong>Games:</strong> 80</li>
-                        <li><strong>Wins:</strong> 34 (43%)</li>
-                        <li><strong>Last Update:</strong> Jun&nbsp;2025</li>
-                    </ul>
+                    <div class="card-overlay">
+                        <h3>David Druiett</h3>
+                        <ul>
+                            <li>World Rank: 300 • Cdn #7</li>
+                            <li>DGrade: 1740</li>
+                            <li>Wins: 34 / 80 (43%)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Player 8+ cards removed -->
