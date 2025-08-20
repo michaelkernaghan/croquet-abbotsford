@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Croquet Open Day - Abbotsford Croquet Club</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #3B513B 0%, #2B3B2B 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .poster {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            box-sizing: border-box;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .club-name {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: #FFD700;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .main-title {
+            background: rgba(255,255,255,0.9);
+            color: #3B513B;
+            padding: 1.5rem 3rem;
+            border-radius: 15px;
+            font-size: 4rem;
+            font-weight: 900;
+            text-align: center;
+            margin: 2rem 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .event-details {
+            background: rgba(255,255,255,0.95);
+            color: #2B3B2B;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        .date-time {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .detail-box {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .detail-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #3B513B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .detail-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #2B3B2B;
+            margin-top: 0.5rem;
+        }
+        
+        .activities {
+            background: rgba(255,215,0,0.9);
+            color: #2B3B2B;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .activities h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #3B513B;
+            text-transform: uppercase;
+        }
+        
+        .activity-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .activity-list li {
+            font-size: 1.3rem;
+            padding: 0.5rem;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .welcome-message {
+            background: rgba(255,255,255,0.9);
+            color: #3B513B;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1.5rem 0;
+            border: 3px solid #FFD700;
+        }
+        
+        .welcome-message h3 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: #2B3B2B;
+        }
+        
+        .welcome-message p {
+            font-size: 1.4rem;
+            margin: 0.5rem 0;
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: auto;
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info .email {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #FFD700;
+        }
+        
+        .croquet-icons {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 8rem;
+            color: white;
+        }
+        
+        .icon-1 { top: 10%; left: 5%; }
+        .icon-2 { top: 60%; right: 5%; }
+        .icon-3 { bottom: 20%; left: 10%; }
+        
+        @media print {
+            body { height: auto; }
+            .poster { height: auto; min-height: 100vh; }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <!-- Decorative croquet icons -->
+        <div class="croquet-icons icon-1">⚹</div>
+        <div class="croquet-icons icon-2">⚹</div>
+        <div class="croquet-icons icon-3">⚹</div>
+        
+        <div class="header">
+            <div class="club-name">ABBOTSFORD</div>
+            <div class="subtitle">Croquet Club</div>
+        </div>
+        
+        <div class="main-title">
+            Open Day
+        </div>
+        
+        <div class="event-details">
+            <div class="date-time">
+                <div class="detail-box">
+                    <div class="detail-label">Date</div>
+                    <div class="detail-value">Saturday, May 17</div>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-label">Time</div>
+                    <div class="detail-value">10:00 AM - 4:00 PM</div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <div class="detail-label">Location</div>
+                <div class="detail-value">Mill Lake Park, Abbotsford</div>
+            </div>
+        </div>
+        
+        <div class="activities">
+            <h3>What's On</h3>
+            <ul class="activity-list">
+                <li>🏑 Try Croquet</li>
+                <li>☕ Refreshments</li>
+                <li>👨‍🏫 Expert Instruction</li>
+                <li>🎯 Fun Games</li>
+                <li>📚 Learn the Rules</li>
+                <li>🤝 Meet Members</li>
+            </ul>
+        </div>
+        
+        <div class="welcome-message">
+            <h3>Everyone Welcome!</h3>
+            <p><strong>No Experience Necessary</strong></p>
+            <p>All equipment provided • All ages welcome • Free entry</p>
+        </div>
+        
+        <div class="contact-info">
+            <p><strong>For more information:</strong></p>
+            <p class="email">abbotsfordcroquet@gmail.com</p>
+            <p>www.abbotsfordcroquet.ca</p>
+        </div>
+    </div>
+</body>
+</html>
