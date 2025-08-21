@@ -168,6 +168,15 @@
             padding: 1rem;
             background: rgba(0,0,0,0.3);
             border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-details {
+            flex: 1;
+            min-width: 300px;
         }
         
         .contact-info p {
@@ -179,6 +188,25 @@
             font-size: 1.4rem;
             font-weight: 600;
             color: #FFD700;
+        }
+        
+        .contact-info .website {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #FFD700;
+        }
+        
+        .qr-code {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            margin-left: 1rem;
+        }
+        
+        .qr-code img {
+            width: 80px;
+            height: 80px;
+            display: block;
         }
         
         .croquet-icons {
@@ -281,9 +309,14 @@
         </div>
         
         <div class="contact-info">
-            <p><strong>For more information:</strong></p>
-            <p class="email">abbotsfordcroquet@gmail.com</p>
-            <p>www.abbotsfordcroquet.ca</p>
+            <div class="contact-details">
+                <p><strong>For more information:</strong></p>
+                <p class="email">abbotsfordcroquet@gmail.com</p>
+                <p class="website">www.abbotsfordcroquet.ca</p>
+            </div>
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://abbotsfordcroquet.ca" alt="QR Code for abbotsfordcroquet.ca">
+            </div>
         </div>
     </div>
 </body>
