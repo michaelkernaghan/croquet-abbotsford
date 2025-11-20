@@ -19,4 +19,19 @@ build/
 
 # Operating system files
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Archive and reference files (optional - decide what to track)
+# Uncomment to ignore email archives and large reference files
+# docs/email-archive/
+# docs/reference-images/
+# docs/archive-files/documents/
+
+# Private working files
+# Add specific files/folders here that should never be committed
+
+# Other project directories (separate repos)
+abbotsfordlawnbowling/
+croquet-brochure/
+croquet-game/
+Croquet/ 

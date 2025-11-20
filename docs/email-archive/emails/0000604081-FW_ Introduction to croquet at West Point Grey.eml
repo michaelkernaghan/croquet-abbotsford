@@ -1,0 +1,239 @@
+Return-Path: <louisewein@telus.net>
+Received: from mi04-ssvc.dcs.int.inet (LHLO mi04.dcs.int.inet)
+ (10.0.153.221) by cds207.dcs.int.inet with LMTP; Thu, 20 Apr 2023 19:24:05
+ -0600 (MDT)
+Received: from shw-ibgw-4003a.ext.cloudfilter.net (lb7f8hsrpno-dmz.dcs.int.inet [10.0.143.222])
+	by mi04.dcs.int.inet (Postfix) with ESMTPS id 628EC1280149
+	for <mkernaghan@shaw.ca>; Thu, 20 Apr 2023 19:24:05 -0600 (MDT)
+Received: from mail-pl1-f182.google.com ([209.85.214.182])
+	by cmsmtp with ESMTP
+	id pfVMpX79oQvrupfVMpTZVm; Fri, 21 Apr 2023 01:24:05 +0000
+X-SHW-ORIG-RCPT: mkernaghan@shaw.ca
+X-Authority-Analysis: v=2.4 cv=bLYFndyZ c=1 sm=1 tr=0 ts=6441e5b5 cx=a_idp_d
+ a=PLmf03/XISqa0a2yp/VmgA==:117 a=xqWC_Br6kY4A:10 a=dKHAf1wccvYA:10
+ a=LtcGhCMaHcsA:10 a=DAwyPP_o2Byb1YXLmDAA:9 a=QY15lF3PAAAA:8
+ a=_2wvxQxRGK0PQ-05gWcA:9 a=QEXdDO2ut3YA:10 a=l5s_BvTWiBsA:10
+ a=55tDQqeZXWsA:10 a=XdRTHnQSaFEA:10 a=yMhMjlubAAAA:8 a=SSmOFEACAAAA:8
+ a=RCk2QZvQN85ZZ0inaCoA:9 a=XSOyVj8KcBGFIYQF:21 a=gKO2Hq4RSVkA:10
+ a=UiCQ7L4-1S4A:10 a=hTZeC7Yk6K0A:10 a=frz4AuCg-hUA:10 a=lqcHg5cX4UMA:10
+ a=T30owx8V8nSxvDTN0War:22 a=7PlhcU7xGnINJ2miruxK:22
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-1a66b9bd893so16075055ad.1
+        for <mkernaghan@shaw.ca>; Thu, 20 Apr 2023 18:24:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=telus.net; s=google; t=1682040244; x=1684632244;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :in-reply-to:references:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2/Ts+jRC84mkyf5J9b3K7axPmHSJY4gCytB1BKGLpIU=;
+        b=MUGr+MtHfVBV0IdEvHmSbgmqUgYLbgY2WaCBoNYr/6sj6w1td6Vgf9E0ukgKM1paH6
+         Lq0Cb8IMmibR5du/2FKssqpHNcoOJjs6n5LN3EmhQk7JvwPNGCwvMOIid3nTT8HJbrcn
+         DIpCMLtuAFhOHQScvFKzbIsZNNCTYlRWW7ixK0rwmhzWb6Z2IUoDzzrO2zW84THbIHB3
+         mRCmnsFFFB64w62vQKTMuPtf1pIzGx8lKS3Yt5LfesfoVcvjsXaVv9uI3xAewzj+8e4E
+         cImhu75Ej96HuWFUhwgbiEwE6/LXeeaCnDa6ziaInTrpTGy/2BR/nReMN36R2w+YdZzk
+         ox1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682040244; x=1684632244;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :in-reply-to:references:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2/Ts+jRC84mkyf5J9b3K7axPmHSJY4gCytB1BKGLpIU=;
+        b=j3mXzMM1rHV23Y7JcFelslrwl44r82Gf0kqtoe4xnkNMUChC405tc7jV5PhRBZKkp4
+         mhoTGi/cDZYUMhbaM1Gsk8vsu66HNnQ5C1onEFIe1paubHkjaAVecFayan5ja7G4ZOsK
+         cxcfADLRj7WhX3Itbpeo3fcOblT2qZGZ3ruyGx0Taeyo6eXAFq5dZw67rEWHiTYDiQ9k
+         3gm2m9T9VeDH4UiUelpPvRtyh3j2i/6G0zCzfQnXuoLrPc8y8Jit4+IrB1sUWpl9vuBF
+         ynsTz9+FzghJGGFjMQxrjXCkh+x//ZAYPzGq/6sGvOR2WsYxbUd1L3INoanIEkul5Jle
+         VZ5A==
+X-Gm-Message-State: AAQBX9dfEbKpeya0YpbfTdEAktof6I4NxPiq8EkvPmalkej/XWU/kRHU
+	4vV0HvvTFZUfwwyOjrCbiSamXw==
+X-Google-Smtp-Source: AKy350YPyR55jaMab7W7fxEA/Y7Oh9r+uj5wbmIaXqqldP/niXRZPyXFfCLfDKqJjleQ3KKSmrg5Ug==
+X-Received: by 2002:a17:902:ce84:b0:1a8:11d3:6b93 with SMTP id f4-20020a170902ce8400b001a811d36b93mr4426617plg.66.1682040243851;
+        Thu, 20 Apr 2023 18:24:03 -0700 (PDT)
+Received: from DESKTOPA7F3LRS ([2001:569:7bb2:a300:108e:9e87:9d3a:9422])
+        by smtp.gmail.com with ESMTPSA id k1-20020a170902760100b001a1adbe215asm1682051pll.142.2023.04.20.18.24.00
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 20 Apr 2023 18:24:03 -0700 (PDT)
+From: <louisewein@telus.net>
+To: <louisewein@telus.net>
+References: <DBDFBCFA-4579-4FE7-A0A5-464D4C90AA5A@dixcooper.ca>
+In-Reply-To: <DBDFBCFA-4579-4FE7-A0A5-464D4C90AA5A@dixcooper.ca>
+Subject: FW: Introduction to croquet at West Point Grey
+Date: Thu, 20 Apr 2023 18:24:01 -0700
+Message-ID: <003b01d973ef$f62cf620$e286e260$@telus.net>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_003C_01D973B5.49D06810"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQNIpxBwq731ekTLw0GLeG7goF05+axWkQDg
+Content-Language: en-ca
+X-CMAE-Envelope: MS4xfEyZKPICTMQx0u14a/T52HQjlSuU/d5DcBOcPJdr+YfeoNiJ3CLqx9WkMs0SKnfxrqXFoHekpt2AJWmP6DwF0rol+We2xas02YTCb9XAglXH4ia2WUPp
+ zLmd/Ff4ad47ff/k+zTwS2S6DdlT4aE3qdDjzMra2DWeX2WH+F2Jus8+2xHPIesdHg2xjZru2pEh3gyk+tFG+jo+Ei774fBL4CE=
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_003C_01D973B5.49D06810
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+This notice is being sent at the request of Sue Dix-Cooper.
+
+=20
+
+Please respond to Sue at the email or phone below. =20
+
+=20
+
+From: Sue Dix-Cooper <sue@dixcooper.ca>=20
+Sent: Thursday, April 20, 2023 4:23 PM
+
+
+
+=20
+
+To all members:
+
+=20
+
+Have you been wondering what it is like to play croquet on the green at =
+West Point Grey?   It is a great fun social game that is competitive and =
+becomes more strategic as you gain experience.  You are very welcome to =
+come and give it a try in the afternoon next week on Wednesday and =
+Thursday.
+
+=20
+
+We will be offering free introductory lessons at 1:00pm and 3:00pm on =
+April 26th and 27th on a 3/4 size croquet court.  No need to bring =
+anything except dress for the weather and wear flat shoes.  We have lots =
+of mallets and balls for everyone to use. =20
+
+=20
+
+Please contact Sue as soon as possible by email to sign up for the =
+introductory lesson so we know how many are coming.
+
+=20
+
+ Look forward to seeing you there,
+
+=20
+
+Sue and Mark Dix-Cooper
+
+=20
+
+Contact info:
+
+email.           sue@dixcooper.ca <mailto:sue@dixcooper.ca>=20
+
+cell phone.  (604) 812-9765
+
+
+------=_NextPart_000_003C_01D973B5.49D06810
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta =
+name=3DGenerator content=3D"Microsoft Word 15 (filtered =
+medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-CA =
+link=3D"#0563C1" vlink=3D"#954F72" style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'>This notice is being sent at the =
+request of Sue Dix-Cooper.<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'mso-fareast-language:EN-US'>Please =
+respond to Sue at the email or phone below.=C2=A0 =
+<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><b><span lang=3DEN-US>From:</span></b><span =
+lang=3DEN-US> Sue Dix-Cooper &lt;sue@dixcooper.ca&gt; <br><b>Sent:</b> =
+Thursday, April 20, 2023 4:23 PM<br><br></span></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal =
+style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt'>To all members:</span><o:p></o:p></p><p =
+class=3DMsoNormal style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt;font-family:"Times New =
+Roman",serif'>&nbsp;</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt'>Have you been wondering what it is like to =
+play croquet on the green at West Point Grey? &nbsp;&nbsp;It is a great =
+fun social game that is competitive and becomes more strategic as you =
+gain experience. &nbsp;You are very welcome to come&nbsp;and give it a =
+try in the afternoon next week on Wednesday and =
+Thursday.</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'-webkit-text-size-adjust: auto'><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt'>We will be offering free introductory =
+lessons&nbsp;at&nbsp;1:00pm&nbsp;and 3:00pm on April 26th and =
+27th&nbsp;on a 3/4 size croquet court. &nbsp;No need to bring anything =
+except dress for the weather and wear flat shoes. &nbsp;We have lots of =
+mallets and balls for everyone to use. &nbsp;</span><o:p></o:p></p><p =
+class=3DMsoNormal style=3D'-webkit-text-size-adjust: =
+auto'><o:p>&nbsp;</o:p></p><p class=3DMsoNormal =
+style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt'>Please contact Sue as soon as possible by =
+email to sign up for the introductory lesson so we know how many are =
+coming.</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'-webkit-text-size-adjust: auto'><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt;font-family:"Times New =
+Roman",serif'>&nbsp;</span><span style=3D'font-size:12.0pt'>Look forward =
+to seeing you there,</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt;font-family:"Times New =
+Roman",serif'>&nbsp;</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt'>Sue and Mark =
+Dix-Cooper</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'-webkit-text-size-adjust: auto'><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt'>Contact info:</span><o:p></o:p></p><p =
+class=3DMsoNormal style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt'>email. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a =
+href=3D"mailto:sue@dixcooper.ca">sue@dixcooper.ca</a></span><o:p></o:p></=
+p><p class=3DMsoNormal style=3D'-webkit-text-size-adjust: auto'><span =
+style=3D'font-size:12.0pt'>cell phone. &nbsp;(604) =
+812-9765</span><o:p></o:p></p></div></body></html>
+------=_NextPart_000_003C_01D973B5.49D06810--
+

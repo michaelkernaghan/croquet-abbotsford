@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Association Croquet Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #5a9;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .video-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .video-item {
+            width: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        .video-item a {
+            text-decoration: none;
+            color: #5a9;
+            font-weight: bold;
+        }
+        .video-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Association Croquet Games</h1>
+        <p>Watch and enjoy some great matches of Association Croquet!</p>
+    </header>
+
+    <div class="container">
+        <div class="video-list">
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=H4s8m2d-rsM" target="_blank">Association Croquet World Championship Final 2019</a>
+                <p>A thrilling final match from the 2019 World Championship.</p>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=ds9M39i0Ag4" target="_blank">Association Croquet Tutorial Match</a>
+                <p>A tutorial match to explain strategies and techniques of Association Croquet.</p>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=xA8zUgsBWbc" target="_blank">Croquet World Cup 2021 - Semi-Finals</a>
+                <p>Watch the semi-final rounds of the Croquet World Cup 2021.</p>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=bFO2eA7HthA" target="_blank">Association Croquet Advanced Game Analysis</a>
+                <p>An in-depth analysis of advanced tactics in an Association Croquet game.</p>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=0h9u_X0KTgY" target="_blank">Association Croquet Championship Highlights</a>
+                <p>Highlights from one of the most competitive Association Croquet championships.</p>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=lQHMoMIgBXM" target="_blank">Association Croquet Gameplay and Techniques</a>
+                <p>Learn some gameplay techniques used by top players.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

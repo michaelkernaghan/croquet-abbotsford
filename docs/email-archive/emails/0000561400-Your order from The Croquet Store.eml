@@ -1,0 +1,109 @@
+Return-Path: <bounces+1743312-1825-mkernaghan=shaw.ca@email.shipstation.com>
+Received: from mi04-ssvc.dcs.int.inet (LHLO mi04.dcs.int.inet)
+ (10.0.153.221) by cds207.dcs.int.inet with LMTP; Mon, 14 Jun 2021 06:50:31
+ -0600 (MDT)
+Received: from shw-ibgw-4006a.ext.cloudfilter.net (lb7f8hsrpno-dmz.dcs.int.inet [10.0.143.222])
+	by mi04.dcs.int.inet (Postfix) with ESMTPS id DDB4C12800AA
+	for <mkernaghan@shaw.ca>; Mon, 14 Jun 2021 06:50:30 -0600 (MDT)
+Received: from o1.email.shipstation.com ([192.254.124.201])
+	by cmsmtp with ESMTP
+	id sm2vl8ptwtYW8sm2wlLRfk; Mon, 14 Jun 2021 12:50:30 +0000
+X-SHW-ORIG-RCPT: mkernaghan@shaw.ca
+X-Authority-Analysis: v=2.4 cv=att3tQVV c=1 sm=1 tr=0 ts=60c75096 b=1
+ cx=a_idp_d a=iuqXO9Sde+LWntlO47+PKg==:117 a=iuqXO9Sde+LWntlO47+PKg==:17
+ a=kj9zAlcOel0A:10 a=r6YtysWOX24A:10 a=Vez8jh90AAAA:8 a=DlSlvdsiQEO0EtK9bOEA:9
+ a=H5GDxWQzqm8Qdou9:21 a=CjuIK1q_8ugA:10 a=VVhDyOWoZl8A:10
+ a=T85uqJkbJES8_-qQ5U-N:22
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shipstation.com;
+	h=mime-version:from:subject:content-type:content-transfer-encoding:
+	reply-to:to;
+	s=s1; bh=op47hpG6KM3t/d0Ee4q/rFqN2COpzuuYIMXpwVhkjic=;
+	b=rRHwFVXiOTsAJVDC2kihSWfJZadyqRzxPFlB3K3dDstDdhG+dJhw6aTtoxPTI96kNXIu
+	W0R1a7QH1gr97rFbkCbJ6kZYbFSEiKSi4ivAHGt+DSDcWqPzXM6x9snfXNL8Jpj/xFrZpD
+	BgM2LchmXoVAqLMHPZpfWBbjkJk8Wdk6E=
+Received: by filterdrecv-canary-6bc57cd874-kvzxn with SMTP id filterdrecv-canary-6bc57cd874-kvzxn-1-60C75094-71
+        2021-06-14 12:50:28.984641074 +0000 UTC m=+921222.216972636
+Received: from smtp.sendgrid.net (unknown)
+	by geopod-ismtpd-6-0 (SG)
+	with ESMTP id mk2rb0-pQNWL5-f9X9IzrA
+	for <mkernaghan@shaw.ca>;
+	Mon, 14 Jun 2021 12:50:28.946 +0000 (UTC)
+Received: from ss-f-app20 ([127.0.0.1]) by smtp.sendgrid.net with Microsoft SMTPSVC(10.0.17763.1697);
+	 Mon, 14 Jun 2021 05:50:28 -0700
+MIME-Version: 1.0
+From: Oakley Woods Croquet <info@oakleywoods.com>
+Date: Mon, 14 Jun 2021 12:50:29 +0000 (UTC)
+Subject: Your order from The Croquet Store
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <SS-F-APP20CVCAgzLtL0002399e@smtp.sendgrid.net>
+X-OriginalArrivalTime: 14 Jun 2021 12:50:28.0926 (UTC) FILETIME=[DA8ACDE0:01D7611B]
+Reply-To: info@oakleywoods.com
+X-SG-EID: 
+ =?us-ascii?Q?NniDvro4T2C34EEGK6FxFdcW8A5lkBT=2FbN4YOdPjm8SxBCUoE+Qkl09ASMqQPD?=
+ =?us-ascii?Q?Bka3Bj=2Fr4jPzqCOGKzPTrZMKfZ2fciJQbQNXlsI?=
+ =?us-ascii?Q?fHx9v9rH1EYonvHvJ+tJanaIC8i37B40=2FimV5mh?=
+ =?us-ascii?Q?CRAyQb6Uy9a6p7g2V+NYEfJRtsPFyHfVjwMvIqH?=
+ =?us-ascii?Q?1X1NGvbDVnThFU3eQcvy1ZmftVriHfICIeUQj8w?=
+ =?us-ascii?Q?ZKckdp3a3LoH4IGAbC=2F8tCXvf6XSgcLHaDJcnHx?=
+ =?us-ascii?Q?vTrLI18w3XZWqh=2FE03clQ=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FIHCJ58ovPBNJQ4nt2LyT?=
+ =?us-ascii?Q?oxTQtDJu4gYpvXZ=2FtM6fgBVqSCiU9E2Cygquy8T?=
+ =?us-ascii?Q?t2npr8QyxwSnuKc+lJ8Jl3a6X3BFxrtqyknMpkr?=
+ =?us-ascii?Q?bQ8LpY92Fw=3D=3D?=
+To: mkernaghan@shaw.ca
+X-Entity-ID: WnHc0BsUhXyZYGMA7f0jJQ==
+X-CMAE-Envelope: MS4xfGG9a4+wAXvQcO9yTHETEvDKUliUl7AEee0a0znkgkjOe8s56T9/K/l5C9PN/Gxkkza4GGrRXZ59viBkD4tTI+VAmm9F0tZcMI8uzHOd7NBidJKLmWr6
+ /FdS3zm1qXN8vpB0lXy9JLQ0ZnIqcuii4JdBgCY6QSr0AXLhP+xVxW/ksPOnODbusjQ5KW/OO/5k5TY7CQjPYX/UM2XBoRH09Mu0+LrTK7CN1GZaFA3rlL0l
+ dK+dF8xOhPIDxtzXf4rfedgQR9kPPOGTT3rtB9AS+rU=
+
+<div style=3D"text-align: center;"><font size=3D"3"><img src=3D"http://imag=
+es.shipstation.com/logo/eaa6469703b243878f32e3135565a976"><br></font></div>=
+<div style=3D"text-align: center;"><font size=3D"3"><br></font></div><div><=
+font size=3D"3"><br></font></div><div><font size=3D"3">Thank you for your r=
+ecent purchase from The Croquet Store. &nbsp;Your item(s) and 'Ship to' add=
+ress are shown below.</font></div><div><font size=3D"3"><br></font></div><d=
+iv><font size=3D"3">Ship to:</font></div><div><font size=3D"3">Michael Kern=
+aghan<br></font></div><div><font size=3D"3">Michael Kernaghan<br>33710 5th =
+Avenue 5th Avenue<br>33710-33710 5th Ave<br>Mission, BC V2V 1W9 CA<br></fon=
+t></div><div><font size=3D"3"><br></font></div><div><font size=3D"3">Phone:=
+ 6046159138<br></font></div><div><font size=3D"3"><br></font></div><div><fo=
+nt size=3D"3">Your order # &nbsp;19735</font></div><div><font size=3D"3"><b=
+r></font></div><div><font size=3D"3"><table border=3D'0' cellpadding=3D'4' =
+cellspacing=3D'0'><tr><td width=3D'150' style=3D'border-bottom:solid 1px gr=
+ay'><b>Item #</b></td><td width=3D'550' style=3D'border-bottom:solid 1px gr=
+ay'><b>Description</b></td><td align=3D'center' style=3D'border-bottom:soli=
+d 1px gray' width=3D'150'><b>Qty</b></td></tr><tr><td></td><td>Oxford balls=
+</td><td align=3D'center'>1</td></tr><tr><td></td><td>Oakley Woods Clips</t=
+d><td align=3D'center'>1</td></tr><tr><td></td><td>Sport Goal Stake</td><td=
+ align=3D'center'>1</td></tr><tr><td></td><td>Sport rule book</td><td align=
+=3D'center'>1</td></tr><tr><td></td><td>Target ball</td><td align=3D'center=
+'>1</td></tr></table><br></font></div><div><font size=3D"3"><br></font></di=
+v><div><font size=3D"3">Ship via: &nbsp;Canada Post -&nbsp;Regular Parcel</=
+font></div><div><font size=3D"3">Tracking number:&nbsp;9233002311427230</fo=
+nt></div><div><font size=3D"3"><br></font></div><div><font size=3D"3">If yo=
+u have any questions, please feel free to contact our staff.<br></font></di=
+v><div><font size=3D"3"><br></font></div><div><font size=3D"3">Sincerely,</=
+font></div><div><font size=3D"3">Don Oakley&nbsp;</font></div><div><font si=
+ze=3D"3">Oakley Woods Croquet</font></div><div><font size=3D"3">Toll Free 8=
+66.364.8895</font></div><div><a href=3D"http://emailtrk.shipstation.com/ls/=
+click?upn=3DptVJRjccaEHDE3MM7vl1kJbTWVUMNIgorOAjpY1nKlNOi-2Fe8QV3-2BbJS0mkb=
+VbGQizhk4_tDD05-2B3rA5XUfWinhct-2FvR3-2FYfqhly6-2F3gu-2F9nd2eFLyI5j2DpH48zU=
+MNiuX7ghfHbj4gPPY-2FLcjMfTvRciYR-2BlDvuE6sYQqGwhrballV42acYT2tuxRMWM5NFqMlM=
+B03WlXRSSYC4-2FxUVzJOObG02AbITYBPHQJmHpdHGXFM-2Fi-2FGy76ny6V0Rx8MfqQKoBs-2B=
+Q3icnE-2B3zrOCe06a4oRz6SKwLkj3gOR0tt9qBUqBhL2HWWCctAFM0HcMZFDYVGc-2FNDTsDyX=
+Ivk8wCDOcfH2d7zDFEkI5rKSrSm646UPI1VQlJDVdpdzUk07t-2F8ey6n9"><font size=3D"3=
+">The Croquet Store</font></a></div>
+
+<img src=3D"http://emailtrk.shipstation.com/wf/open?upn=3Di7l9-2FXMPeM7Fm5X=
+mH7vrfmDYNBsm8tRiv0xBj1oVM2tvewczIjv5VJNGvrn-2F6UPozJ1AW-2B7F8vTUOkKAXzSWq6=
+11ItwcttJXVF3tNPNFdEOTtrwlB5q0dxZyprYzybfqpNffxMEUEB97WPaPmcW1DsGmouzTbYFoQ=
+asWffcTr3sxcYX90VfSuJ-2F-2FrR34vElAvpIW56c2VQ7uGXtJT6gmmxQABd-2FOH9RrZfLX3f=
+vhrjTTdiZ-2BgQznSiPQofHENQuf05Li8DVGbvPHwHV5iWxGVZbgiwhtsaO5MguQLRYvZp1tzsT=
+VkpcdRu8InIAdWe9Eg5Y9vY2jFAPfqIGD9jfmBA-3D-3D" alt=3D"" width=3D"1" height=
+=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;bor=
+der-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;m=
+argin-right:0 !important;margin-left:0 !important;padding-top:0 !important;=
+padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !impo=
+rtant;"/>

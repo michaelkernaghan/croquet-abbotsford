@@ -1,0 +1,460 @@
+Return-Path: <bcregistries@gov.bc.ca>
+Received: from mi03-ssvc.dcs.int.inet (LHLO mi03.dcs.int.inet)
+ (10.0.153.220) by cds207.dcs.int.inet with LMTP; Sat, 18 Dec 2021 11:08:18
+ -0700 (MST)
+Received: from shw-ibgw-4008a.ext.cloudfilter.net (lb7f8hsrpno-dmz.dcs.int.inet [10.0.143.222])
+	by mi03.dcs.int.inet (Postfix) with ESMTPS id AA042128004F
+	for <mkernaghan@shaw.ca>; Sat, 18 Dec 2021 11:08:18 -0700 (MST)
+Received: from CAN01-TO1-obe.outbound.protection.outlook.com ([40.107.67.115])
+	by cmsmtp with ESMTP
+	id ye7sm3FYUPEbcye7wmq8rR; Sat, 18 Dec 2021 18:08:15 +0000
+X-SHW-ORIG-RCPT: mkernaghan@shaw.ca
+X-Authority-Analysis: v=2.4 cv=M5Jelg8s c=1 sm=1 tr=0 ts=61be2390 cx=a_idp_d
+ a=prKgR6Q4PzWX84x190KuzQ==:117 a=jvQ8WxPljhm0MICCH2jO3w==:17
+ a=IOMw9HtfNCkA:10 a=gs6g1vDeV4gA:10 a=_ICZHMkwfbcA:10 a=411B89wNAAAA:8
+ a=zq6pb8p0AAAA:8 a=xzds-hIfVakT4555QcgA:9 a=W0b1djNOAWJ9g3EM:21
+ a=frz4AuCg-hUA:10 a=QEXdDO2ut3YA:10 a=iKQdDUSIqdQ1ny-Rgdpd:22
+ a=QMx_T_wkX9UydY-fLAJQ:22 cc=prm
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=NpQuf1YX4UJXBx9xaUaXarc1aTrNkKIYm5b4YgyVCkw5d0YMnAnAb2awXl0Y7gXtz4/TT6Ts7JKuD25Njq1wUzbkfa54QPMxLX4KYIDJT31whfeJcwrnMnBGoFa9CM+l7X3u92utYeJb7VWfR0WCk0TYvIjjuw0//mIAJGaPkZLqVrdMHxC3gE73WcCyA961Sxk/GQt83NiL4ZkoBy/jNaGzHq9CsbMBI9diwHAWsqGi6jN4weV+jkclqQkNQdbYN+Jtvc/lNiUEUNcyMmHvLDn2Krx+ZqyLxVEWuDafynkkuR42927Bx73pOQwZhH5BIN1sNMe3cOPHak606HoTFg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZtiWah21/6W/NcrjEvrGU0vhGp6wgZxdWgpvtSZR30M=;
+ b=CWySFIZ3196WXTa0b3e8tq/DjwAMsSkts6OjU652F6pw/EBKzfTiBotjBKG2jR5gmW52FcH8+YfbmZKcCWmEHKhMxroha9ecK2zolVMJ9p0tRtBRHSPMCgbScIt5nZnhN0KM4pgKC0cDNUuXANgkBoN3B7j8mZXgVQkjXzZCC1Gc3lw1OXw9eDrlYBAQm98gxNwsruBFf6I0ykIslFxC+eA/BfpIGTpU4xxF4cc0bWlsvPH3/ZwNGxZJjYm6lCqS3ksvoIrZcafR4uJrpUy+Z22pHlalaMGM1bxWXj4XN/K4s3VHCCNeFVQhDj8G09PeKZJ0ZD05Wkrmofq/DQVjAA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 142.34.25.246) smtp.rcpttodomain=shaw.ca smtp.mailfrom=gov.bc.ca; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=gov.bc.ca;
+ dkim=none (message not signed); arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.bc.ca;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZtiWah21/6W/NcrjEvrGU0vhGp6wgZxdWgpvtSZR30M=;
+ b=TRVgwfneuz6rz/NCxDUVlI6+jNhSb9mOP3lF2z2pQGwh9KiZWC7FqJ25nkkN6GaqBB51MuZfEiOuycNG/d8rltisEA8MdkrfwRlKbe+nc38Ux5WP9qGx7sCJcvxIDAYt78KvRUJNCNKIi8Vv0DBIThTzRpo9xywRUXewa6ixNohmNFzDwaFKzSoUtMpoUyVwSpGZEolSm0p8AyHKT8D3ETrPp3R2pbM0J/UTKuwi3zzi5Byey6uQoB4JU7LM3IUZSvj1+U3JKDkKdJbK0hPeZ/TSDHe9y8OTmsJ3FB/CcWdcdvLgEo+2j3fTnb11FzJVNhPxy5CBrMpe7n+MPZgd8g==
+Received: from YT3PR01CA0097.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:85::15)
+ by YT3PR01MB5810.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:66::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4801.17; Sat, 18 Dec
+ 2021 18:08:06 +0000
+Received: from TO1CAN01FT011.eop-CAN01.prod.protection.outlook.com
+ (2603:10b6:b01:85:cafe::28) by YT3PR01CA0097.outlook.office365.com
+ (2603:10b6:b01:85::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4801.14 via Frontend
+ Transport; Sat, 18 Dec 2021 18:08:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 142.34.25.246)
+ smtp.mailfrom=gov.bc.ca; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=gov.bc.ca;
+Received-SPF: Pass (protection.outlook.com: domain of gov.bc.ca designates
+ 142.34.25.246 as permitted sender) receiver=protection.outlook.com;
+ client-ip=142.34.25.246; helo=vwall.gov.bc.ca;
+Received: from vwall.gov.bc.ca (142.34.25.246) by
+ TO1CAN01FT011.mail.protection.outlook.com (10.152.122.151) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ 15.20.4801.14 via Frontend Transport; Sat, 18 Dec 2021 18:08:06 +0000
+Received: from parsley.bcgov (142.34.188.78) by vwall.gov.bc.ca
+ (142.34.67.190) with Microsoft SMTP Server id 15.1.2308.20; Sat, 18 Dec 2021
+ 10:08:05 -0800
+Received: from parsley.bcgov (localhost [127.0.0.1])
+	by parsley.bcgov (Postfix) with ESMTP id D739612D
+	for <mkernaghan@shaw.ca>; Sat, 18 Dec 2021 10:08:05 -0800 (PST)
+Date: Sat, 18 Dec 2021 10:08:05 -0800
+From: <BCRegistries@gov.bc.ca>
+To: <mkernaghan@shaw.ca>
+Message-ID: <1362977409.237.1639850885865@parsley.bcgov>
+Subject: Confirmation of Filing S0075824 FRASER VALLEY CROQUET SOCIETY
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_Part_235_1619416599.1639850885844"
+X-CrossPremisesHeadersFilteredBySendConnector: E6PEDG05.idir.BCGOV
+X-OrganizationHeadersPreserved: E6PEDG05.idir.BCGOV
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: c0e5a23a-d343-4180-fe50-08d9c2515788
+X-MS-TrafficTypeDiagnostic: YT3PR01MB5810:EE_
+X-Microsoft-Antispam-PRVS:
+	<YT3PR01MB5810E9A5FAB0022BCA47BA3C95799@YT3PR01MB5810.CANPRD01.PROD.OUTLOOK.COM>
+X-MS-Oob-TLC-OOBClassifiers: OLM:7219;
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	6Y+nWEkwanMG2FZpTjDyO50I9stmM59pmB/yr+EQgwk0/F9hEnOeyH41/gExm/NHf88ziiqRUB1c1PwSuyj7s9W5jCFZGmHSLSk1l1sF7VlBsn0TNu7REge/bDcb+2jadtaRwetSRvzRxt7/dnAg+H3MdmYsyTMVrav+7JtfIG1COmC1nR+UZkKX70eWYWEqdiD0mbndMvNnfjXVSFJGB/1mJqBhZpGBrmpl3vsDMX/bwO/uX/JCC+0SLq8nqVGr2O6F4EkhMgm+gZ+/eFT5TGu9pWpiLaJS6ZDbXRmAgpsHyTSVWH8PM+wknNmDRCrr8MiLWcLIVj9W/gAfc3hUmgEV5z2iH7zHKHFk7L+9twfUN1sBbIMUgOcF+GpmLCihYFDFRUPmhhWShI4KOP0k2+ytftU6H1lv+2tfWL6NJMNfkYyEP30A6SRU+w7ZsBmL6QdgI5tdUxy+sdK55gJH6YbbLqe9xH6JydcLZZQT+A01fu1YOH9UYjpJqAoh1XPCzpdHU9cawVei83kEeX4653VnzgDr0Ci3Pb36WgQVEmk/1ECLkwdsFFUFwUlfGfyBRTVp8zio0mv1j2liJgQiGYkskT4iGgzWYg3UMUJqpcTq1ZEZ5ntMRHG7UW3klE8yFHz4wyv8si82vGWZbvgbwrDSko5p87X8szQH5qINE3CV3pPxnBlivZwMJYDnU4zYHm7OiidhhUxmIJDb/8jmwFEw+qOie+6DU8UsmrsihRCJ0nLbMojAL/EFIiwgll1P9O4ZTSmN0jx2mbJ01gS9Pa8vdwu2Ky5ZrFd+V8/SRVyOtOBIVh8tFGtpifmPreW4tF0FbqSWkr/Rd2wnW4st44qtT/vLPNPX6iLqkH5t0i+8Uv3qHJS1pilNh0YhnHEwCqWnktHQrXp/fyO/FBqcMsrVqs3+o+xqAMPIB7Hawrs=
+X-Forefront-Antispam-Report:
+	CIP:142.34.25.246;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:vwall.gov.bc.ca;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(4636009)(36840700001)(46966006)(40470700001)(26005)(8936002)(70586007)(70206006)(508600001)(7696005)(7126003)(33964004)(186003)(316002)(786003)(6916009)(47076005)(2906002)(2876002)(336012)(8676002)(83380400001)(40460700001)(82310400004)(86362001)(55016003)(166002)(81166007)(356005)(5660300002)(36860700001)(9686003)(6266002)(36900700001);DIR:OUT;SFP:1102;
+X-OriginatorOrg: gov.bc.ca
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2021 18:08:06.4964
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0e5a23a-d343-4180-fe50-08d9c2515788
+X-MS-Exchange-CrossTenant-Id: 6fdb5200-3d0d-4a8a-b036-d3685e359adc
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=6fdb5200-3d0d-4a8a-b036-d3685e359adc;Ip=[142.34.25.246];Helo=[vwall.gov.bc.ca]
+X-MS-Exchange-CrossTenant-AuthSource:
+	TO1CAN01FT011.eop-CAN01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB5810
+X-CMAE-Envelope: MS4xfK5ZM/RRjYWVJ/gfm07GVvKqYjrf5nCVT0Yi15+dRClRKMmIuha+bGkZbRctpgjiwp2SqUqhkkQZ9gKlji7mV0Gu4FlB3n6f+62xo9PUxN9PZoOMVzt8
+ EslMR6r9CRMqlMdwARSRIZwJX+kMKS0hLYimGrWaHLoJozldsOut6a9L9KKZao38Z9mqYi2l6INGOhYl9uZ1WmaHpEf8AnWApTOKWb4HI7/BW8tsN+jLMEDo
+
+------=_Part_235_1619416599.1639850885844
+Content-Type: multipart/related;
+	boundary="----=_Part_236_464385863.1639850885844"
+
+------=_Part_236_464385863.1639850885844
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+               =20
+<html>
+    <head>
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DU=
+TF-8"/>
+        <style type=3D"text/css">a {text-decoration: none}</style>
+               =20
+           =20
+               =20
+        <style type=3D"text/css">.jrPage{margin-left: auto;margin-right: au=
+to;}</style>
+               =20
+           =20
+               =20
+    </head>
+        <body text=3D"#000000" link=3D"#000000" alink=3D"#000000" vlink=3D"=
+#000000">
+            <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" borde=
+r=3D"0">
+                <tr>
+                    <td width=3D"50%">&nbsp;</td>
+                    <td align=3D"center">
+               =20
+            <a name=3D"JR_PAGE_ANCHOR_0_1"></a>
+<table class=3D"jrPage" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" st=
+yle=3D"empty-cells: show; width: 612px; border-collapse: collapse; backgrou=
+nd-color: white;">
+<tr valign=3D"top" style=3D"height:0">
+<td style=3D"width:43px"></td>
+<td style=3D"width:20px"></td>
+<td style=3D"width:237px"></td>
+<td style=3D"width:79px"></td>
+<td style=3D"width:111px"></td>
+<td style=3D"width:60px"></td>
+<td style=3D"width:19px"></td>
+<td style=3D"width:43px"></td>
+</tr>
+<tr valign=3D"top" style=3D"height:89px">
+<td colspan=3D"8" style=3D"text-align: center; vertical-align: middle;">
+<img src=3D"https://www.bcregistry.ca/societies/resources/img/report/email_=
+hdr.jpg" style=3D"width: 612px; height: 89px" alt=3D""/></td>
+</tr>
+<tr valign=3D"top" style=3D"height:20px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:24px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 16px; line-height: 1.1640625; font-weight: bold;">=
+Confirmation of Filing</span></td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:24px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 13px; line-height: 1.1640625; font-weight: bold;">=
+Incorporation Application</span></td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:1px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"border-top: 1px solid #000000; ">
+</td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:9px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:67px">
+<td>
+</td>
+<td colspan=3D"3" style=3D"white-space: nowrap; text-indent: 0px;  vertical=
+-align: middle;text-align: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 9px; line-height: 1.1640625;">FRASER VALLEY CROQUE=
+T SOCIETY<br/>33710 5TH AVENUE<br/>MISSION BC V2V 1W9</span></td>
+<td colspan=3D"4">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:5px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:16px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">This confirmation l=
+etter has been sent to the primary and alternate email addresses. </span></=
+td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:16px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">We welcome your fee=
+dback on our service. Take our </span><a href=3D"https://www.bcregistry.ca/=
+societies/survey?filingType=3DSINCF"><span style=3D"font-family: 'DejaVu Sa=
+ns', Arial, Helvetica, sans-serif; color: #0000FF; font-size: 10px; line-he=
+ight: 1.1640625;">survey</span></a><span style=3D"font-family: 'DejaVu Sans=
+', Arial, Helvetica, sans-serif; color: #000000; font-size: 10px; line-heig=
+ht: 1.1640625;">.</span></td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:5px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:1px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"border-top: 1px solid #000000; ">
+</td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:4px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:16px">
+<td colspan=3D"2">
+</td>
+<td style=3D"white-space: nowrap; text-indent: 0px; text-align: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">Form Filed:</span><=
+/td>
+<td colspan=3D"3" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625; font-weight: bold;">=
+Incorporation Application</span></td>
+<td colspan=3D"2">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:16px">
+<td colspan=3D"2">
+</td>
+<td style=3D"white-space: nowrap; text-indent: 0px; text-align: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">Name of Society:</s=
+pan></td>
+<td colspan=3D"3" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625; font-weight: bold;">=
+FRASER VALLEY CROQUET SOCIETY</span></td>
+<td colspan=3D"2">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:16px">
+<td colspan=3D"2">
+</td>
+<td style=3D"white-space: nowrap; text-indent: 0px; text-align: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">Incorporation Numbe=
+r:</span></td>
+<td colspan=3D"3" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625; font-weight: bold;">=
+S0075824</span></td>
+<td colspan=3D"2">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:16px">
+<td colspan=3D"2">
+</td>
+<td style=3D"white-space: nowrap; text-indent: 0px; text-align: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">Business Number:</s=
+pan></td>
+<td colspan=3D"2" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625; font-weight: bold;">=
+75908 1607 BC0001</span></td>
+<td colspan=3D"3">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:16px">
+<td colspan=3D"2">
+</td>
+<td style=3D"white-space: nowrap; text-indent: 0px; text-align: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">Date and Time of Fi=
+ling:</span></td>
+<td colspan=3D"3" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625; font-weight: bold;">=
+December 18, 2021 10:06 AM Pacific Time</span></td>
+<td colspan=3D"2">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:3px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:1px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"border-top: 1px solid #000000; ">
+</td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:5px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:16px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">Your Society's rece=
+ipt is available on the Filing History, where it can be viewed and printed =
+at any time.</span></td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:5px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:16px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625; font-weight: bold;">=
+Your Certified Documents will be mailed to you.</span></td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:5px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:46px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">As part of your fil=
+ing you were required to create a Registry key. Anyone with the key can acc=
+ess your <br/>society's information and complete filings for your society. =
+The key should only be given to those who <br/>are authorized to complete f=
+ilings on behalf of the society. Consider changing the key if you later hav=
+e a <br/>turn-over within your organization.</span></td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:5px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:34px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">The </span><span st=
+yle=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; color: #00=
+0000; font-size: 10px; line-height: 1.1640625; font-style: italic;">Societi=
+es Act</span><span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, s=
+ans-serif; color: #000000; font-size: 10px; line-height: 1.1640625;">&nbsp;=
+requires all Societies and Extraprovincial Non-Share Corporations to file a=
+n annual <br/>report each calendar year and to promptly notify the registra=
+r of any changes in its information. For <br/>information regarding these f=
+ilings visit </span><a href=3D"http://www.gov.bc.ca/Societies"><span style=
+=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; color: #00000=
+0; font-size: 10px; line-height: 1.1640625;">www.gov.bc.ca/Societies</span>=
+</a><span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif=
+; color: #000000; font-size: 10px; line-height: 1.1640625;">.</span></td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:5px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:23px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">Review your documen=
+ts carefully to ensure there are no errors or omissions. If errors or omiss=
+ions are <br/>discovered, please contact the Corporate Registry for instruc=
+tions.</span></td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:5px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:23px">
+<td>
+</td>
+<td colspan=3D"6" style=3D"white-space: nowrap; text-indent: 0px; text-alig=
+n: left;">
+<span style=3D"font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; co=
+lor: #000000; font-size: 10px; line-height: 1.1640625;">PLEASE DO NOT REPLY=
+ TO THIS EMAIL. It was sent from an unmonitored email address and the <br/>=
+Corporate Registry is unable to respond to any replies.</span></td>
+<td>
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:24px">
+<td colspan=3D"8">
+</td>
+</tr>
+<tr valign=3D"top" style=3D"height:155px">
+<td colspan=3D"8" style=3D"text-align: center; vertical-align: middle;">
+<img src=3D"https://www.bcregistry.ca/societies/resources/img/report/email_=
+ftr.jpg" style=3D"width: 612px; height: 155px" alt=3D""/></td>
+</tr>
+</table>
+
+</td><td width=3D"50%">&nbsp;</td></tr>
+</table>
+</body>
+</html>
+
+------=_Part_236_464385863.1639850885844--
+
+------=_Part_235_1619416599.1639850885844--

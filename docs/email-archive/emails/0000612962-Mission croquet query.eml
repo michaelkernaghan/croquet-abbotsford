@@ -1,0 +1,80 @@
+Return-Path: <brodercj@tcd.ie>
+Received: from mi01-ssvc.dcs.int.inet (LHLO mi01.dcs.int.inet)
+ (10.0.153.210) by cds207.dcs.int.inet with LMTP; Wed, 16 Aug 2023 10:48:57
+ -0600 (MDT)
+Received: from shw-ibgw-4003a.ext.cloudfilter.net ([10.0.143.222])
+	by cmsmtp with ESMTP
+	id WI2uqe66JmfuKWJhYqrCfi; Wed, 16 Aug 2023 10:48:57 -0600
+Received: from mail-pf1-f182.google.com ([209.85.210.182])
+	by cmsmtp with ESMTP
+	id WJhAqp8bLIenHWJhYq9Hn0; Wed, 16 Aug 2023 16:48:56 +0000
+X-SHW-ORIG-RCPT: mkernaghan@shaw.ca
+X-Authority-Analysis: v=2.4 cv=I952+fsg c=1 sm=1 tr=0 ts=64dcfdf8 cx=a_idp_d
+ a=auZFhOzWS5H0Xlzol9Q3ww==:117 a=UttIx32zK-AA:10 a=arvcvRms5FOogOc1mZMA:9
+ a=QEXdDO2ut3YA:10 a=K5UD31zruPPiUQqidLcA:9 a=f1S6CQK4laDrczJc:21
+Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-68866e64bceso1593635b3a.3
+        for <mkernaghan@shaw.ca>; Wed, 16 Aug 2023 09:48:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tcd.ie; s=google21; t=1692204535; x=1692809335;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ctoCKxQz+UXtGQ8cHsy6f99a/2xeiWHoBNYyG+ZDWtw=;
+        b=VnrtaTuboZPwNHP/xJdcicdNNcxQbQ+XA59sTzx43+NUOeX2C0ac97yIY5jduT1tZU
+         L70BHilVURWmP6jH+6bhwyr09BVLYX5SaVZrUBB+xefvD32W7U93Mo2eUrBurC0ZFRHG
+         BEwSBekxlVfd1CaI3ETl2YnZDjZv/qYpzWIex7W5HYt4jUYVYRa8S89r6Jax6Y/wJjoW
+         OcsxfVgqdvUNIlYks2Tuhdh5uMfctDGBcrBj0/NjEMQKk6GdlNnO8FUJPLaB65RF0rx/
+         tLgw9nCLihDaSxP0xou5ARTnlm1a70o3disMehkOODxsZHL3YBK7GUwbiJ1Qm4nJIGfl
+         3r1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692204535; x=1692809335;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ctoCKxQz+UXtGQ8cHsy6f99a/2xeiWHoBNYyG+ZDWtw=;
+        b=MEekO/liyXKACaIJ6FKvGEqncIoNJENsEf4iFv1+qRzL7Ob7ePy7z+ZPBQsnOzJijz
+         UFTSYmnAS/gWJRxV0uzBk89xobyf+4rMDQDcri9xMr4knsvxdtq2WtJ1xDVu3AgehHvH
+         WierVF9t4p2LxsW0O7lrKtevhy1rqGUQCTSxi8v/wFzAO8Ej+U+e1+juT1TbS5/1klDy
+         xL9IQi5/mAZP6/+qQ8INHQOyOxaszByrW6kDON5k4OTsCEAu/ogibtGxQt45E0/Xksni
+         01e/jW9zKly3qUmnLjDUZqEFt5gwfT57iLfJV8le+E1hAcZStpA2l2ZpRpGK3oPiaG2e
+         GC4g==
+X-Gm-Message-State: AOJu0YxecCVwyw8UDoR+N8jjFwtx3Bxl+u5uBgXkXWGtytPBuAf0HfzT
+	AHuFbY2ovaWzNPtA7axEA8gg3jpxGEet7Y6BBTJdxs+Gn0sVmr8zEQ0=
+X-Google-Smtp-Source: AGHT+IEEeB0B8kxsshVdh9K1M7iRqd6AuS3QDo9ldudIQ0WEw88eJwffz1+lqhFSoLGtTCoFPIZ/++OyoIQ8bRzzbDY=
+X-Received: by 2002:a05:6a21:778a:b0:133:f0b9:856d with SMTP id
+ bd10-20020a056a21778a00b00133f0b9856dmr3141222pzc.17.1692204535147; Wed, 16
+ Aug 2023 09:48:55 -0700 (PDT)
+MIME-Version: 1.0
+From: Conor Broderick <brodercj@tcd.ie>
+Date: Wed, 16 Aug 2023 09:48:44 -0700
+Message-ID: <CAPEqPv2o_q35Y_ajaEsFJyh+hN9Q1-pXzSpjROAYeLcZSpHvDg@mail.gmail.com>
+Subject: Mission croquet query
+To: Mike Kernaghan <mkernaghan@shaw.ca>
+Content-Type: multipart/alternative; boundary="00000000000034834506030d12f9"
+X-CMAE-Envelope: MS4xfG/dnxiPmSEmp+zbmytlnx423T4XyJxDp5ibNCRcZzEgAu2d2d9oijcuKxg62m0WWkxgPWRpYbPxBdZX86svspUcb6JWoOqHuwnjkDkquIuLeGr0mevW
+ Q+dtXQkTBHq4M+rD4ApJxxUw1iwo0PajZqiNNQa31ud1aFbYC2OBqNrFYSH6KuQzkafT+Av1Yo5MN6C2BE13GV9XLi67iZkKrgQ=
+
+--00000000000034834506030d12f9
+Content-Type: text/plain; charset="UTF-8"
+
+Someone from out in Mission contacted me about getting croquet equipment
+
+They seem interested in getting involved with croquet so I sent them your
+email address
+
+Hope that's okay!
+
+Don't actually have a name for them.. they just texted out of the blue
+
+Best of luck at Happy Valley
+
+--00000000000034834506030d12f9
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><div><br></div><div>Someone from out in Mission contac=
+ted me about getting croquet equipment</div><div><br></div><div>They seem i=
+nterested in getting involved with croquet so I sent them your email addres=
+s</div><div><br></div><div>Hope that&#39;s=C2=A0okay!</div><div><br></div><=
+div>Don&#39;t actually have a name for them.. they just texted out of the b=
+lue=C2=A0</div><div><br></div><div>Best of luck at Happy Valley</div></div>
+
+--00000000000034834506030d12f9--

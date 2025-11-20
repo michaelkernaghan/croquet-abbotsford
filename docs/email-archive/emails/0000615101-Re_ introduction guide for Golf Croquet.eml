@@ -1,0 +1,107 @@
+Return-Path: <rozplumtree@yahoo.ca>
+Received: from mi01-ssvc.dcs.int.inet (LHLO mi01.dcs.int.inet)
+ (10.0.153.210) by cds207.dcs.int.inet with LMTP; Tue, 19 Sep 2023 19:30:53
+ -0600 (MDT)
+Received: from shw-ibgw-4001a.ext.cloudfilter.net ([10.0.143.222])
+	by cmsmtp with ESMTP
+	id ifYrqmyszmfuKim3JqGmbW; Tue, 19 Sep 2023 19:30:53 -0600
+Received: from sonic312-25.consmr.mail.ne1.yahoo.com ([66.163.191.206])
+	by cmsmtp with ESMTP
+	id im3JqhfILP0QPim3JqIWh0; Wed, 20 Sep 2023 01:30:53 +0000
+X-SHW-ORIG-RCPT: mkernaghan@shaw.ca
+X-Authority-Analysis: v=2.4 cv=N5w6qkxB c=1 sm=1 tr=0 ts=650a4b4d cx=a_idp_d
+ a=7rI1e4Xd4vBkp5EFaakd6A==:117 a=zNV7Rl7Rt7sA:10 a=YlZpXaOR_8cA:10
+ a=WCqZboFpHZ0A:10 a=x7bEGLp0ZPQA:10 a=FrtsRUJDqk0A:10 a=_Dj-zB-qAAAA:8
+ a=ce75YVl_qlcrgGCR8qAA:9 a=QEXdDO2ut3YA:10 a=7rxGriGk-Fv-eA-g:21
+ a=_W_S_7VecoQA:10 a=7GnO-AvVFhA1zpJMnGM7:22 a=0UC15zM8_Iz3fgbILQhT:22
+ a=7PlhcU7xGnINJ2miruxK:22
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.ca; s=s2048; t=1695173452; bh=A9LkmtUvrrk5a0LgwmVyWiv4FCYLodU9U//xZJMVLhw=; h=Date:From:To:In-Reply-To:References:Subject:From:Subject:Reply-To; b=FW0KhatkGR8tRbxC7fEy8LXYtSryWGnnh+HbhQHTCwu8nnx8w14G6aXcwlwh1y/UNAeKr6cGlZBIfn+2DRhfiw077qbd0FHmb5gNJCSV3upYoWyf7iByVrKQIScLAkHnQNQPgxbr7z08jv0/F5FrCpTtsSXDAiIJqK4Q3mhrZao8c6h53SEoo0Lx+E5TMuZEd7rXqBHt28sWVde8IWqT8ImKz4Ct2xZr1mmoF9RwEMgRHqsQcl6hpZbmjjPhVzYnsm42sWI6DAcybNSUMaLji2xjPepX+9apXTXhvpX2wQ5sepUz92ZbZX5oJrAj/SwU1yjpuWDftyg9UO1TJ3JV8Q==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1695173452; bh=7lPybEIV0dEmGPON/77F4gb0UuYTrrgXgeUNshTvMZp=; h=X-Sonic-MF:Date:From:To:Subject:From:Subject; b=mQiGbUt0vMazfPswEmxDPoxf1sk8GG1DQWWgU7u7mtuluTJMDSyEW0dzuAzxoH9lpK2chYK1lQPWot4CLY4syhi/11uxb9ThK8MCfrCdzUA6PmPl/xlinCICF464phOkzDexBa28ZehoD/LOyulwaLmdqCdnLIz5BlRYfWcFP6JOsQJtaChpRy1BiNL6yvaXtqgruUeT7+owWw5vqVet2RC5MrIsUOhr5TCmSptyFTPfe7tooiIAAa35O+hchKYC8R+MfDDeEfHmDW23dZ3njiwh6e43IqnGpsOrqGwx0CV+7U31pBOEu2xihpQreNpEuEyos3luxIT/8HNlVtnsCQ==
+X-YMail-OSG: YZUDlR4VM1kNa.X9hds.hfE7PR.BBG3UvIs3Fku4R5wdBJZxsYQUPkDQKS2HTsd
+ SpdHvUFg6iawaIwdNlOVLeQIdZDsf9uIHpq8Ssv2WRMzb8qdTBAa9.0PC6GzRjjAUMCR.1YOZBKS
+ BbF590vaiMOJJjFYbqfbp7shnhwyvvyDhvr33GiI5elxi9VUTwchVATPieAbTtApq8r_bvFDBMS2
+ htlbOKmSwYM8NseMo71_e_xneWLD12OtAjwKz9JBG6nT87EeUe9sWwGu1eU1BD6CpbBYBh8u2Tlz
+ XbIHuq15O5eN6VF4LHbGn4vN74IWdixEpSXSxLgc01cXb4L7.v4yMT5e8XNQ18ZflOgiic__y68d
+ JKC27DZGWvnUAzP40IMRBtny_JW1TKUjTVSXoVYBKfhTAtbv90y.02E7KVcDcTD3nnykkJHItQap
+ DvQlyOmraOTUIlD_GdmInveSXkP5h43_GHKs_SWaShaxyUZv79cXZ8uQcZfw_uo5tzRvA1dgBSWz
+ WJrm1lYGC.yEl4bdqx76LTvz_p3hPFG3mSRHwr7jBCJloIIZvoKHrmNZfo.pr0kdNUiMTfZ9QHbC
+ Bqw_TqcTNuhG7EwwwOW8pSCi12n6VqugmPq1t7kymtHP8cwFwQ.W7drQsT1JU4auL16aZBgnAWwB
+ O8VAogzojOO_0Dh14e3k86Y3dTUq0jui2UwWP3YYMKB98sy34P4Sc5t_kpThEtUfnzc8.vNGrBMS
+ 0ggVp8_mJME_.RjSdd7A6VVQRF0vN0AN4MeK64MGEj3Mu1P.eL0xaSbTL4Qxt55gNs_PYmSxzgkY
+ 23LTYpX1elkBoNUBMprrdlmQT5NM6Hc04ecodBlAuBsScjW_5PlOs70_rQ.13y3BbDVtJ41WmclK
+ gJ.vlvOmhoKJQazxJKq2GMosUGLKVQ2cpq5pSMaq2tuKjpn.NVW3_kdhLrV7U.LUxibx5L7k5Xft
+ DDfLvnGCqi4lcVqh_rRbM7b1qBsD5bQk9bPEfTJCfsKKw2o_GOXwPtRUHzBptfn7uM8HGgw0xcAL
+ CeKfyyfBlqPteV3QL3NQQullOCa.GKyD8WDgIZp6BCKeah3CaGJ6e7_uZnTVXdwJ_MijdUjCxFy9
+ tq7v3YllbVHpjuCccRs.ts4nQOAmSLMIKq9w8viB3jvp.NVB22nn7mme8Q5jaHsstQJBYcIwmlK.
+ SVxbLVzhonYnJX6Nb_v79ZCI7ZSOXh.duuAgzAf6ghsBSVR88araREjWOY8VDJuBY2iYEZgGkD.A
+ Q4ZXyUu6OEGjGH6kVMLGwPu5zd3dRpHY9xpGo69JaZ.azhfMyOdIN5iFI8CESpgrpzNsBP3fTqv2
+ Qyuq2ZDU51T9XlNNBOSKTKXdK383AzR9ZAt0puodJq_H21eAXQX5J9IxuDkpeSat5ZFW7OsgqZEM
+ i26N6fg09HsuOgRrbBqv6rfe0y91QQ3Y.L8.biHBUcyo.tFHzeAo.wMipLXc5GCImvE7QILgy6mQ
+ E6ljlyFpALOEuhDBKPOAFvKXr.xHbpYwPnuVpnW8B1qtPOzm6eQYfrJVkwzDy_i76WrNJiijdiY_
+ KytJmixtAGRdR40Nxf4j1sbG3U_tik6OIUu97QICszj7qe4_wPAID.42tSrSeadPGUoVeuMwd0Tx
+ 7uXeIuCsR4TlAcsGX_anr81E8p_rMBR2pmTCwt95Csgf3o4_JYZSW.9MBorPSdkXdTaL6.rfdiyU
+ UoH0wdfTyXYH_BV_zqY2pORsTOXHaj9PnGk30dvPqFTSj24FQ1W.DTtTqSrT6xexKKrix4Ew4mFe
+ QR.Xk1EI1uKLv2zAIDGi6evvFY7uBe0j7qsiDDB5WF3ZjbWosmK00ZBCy5qZ.a6X1qO6FRC0O7i4
+ GgjiY1pehBr00XCmU4C1Xua1uSMu13yOzA2qK.wX3pyr3a2KOxpW7b.VIyy49ZucRjs.YZYQYXzq
+ j39eJtQpvb44HpVXIEvfUfp4aVgCXLeNG6TxH3hoHFKMrBvuGc3kn0klp0xH3Wkpjj5AZRVrD_eT
+ OIju3MzXkl3LZN_lHO2FUaZpXWR7MyXEUgDBm0cArtPUiNjx1mgs9JjDrPP9fH7ilqiBL0mXxHjt
+ ZoCO0mKpojgAK59vU.EeVOPVt4wKYg6SpTWcFJ4JPN7tNURIdxZOWnDTCzB520KXhBEM2WOkScSy
+ gBYltmYhSgjIbtSSINISZ5x.o58y3JL4uZn71zrag2zM7rs0tKXKFkuHlw9hweGE53iFvjsyXiC1
+ UUMwOj9Qn3MhosX6RG46bBfL.uQeXVV.czAwQs_s4SfwwOho-
+X-Sonic-MF: <rozplumtree@yahoo.ca>
+X-Sonic-ID: dcb6e852-01fa-41a8-be6b-1de027911dda
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic312.consmr.mail.ne1.yahoo.com with HTTP; Wed, 20 Sep 2023 01:30:52 +0000
+Date: Wed, 20 Sep 2023 01:30:46 +0000 (UTC)
+From: Rosalind Plumtree <rozplumtree@yahoo.ca>
+To: Michael Kernaghan <mkernaghan@shaw.ca>
+Message-ID: <717011708.3352785.1695173446671@mail.yahoo.com>
+In-Reply-To: <242204441.30606792.1695136984374.JavaMail.zimbra@shaw.ca>
+References: <242204441.30606792.1695136984374.JavaMail.zimbra@shaw.ca>
+Subject: Re: introduction guide for Golf Croquet
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_3352784_878088481.1695173446670"
+X-Mailer: WebService/1.1.21797 YMailNorrin
+Content-Length: 3018
+X-CMAE-Envelope: MS4xfL3WeCc2E/qcbW1GcEvduFVAvixM9iBYMYcCGoCFeiyEobQ9CV9LwyoeTrsjDGRGcnPLhrE7EbXe9u5QNyVPlJ3qjksEd5CAnc3INjiGzg55bZtVDg/N
+ TelNpEZnvVBbfg27cqV/M/GYxwiNNA8GIE/XfYML8n6TfG+bcxz3JedsjljGppZId0St+FmTCCq1NerOizuTXtvWbFMkc8SMtWbVBszSw51/GBahQZltY1KJ
+
+------=_Part_3352784_878088481.1695173446670
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+ Thanks very much Michael.It reads well and is straightforward and the diag=
+rams are good. I have copied it to a file for now.
+I will put the subject of croquet on the AGM agenda so members can discuss =
+if and how this could be a secondary sport at the facility for next year. I=
+ will have a copy of this at the meeting and we can print out the game outl=
+ine for participants next year as needed.=C2=A0
+Rosalind    On Tuesday, September 19, 2023 at 08:23:05 a.m. PDT, Michael Ke=
+rnaghan <mkernaghan@shaw.ca> wrote: =20
+=20
+ Hi Rosalind
+I cannot get the West Vancouver Croquet guide as their website has a proble=
+m, so I made an introduction guide we can hand out to new players.
+This would be for next year.
+Please see the attached file.Let me know if there are any improvements you =
+can see.
+Best Regards,Michael Kernaghan =20
+------=_Part_3352784_878088481.1695173446670
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html><head></head><body><div class="ydpc2f83ae2yahoo-style-wrap" style="font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:13px;"><div></div>
+        <div dir="ltr" data-setdir="false">Thanks very much Michael.</div><div dir="ltr" data-setdir="false">It reads well and is straightforward and the diagrams are good. I have copied it to a file for now.</div><div dir="ltr" data-setdir="false"><br></div><div dir="ltr" data-setdir="false">I will put the subject of croquet on the AGM agenda so members can discuss if and how this could be a secondary sport at the facility for next year. I will have a copy of this at the meeting and we can print out the game outline for participants next year as needed.&nbsp;</div><div><br></div><div dir="ltr" data-setdir="false">Rosalind</div>
+        
+        </div><div id="yahoo_quoted_5458778388" class="yahoo_quoted">
+            <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:13px;color:#26282a;">
+                
+                <div>
+                    On Tuesday, September 19, 2023 at 08:23:05 a.m. PDT, Michael Kernaghan &lt;mkernaghan@shaw.ca&gt; wrote:
+                </div>
+                <div><br></div>
+                <div><br></div>
+                <div><div id="yiv7113118720"><div><div style="font-family:arial, helvetica, sans-serif;font-size:10pt;color:#000000;"><div>Hi Rosalind</div><div><br></div><div>I cannot get the West Vancouver Croquet guide as their website has a problem, </div><div>so I made an introduction guide we can hand out to new players.</div><div><br></div><div>This would be for next year.</div><div><br></div><div>Please see the attached file.</div><div>Let me know if there are any improvements you can see.</div><div><br></div><div>Best Regards,</div><div>Michael Kernaghan</div></div></div></div></div>
+            </div>
+        </div></body></html>
+------=_Part_3352784_878088481.1695173446670--

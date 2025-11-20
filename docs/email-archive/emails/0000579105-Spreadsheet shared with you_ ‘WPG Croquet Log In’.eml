@@ -1,0 +1,493 @@
+Return-Path: <michael.kernaghan+caf_=mkernaghan=shaw.ca@gmail.com>
+Received: from mi01-ssvc.dcs.int.inet (LHLO mi01.dcs.int.inet)
+ (10.0.153.210) by cds207.dcs.int.inet with LMTP; Mon, 25 Apr 2022 12:34:32
+ -0600 (MDT)
+Received: from shw-ibgw-4002a.ext.cloudfilter.net (lb7f8hsrpno-dmz.dcs.int.inet [10.0.143.222])
+	by mi01.dcs.int.inet (Postfix) with ESMTPS id 854C212801CB
+	for <mkernaghan@shaw.ca>; Mon, 25 Apr 2022 12:34:32 -0600 (MDT)
+Received: from mail-ot1-f50.google.com ([209.85.210.50])
+	by cmsmtp with ESMTP
+	id j3Wqn0iCmwDUoj3X1n2X07; Mon, 25 Apr 2022 18:34:14 +0000
+X-SHW-ORIG-RCPT: mkernaghan@shaw.ca
+X-Authority-Analysis: v=2.4 cv=ANyFHmrr c=1 sm=1 tr=0 ts=6266e9a8 cx=a_idp_d
+ a=dI2QwpXbObxnQOq0HjuwWw==:117 a=e45LPlqu_boA:10 a=z0gMJWrwH1QA:10
+ a=5KLPUuaC_9wA:10 a=x7bEGLp0ZPQA:10 a=B6KMzFptAAAA:20
+ a=hF4mLf00yZBCb7UarUgA:9 a=QEXdDO2ut3YA:10 a=In0tfT0XAAAA:8 a=vKIbezlLAAAA:20
+ a=pGLkceISAAAA:8 a=IoeQSOh0AAAA:8 a=eypaTzzcAAAA:8 a=1XWaLZrsAAAA:8
+ a=bM-KOHn_U7obPPX5xFIA:9 a=VSh3Ox9I/971zBX+/PSjPhNOhxQ=:19
+ a=gWjgNVEAgrkfIr3w:21 a=_W_S_7VecoQA:10 a=L03L2QfmqWoA:10 a=1WNtSb5ECZgA:10
+ a=1GFqmcAhv-0A:10 a=kR219UXSd-dfPhWdIcsA:9 a=UUc8ZNMGI2wEvb1I:21
+ a=p28w2io9I2ixB_KJnOsg:22 a=1tLTrzLr4A8NB_aF3z0H:22 a=UNctmveiTwQP_aujdljq:22
+ cc=ntf
+Received: by mail-ot1-f50.google.com with SMTP id e15-20020a9d63cf000000b006054e65aaecso11406756otl.0
+        for <mkernaghan@shaw.ca>; Mon, 25 Apr 2022 11:33:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:delivered-to:dkim-signature:mime-version
+         :reply-to:references:message-id:date:subject:from:to;
+        bh=xscqQNrQpr27q834J9gqZMZsUFXeZMTclPIFg/Rfjms=;
+        b=FQWfFHPAduoF6mRCmuaoJRz9+hFP1zr1vVRu2XvlMqpT2KDMyErLMxNS+Iujt6SnA2
+         l4Gih2yhMALVLGCTcdh6OURbAkWIzIPV1pVlwK+2BW5V5a3WmdRdecgpwhJb5IoVXFL4
+         VzEanWIC1lhdT2F03zgAT6YXrCi/vjMuTBWOL3zcYaGEgCifKO9JLfnc9jcqozp8Oboz
+         YoCjiawk/146phXIZpm5xwihZyj4qdvQbmNGhv/f6DdRoZvZ6/GX3Hia2HHzvjiGXYtY
+         9DQxwwMRiilS8BJKFTSLtps56ejRO5xkdX4S5R1wdqkRLh+F2WUHwCMmfBDqh8v6V5hy
+         VA9w==
+X-Gm-Message-State: AOAM530TLvNaPiKRcTmc2TPNXLEdo65xlujp5ZLjqijVUwwdT7IkA7jf
+	zTD4AcjTE4uiRUEoD/fuFfSIp9nGcD0rjbpmwAWah8MS2C45mkSpWw==
+X-Received: by 2002:a25:b810:0:b0:644:f485:f842 with SMTP id v16-20020a25b810000000b00644f485f842mr17404336ybj.70.1650911232957;
+        Mon, 25 Apr 2022 11:27:12 -0700 (PDT)
+X-Forwarded-To: mkernaghan@shaw.ca
+X-Forwarded-For: michael.kernaghan@gmail.com mkernaghan@shaw.ca
+Delivered-To: michael.kernaghan@gmail.com
+Received: by 2002:a05:6918:a14c:b0:a7:d357:dbc9 with SMTP id e12csp2836330ysn;
+        Mon, 25 Apr 2022 11:27:11 -0700 (PDT)
+X-Received: by 2002:a05:6870:c8a5:b0:de:8f05:f53f with SMTP id er37-20020a056870c8a500b000de8f05f53fmr12005427oab.76.1650911230976;
+        Mon, 25 Apr 2022 11:27:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1650911230; cv=none;
+        d=google.com; s=arc-20160816;
+        b=dJzCMjUwQk1w/t2Z+kXF1yv3212z+wO7ptiFdhSZH4uTuGfGsu3kEkA0NRD/MdZgNO
+         +CHxsIHSeO4nveHXpkN00RKPQJn0+OuD5UFoWJlddXZ6KyHwUT/J1arrBibqoXxZXLyy
+         MflS8G/4x68gPQcKaty1VE1fEPo2LzP+nKgbKmEyDYs2qfjth1xN4qSnWZ3x4NkZOT0a
+         qxZZmHXb7Hr9ta128swEigGHBi5tTLYRl5iZdozZPvxqwd8FnLhEptHXnLd2+Y0AQmM0
+         mZADUtzYVlWc4GLY6An28xN9uvO+60qS6KgIW87JeRwWtIxPaq9CSZzROiHcXePtoB9n
+         uX4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:date:message-id:references:reply-to:mime-version
+         :dkim-signature;
+        bh=xscqQNrQpr27q834J9gqZMZsUFXeZMTclPIFg/Rfjms=;
+        b=wgtcW5m/i/8tBMnHKMs5dFsaNXhicRkC+klhLTUMORiFHlkI5x6u+I6Yc2zpEV5fym
+         QOAXuAYsTjCw6aetLJo0Ikhgm9AjxVMZyPeAoSxZJsD/PA7q9KxQkha8s653VAxhue6F
+         7b/JgT7io9tIazmdaxHQbIoVmGRV2WrzyTc83ob4Bgd8kqTOz/JBvdHNHA/p33uzIAcj
+         yru6UfsDm/53LyErN+EH95ZSWECxv8t91vHTrdi1U6BQubyOxCrohWw+8bpksZeTLT6r
+         VbfFIXwx6/x25/PcdXkd9EHagROjj+xkA3RqY8/b0hJ1lMVmnyJG+4zDHD3RjgTggBfi
+         RQvA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b="oVjkeRI/";
+       spf=pass (google.com: domain of 3_udmyhckaimkyp2l-zohylz-kt-uvylws5nvvnsl.jvt@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3_udmYhcKAIMkyp2l-zohylz-kt-uvylws5nvvnsl.jvt@doclist.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id v3-20020a05687105c300b000e5faa12839sor3360572oan.75.2022.04.25.11.27.10
+        for <michael.kernaghan@gmail.com>
+        (Google Transport Security);
+        Mon, 25 Apr 2022 11:27:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3_udmyhckaimkyp2l-zohylz-kt-uvylws5nvvnsl.jvt@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b="oVjkeRI/";
+       spf=pass (google.com: domain of 3_udmyhckaimkyp2l-zohylz-kt-uvylws5nvvnsl.jvt@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3_udmYhcKAIMkyp2l-zohylz-kt-uvylws5nvvnsl.jvt@doclist.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=mime-version:reply-to:references:message-id:date:subject:from:to;
+        bh=xscqQNrQpr27q834J9gqZMZsUFXeZMTclPIFg/Rfjms=;
+        b=oVjkeRI/qepM+jgIz3/AoutFE+hc385iCwq8XlApWcZQO37oKiV+MrkDH6S3sf3/l7
+         NGTPZCPr+WgoNJeBAYXtpd+WsXcwKAoCRYLcx/+1g/b6T6kXJGDLCzjovFEX6xphpdvj
+         BK/DYBNJOFCQRW/dkkoZ3clbaOCL3n23KiIYo6R0FZroDxBAblSQ6iBWbFig2XoZa7FV
+         wvoxT3+XlGhaEUbhxXn2P9BvO7vXgxvD5xv3rUuBP/0j1Jtmw3RJ2eJ/rHYF8HezIZHA
+         xIz6gV//g5GjRy/oo3syZZrGf5NW9gViJlIcLBUKZHYtwvmzDfjEY961ElEZZ1pMMsYo
+         vrPw==
+X-Google-Smtp-Source: ABdhPJzpPkBKHseZTlc3+rlrcQJyfIIUMgilFdPgCscPmenBP0axndaFPzz1x14QWWzCJEXwHrG4dkGJkVU=
+MIME-Version: 1.0
+X-Received: by 2002:a05:6870:970f:b0:e6:7f64:43ce with SMTP id
+ n15-20020a056870970f00b000e67f6443cemr8980963oaq.147.1650911230231; Mon, 25
+ Apr 2022 11:27:10 -0700 (PDT)
+Reply-To: Russell Uhler <vyrlson@gmail.com>
+X-No-Auto-Attachment: 1
+References: <da06176b-8f35-4441-8da8-da696c3c71f1@docs-share.google.com>
+Message-ID: <0000000000006f085905dd7eb95b@google.com>
+Date: Mon, 25 Apr 2022 18:27:10 +0000
+Subject: =?UTF-8?Q?Spreadsheet_shared_with_you=3A_=E2=80=98WPG_Croquet_Log_In?=
+	=?UTF-8?Q?=E2=80=99?=
+From: "Russell Uhler (via Google Sheets)" <drive-shares-dm-noreply@google.com>
+To: michael.kernaghan@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000006f084b05dd7eb958"
+X-CMAE-Envelope: MS4xfOZm8GBajD5DEpwqzGh2DV/EUABs+Ca0U+0Sc44BpsOWIQv3rR9MadwZuO19CTrTFhICrdfTQ+9QIVu0aN8cTb6CUohg3rON/dIeRT/ebayFkqO2gvvw
+ Ls9qmjdt29ZO6BuiX+ZNzPbVjss1szP7AAL/0hFjEFIAu6Qi+TEA6ssquqRUtd5OvLfx1+C3Vce1h5TT61S7NdyWTegMwMW2TSz5KrQO6kjaPaMEug8sfvbm
+ ahqGwJwO85UUlxryCPil+Q==
+
+--0000000000006f084b05dd7eb958
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+SSd2ZSBzaGFyZWQgYW4gaXRlbSB3aXRoIHlvdToNCg0KV1BHIENyb3F1ZXQgTG9nIEluDQpodHRw
+czovL2RvY3MuZ29vZ2xlLmNvbS9zcHJlYWRzaGVldHMvZC8xWFc5MDdKWkxrU2ZkYmhiWUVWRFlK
+TFBhdkJMc0VPcGRPZmE2YWpNbFJQay9lZGl0P3VzcD1zaGFyaW5nJnRzPTYyNjZlN2ZlDQoNCkl0
+J3Mgbm90IGFuIGF0dGFjaG1lbnQg4oCTIGl0J3Mgc3RvcmVkIG9ubGluZS4gVG8gb3BlbiB0aGlz
+IGl0ZW0sIGp1c3QgY2xpY2sgIA0KdGhlIGxpbmsgYWJvdmUuDQoNClB1dCBhbiB4IGluIHRoZSBj
+ZWxsIHRoYXQgYXBwbGllcyB0byB5b3VyIGJvb2tpbmcuIFdlIGN1cnJlbnRseSByZXN0cmljdCAg
+DQplYWNoIHNlc3Npb24gdG8gNCBwZW9wbGUuIFNDL0dDIG1lYW5zIFNuYWtlIG9yIEdvbGYsIE9w
+ZW4gaXMgd2hhdCB0aGUgZ3JvdXAgIA0Kd2FudHMgdG8gcGxheS4gQUMvUkMgaXMgQXNzb2NpYXRp
+b24gQ3JvcXVldCBvciBSaWNvY2hldCBDcm9xdWV0Lg0K
+--0000000000006f084b05dd7eb958
+Content-Type: text/x-amp-html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html amp4email><head><meta charset=3D"utf-8"><script async =
+src=3D"https://cdn.ampproject.org/v0.js"></script><script async custom-elem=
+ent=3D"amp-list" src=3D"https://cdn.ampproject.org/v0/amp-list-0.1.js"></sc=
+ript><script async custom-template=3D"amp-mustache" src=3D"https://cdn.ampp=
+roject.org/v0/amp-mustache-0.2.js"></script><script async custom-element=3D=
+"amp-form" src=3D"https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><=
+script async custom-element=3D"amp-bind" src=3D"https://cdn.ampproject.org/=
+v0/amp-bind-0.1.js"></script><script async custom-element=3D"amp-timeago" s=
+rc=3D"https://cdn.ampproject.org/v0/amp-timeago-0.1.js"></script><style amp=
+4email-boilerplate>body{visibility:hidden}</style><style amp-custom>.materi=
+al-button{-webkit-appearance: none; cursor: pointer; outline: none;}.materi=
+al-button:focus {outline: 1px solid transparent;}.material-button:disabled{=
+cursor: initial; outline: none;}.material-button-filled{background-color: #=
+1a73e8; color: #fff;}.material-button-filled:hover{background-color: #1b55c=
+9; box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60,64,=
+67,0.15);}.material-button-filled:focus{background-color: #1b5fb9; box-shad=
+ow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60,64,67,0.15);}.=
+material-button-filled:active{background-color: #1b63c1; box-shadow: 0 1px =
+2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);}.materia=
+l-button-filled:disabled{background-color: rgba(60, 64, 67, .12); color: rg=
+ba(60, 64, 67, .38);}.material-button-transparent{background-color: transpa=
+rent; color: #1a73e8;}.material-button-transparent:hover{background-color: =
+rgba(26, 115, 232, .04);}.material-button-transparent:focus{background-colo=
+r: rgba(26, 115, 232, .12);}.material-button-transparent:active{background-=
+color: rgba(26, 115, 232, .12); box-shadow: 0 1px 3px 1px rgba(60, 64, 67, =
+.15);}.material-button-transparent:disabled{background-color: transparent; =
+color: #3c4043; opacity: 0.38;}@media screen and (max-width: 600px){.conten=
+t-spacer{height: 24px;}.content-spacer-small{height: 12px;}}@media screen a=
+nd (min-width: 601px){.content-spacer{height: 32px;}.content-spacer-small{h=
+eight: 20px;}}.dynamic-content-container-wrapper {margin-left: -6px; table-=
+layout: fixed; width: calc(100% + 12px);}.dynamic-content-container-wrapper=
+ * {hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; word-b=
+reak: break-word;}#dynamic-content-container, .thumbnail-link {border: 1px =
+solid #DADCE0; border-radius: 8px; box-sizing: border-box;}#dynamic-content=
+-container {display: inline-block; max-width: 100%; padding: 20px; width: 4=
+05px;}#dynamic-content-container > * + * {margin-top: 18px;}.dynamic-conten=
+t-heading {display: flex; flex-direction: row;}.dynamic-content-heading > *=
+ + * {margin-left: 10px;}#star-form, #star-button {height: 22px; position: =
+relative; width: 22px;}#star-button {background: none; border: none; displa=
+y: block; outline: none; z-index: 1;}#star-button[disabled] {opacity: 0.4;}=
+#star-button:not([disabled]) {cursor: pointer;}#star-button:not([disabled])=
+:hover + .star-button-circle, #star-button:not([disabled]):focus + .star-bu=
+tton-circle{display: block; outline: 1px solid transparent;}.star-button-ci=
+rcle {background-color: #F1F3F4; border-radius: 50%; display: none; height:=
+ 32px; left: 50%; position: absolute; top: 50%; transform: translate(-50%, =
+-50%); width: 32px;}.unstarred-icon, .starred-icon {bottom: 0; left: 0; pos=
+ition: absolute; right: 0; top: 0; visibility: hidden;}#star-button.starred=
+ > .starred-icon, #star-button.unstarred > .unstarred-icon {visibility: vis=
+ible;}#star-error-message {color: #D93025; font: 400 14px/16px Roboto, Aria=
+l, Helvetica, sans-serif; margin-top: 5px;}.display-none {display: none;}.t=
+humbnail-link {display: block; overflow: hidden; position: relative;}.thumb=
+nail-open {align-items: center; background-color: #202124; bottom: 0; color=
+: white; display: none; font: 400 14px/16px Google Sans, Roboto, Arial, Hel=
+vetica, sans-serif; justify-content: center; left: 0; letter-spacing: 0.15p=
+x; opacity: 65%; position: absolute; right: 0; top: 0; z-index: 1;}.thumbna=
+il-link:hover > .thumbnail-open, .thumbnail-link:focus > .thumbnail-open {d=
+isplay: flex;}amp-img.cover img {object-fit: cover; object-position: 0 0;}.=
+large-icon-container {align-items: center; display: flex; height: 100%; jus=
+tify-content: center;}.dynamic-message {align-items: center; display: flex;=
+ flex-direction: row;}.dynamic-message > amp-img {flex-shrink: 0;}.dynamic-=
+message > span {color: #5F6368; font: 400 14px/18px Roboto, Arial, Helvetic=
+a, sans-serif; letter-spacing: 0; margin-left: 18px;}.dynamic-message-summa=
+ry {margin-left: 16px; margin-top: 4px;}.blue-text-header {color: #1a73e8; =
+font-weight: 500;}.horizontal-rule-wrapper {margin-top: 16px;}#amp-timeago =
+{display: inline;}</style></head><body><amp-list diffable binding=3D"refres=
+h-evaluate" src=3D"https://drive.google.com/sharing/dynamicmail/fetchinvite=
+?ts=3D6266e7fe&amp;shareService=3Dritz&amp;hl=3Den-GB&amp;id=3D1XW907JZLkSf=
+dbhbYEVDYJLPavBLsEOpdOfa6ajMlRPk&amp;dynamicEmailToken=3DAdlh7amsDAAVpv5s6c=
+pVKIBp2X6JfUThXs7TfqIM-0BsYGjmge_Y1caBmTSrvQD4ZXrnAdeP9Sw1O4No8Buh5V5b389yX=
+5C_EBOKZPTwQHNKF7btmppbgXwOdpOUMMqL6TqO03M3lSGH7Q%3D%3D&amp;resourcekey&amp=
+;buildLabel=3Ddrive.explorer_20220415.08_p0" single-item items=3D"." layout=
+=3D"container"><template type=3D"amp-mustache"><table style=3D"border-colla=
+pse: collapse; width: 100%; background-color: white; text-align: center;" r=
+ole=3D"presentation"><tr><td style=3D"padding: 24px 0 16px 0;"><table style=
+=3D"border-collapse: collapse;font-family: Roboto, Arial, Helvetica, sans-s=
+erif;hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word;display: inline-block; width: 90%;max-width: 700px;min-wi=
+dth: 280px; text-align: left;" role=3D"presentation"><tr><td style=3D"paddi=
+ng: 0;"><table style=3D"width:100%; border: 1px solid #dadce0; border-radiu=
+s: 8px; border-spacing: 0; table-layout:fixed; border-collapse: separate;" =
+role=3D"presentation"><tr><td style=3D"padding: 4.5%;" dir=3D"ltr"><div sty=
+le=3D"margin-bottom:32px;font-family: Google Sans, Roboto, Arial, Helvetica=
+, sans-serif; font-style: normal; font-size: 28px; line-height: 36px; color=
+: #3c4043;"><a href=3D"mailto:vyrlson@gmail.com" style=3D"color:inherit;tex=
+t-decoration:none">vyrlson@gmail.com</a> shared a spreadsheet</div><table s=
+tyle=3D"border-collapse: collapse;font-family: Roboto, Arial, Helvetica, sa=
+ns-serif; font-size:16px; line-height:24px; color:#202124; letter-spacing:0=
+.1px; table-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"p=
+resentation"><tr><td style=3D"padding: 0; vertical-align:top; width:50px;">=
+<!--[if mso]><v:oval xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"u=
+rn:schemas-microsoft-com:office:word" style=3D"height:50px;width:50px;" fil=
+l=3D"t" stroke=3D"f"><v:fill type=3D"frame" src=3D"https://ssl.gstatic.com/=
+s2/profiles/images/silhouette64.png" alt=3D"Unknown profile photo" style=3D=
+"height:50px;width:50px;"/></v:oval><![endif]--><div style=3D"mso-hide:all;=
+"><amp-img style=3D"border-radius:50%; display:block;" width=3D"50" height=
+=3D"50" src=3D"https://ssl.gstatic.com/s2/profiles/images/silhouette64.png"=
+ alt=3D"Unknown profile photo"></amp-img></div></td><td style=3D"padding: 0=
+; vertical-align:top; padding-left:12px;"><div style=3D"padding-top:12px;">=
+<a href=3D"mailto:vyrlson@gmail.com" style=3D"color:inherit;text-decoration=
+:none">vyrlson@gmail.com</a> has invited you to <b>edit</b> the following s=
+preadsheet:</div><div style=3D"margin-top:24px; color:#5F6368">Put an x in =
+the cell that applies to your booking. We currently restrict each session t=
+o 4 people. SC/GC means Snake or Golf, Open is what the group wants to play=
+. AC/RC is Association Croquet or Ricochet Croquet.</div></td></tr></table>=
+<table class=3D"dynamic-content-container-wrapper" role=3D"presentation"><t=
+r style=3D"height: 20px;"></tr><tr><td id=3D"dynamic-content-container" rol=
+e=3D"presentation" tabindex=3D"0"><div class=3D"dynamic-content-heading"><a=
+ href=3D"https://docs.google.com/spreadsheets/d/1XW907JZLkSfdbhbYEVDYJLPavB=
+LsEOpdOfa6ajMlRPk/edit?usp=3Dsharing_eil_se_dm&amp;ts=3D6266e7fe" target=3D=
+"_blank" style=3D"color: #3c4043; display: inline-block; max-width: 100%; t=
+ext-decoration: none; vertical-align: top;display: flex; flex-direction: co=
+lumn; justify-content: center;"><div style=3D"line-height: 18px; overflow: =
+hidden; text-overflow: ellipsis;display: flex;"><span style=3D"display: inl=
+ine-block; vertical-align: top; min-width: 26px; width: 26px;"><amp-img src=
+=3D"https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadshee=
+t_x64.png" width=3D"18" height=3D"18" style=3D"vertical-align: top;" role=
+=3D"presentation"></amp-img></span><span style=3D"font: 500 14px/18px Googl=
+e Sans, Roboto, Arial, Helvetica, sans-serif; display: inline; letter-spaci=
+ng: 0.2px;">WPG Croquet Log In</span></div></a><form id=3D"star-form" actio=
+n-xhr=3D"https://drive.google.com/sharing/dynamicmail/star?ts=3D6266e7fe&am=
+p;shareService=3Dritz&amp;hl=3Den-GB&amp;id=3D1XW907JZLkSfdbhbYEVDYJLPavBLs=
+EOpdOfa6ajMlRPk&amp;dynamicEmailToken=3DAdlh7amsDAAVpv5s6cpVKIBp2X6JfUThXs7=
+TfqIM-0BsYGjmge_Y1caBmTSrvQD4ZXrnAdeP9Sw1O4No8Buh5V5b389yX5C_EBOKZPTwQHNKF7=
+btmppbgXwOdpOUMMqL6TqO03M3lSGH7Q%3D%3D&amp;resourcekey&amp;buildLabel=3Ddri=
+ve.explorer_20220415.08_p0" method=3D"post" on=3D"submit: dynamic-content-c=
+ontainer.focus, AMP.setState({starButton: {value: starButton =3D=3D null ? =
+{{starredByRequester}} : starButton.value, inProgress: true, error: false}}=
+); submit-success: AMP.setState({starButton: {value: !starButton.value, inP=
+rogress: false, error: false}}); submit-error: AMP.setState({starButton: {i=
+nProgress: false, error: true}});"><input type=3D"hidden" name=3D"starred" =
+value=3D"{{#starredByRequester}}false{{/starredByRequester}}{{^starredByReq=
+uester}}true{{/starredByRequester}}" data-amp-bind-value=3D"starButton.valu=
+e ? 'false' : 'true'"><button id=3D"star-button" class=3D"{{#starredByReque=
+ster}}starred{{/starredByRequester}}{{^starredByRequester}}unstarred{{/star=
+redByRequester}}" data-amp-bind-class=3D"starButton.value ? 'starred' : 'un=
+starred'" type=3D"submit" aria-live=3D"polite" aria-label=3D"{{#starredByRe=
+quester}}Starred{{/starredByRequester}}{{^starredByRequester}}Unstarred{{/s=
+tarredByRequester}}" data-amp-bind-aria-label=3D"starButton.value ? 'Starre=
+d' : 'Unstarred'" title=3D"Star in Drive" data-amp-bind-disabled=3D"starBut=
+ton.inProgress"><amp-img src=3D"https://fonts.gstatic.com/s/i/googlemateria=
+licons/star_border/v8/gm_grey-48dp/1x/gm_star_border_gm_grey_48dp.png" layo=
+ut=3D"fixed" width=3D"22" height=3D"22" role=3D"presentation" aria-hidden=
+=3D"true" class=3D"unstarred-icon"></amp-img><amp-img src=3D"https://fonts.=
+gstatic.com/s/i/googlematerialicons/star/v8/gm_grey-48dp/1x/gm_star_gm_grey=
+_48dp.png" layout=3D"fixed" width=3D"22" height=3D"22" role=3D"presentation=
+" aria-hidden=3D"true" class=3D"starred-icon"></amp-img></button><div class=
+=3D"star-button-circle"></div></form></div><div id=3D"star-error-message" c=
+lass=3D"display-none" data-amp-bind-class=3D"starButton.error ? '' : 'displ=
+ay-none'">Something went wrong. Try again</div><a href=3D"https://docs.goog=
+le.com/spreadsheets/d/1XW907JZLkSfdbhbYEVDYJLPavBLsEOpdOfa6ajMlRPk/edit?usp=
+=3Dsharing_eil_se_dm&amp;ts=3D6266e7fe" target=3D"_blank" class=3D"thumbnai=
+l-link"><amp-layout layout=3D"responsive" width=3D"386" height=3D"202">{{#t=
+humbnailUrl}}<amp-img class=3D"cover" src=3D"{{thumbnailUrl}}" layout=3D"fi=
+ll"><div class=3D"large-icon-container" fallback><amp-img src=3D"https://dr=
+ive-thirdparty.googleusercontent.com/256/type/application/vnd.google-apps.s=
+preadsheet" width=3D"80" height=3D"80"></amp-img></div></amp-img>{{/thumbna=
+ilUrl}}{{^thumbnailUrl}}<div class=3D"large-icon-container"><amp-img src=3D=
+"https://drive-thirdparty.googleusercontent.com/256/type/application/vnd.go=
+ogle-apps.spreadsheet" width=3D"80" height=3D"80"></amp-img></div>{{/thumbn=
+ailUrl}}</amp-layout><div class=3D"thumbnail-open">Open</div></a>{{#summary=
+Description}}<div><div class=3D"dynamic-message"><amp-img src=3D"https://ww=
+w.gstatic.com/docs/documents/share/images/smart_summary.png" layout=3D"fixe=
+d" width=3D"16" height=3D"16" role=3D"presentation" aria-hidden=3D"true"></=
+amp-img><span><span class=3D"blue-text-header">Summary</span></span></div><=
+div class=3D"dynamic-message dynamic-message-summary"><span>{{summaryDescri=
+ption}}</span></div><div class=3D"horizontal-rule-wrapper"><div style=3D"he=
+ight: 1px; background-color: #DADCE0;"></div></div></div>{{/summaryDescript=
+ion}}{{#ownerOrCreatorMessage}}<div class=3D"dynamic-message"><amp-img src=
+=3D"https://www.gstatic.com/docs/documents/share/images/person.png" layout=
+=3D"fixed" width=3D"16" height=3D"16" role=3D"presentation" aria-hidden=3D"=
+true"></amp-img><span>{{ownerOrCreatorMessage}}</span></div>{{/ownerOrCreat=
+orMessage}}{{#lastEdited}}<div class=3D"dynamic-message"><amp-img src=3D"ht=
+tps://www.gstatic.com/docs/documents/share/images/clock.png" layout=3D"fixe=
+d" width=3D"16" height=3D"16" role=3D"presentation" aria-hidden=3D"true"></=
+amp-img><span>Last edited by {{lastEdited.editor}} <amp-timeago id=3D"amp-t=
+imeago" layout=3D"fixed-height" height=3D"1" datetime=3D"{{lastEdited.datet=
+ime}}" locale=3D"enGB">{{lastEdited.datetime}}</amp-timeago></span></div>{{=
+/lastEdited}}</td></tr></table><table style=3D"border-collapse: collapse;" =
+role=3D"presentation"><tr style=3D"height: 32px"><td></td></tr></table><div=
+><a href=3D"https://docs.google.com/spreadsheets/d/1XW907JZLkSfdbhbYEVDYJLP=
+avBLsEOpdOfa6ajMlRPk/edit?usp=3Dsharing_eip_se_dm&amp;ts=3D6266e7fe" class=
+=3D"material-button material-button-filled" target=3D"_blank" tabindex=3D"0=
+" role=3D"button" style=3D"padding: 0 24px;font: 500 14px/36px Google Sans,=
+ Roboto, Arial, Helvetica, sans-serif; border: none; border-radius: 18px; b=
+ox-sizing: border-box; display: inline-block; letter-spacing: .25px; min-he=
+ight: 36px; text-align: center; text-decoration: none;">Open</a></div><tabl=
+e style=3D"border-collapse: collapse;" role=3D"presentation"><tr style=3D"h=
+eight: 32px"><td></td></tr></table><div style=3D"font-size: 12px; color: #5=
+F6368">If you don't want to receive files from this person, <a href=3D"http=
+s://drive.google.com/drive/blockuser?blockerEmail=3Dmichael.kernaghan@gmail=
+.com&amp;blockeeEmail=3Dvyrlson@gmail.com&amp;usp=3Dsharing_eib_se_dm" targ=
+et=3D"_blank" style=3D"color: #1a73e8; text-decoration: none;">block the se=
+nder</a> from Drive</div></td></tr></table><table style=3D"border-collapse:=
+ collapse; width: 100%;" role=3D"presentation"><tr><td style=3D"padding: 24=
+px 4.5%"><table style=3D"border-collapse: collapse; width: 100%;" dir=3D"lt=
+r"><tr><td style=3D"padding: 0;font-family: Roboto, Arial, Helvetica, sans-=
+serif; color: #5F6368; width: 100%; font-size: 12px; line-height: 16px; min=
+-height: 40px; letter-spacing: .3px;">Google LLC, 1600 Amphitheatre Parkway=
+, Mountain View, CA 94043, USA<br/> You have received this email because <a=
+ href=3D"mailto:vyrlson@gmail.com" style=3D"color:inherit;text-decoration:n=
+one">vyrlson@gmail.com</a> shared a spreadsheet with you from Google Sheets=
+.</td><td style=3D"padding: 0; padding-left: 20px;"><a href=3D"https://www.=
+google.com/" target=3D"_blank"><amp-img src=3D"https://www.gstatic.com/imag=
+es/branding/googlelogo/2x/googlelogo_grey_tm_color_96x40dp.png" width=3D"96=
+" height=3D"40" alt=3D"Logo for Google Sheets"></amp-img></a></td></tr></ta=
+ble></td></tr></table></td></tr></table></td></tr></table></template><div r=
+ole=3D"list"><table style=3D"border-collapse: collapse; width: 100%; backgr=
+ound-color: white; text-align: center;" role=3D"presentation"><tr><td style=
+=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: collapse;font=
+-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; overflow-wrap:=
+ break-word; word-wrap: break-word; word-break: break-word;display: inline-=
+block; width: 90%;max-width: 700px;min-width: 280px; text-align: left;" rol=
+e=3D"presentation"><tr><td style=3D"padding: 0;"><table style=3D"width:100%=
+; border: 1px solid #dadce0; border-radius: 8px; border-spacing: 0; table-l=
+ayout:fixed; border-collapse: separate;" role=3D"presentation"><tr><td styl=
+e=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:32px;font-fami=
+ly: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-style: normal; =
+font-size: 28px; line-height: 36px; color: #3c4043;"><a href=3D"mailto:vyrl=
+son@gmail.com" style=3D"color:inherit;text-decoration:none">vyrlson@gmail.c=
+om</a> shared a spreadsheet</div><table style=3D"border-collapse: collapse;=
+font-family: Roboto, Arial, Helvetica, sans-serif; font-size:16px; line-hei=
+ght:24px; color:#202124; letter-spacing:0.1px; table-layout:fixed; width:10=
+0%; overflow-wrap: break-word;" role=3D"presentation"><tr><td style=3D"padd=
+ing: 0; vertical-align:top; width:50px;"><!--[if mso]><v:oval xmlns:v=3D"ur=
+n:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:wo=
+rd" style=3D"height:50px;width:50px;" fill=3D"t" stroke=3D"f"><v:fill type=
+=3D"frame" src=3D"https://ssl.gstatic.com/s2/profiles/images/silhouette64.p=
+ng" alt=3D"Unknown profile photo" style=3D"height:50px;width:50px;"/></v:ov=
+al><![endif]--><div style=3D"mso-hide:all;"><amp-img style=3D"border-radius=
+:50%; display:block;" width=3D"50" height=3D"50" src=3D"https://ssl.gstatic=
+.com/s2/profiles/images/silhouette64.png" alt=3D"Unknown profile photo"></a=
+mp-img></div></td><td style=3D"padding: 0; vertical-align:top; padding-left=
+:12px;"><div style=3D"padding-top:12px;"><a href=3D"mailto:vyrlson@gmail.co=
+m" style=3D"color:inherit;text-decoration:none">vyrlson@gmail.com</a> has i=
+nvited you to <b>edit</b> the following spreadsheet:</div><div style=3D"mar=
+gin-top:24px; color:#5F6368">Put an x in the cell that applies to your book=
+ing. We currently restrict each session to 4 people. SC/GC means Snake or G=
+olf, Open is what the group wants to play. AC/RC is Association Croquet or =
+Ricochet Croquet.</div></td></tr></table><table style=3D"border-spacing:0 4=
+px; table-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"pre=
+sentation"><tr style=3D"height:28px;"></tr><tr><td style=3D"padding: 0;"><a=
+ href=3D"https://docs.google.com/spreadsheets/d/1XW907JZLkSfdbhbYEVDYJLPavB=
+LsEOpdOfa6ajMlRPk/edit?usp=3Dsharing_eil_se_dm&amp;ts=3D6266e7fe" target=3D=
+"_blank" style=3D"color: #3c4043; display: inline-block; max-width: 100%; t=
+ext-decoration: none; vertical-align: top;border: 1px solid #DADCE0; border=
+-radius: 16px; white-space: nowrap;"><div style=3D"line-height: 18px; overf=
+low: hidden; text-overflow: ellipsis;padding: 6px 12px;"><span style=3D"dis=
+play: inline-block; vertical-align: top; min-width: 26px; width: 26px;"><am=
+p-img src=3D"https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_s=
+preadsheet_x64.png" width=3D"18" height=3D"18" style=3D"vertical-align: top=
+;" role=3D"presentation"></amp-img></span><span style=3D"font: 500 14px/18p=
+x Google Sans, Roboto, Arial, Helvetica, sans-serif; display: inline; lette=
+r-spacing: 0.2px;">WPG Croquet Log In</span></div></a></td></tr></table><ta=
+ble style=3D"border-collapse: collapse;" role=3D"presentation"><tr style=3D=
+"height: 32px"><td></td></tr></table><div><a href=3D"https://docs.google.co=
+m/spreadsheets/d/1XW907JZLkSfdbhbYEVDYJLPavBLsEOpdOfa6ajMlRPk/edit?usp=3Dsh=
+aring_eip_se_dm&amp;ts=3D6266e7fe" class=3D"material-button material-button=
+-filled" target=3D"_blank" tabindex=3D"0" role=3D"button" style=3D"padding:=
+ 0 24px;font: 500 14px/36px Google Sans, Roboto, Arial, Helvetica, sans-ser=
+if; border: none; border-radius: 18px; box-sizing: border-box; display: inl=
+ine-block; letter-spacing: .25px; min-height: 36px; text-align: center; tex=
+t-decoration: none;">Open</a></div><table style=3D"border-collapse: collaps=
+e;" role=3D"presentation"><tr style=3D"height: 32px"><td></td></tr></table>=
+<div style=3D"font-size: 12px; color: #5F6368">If you don't want to receive=
+ files from this person, <a href=3D"https://drive.google.com/drive/blockuse=
+r?blockerEmail=3Dmichael.kernaghan@gmail.com&amp;blockeeEmail=3Dvyrlson@gma=
+il.com&amp;usp=3Dsharing_eib_se_dm" target=3D"_blank" style=3D"color: #1a73=
+e8; text-decoration: none;">block the sender</a> from Drive</div></td></tr>=
+</table><table style=3D"border-collapse: collapse; width: 100%;" role=3D"pr=
+esentation"><tr><td style=3D"padding: 24px 4.5%"><table style=3D"border-col=
+lapse: collapse; width: 100%;" dir=3D"ltr"><tr><td style=3D"padding: 0;font=
+-family: Roboto, Arial, Helvetica, sans-serif; color: #5F6368; width: 100%;=
+ font-size: 12px; line-height: 16px; min-height: 40px; letter-spacing: .3px=
+;">Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA<br/>=
+ You have received this email because <a href=3D"mailto:vyrlson@gmail.com" =
+style=3D"color:inherit;text-decoration:none">vyrlson@gmail.com</a> shared a=
+ spreadsheet with you from Google Sheets.</td><td style=3D"padding: 0; padd=
+ing-left: 20px;"><a href=3D"https://www.google.com/" target=3D"_blank"><amp=
+-img src=3D"https://www.gstatic.com/images/branding/googlelogo/2x/googlelog=
+o_grey_tm_color_96x40dp.png" width=3D"96" height=3D"40" alt=3D"Logo for Goo=
+gle Sheets"></amp-img></a></td></tr></table></td></tr></table></td></tr></t=
+able></td></tr></table></div></amp-list></body></html>
+--0000000000006f084b05dd7eb958
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><table style=3D"border-collapse: collapse; width: =
+100%; background-color: white; text-align: center;" role=3D"presentation"><=
+tr><td style=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: c=
+ollapse;font-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; ov=
+erflow-wrap: break-word; word-wrap: break-word; word-break: break-word;disp=
+lay: inline-block; width: 90%;max-width: 700px;min-width: 280px; text-align=
+: left;" role=3D"presentation"><tr><td style=3D"padding: 0;"><table style=
+=3D"width:100%; border: 1px solid #dadce0; border-radius: 8px; border-spaci=
+ng: 0; table-layout:fixed; border-collapse: separate;" role=3D"presentation=
+"><tr><td style=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:=
+32px;font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-s=
+tyle: normal; font-size: 28px; line-height: 36px; color: #3c4043;"><a href=
+=3D"mailto:vyrlson@gmail.com" style=3D"color:inherit;text-decoration:none">=
+vyrlson@gmail.com</a> shared a spreadsheet</div><table style=3D"border-coll=
+apse: collapse;font-family: Roboto, Arial, Helvetica, sans-serif; font-size=
+:16px; line-height:24px; color:#202124; letter-spacing:0.1px; table-layout:=
+fixed; width:100%; overflow-wrap: break-word;" role=3D"presentation"><tr><t=
+d style=3D"padding: 0; vertical-align:top; width:50px;"><!--[if mso]><v:ova=
+l xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsof=
+t-com:office:word" style=3D"height:50px;width:50px;" fill=3D"t" stroke=3D"f=
+"><v:fill type=3D"frame" src=3D"https://ssl.gstatic.com/s2/profiles/images/=
+silhouette64.png" alt=3D"Unknown profile photo" style=3D"height:50px;width:=
+50px;"/></v:oval><![endif]--><div style=3D"mso-hide:all;"><img style=3D"bor=
+der-radius:50%; display:block;" width=3D"50" height=3D"50" src=3D"https://s=
+sl.gstatic.com/s2/profiles/images/silhouette64.png" alt=3D"Unknown profile =
+photo"></div></td><td style=3D"padding: 0; vertical-align:top; padding-left=
+:12px;"><div style=3D"padding-top:12px;"><a href=3D"mailto:vyrlson@gmail.co=
+m" style=3D"color:inherit;text-decoration:none">vyrlson@gmail.com</a> has i=
+nvited you to <b>edit</b> the following spreadsheet:</div><div style=3D"mar=
+gin-top:24px; color:#5F6368">Put an x in the cell that applies to your book=
+ing. We currently restrict each session to 4 people. SC/GC means Snake or G=
+olf, Open is what the group wants to play. AC/RC is Association Croquet or =
+Ricochet Croquet.</div></td></tr></table><table style=3D"border-spacing:0 4=
+px; table-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"pre=
+sentation"><tr style=3D"height:28px;"></tr><tr><td style=3D"padding: 0;"><a=
+ href=3D"https://docs.google.com/spreadsheets/d/1XW907JZLkSfdbhbYEVDYJLPavB=
+LsEOpdOfa6ajMlRPk/edit?usp=3Dsharing_eil_m&amp;ts=3D6266e7fe" target=3D"_bl=
+ank" style=3D"color: #3c4043; display: inline-block; max-width: 100%; text-=
+decoration: none; vertical-align: top;border: 1px solid #DADCE0; border-rad=
+ius: 16px; white-space: nowrap;"><div style=3D"line-height: 18px; overflow:=
+ hidden; text-overflow: ellipsis;padding: 6px 12px;"><span style=3D"display=
+: inline-block; vertical-align: top; min-width: 26px; width: 26px;"><img sr=
+c=3D"https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_spreadshe=
+et_x64.png" width=3D"18" height=3D"18" style=3D"vertical-align: top;" role=
+=3D"presentation"></span><span style=3D"font: 500 14px/18px Google Sans, Ro=
+boto, Arial, Helvetica, sans-serif; display: inline; letter-spacing: 0.2px;=
+">WPG Croquet Log In</span></div></a></td></tr></table><table style=3D"bord=
+er-collapse: collapse;" role=3D"presentation"><tr style=3D"height: 32px"><t=
+d></td></tr></table><div><!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-m=
+icrosoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D=
+"https://docs.google.com/spreadsheets/d/1XW907JZLkSfdbhbYEVDYJLPavBLsEOpdOf=
+a6ajMlRPk/edit?usp=3Dsharing_eip_m&amp;ts=3D6266e7fe" style=3D"height:36px;=
+v-text-anchor:middle;width:100px;" arcsize=3D"50%" stroke=3D"f" fillcolor=
+=3D"#1a73e8"><w:anchorlock/><center style=3D"color:#ffffff;font-family:Aria=
+l,Helvetica,sans-serif;font-weight:500;font-size:14px;">Open </center></v:r=
+oundrect><![endif]--><a href=3D"https://docs.google.com/spreadsheets/d/1XW9=
+07JZLkSfdbhbYEVDYJLPavBLsEOpdOfa6ajMlRPk/edit?usp=3Dsharing_eip_m&amp;ts=3D=
+6266e7fe" class=3D"material-button material-button-filled" target=3D"_blank=
+" tabindex=3D"0" role=3D"button" style=3D"mso-hide:all;padding: 0 24px;font=
+: 500 14px/36px Google Sans, Roboto, Arial, Helvetica, sans-serif; border: =
+none; border-radius: 18px; box-sizing: border-box; display: inline-block; l=
+etter-spacing: .25px; min-height: 36px; text-align: center; text-decoration=
+: none;background-color: #1a73e8; color: #fff; cursor: pointer;">Open</a></=
+div><table style=3D"border-collapse: collapse;" role=3D"presentation"><tr s=
+tyle=3D"height: 32px"><td></td></tr></table><div style=3D"font-size: 12px; =
+color: #5F6368">If you don't want to receive files from this person, <a hre=
+f=3D"https://drive.google.com/drive/blockuser?blockerEmail=3Dmichael.kernag=
+han@gmail.com&amp;blockeeEmail=3Dvyrlson@gmail.com&amp;usp=3Dsharing_eib_m"=
+ target=3D"_blank" style=3D"color: #1a73e8; text-decoration: none;">block t=
+he sender</a> from Drive</div></td></tr></table><table style=3D"border-coll=
+apse: collapse; width: 100%;" role=3D"presentation"><tr><td style=3D"paddin=
+g: 24px 4.5%"><table style=3D"border-collapse: collapse; width: 100%;" dir=
+=3D"ltr"><tr><td style=3D"padding: 0;font-family: Roboto, Arial, Helvetica,=
+ sans-serif; color: #5F6368; width: 100%; font-size: 12px; line-height: 16p=
+x; min-height: 40px; letter-spacing: .3px;">Google LLC, 1600 Amphitheatre P=
+arkway, Mountain View, CA 94043, USA<br/> You have received this email beca=
+use <a href=3D"mailto:vyrlson@gmail.com" style=3D"color:inherit;text-decora=
+tion:none">vyrlson@gmail.com</a> shared a spreadsheet with you from Google =
+Sheets.</td><td style=3D"padding: 0; padding-left: 20px;"><a href=3D"https:=
+//www.google.com/" target=3D"_blank"><img src=3D"https://www.gstatic.com/im=
+ages/branding/googlelogo/2x/googlelogo_grey_tm_color_96x40dp.png" width=3D"=
+96" height=3D"40" alt=3D"Logo for Google Sheets"></a></td></tr></table></td=
+></tr></table></td></tr></table></td></tr></table></body></html>
+--0000000000006f084b05dd7eb958--

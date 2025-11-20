@@ -1,0 +1,100 @@
+Return-Path: <brodercj@tcd.ie>
+Received: from mi02-ssvc.dcs.int.inet (LHLO mi02.dcs.int.inet)
+ (10.0.153.211) by cds207.dcs.int.inet with LMTP; Wed, 1 Feb 2023 10:32:24
+ -0700 (MST)
+Received: from shw-ibgw-4001a.ext.cloudfilter.net (lb7f8hsrpno-dmz.dcs.int.inet [10.0.143.222])
+	by mi02.dcs.int.inet (Postfix) with ESMTPS id 666711280376
+	for <mkernaghan@shaw.ca>; Wed,  1 Feb 2023 10:32:24 -0700 (MST)
+Received: from mail-ej1-f44.google.com ([209.85.218.44])
+	by cmsmtp with ESMTP
+	id NGwnpBBOo1Wg2NGy7pli4r; Wed, 01 Feb 2023 17:32:23 +0000
+X-SHW-ORIG-RCPT: mkernaghan@shaw.ca
+X-Authority-Analysis: v=2.4 cv=TZCFCDch c=1 sm=1 tr=0 ts=63daa227 cx=a_idp_d
+ a=Wv8LZU+Qh79jBM16Q2fFLA==:117 a=m04uMKEZRckA:10 a=hIGt43B1eC3b1dbdWtkA:9
+ a=QEXdDO2ut3YA:10 a=howPDJrJ-k9VePF2UeQA:9 a=I0HhnHC24pva-dE0:21
+Received: by mail-ej1-f44.google.com with SMTP id dr8so32003158ejc.12
+        for <mkernaghan@shaw.ca>; Wed, 01 Feb 2023 09:32:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tcd.ie; s=google21;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fwnMkWuPQcrZ6gucKd+u191IP8wzL3xIDf9VGNxTapw=;
+        b=Aw4R4HmSY7bWlsUF/K5Trk76GFz/FKA1kUV32lPBHwOQXvb2T9BC93f8dTA9JRh/W+
+         xHFJIjdbxeevzIawT2Uj1M/JqVdt/JcbDQrcEX9UzPcgxgj2pUCmPxQJmyVSjxMbMsN1
+         xvOubJ4Wxde0obvIjH9qv67QFApPoxM6V4yrT65nUyn5nZ5PCYH170A1hDkh5hZ4sv6C
+         AA6d8Ze73lxMwnYM3BOsnbex/mrFDC27zzvw2YO+0rd6ofFSUDFfBN1BJ0eM2mliePkJ
+         e+moQlQCb9hAh8cnutcPiQyhbRZ5+BSFoPCebaAHDbkZ+ITjWeOHZFXSsIocjYqxfHPZ
+         za1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fwnMkWuPQcrZ6gucKd+u191IP8wzL3xIDf9VGNxTapw=;
+        b=JJZbubY2fM4sTZZHnkIVZ5mYGDvhjKrcV7zHc+pqNrEK9k/1svT6OxWubWQPMYplWf
+         cxxhpVuBfI03PXP1ZrR0TMfyZMsLaUSUgVU9P3SRDWeRXBzjYg5G+QQP3H7C4w7FARX/
+         hipyGWHjtz8xAqXKjep25wbMRuYxDjJXQN70JEjQENxzP2LE9lB9ugh6xIgUAL6lzwMY
+         l+5ElTK8ssU5VjkX5LGBcgW4PPq1upoRXU0N5/rXjmJG0zVqbNVWyMFv0BPggu9aVP/W
+         8+laFFm/yWrF2m1D7N0Vf+oZZ7a1AXjmqzJ4mZI2nwcAHiWmgmaLi/X89oVeI48NMnzX
+         QzGg==
+X-Gm-Message-State: AO0yUKVbf+MtwNVsVYKiuYpANS9LvJUdb1mskh30fu7pXj5F4AvEeu59
+	qfmtXSbXCZk6ds97zrcYjCoyjlQvpikWbq2sjUNfMsr3Arg0Qg==
+X-Google-Smtp-Source: AK7set8bc8Kfzk+6j4SQjfzxV92vBiM6JkR7miHAcDvmdc0IIyN40eiWHHnwfQezTbh8mcpiEXaRY0JWGFGqKiR3dxg=
+X-Received: by 2002:a17:906:c1c8:b0:78d:b819:e0e7 with SMTP id
+ bw8-20020a170906c1c800b0078db819e0e7mr829564ejb.83.1675272742517; Wed, 01 Feb
+ 2023 09:32:22 -0800 (PST)
+MIME-Version: 1.0
+From: Conor Broderick <brodercj@tcd.ie>
+Date: Wed, 1 Feb 2023 09:32:12 -0800
+Message-ID: <CAPEqPv2aj5DZBGnBDrJTwi1SQzZK-5hfYUjZnctuiT_ycnFyzA@mail.gmail.com>
+Subject: 2023 Croquet
+To: Mike Kernaghan <mkernaghan@shaw.ca>
+Content-Type: multipart/alternative; boundary="000000000000b854e605f3a6d4ef"
+X-CMAE-Envelope: MS4xfDdsxd8fRkSYtR+wK0RKZEobMHxlmafn7Xy9EpZb7MRDntxAbdt3CQuSUJYHORLR0d5ijJlDe9qTalArgYV7YzmpvJ+udS9Dh7zyVzwKnVugRDv3A3qH
+ 42IEb8GDXgR+iJ+FTfg469rCRzrLnu+mnuhuiogzv3vJxPApWLSQsYywVXwtqh2YZkXqSyVnnwIX0g==
+
+--000000000000b854e605f3a6d4ef
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Mike,
+
+Hope all is well with you!
+
+The lawns at West Van are still off limits due to reseeding until April I
+believe.
+
+Hopefully we can get you down for some play after that. I can sponsor you
+for membership for the first year and then you would be free to pop by
+whenever.
+
+Do you have any contacts for the croquet committee (if there is such a
+thing) at west point grey..
+
+It would be good to coordinate some interclub activity with them and Dunbar
+croquet club seeming as we're all on the same side of the water..
+
+Even if it was just a very basic beginner level golf croquet event or
+something.
+
+Hope all is well with you and that you had a good Christmas!
+
+Conor
+
+--000000000000b854e605f3a6d4ef
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><div>Hi Mike,</div><div><br></div><div>Hope all is wel=
+l with=C2=A0you!</div><div><br></div><div>The lawns at West Van are still o=
+ff limits due to reseeding until April I believe.</div><div><br></div><div>=
+Hopefully we can get you down for some play after that. I can sponsor you f=
+or membership for the first year and then you would be free to pop by whene=
+ver.</div><div><br></div><div>Do you have any contacts for the croquet comm=
+ittee=C2=A0(if there is such a thing) at west point grey..</div><div><br></=
+div><div>It would be good to coordinate some interclub activity with them a=
+nd Dunbar croquet club seeming as we&#39;re all on the same side of the wat=
+er..</div><div><br></div><div>Even if it was just a very basic beginner lev=
+el golf croquet event or something.</div><div><br></div><div>Hope all is we=
+ll with you and that you had a good Christmas!</div><div><br></div><div>Con=
+or</div></div>
+
+--000000000000b854e605f3a6d4ef--

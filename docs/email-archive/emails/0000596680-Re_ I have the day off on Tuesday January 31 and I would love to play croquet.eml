@@ -1,0 +1,128 @@
+Return-Path: <sue@dixcooper.ca>
+Received: from mi01-ssvc.dcs.int.inet (LHLO mi01.dcs.int.inet)
+ (10.0.153.210) by cds207.dcs.int.inet with LMTP; Tue, 17 Jan 2023 10:33:49
+ -0700 (MST)
+Received: from shw-ibgw-4003a.ext.cloudfilter.net (lb7f8hsrpno-dmz.dcs.int.inet [10.0.143.222])
+	by mi01.dcs.int.inet (Postfix) with ESMTPS id 3F67A128024A
+	for <mkernaghan@shaw.ca>; Tue, 17 Jan 2023 10:33:49 -0700 (MST)
+Received: from mail-il1-f172.google.com ([209.85.166.172])
+	by cmsmtp with ESMTP
+	id HpqGpyJfcWvxBHpqGpxULo; Tue, 17 Jan 2023 17:33:49 +0000
+X-SHW-ORIG-RCPT: mkernaghan@shaw.ca
+X-Authority-Analysis: v=2.4 cv=RLOgoqu+ c=1 sm=1 tr=0 ts=63c6dbfd cx=a_idp_d
+ a=EG6Wxa21mlO1ov8RJXsCQg==:117 a=5wu4xWGdDj5IP7ou:21 a=xqWC_Br6kY4A:10
+ a=RvmDmJFTN0MA:10 a=_Dj-zB-qAAAA:8 a=QY15lF3PAAAA:8 a=pGLkceISAAAA:8
+ a=xFAvqt9j3BgiYdYPwF4A:9 a=O-yoE2mxbtlHOk2d:21 a=_W_S_7VecoQA:10
+ a=lqcHg5cX4UMA:10 a=QEXdDO2ut3YA:10 a=UFLTzpd1Zwd1d5YSrmKt:22
+ a=T30owx8V8nSxvDTN0War:22 a=7PlhcU7xGnINJ2miruxK:22
+Received: by mail-il1-f172.google.com with SMTP id w2so2039363ilg.1
+        for <mkernaghan@shaw.ca>; Tue, 17 Jan 2023 09:33:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dixcooper-ca.20210112.gappssmtp.com; s=20210112;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :from:content-transfer-encoding:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ier085RDP84XoFO6CcB1G86PGHO6680E8DOeht+mBcM=;
+        b=IlIwRNRFdfzj3xr92w85UAsLCsL1bqvRV9UiS3/mDtCjqep7wRk9eOhFL4bnBPBFKO
+         RKzjTsI6kGfGaiLx1uSM6Fctj7DjKVKdb0Z1zCi0xBSpoc9Rxa7R4ps0+q1rrJuFILIR
+         xk7IToR5SPB+L4WWgkIap4sP2wtH9TGH0r26kK66l8nBeD9BHvZ1L9mhIQfJtCw95dWD
+         BWe6Qf/pOMKqwPMhkLSmT7m8NaA9l7Rf136hD/LZVtCPHnuLjPSqfWfUJkrLqYr2nkRi
+         VGgSZ5DkhYLRTe7//jeF0Gj7BXMvImT1+x3PrT7BcaUhHzAwZXn1DHvPJVQv2rM+vhwm
+         8S2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :from:content-transfer-encoding:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ier085RDP84XoFO6CcB1G86PGHO6680E8DOeht+mBcM=;
+        b=npA5J7hykHc//6brLFZv5Y1EKaMXywg2UvMq/MAo9yHpt/KKH4vcwXyfhXYtDSIrVQ
+         WDreYoRnoH7LFSdGgYKEjDASUgcYGwenSAvGygRkECmrbELS+61yNBAq4P091EKcA7br
+         92t8hvZYDFrfZyvKsP84zDSZe0Jdz21wTFpcgpd+77geIDUtcbcf2W3KGDEWRLlLvgXh
+         IVcozv3rvBdW+K0LwuZL16to9BjvJDSfD32KlTHE/vvAwVjDhAHOc8cxhZX2bmXvtNmT
+         yHu1f5gb/xJpa91W6IRJ6UWXp5Ny9aDXB62fTS5dMUuo1aUPPFcdW8Kf+AT8tEyVebJC
+         /Lqw==
+X-Gm-Message-State: AFqh2kpamP/MCa1bmUZN8NVaY9jFkXuAGf4m4dsq6x3bhgw2mtfQ6yob
+	7ntBEzGwR4hwEd1KHQRxSEdvEg==
+X-Google-Smtp-Source: AMrXdXuPEbpBgHpqiDC16a1uOLx3NVAUDfXGtTZGys4Q6nipPz55+05eBPguB2L5G91VFQCdFTmp1g==
+X-Received: by 2002:a92:c648:0:b0:30d:6d40:aaa0 with SMTP id 8-20020a92c648000000b0030d6d40aaa0mr2712469ill.5.1673976828279;
+        Tue, 17 Jan 2023 09:33:48 -0800 (PST)
+Received: from smtpclient.apple ([2604:3d08:4679:1d00:69dd:3823:382b:64e3])
+        by smtp.gmail.com with ESMTPSA id z7-20020a056638214700b003a2a167e7d9sm2461709jaj.96.2023.01.17.09.33.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Jan 2023 09:33:47 -0800 (PST)
+Content-Type: multipart/alternative; boundary=Apple-Mail-53416EEC-32FA-4945-A24F-2F015EEF96D7
+Content-Transfer-Encoding: 7bit
+From: Sue Dix-Cooper <sue@dixcooper.ca>
+Mime-Version: 1.0 (1.0)
+Subject: Re: I have the day off on Tuesday January 31 and I would love to play croquet.
+Date: Tue, 17 Jan 2023 09:33:36 -0800
+Message-Id: <C24412DF-92F9-4D61-84D6-ACDD005A9FE9@dixcooper.ca>
+References: <1759203560.41758543.1673975163448.JavaMail.zimbra@shaw.ca>
+Cc: Mark Dix-Cooper <mark@dixcooper.ca>, Russell Uhler <vyrlson@gmail.com>
+In-Reply-To: <1759203560.41758543.1673975163448.JavaMail.zimbra@shaw.ca>
+To: Michael Kernaghan <mkernaghan@shaw.ca>
+X-Mailer: iPad Mail (20C65)
+X-CMAE-Envelope: MS4xfFlUbR7tvqw44vQqmt3vphIf5vqmd4zUZmSh5W6X3nquIKtv2n9Jm94RysT9XBXNZ3ppgLCgXW25Ws7uUHM+Qg3lxN7pvG0+gfUO16Fa3JsqZsOgX38W
+ RzgLehDybuSzof+HZE0+XIP3Ifw1C1D8NyHZ5fgiANWGcp6B0ANNwIUWtSHL/hl3UFbFwwGtOitSg6G7PaAvdAOQMnNJUGa1dMo=
+
+
+--Apple-Mail-53416EEC-32FA-4945-A24F-2F015EEF96D7
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto"><div dir=3D"ltr"></div><div dir=3D"ltr">Goo=
+d morning Michael,</div><div dir=3D"ltr"><br></div><div dir=3D"ltr">The gree=
+ns are okay to play on, the leaves etc have been removed and the balls move a=
+long pretty well but the greens aren=E2=80=99t as good as summer. &nbsp; Dur=
+ing the off season we tend to just play Snake partly because it is too chill=
+y to sit and watch while someone else is having their turn.&nbsp;</div><div d=
+ir=3D"ltr"><br></div><div dir=3D"ltr">Mark and I will be in Mexico on a pick=
+le ball vacation from January 28th to February 4th but if the weather is oka=
+y on January 31st Russell, Judy (if you play =F0=9F=90=8D) and maybe some ot=
+hers will be available to play. &nbsp;</div><div dir=3D"ltr"><br></div><div d=
+ir=3D"ltr">You will see from the sign up sheet that some of us have been pla=
+ying croquet and are having fun on the non rainy days. &nbsp;I sometimes ema=
+il everyone but we normally just add our x on the days we want to play and h=
+ope others are able to join us.&nbsp;</div><div dir=3D"ltr"><br></div><div d=
+ir=3D"ltr">There is no need to renew your WPG membership until April/May bec=
+ause the membership period is May-April every year.</div><div dir=3D"ltr"><b=
+r></div><div dir=3D"ltr">Sue</div><div dir=3D"ltr"><br><blockquote type=3D"c=
+ite">On Jan 17, 2023, at 9:06 AM, Michael Kernaghan &lt;mkernaghan@shaw.ca&g=
+t; wrote:<br><br></blockquote></div><blockquote type=3D"cite"><div dir=3D"lt=
+r">=EF=BB=BF<div style=3D"font-family: arial, helvetica, sans-serif; font-si=
+ze: 10pt; color: #000000"><div>Hi&nbsp;</div><div><br data-mce-bogus=3D"1"><=
+/div><div>I have the day off on Tuesday January 31 and I would love to play c=
+roquet.</div><div><br data-mce-bogus=3D"1"></div><div>Will there be a court a=
+vailable, and would anyone else like to play?</div><div><br data-mce-bogus=3D=
+"1"></div><div>Also, how can I renew my membership for 2023?</div><div><br d=
+ata-mce-bogus=3D"1"></div><div>Thanks,</div><div>Michael Kernaghan</div><div=
+><br></div><hr id=3D"zwchr" data-marker=3D"__DIVIDER__"><div data-marker=3D"=
+__HEADERS__"><b>From: </b>"Mark Dix-Cooper" &lt;mark@dixcooper.ca&gt;<br><b>=
+To: </b>"Russell Uhler" &lt;vyrlson@gmail.com&gt;<br><b>Cc: </b>"mkernaghan@=
+shaw.ca" &lt;mkernaghan@shaw.ca&gt;, "Chris Percival-Smith" &lt;chrisps@shaw=
+.ca&gt;, "Sue Dix-Cooper" &lt;sue@dixcooper.ca&gt;<br><b>Sent: </b>Tuesday, J=
+une 28, 2022 5:48:22 PM<br><b>Subject: </b>Re: AC Th. 12 noon<br></div><div>=
+<br></div><div data-marker=3D"__QUOTED_TEXT__"><div dir=3D"ltr"></div><div d=
+ir=3D"ltr">Hi Russell,</div><div dir=3D"ltr">I will be bowling until about 1=
+2:30 and will join in after my lunch which I will bring with me to WPG. You w=
+ill need to set up court on the East green as the bowling will be continuing=
+ on the West green at 12 noon. The normal Thursday snake players will theref=
+ore need to use the West green after the morning bowling is completed.</div>=
+<div dir=3D"ltr">See you all on Thursday.</div><div dir=3D"ltr">Mark</div><d=
+iv dir=3D"ltr"><br></div><div dir=3D"ltr"><br><blockquote>On Jun 28, 2022, a=
+t 12:15 PM, Russell Uhler &lt;vyrlson@gmail.com&gt; wrote:<br><br></blockquo=
+te></div><blockquote><div dir=3D"ltr"><div dir=3D"ltr">If you can't make it a=
+t noon, come when you can.<br><div>Russell</div></div><br><div class=3D"gmai=
+l_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Tue, Jun 28, 2022 at 12:10=
+ PM Russell Uhler &lt;<a href=3D"mailto:vyrlson@gmail.com" target=3D"_blank"=
+ rel=3D"nofollow noopener noreferrer">vyrlson@gmail.com</a>&gt; wrote:<br></=
+div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;bord=
+er-left:1px solid rgb( 204 , 204 , 204 );padding-left:1ex"><div dir=3D"ltr">=
+If Chris&nbsp;hasn't already contacted you we are scheduled to meet then.<di=
+v>lol stillll</div><div>Russell</div></div>
+</blockquote></div>
+</div></blockquote><br></div></div></div></blockquote></body></html>=
+
+--Apple-Mail-53416EEC-32FA-4945-A24F-2F015EEF96D7--

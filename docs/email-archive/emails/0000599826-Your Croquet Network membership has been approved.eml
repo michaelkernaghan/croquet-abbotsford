@@ -1,0 +1,62 @@
+Return-Path: <mail@croquet.ning.com>
+Received: from mi02-ssvc.dcs.int.inet (LHLO mi02.dcs.int.inet)
+ (10.0.153.211) by cds207.dcs.int.inet with LMTP; Sun, 26 Feb 2023 14:21:25
+ -0700 (MST)
+Received: from shw-ibgw-4002a.ext.cloudfilter.net (lb7f8hsrpno-dmz.dcs.int.inet [10.0.143.222])
+	by mi02.dcs.int.inet (Postfix) with ESMTPS id 5222C128004B
+	for <mkernaghan@shaw.ca>; Sun, 26 Feb 2023 14:21:25 -0700 (MST)
+Received: from omx-24.mx.ning.com ([208.82.17.24])
+	by cmsmtp with ESMTP
+	id WOSSpd7kJYDABWOSSpzIle; Sun, 26 Feb 2023 21:21:25 +0000
+X-SHW-ORIG-RCPT: mkernaghan@shaw.ca
+X-Authority-Analysis: v=2.4 cv=Ie6U5Ema c=1 sm=1 tr=0 ts=63fbcd55 b=1
+ cx=a_idp_d a=KeAMzPQ2LZ9KAYHKrAJ/5Q==:117 a=KeAMzPQ2LZ9KAYHKrAJ/5Q==:17
+ a=IkcTkHD0fZMA:10 a=m04uMKEZRckA:10 a=rBq9RLZNAAAA:8 a=JqEG_dyiAAAA:8
+ a=sGrTAYtCDQeRb7_LFukA:9 a=QEXdDO2ut3YA:10 a=wNRo8UE2gxcA:10
+ a=2hfT2BMxNXQA:10 a=YelNmOQUbKlUMCChk65g:22 cc=scl
+Received: from z013710.ningops.com (unknown [10.11.16.3])
+	by z032104.ningops.com (Postfix) with ESMTP id 9EDB311812B7
+	for <mkernaghan@shaw.ca>; Sun, 26 Feb 2023 21:22:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=ning.com; s=default;
+	t=1677446559; bh=+L157+SYRTOTlQ2msV3M6esZco16SyQXUfc85qurCjY=;
+	h=Date:From:Reply-To:To:Subject:From;
+	b=UuzuJpkM/45oQHTySTf2wZG40yZPXiSC1tRwqr/E1ny9dVF7ra1XjKd3Kgx5ePw67
+	 mbDbko68SaB5WiRHHbFMjQBiocPq120Aks2FFbsq0FIaHUkwZlWoxzyTeerJ4RhhEK
+	 +7bmZK1T6orwsRj7WSEKKSXyZ5N6mTenWO3LccOY=
+Received: from croquet.ning.com (z023719.ningops.com [/10.11.22.189])
+        by z023607.ningops.com with SMTP;
+        Sun, 26 Feb 2023 21:21:24 +0000 (GMT)
+Date: Sun, 26 Feb 2023 21:21:24 +0000
+From: Croquet Network <mail@croquet.ning.com>
+Reply-To: do-not-reply@croquet.ning.com
+To: Michael Kernaghan <mkernaghan@shaw.ca>
+Message-ID: <463911041.10786237.1677446484263.JavaMail.xncore@z013710.ningops.com>
+Subject: Your Croquet Network membership has been approved
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: PHPMailer 6.0.6 (https://github.com/PHPMailer/PHPMailer)
+X-XN-UUID: f355603a-9562-4350-ad73-f833168ff8cd
+X-XN-MessageType: accepted
+X-XN_SECURITY_TOKEN: SYLfz*y*3J7gkH7VJbMXEFeH7gcf4395FUNTOF3wg38BAaYipiuUD0bnt*x9GjU9WqChi0xZeO1E4bUVGmSLtkTSl-TM90PYWnCxTr10zU*MqOb2LoWC8jfB6xQ45g8uiKGUfF0XTns_
+X-XN-Super-Happy-Header: CyBoj*6rxLK7pQHQgJDEkKdtlgPL*sPGIZ7sPM91CxGLbYxJT**xuV3ZUToI2XcuJGb*CMOTZTblX6vPuEvEcYJjHnhQJmlXA5a2XsQ8SxV*TFiKc7lbmfUKm2P07ryucctm6PxbLbTZ7k0v3OCm4gnwHY8Kgs5BT943o-dRjqLCYUgXSwnMg-F-Id0nx8j*fltvhwnA0kQikc-8JCzZtpwHt50HKrV8TCaL1fxxbHviijOc2Ak94BtyLHbd*k7JVxD5oBfXDjlmQaZhgKVePetHGmAdVhW2
+X-CMAE-Envelope: MS4xfCyPa5dYDwInxFX9/vXvJW5Ddk5vx8v/A/rYMRX3nhOD6hVB7DtZ0/om7Y3QnZTxlpRJAL3PC75LQ0FTZPstRb0YDp8Mh/WsmxrfbBuwhnzLOkRLeGMu
+ c8zWKVWV+lu9wg55wuK0Lk6KeQZv4DT7HAPClEj2ENt8nZoBNNzvI7vpkYtaY18Urb7fn4se6jgWmw==
+
+Michael Kernaghan, your Croquet Network membership has been approved. There are 4 simple things you can do to get started:
+
+1.Invite your friends to join you:
+https://croquet.ning.com/main/invitation/new
+
+2.Add Content:
+https://croquet.ning.com/
+
+3.Tell your Twitter followers:
+http://twitter.com/home?status=Just+joined+https%3A%2F%2Fcroquet.ning.com%2F
+
+4.Set up your profile:
+https://croquet.ning.com/members/MichaelKernaghan
+
+Thanks!
+Croquet Network
+Croquet news and community site with tournament calendar, photos and video library

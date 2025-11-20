@@ -1,0 +1,89 @@
+# Croquet Laws and Tactics RAG with questions
+%pip install -qU pypdf langchain_community
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+# Now you can access your environment variables
+openai_api_key = os.getenv("OPENAI_API_KEY")
+mistral_api_key = os.getenv("MISTRAL_API_KEY")
+%pip install langchain_chroma langchain_openai
+pip install -qU langchain-mistralai
+import os
+from langchain_community.document_loaders import PyPDFLoader
+
+# Directory path containing the PDF files
+directory_path = "croquet_pdfs"
+
+# List to hold all documents
+docs = []
+
+for file_name in os.listdir(directory_path):
+    if file_name.lower().endswith(".pdf"):  # Check for lowercase .pdf extension
+        # Process the file if it is a PDF
+        file_path = os.path.join(directory_path, file_name)
+        loader = PyPDFLoader(file_path)
+        docs.extend(loader.load())
+    else:
+        print(f"Skipping non-PDF file: {file_name}")  # Log skipped files
+
+# Print the total number of documents loaded
+print(f"Total documents loaded: {len(docs)}")
+print(docs[7].page_content[0:100])
+print(docs[7].metadata)
+import getpass
+import os
+
+os.environ["MISTRAL_API_KEY"] = getpass.getpass()
+from langchain_mistralai import ChatMistralAI
+
+llm = ChatMistralAI(model="mistral-large-latest")
+from langchain_chroma import Chroma
+from langchain_openai import OpenAIEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# Set your OpenAI API key here
+openai_api_key = os.getenv("OPENAI_API_KEY")
+
+# Initialize text splitter
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+splits = text_splitter.split_documents(docs)
+
+# Use OpenAIEmbeddings with the API key
+embedding = OpenAIEmbeddings(openai_api_key=api_key)
+vectorstore = Chroma.from_documents(documents=splits, embedding=embedding)
+
+retriever = vectorstore.as_retriever()
+
+
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_core.prompts import ChatPromptTemplate
+
+system_prompt = (
+    "You are an assistant for question-answering tasks. "
+    "Use the following pieces of retrieved context to answer "
+    "the question. If you don't know the answer, say that you "
+    "don't know. Use seven sentences maximum."
+    "\n\n"
+    "{context}"
+)
+
+prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", system_prompt),
+        ("human", "{input}"),
+    ]
+)
+
+
+question_answer_chain = create_stuff_documents_chain(llm, prompt)
+rag_chain = create_retrieval_chain(retriever, question_answer_chain)
+
+results = rag_chain.invoke({"input": "Explain what a B Baulk Tice opening is and why it is used."})
+
+results
+
+print(results["context"][0].page_content)
+print(results["context"][0].metadata)
