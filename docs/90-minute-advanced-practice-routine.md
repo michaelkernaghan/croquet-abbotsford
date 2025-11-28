@@ -1,4 +1,6 @@
-# 90-Minute Advanced Croquet Practice Routine
+# Advanced Practice Routine (2 Hours)
+
+A structured practice session for advanced Association Croquet players, focusing on the skills needed for competitive play. Based on Keith Wylie's *Expert Croquet Tactics* and analysis from the MacRobertson Shield 2022.
 
 ## Warm-Up (10 min)
 - **5 min:** Straight roquets from 5 yards - 10 shots
@@ -30,16 +32,54 @@
 
 ---
 
-## Block 3: Peeling Practice (20 min)
-*From Wylie's Triple Peel article*
+## Block 3: Standard Triple Peel (STP) Progression (25 min)
+*From Wylie's Triple Peel article - the foundation of minus-level play*
 
-- **7 min:** Jawsing practice - place ball in hoop jaws from various angles
-- **7 min:** 4-back peel attempts - straight peel, then rush-peel
-- **6 min:** Irish peel attempts - both balls through together
+- **10 min:** STP positional drill - walk through the standard sequence:
+  - 4-back peel: practice before hoop 3, after hoop 3, or before 1-back
+  - Penult peel: practice after 1-back or before 2-back
+  - Rover peel: practice before or after 3-back
+
+- **8 min:** Peel timing decisions
+  - When to attempt straight peels vs angled peels
+  - Recognizing ideal peel positions during break
+
+- **7 min:** Escape ball management - positioning for continuation after each peel
 
 ---
 
-## Block 4: Leaves & Wiring (10 min)
+## Block 4: Standard Double Peel Practice (15 min)
+*Essential when full triple isn't feasible*
+
+- **8 min:** Penult + Rover double peel sequence
+  - Setup: position peelee at penult, break ball for 4-back
+  - Execute penult peel, maintain break to rover
+  - Complete rover peel and peg out
+
+- **7 min:** Decision drill - when to abandon triple for double
+  - Recognize when 4-back peel has failed or isn't possible
+  - Transition smoothly to double peel attempt
+
+---
+
+## Block 5: Peel Recovery Drills (15 min)
+*What to do when peels go wrong*
+
+- **5 min:** Jawsed peel recovery
+  - Ball stuck in jaws - options for completion
+  - Using cannons to complete jawsed peels
+
+- **5 min:** Failed peel repositioning
+  - Peel came up short - get peelee back in position
+  - Peel went too far - adjust break to compensate
+
+- **5 min:** Abandoning the peel safely
+  - When to give up on triple/double and finish break
+  - Setting up good leave after failed peel attempt
+
+---
+
+## Block 6: Leaves & Wiring (10 min)
 
 - **5 min:** NSL (New Standard Leave) setup - practice ball placement
 - **5 min:** Wiring - create effective wires using hoop 1 or 2
@@ -54,13 +94,15 @@
 
 ## Session Log
 
-| Date | 10yd Roquet % | Angled Hoop % | Break to 4-back? | TP attempt? |
-|------|---------------|---------------|------------------|-------------|
-|      |               |               |                  |             |
-|      |               |               |                  |             |
-|      |               |               |                  |             |
-|      |               |               |                  |             |
-|      |               |               |                  |             |
+| Date | 10yd Roquet % | Break to 4-back? | STP Complete? | DP Complete? | Notes |
+|------|---------------|------------------|---------------|--------------|-------|
+|      |               |                  |               |              |       |
+|      |               |                  |               |              |       |
+|      |               |                  |               |              |       |
+|      |               |                  |               |              |       |
+|      |               |                  |               |              |       |
+
+*STP = Standard Triple Peel | DP = Double Peel*
 
 ---
 
