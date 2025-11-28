@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90-Minute Advanced Practice Routine | Abbotsford Croquet Club</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="description" content="Advanced 90-minute croquet practice routine for competitive players. Covers single-ball precision, break building, peeling, leaves, and wiring techniques.">
+    <meta name="keywords" content="croquet practice, advanced croquet, triple peel, break building, association croquet training, croquet drills">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/lessons.css">
+    <style>
+        .practice-block {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        .practice-block h3 {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent-yellow);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .time-badge {
+            display: inline-block;
+            background: var(--primary-dark);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        .drill-list {
+            list-style: none;
+            padding: 0;
+        }
+        .drill-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .drill-list li::before {
+            content: "•";
+            color: var(--primary-dark);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .quote-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-dark);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+        .session-log {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .session-log th, .session-log td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: center;
+        }
+        .session-log th {
+            background: var(--primary-dark);
+            color: white;
+        }
+        .session-log tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .references {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .references h4 {
+            margin-bottom: 0.5rem;
+        }
+        .references ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="membership.html">Membership</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="active">Learn</a>
+                    <div class="dropdown-content">
+                        <a href="lessons.html">Lessons</a>
+                        <a href="variations.html">Variations</a>
+                        <a href="resources.html">Resources</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Play</a>
+                    <div class="dropdown-content">
+                        <a href="calendar.html">Calendar</a>
+                        <a href="court-status.html">Courts</a>
+                        <a href="session-registration.html">Sign Up</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Equipment</a>
+                    <div class="dropdown-content">
+                        <a href="mallets.html">Mallets</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="curriculum">
+            <a href="lessons.html" class="back-link">&larr; Back to Lessons</a>
+
+            <h1>90-Minute Advanced Practice Routine</h1>
+
+            <div class="intro-section">
+                <p>A structured practice session for advanced Association Croquet players, focusing on the skills needed for competitive play. Based on Keith Wylie's <em>Expert Croquet Tactics</em> and analysis from the MacRobertson Shield 2022.</p>
+            </div>
+
+            <div class="practice-block">
+                <h3>Warm-Up <span class="time-badge">10 min</span></h3>
+                <ul class="drill-list">
+                    <li><strong>5 min:</strong> Straight roquets from 5 yards - 10 shots</li>
+                    <li><strong>5 min:</strong> Hoop running from 1 yard, dead center - 10 hoops</li>
+                </ul>
+            </div>
+
+            <div class="practice-block">
+                <h3>Block 1: Single-Ball Precision <span class="time-badge">20 min</span></h3>
+                <div class="quote-box">
+                    "Reliable roquets and hoop strokes can compensate for weaker croquet strokes" - Keith Wylie
+                </div>
+                <ul class="drill-list">
+                    <li><strong>10 min:</strong> 10-yard roquets - 15 attempts, track percentage</li>
+                    <li><strong>5 min:</strong> 2-yard angled hoops - 5 left, 5 right</li>
+                    <li><strong>5 min:</strong> Uncontrolled hoop runs - run hard, find ball after (builds confidence)</li>
+                </ul>
+            </div>
+
+            <div class="practice-block">
+                <h3>Block 2: Break Building <span class="time-badge">25 min</span></h3>
+                <p class="phase-intro">From MacRobertson 2022 analysis</p>
+                <ul class="drill-list">
+                    <li><strong>10 min:</strong> Four-ball break - hoops 1-6
+                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                            <li>Focus on pioneer placement before each hoop</li>
+                            <li>Stop shot vs roll shot decisions</li>
+                        </ul>
+                    </li>
+                    <li><strong>10 min:</strong> Three-ball break recovery
+                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                            <li>Start with one ball out of position</li>
+                            <li>Practice creating new pioneer positions</li>
+                        </ul>
+                    </li>
+                    <li><strong>5 min:</strong> Rush control - dolly rushes to specific targets</li>
+                </ul>
+            </div>
+
+            <div class="practice-block">
+                <h3>Block 3: Peeling Practice <span class="time-badge">20 min</span></h3>
+                <p class="phase-intro">From Wylie's Triple Peel article</p>
+                <ul class="drill-list">
+                    <li><strong>7 min:</strong> Jawsing practice - place ball in hoop jaws from various angles</li>
+                    <li><strong>7 min:</strong> 4-back peel attempts - straight peel, then rush-peel</li>
+                    <li><strong>6 min:</strong> Irish peel attempts - both balls through together</li>
+                </ul>
+            </div>
+
+            <div class="practice-block">
+                <h3>Block 4: Leaves & Wiring <span class="time-badge">10 min</span></h3>
+                <ul class="drill-list">
+                    <li><strong>5 min:</strong> NSL (New Standard Leave) setup - practice ball placement</li>
+                    <li><strong>5 min:</strong> Wiring - create effective wires using hoop 1 or 2</li>
+                </ul>
+            </div>
+
+            <div class="practice-block">
+                <h3>Cool-Down: Pressure Shots <span class="time-badge">5 min</span></h3>
+                <ul class="drill-list">
+                    <li><strong>5 shots from B-baulk at ball in corner 4</strong> - long shot accuracy under simulated pressure</li>
+                </ul>
+            </div>
+
+            <div class="practice-block">
+                <h3>Session Log</h3>
+                <p>Track your progress weekly:</p>
+                <table class="session-log">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>10yd Roquet %</th>
+                            <th>Angled Hoop %</th>
+                            <th>Break to 4-back?</th>
+                            <th>TP attempt?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="references">
+                <h4>Key References</h4>
+                <ul>
+                    <li>Keith Wylie, <em>Expert Croquet Tactics</em> (2nd Edition, 1991)</li>
+                    <li>MacRobertson Shield 2022 match commentary</li>
+                    <li>Oxford Croquet coaching materials</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

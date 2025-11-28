@@ -1,26 +1,31 @@
-# City of Abbotsford Recreation Course Application
+# Fraser Valley Recreation Course Applications
 
-Application materials and guidance for offering a public recreation course on croquet instruction for adults and seniors.
+Application materials and guidance for offering public recreation courses on croquet instruction for adults and seniors across Fraser Valley municipalities.
 
 ## Project Overview
 
 **Course Title:** Croquet Instruction for Adults & Seniors
-**Target Audience:** Adults and seniors in Abbotsford
-**Location:** Mill Lake Park Croquet Courts
-**Organization:** Abbotsford Croquet Club
+**Target Audience:** Adults and seniors across Fraser Valley
+**Location:** Various municipal facilities (Mission, Abbotsford, etc.)
+**Organization:** Fraser Valley Croquet Society (BC Society #S0075824)
 
 ## Purpose
 
-This project contains all documentation, guidance, and materials needed to apply to the City of Abbotsford for approval to offer a public recreation course teaching croquet to adults and seniors.
+This project contains all documentation, guidance, and materials needed to apply to Fraser Valley municipalities (Mission, Abbotsford, and others) for approval to offer public recreation courses teaching croquet to adults and seniors.
+
+As a regional organization, the Fraser Valley Croquet Society can apply to multiple municipalities to expand croquet programming across the Fraser Valley.
 
 ## Directory Contents
 
-- **application-draft.md** - Draft application to the city
-- **course-outline.md** - Detailed course curriculum and structure
-- **instructor-qualifications.md** - Instructor credentials and experience
-- **budget-planning.md** - Course costs, fees, and financial planning
+- **leasure-centre-course-proposal-form.pdf** - Mission recreation course application form
+- **filled-application-mission.md** - Completed Mission application (ready to customize)
+- **README-MISSION.md** - Mission-specific notes and guidance
+- **application-checklist.md** - Complete application checklist
+- **course-outline.md** - Detailed 6-week curriculum and structure
+- **instructor-qualifications-template.md** - Instructor credentials template
+- **budget-template.md** - Course costs, fees, and financial planning template
 - **marketing-materials/** - Promotional content for the course
-- **correspondence/** - Communications with city officials
+- **correspondence/** - Communications with municipal officials
 - **resources/** - Supporting documents and references
 
 ## Application Process
@@ -81,18 +86,32 @@ This project contains all documentation, guidance, and materials needed to apply
 
 ## Contact Information
 
-**Club Representative:** [Name]
+**Society Representative:** [Name]
 **Email:** [Email]
 **Phone:** [Phone]
+**Organization:** Fraser Valley Croquet Society (BC Society #S0075824)
 
-**City Recreation Department:**
-City of Abbotsford
+**Municipal Recreation Contacts:**
+
+**District of Mission:**
 Parks, Recreation & Culture
-[Contact information]
+7650 Grand Street, Mission, BC V2V 3T3
+Phone: 604-820-5350
+Email: leisureservices@mission.ca
+
+**City of Abbotsford:**
+Parks, Recreation & Culture
+[To be determined]
 
 ## Notes
 
-This course offering complements the club's existing programming and provides an accessible entry point for community members interested in learning croquet in a structured, city-supported environment.
+These course offerings complement the society's existing programming and provide an accessible entry point for community members across the Fraser Valley interested in learning croquet in structured, municipally-supported environments.
+
+Using "Fraser Valley Croquet Society" as the applicant organization:
+- ✅ Reflects our regional scope
+- ✅ Avoids confusion (e.g., "Abbotsford" club applying to Mission)
+- ✅ Leverages our BC registered society status
+- ✅ Facilitates expansion to multiple municipalities
 
 ## Next Steps
 
