@@ -40,7 +40,7 @@ Croquet is an ideal activity for adults and seniors because it offers low-impact
 
 ### Qualifications and Certifications (Copy this text):
 
-Lead Instructor: 24 years of croquet playing experience, Member of Fraser Valley Croquet Society since 2023, Director of Fraser Valley Croquet Society, Experience teaching croquet to adults and seniors, Standard First Aid Certification (current), CPR Level C Certification (current).
+Lead Instructor: 24 years of croquet playing experience, Member of Fraser Valley Croquet Society since 2023, Director of Fraser Valley Croquet Society, Experience teaching croquet to adults and seniors.
 
 Society: Fraser Valley Croquet Society (BC Society #S0075824), Established 2023, Member of Croquet Canada, Founded in Mission BC, Operates programs across Fraser Valley, Active in Mission and Abbotsford, Regular tournaments and community events, Experienced instructors, Well-maintained equipment inventory.
 
@@ -48,7 +48,7 @@ Society: Fraser Valley Croquet Society (BC Society #S0075824), Established 2023,
 
 ### Organization History and References (Copy this text):
 
-The Fraser Valley Croquet Society (BC Society #S0075824) has been promoting croquet in the Fraser Valley region since 2023. We are a registered BC non-profit society and member organization of Croquet Canada. Our society was founded in Mission and has since expanded to include active programs in Abbotsford at the Mill Lake Park croquet courts. We continue to serve both communities and are excited to offer formal recreation programming in our founding community of Mission.
+The Fraser Valley Croquet Society (BC Society #S0075824) has been promoting croquet in the Fraser Valley region since 2023. We are a registered BC non-profit society and member organization of Croquet Canada. Our society was founded in Mission and has since expanded to include active programs in Abbotsford at the Mill Lake Park croquet courts. We continue to serve both communities and are excited to  \offer formal recreation programming in our founding community of Mission.
 
 We host regular play sessions, tournaments, community demonstrations, and introductory workshops throughout the Fraser Valley. Our mission is to make croquet accessible to all community members across the region through quality instruction, inclusive programming, and community partnerships.
 

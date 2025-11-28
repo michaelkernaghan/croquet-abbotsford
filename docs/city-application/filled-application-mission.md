@@ -42,8 +42,6 @@ Croquet is an ideal activity for adults and seniors because it offers low-impact
 - Member of Fraser Valley Croquet Society since [year]
 - [Leadership role if applicable: President, Board Member, Tournament Director]
 - Experience teaching croquet to adults and seniors [specify number of workshops/lessons]
-- Standard First Aid Certification (current)
-- CPR Level C Certification (current)
 - [Croquet Canada coaching certification if applicable]
 - [Other teaching/coaching experience relevant to adult education or sports instruction]
 

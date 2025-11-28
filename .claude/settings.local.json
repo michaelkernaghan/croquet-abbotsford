@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(git mv:*)",
+      "Bash(git add:*)",
+      "Bash(code:*)",
+      "Bash(explorer \"docs\\city-application\")",
+      "Bash(start \"\" \"docs/city-application\")",
+      "Bash(start .)",
+      "Bash(where AcroRd32.exe 2)",
+      "Bash(nul)",
+      "Bash(where soffice.exe 2)",
+      "Bash(pandoc:*)",
+      "Bash(explorer:*)",
+      "Bash(copy \"docs\\city-application\\Mission-Application-Word-Format.md\" \"%USERPROFILE%\\Desktop\\Mission-Croquet-Application.txt\")",
+      "Bash(cmd /c copy \"docs\\city-application\\Mission-Application-Word-Format.md\" \"%USERPROFILE%\\Desktop\\Mission-Croquet-Application.txt\")",
+      "Bash(where:*)",
+      "Bash(where AcroRd64.exe 2)",
+      "Bash(start:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

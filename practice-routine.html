@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Practice Routine (2 Hours) | Abbotsford Croquet Club</title>
+    <title>Advanced Practice Routine (90 Minutes) | Abbotsford Croquet Club</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
@@ -11,8 +11,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <meta name="description" content="Advanced 2-hour croquet practice routine for competitive players. Covers single-ball precision, break building, peeling, leaves, and wiring techniques.">
-    <meta name="keywords" content="croquet practice, advanced croquet, triple peel, break building, association croquet training, croquet drills">
+    <meta name="description" content="Advanced 90-minute croquet practice routine based on Tame the Triple methodology. Covers key shots, journey segments, complete journeys, and the delayed double peel.">
+    <meta name="keywords" content="croquet practice, advanced croquet, triple peel, tame the triple, association croquet training, croquet drills, delayed double peel">
     <meta name="robots" content="index, follow">
 
     <link rel="stylesheet" href="css/styles.css">
@@ -30,6 +30,11 @@
             border-bottom: 2px solid var(--accent-yellow);
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
+        }
+        .practice-block h4 {
+            color: var(--primary-dark);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
         }
         .time-badge {
             display: inline-block;
@@ -62,6 +67,27 @@
             padding: 1rem;
             margin: 1rem 0;
             font-style: italic;
+        }
+        .principle-box {
+            background: #fff8e1;
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+        .tools-box {
+            background: #e8f5e9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .tools-box h4 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        .tools-box ul {
+            margin: 0;
+            padding-left: 1.5rem;
         }
         .session-log {
             width: 100%;
@@ -99,6 +125,34 @@
             margin-bottom: 0.5rem;
         }
         .references ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+        }
+        .four-types {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        .four-types h4 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        .four-types ol {
             margin: 0;
             padding-left: 1.5rem;
         }
@@ -187,10 +241,23 @@
         <section class="curriculum">
             <a href="lessons.html" class="back-link">&larr; Back to Lessons</a>
 
-            <h1>Advanced Practice Routine (2 Hours)</h1>
+            <h1>Advanced Practice Routine (90 Minutes)</h1>
 
             <div class="intro-section">
-                <p>A structured practice session for advanced Association Croquet players, focusing on the skills needed for competitive play. Based on Keith Wylie's <em>Expert Croquet Tactics</em> and analysis from the MacRobertson Shield 2022.</p>
+                <p>A structured practice session for advanced Association Croquet players working toward triple peels. Based on the <em>Tame the Triple</em> ePractice Pack methodology, Keith Wylie's <em>Expert Croquet Tactics</em>, and MacRobertson Shield analysis.</p>
+            </div>
+
+            <div class="principle-box">
+                <strong>Core principle:</strong> Practice makes <em>permanent</em>, not perfect. You will ingrain whatever you practice, so practice with intention and correct technique from the start.
+            </div>
+
+            <div class="tools-box">
+                <h4>Essential Tools</h4>
+                <ul>
+                    <li><strong>TP Journal:</strong> Record your main learnings, especially reasons why you couldn't complete a triple</li>
+                    <li><strong>Practice buddy:</strong> Share your practice sessions, compare mistakes and successes</li>
+                    <li><strong>This routine:</strong> Loaded on your phone/tablet for on-court reference</li>
+                </ul>
             </div>
 
             <div class="practice-block">
@@ -202,98 +269,115 @@
             </div>
 
             <div class="practice-block">
-                <h3>Block 1: Single-Ball Precision <span class="time-badge">20 min</span></h3>
+                <h3>Block 1: Key Shots <span class="time-badge">15 min</span></h3>
+                <p class="phase-intro">The fundamental peel shots you must ingrain</p>
+                <ul class="drill-list">
+                    <li><strong>5 min:</strong> Angle/distance calibration for peels
+                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                            <li>Practice peels at varying angles and distances</li>
+                            <li>Note: What is the maximum distance and angle you can reliably peel from?</li>
+                        </ul>
+                    </li>
+                    <li><strong>5 min:</strong> Straight peel shots
+                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                            <li>Drive peels - when peelee intentionally jaws for position</li>
+                        </ul>
+                    </li>
+                    <li><strong>5 min:</strong> Stop shot peels
+                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                            <li>The stop shot peel - decide which ball you would finish peeling</li>
+                            <li>Practice getting correct weight to both balls</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="practice-block">
+                <h3>Block 2: Journey Segments <span class="time-badge">20 min</span></h3>
+                <p class="phase-intro">Practice specific sections of the triple journey</p>
+                <ul class="drill-list">
+                    <li><strong>7 min:</strong> Switching journeys mid-break
+                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                            <li>Practice recognizing when to switch from Standard to Delayed journey</li>
+                            <li>Key trigger: when things don't go quite to plan</li>
+                        </ul>
+                    </li>
+                    <li><strong>7 min:</strong> Peeling through the partner ball
+                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                            <li>Not peeling from partner ball</li>
+                            <li>Not peeling through partner ball</li>
+                            <li>Standard journeys: peeling 4-back from an NSL with pilot near H2 and rushing to corner 4; peeling 4-back from an NSL with peelee at H1; finishing after an Irish peel</li>
+                        </ul>
+                    </li>
+                    <li><strong>6 min:</strong> Building up the break from a 2-Hoop Leave
+                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                            <li>Efficiently restarting after opponent's turn</li>
+                            <li>Regaining 4-ball break position</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="practice-block">
+                <h3>Block 3: Complete Journeys <span class="time-badge">25 min</span></h3>
+                <p class="phase-intro">Practice the full triple peel sequences - the goal is repetition until ingrained</p>
+
+                <h4>The Standard Triple Journey (12 min)</h4>
+                <ul class="drill-list">
+                    <li><strong>Setup from NSL from H6</strong> - the most common starting position</li>
+                    <li><strong>Setup from a 4-ball break with peelee as H1 pioneer</strong></li>
+                    <li><strong>Setup from Diagonal Spread Leave in Corner 4</strong></li>
+                </ul>
+
+                <h4>The Delayed Triple Journey (13 min)</h4>
+                <ul class="drill-list">
+                    <li><strong>Starting from NSL with the H2 pioneer</strong> - peelee at H1</li>
+                    <li><strong>Starting from a 4-ball break at H1</strong> - with peelee as H1 pioneer</li>
+                    <li><strong>Starting from Diagonal Spread Leave</strong> in Corner 4, with your rush to the H2 ball and in Corner 4 as you prefer</li>
+                </ul>
+            </div>
+
+            <div class="practice-block">
+                <h3>Block 4: The Delayed Double Peel <span class="time-badge">15 min</span></h3>
+                <p class="phase-intro">Essential fallback when the full triple isn't feasible</p>
                 <div class="quote-box">
-                    "Reliable roquets and hoop strokes can compensate for weaker croquet strokes" - Keith Wylie
+                    "The Penult peel after 3-back, followed by the Rover peel after Penult is one of the most important things for you to practise. Practise it regularly!"
                 </div>
-                <ul class="drill-list">
-                    <li><strong>10 min:</strong> 10-yard roquets - 15 attempts, track percentage</li>
-                    <li><strong>5 min:</strong> 2-yard angled hoops - 5 left, 5 right</li>
-                    <li><strong>5 min:</strong> Uncontrolled hoop runs - run hard, find ball after (builds confidence)</li>
-                </ul>
-            </div>
-
-            <div class="practice-block">
-                <h3>Block 2: Break Building <span class="time-badge">25 min</span></h3>
-                <p class="phase-intro">From MacRobertson 2022 analysis</p>
-                <ul class="drill-list">
-                    <li><strong>10 min:</strong> Four-ball break - hoops 1-6
-                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
-                            <li>Focus on pioneer placement before each hoop</li>
-                            <li>Stop shot vs roll shot decisions</li>
-                        </ul>
-                    </li>
-                    <li><strong>10 min:</strong> Three-ball break recovery
-                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
-                            <li>Start with one ball out of position</li>
-                            <li>Practice creating new pioneer positions</li>
-                        </ul>
-                    </li>
-                    <li><strong>5 min:</strong> Rush control - dolly rushes to specific targets</li>
-                </ul>
-            </div>
-
-            <div class="practice-block">
-                <h3>Block 3: Standard Triple Peel (STP) Progression <span class="time-badge">25 min</span></h3>
-                <p class="phase-intro">From Wylie's Triple Peel article - the foundation of minus-level play</p>
-                <ul class="drill-list">
-                    <li><strong>10 min:</strong> STP positional drill - walk through the standard sequence:
-                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
-                            <li>4-back peel: practice before hoop 3, after hoop 3, or before 1-back</li>
-                            <li>Penult peel: practice after 1-back or before 2-back</li>
-                            <li>Rover peel: practice before or after 3-back</li>
-                        </ul>
-                    </li>
-                    <li><strong>8 min:</strong> Peel timing decisions
-                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
-                            <li>When to attempt straight peels vs angled peels</li>
-                            <li>Recognizing ideal peel positions during break</li>
-                        </ul>
-                    </li>
-                    <li><strong>7 min:</strong> Escape ball management - positioning for continuation after each peel</li>
-                </ul>
-            </div>
-
-            <div class="practice-block">
-                <h3>Block 4: Standard Double Peel Practice <span class="time-badge">15 min</span></h3>
-                <p class="phase-intro">Essential when full triple isn't feasible</p>
                 <ul class="drill-list">
                     <li><strong>8 min:</strong> Penult + Rover double peel sequence
                         <ul style="margin-top: 0.5rem; margin-left: 1rem;">
-                            <li>Setup: position peelee at penult, break ball for 4-back</li>
-                            <li>Execute penult peel, maintain break to rover</li>
-                            <li>Complete rover peel and peg out</li>
+                            <li>Setup: finishing the 4-back peel, picking up the 4-back pioneer</li>
+                            <li>Peel 4-back with H2 pioneer from Corner 4</li>
+                            <li>Execute the take-off</li>
+                            <li>Shepherd the peelee to get a rush to peg</li>
+                            <li>Practice positioning the 3-back remote pioneer</li>
                         </ul>
                     </li>
-                    <li><strong>7 min:</strong> Decision drill - when to abandon triple for double
+                    <li><strong>7 min:</strong> Transition drill
                         <ul style="margin-top: 0.5rem; margin-left: 1rem;">
-                            <li>Recognize when 4-back peel has failed or isn't possible</li>
-                            <li>Transition smoothly to double peel attempt</li>
+                            <li>Recognize when 4-back peel has failed</li>
+                            <li>Smoothly transition to double peel attempt</li>
+                            <li>Setting up Corner 4 ball, finding the peel and remote 4-back</li>
                         </ul>
                     </li>
                 </ul>
             </div>
 
             <div class="practice-block">
-                <h3>Block 5: Peel Recovery Drills <span class="time-badge">15 min</span></h3>
-                <p class="phase-intro">What to do when peels go wrong</p>
+                <h3>Block 5: Recovery & Plan B <span class="time-badge">10 min</span></h3>
+                <p class="phase-intro">What to do when peels go wrong - learn the alternative Plan B to get back on track</p>
                 <ul class="drill-list">
-                    <li><strong>5 min:</strong> Jawsed peel recovery
+                    <li><strong>5 min:</strong> Jawsed peel situations
                         <ul style="margin-top: 0.5rem; margin-left: 1rem;">
-                            <li>Ball stuck in jaws - options for completion</li>
-                            <li>Using cannons to complete jawsed peels</li>
+                            <li>Recovery options when ball is stuck in jaws</li>
+                            <li>Using the jaws strategically (intentional jawsing for later completion)</li>
                         </ul>
                     </li>
                     <li><strong>5 min:</strong> Failed peel repositioning
                         <ul style="margin-top: 0.5rem; margin-left: 1rem;">
-                            <li>Peel came up short - get peelee back in position</li>
-                            <li>Peel went too far - adjust break to compensate</li>
-                        </ul>
-                    </li>
-                    <li><strong>5 min:</strong> Abandoning the peel safely
-                        <ul style="margin-top: 0.5rem; margin-left: 1rem;">
-                            <li>When to give up on triple/double and finish break</li>
-                            <li>Setting up good leave after failed peel attempt</li>
+                            <li>Peel came up short - options to continue</li>
+                            <li>Peel went too far - break adjustment</li>
+                            <li>When to abandon safely and set up good leave</li>
                         </ul>
                     </li>
                 </ul>
@@ -302,48 +386,69 @@
             <div class="practice-block">
                 <h3>Block 6: Leaves & Wiring <span class="time-badge">10 min</span></h3>
                 <ul class="drill-list">
-                    <li><strong>5 min:</strong> NSL (New Standard Leave) setup - practice ball placement</li>
-                    <li><strong>5 min:</strong> Wiring - create effective wires using hoop 1 or 2</li>
+                    <li><strong>5 min:</strong> NSL (New Standard Leave) setup - this is your bread and butter</li>
+                    <li><strong>5 min:</strong> Diagonal Spread Leave - alternate setup practice</li>
                 </ul>
             </div>
 
             <div class="practice-block">
-                <h3>Cool-Down: Pressure Shots <span class="time-badge">5 min</span></h3>
+                <h3>Cool-Down: Match Simulation <span class="time-badge">5 min</span></h3>
                 <ul class="drill-list">
-                    <li><strong>5 shots from B-baulk at ball in corner 4</strong> - long shot accuracy under simulated pressure</li>
+                    <li><strong>5 pressure shots</strong> - practice as seriously as if playing a match</li>
                 </ul>
+                <div class="quote-box">
+                    "Otherwise you won't begin to see what can go wrong and how you can adapt in a game"
+                </div>
             </div>
 
             <div class="practice-block">
-                <h3>Session Log</h3>
-                <p>Track your progress weekly:</p>
+                <h3>Session Log (TP Journal)</h3>
+                <p>Track your progress - record learnings, especially why you couldn't complete a triple:</p>
                 <table class="session-log">
                     <thead>
                         <tr>
                             <th>Date</th>
-                            <th>10yd Roquet %</th>
-                            <th>Break to 4-back?</th>
-                            <th>STP Complete?</th>
-                            <th>DP Complete?</th>
-                            <th>Notes</th>
+                            <th>Journey Practiced</th>
+                            <th>Completed?</th>
+                            <th>Key Mistake/Learning</th>
+                            <th>Plan B Used?</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td></tr>
                     </tbody>
                 </table>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">STP = Standard Triple Peel | DP = Double Peel</p>
+
+                <h4 style="margin-top: 1.5rem;">Practice Goals Checklist</h4>
+                <ul class="checklist">
+                    <li>Routes and ball positions understood and ingrained</li>
+                    <li>Understand my areas of success</li>
+                    <li>Know the alternative Plan B options</li>
+                    <li>Shot skills and fine-tuning improving</li>
+                    <li>Confidence building</li>
+                </ul>
+            </div>
+
+            <div class="four-types">
+                <h4>Four Types of Practice (from Tame the Triple)</h4>
+                <ol>
+                    <li><strong>Complete Journeys</strong> - Full triple peel sequences from start to finish</li>
+                    <li><strong>Journey Segments</strong> - Specific sections when things go wrong or right</li>
+                    <li><strong>Key Shots</strong> - The fundamental peel shots in isolation</li>
+                    <li><strong>The Delayed Double Peel</strong> - Your essential fallback option</li>
+                </ol>
+                <p style="margin-top: 0.5rem; font-style: italic;">Rotate focus between these four areas across multiple practice sessions.</p>
             </div>
 
             <div class="references">
                 <h4>Key References</h4>
                 <ul>
+                    <li><em>Tame the Triple</em> ePractice Pack</li>
                     <li>Keith Wylie, <em>Expert Croquet Tactics</em> (2nd Edition, 1991)</li>
-                    <li>MacRobertson Shield 2022 match commentary</li>
+                    <li>MacRobertson Shield match analysis</li>
                     <li>Oxford Croquet coaching materials</li>
                 </ul>
             </div>
