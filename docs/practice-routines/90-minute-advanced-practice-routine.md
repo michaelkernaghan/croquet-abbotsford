@@ -33,55 +33,38 @@ A structured practice session for advanced Association Croquet players working t
 
 ---
 
-## Block 2: Journey Segments (20 min)
-*Practice specific sections of the triple journey*
+## Block 2: Triple Peel Segments (10 min)
+*Practice specific sections of the triple peel sequence*
 
-- **7 min:** Switching journeys mid-break
-  - Practice recognizing when to switch from Standard to Delayed journey
+- **10 min:** Switching mid-break
+  - Practice recognizing when to switch from Standard to Delayed triple
   - Key trigger: when things don't go quite to plan
-
-- **7 min:** Peeling through the partner ball
-  - Not peeling from partner ball
-  - Not peeling through partner ball
-  - Standard journeys: peeling 4-back from an NSL with pilot near H2 and rushing to corner 4; peeling 4-back from an NSL with peelee at H1; finishing after an Irish peel at Fig 32
-
-- **6 min:** Building up the break from a 2-Hoop Leave
-  - Efficiently restarting after opponent's turn
-  - Regaining 4-ball break position
 
 ---
 
-## Block 3: Complete Journeys (25 min)
-*Practice the full triple peel sequences - the goal is repetition until ingrained*
+## Block 3: Complete Triple Peel Sequences (25 min)
+*Practice full triple peel sequences - the goal is repetition until ingrained*
 
-### The Standard Triple Journey (12 min)
+### The Standard Triple Peel (12 min)
 - **Setup from NSL from H6** - the most common starting position
 - **Setup from a 4-ball break with peelee as H1 pioneer**
 - **Setup from Diagonal Spread Leave in Corner 4**
 
-### The Delayed Triple Journey (13 min)
+### The Delayed Triple Peel (13 min)
 - **Starting from NSL with the H2 pioneer** - peelee at H1
 - **Starting from a 4-ball break at H1** - with peelee as H1 pioneer
-- **Starting from Diagonal Spread Leave** in Corner 4, with your rush to the H2 ball and in Corner 4 as you prefer
+- **Starting from Diagonal Spread Leave** in Corner 4
 
 ---
 
 ## Block 4: The Delayed Double Peel (15 min)
-*Essential fallback when the full triple isn't feasible - pages 88-89 of Tame the Triple*
+*Essential fallback when the full triple isn't feasible*
 
-> The Penult peel after 3-back, followed by the Rover peel after Penult (Figs 83-86) is one of the most important things for you to practise. Practise it regularly!
+> The Penult peel after 3-back, followed by the Rover peel after Penult is one of the most important things for you to practise. Practise it regularly!
 
-- **8 min:** Penult + Rover double peel sequence
-  - Setup: finishing the 4-back peel, picking up the 4-back pioneer
-  - Peel 4-back with H2 pioneer from Corner 4 (Fig 25)
-  - Execute the take-off (Fig 64)
-  - Shepherd the peelee to get a rush to peg (Fig 32)
-  - Practice positioning the 3-back remote pioneer (Fig 39)
-
-- **7 min:** Transition drill
-  - Recognize when 4-back peel has failed
-  - Smoothly transition to double peel attempt
-  - Setting up Corner 4 ball, finding the peel and remote 4-back
+- **15 min:** Penult + Rover double peel sequence
+  - Execute penult peel, maintain break to rover
+  - Complete rover peel and peg out
 
 ---
 
@@ -115,12 +98,12 @@ A structured practice session for advanced Association Croquet players working t
 
 ## Session Log (TP Journal)
 
-| Date | Journey Practiced | Completed? | Key Mistake/Learning | Plan B Used? |
-|------|-------------------|------------|---------------------|--------------|
-|      |                   |            |                     |              |
-|      |                   |            |                     |              |
-|      |                   |            |                     |              |
-|      |                   |            |                     |              |
+| Date | Drill Practiced | Completed? | Key Mistake/Learning | Plan B Used? |
+|------|-----------------|------------|---------------------|--------------|
+|      |                 |            |                     |              |
+|      |                 |            |                     |              |
+|      |                 |            |                     |              |
+|      |                 |            |                     |              |
 
 **Practice Goals Checklist:**
 - [ ] Routes and ball positions understood and ingrained
@@ -131,10 +114,10 @@ A structured practice session for advanced Association Croquet players working t
 
 ---
 
-## Four Types of Practice (from Tame the Triple)
+## Four Types of Practice
 
-1. **Complete Journeys** - Full triple peel sequences from start to finish
-2. **Journey Segments** - Specific sections when things go wrong or right
+1. **Complete Triple Peel Sequences** - Full triple peel from start to finish
+2. **Triple Peel Segments** - Specific sections when things go wrong or right
 3. **Key Shots** - The fundamental peel shots in isolation
 4. **The Delayed Double Peel** - Your essential fallback option
 
@@ -143,7 +126,7 @@ A structured practice session for advanced Association Croquet players working t
 ---
 
 ## Key References
-- *Tame the Triple* ePractice Pack (diagrams Figs 25, 32, 39, 52-55, 64, 70-75, 83-86)
+- *Tame the Triple* ePractice Pack
 - Keith Wylie, *Expert Croquet Tactics* (2nd Edition, 1991)
 - MacRobertson Shield match analysis
 - Oxford Croquet coaching materials
