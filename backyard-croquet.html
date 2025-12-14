@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9-Wicket Backyard Croquet Rules | Abbotsford Croquet Club</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="description" content="Learn how to play 9-wicket backyard croquet. Complete rules, court setup, and gameplay instructions for the classic American lawn game perfect for family gatherings.">
+    <meta name="keywords" content="9 wicket croquet, backyard croquet rules, lawn croquet, family croquet, American croquet, croquet setup, how to play croquet">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="9-Wicket Backyard Croquet Rules - Abbotsford Croquet Club">
+    <meta property="og:description" content="Complete guide to playing 9-wicket backyard croquet. Perfect for family gatherings, picnics, and casual outdoor fun.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_CA">
+
+    <!-- Breadcrumb markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://abbotsfordcroquet.ca/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Variations",
+        "item": "https://abbotsfordcroquet.ca/variations.html"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Backyard Croquet",
+        "item": "https://abbotsfordcroquet.ca/backyard-croquet.html"
+      }]
+    }
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/curriculum.css">
+    <style>
+        .court-diagram {
+            background: #4a7c4a;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            color: white;
+        }
+        .court-diagram pre {
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            display: inline-block;
+            text-align: left;
+        }
+        .rules-section {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .rules-section h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .ball-colors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .ball-color {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ball-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #333;
+        }
+        .sequence-list {
+            counter-reset: wicket-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+        .sequence-list li {
+            counter-increment: wicket-counter;
+            padding: 0.5rem 0 0.5rem 2.5rem;
+            position: relative;
+        }
+        .sequence-list li::before {
+            content: counter(wicket-counter);
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="membership.html">Membership</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="active">Learn</a>
+                    <div class="dropdown-content">
+                        <a href="lessons.html">Lessons</a>
+                        <a href="variations.html">Variations</a>
+                        <a href="backyard-croquet.html" class="active">Backyard Croquet</a>
+                        <a href="resources.html">Resources</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Play</a>
+                    <div class="dropdown-content">
+                        <a href="calendar.html">Calendar</a>
+                        <a href="court-status.html">Courts</a>
+                        <a href="session-registration.html">Sign Up</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Equipment</a>
+                    <div class="dropdown-content">
+                        <a href="mallets.html">Mallets</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="curriculum">
+            <h1>9-Wicket Backyard Croquet</h1>
+
+            <div class="intro-section">
+                <p>Nine-wicket croquet is the classic American backyard game, perfect for family gatherings, picnics, and casual outdoor fun. This guide covers everything you need to know to set up and play.</p>
+            </div>
+
+            <div class="curriculum-content">
+
+                <div class="rules-section">
+                    <h3>Equipment Needed</h3>
+                    <ul>
+                        <li><strong>9 wickets</strong> (wire hoops)</li>
+                        <li><strong>2 stakes</strong> (one at each end)</li>
+                        <li><strong>6 balls</strong> in different colors</li>
+                        <li><strong>6 mallets</strong> (one per player)</li>
+                    </ul>
+
+                    <h4>Ball Colors & Play Order</h4>
+                    <div class="ball-colors">
+                        <div class="ball-color"><div class="ball-dot" style="background: #0000FF;"></div> Blue (1st)</div>
+                        <div class="ball-color"><div class="ball-dot" style="background: #FF0000;"></div> Red (2nd)</div>
+                        <div class="ball-color"><div class="ball-dot" style="background: #000000;"></div> Black (3rd)</div>
+                        <div class="ball-color"><div class="ball-dot" style="background: #FFD700;"></div> Yellow (4th)</div>
+                        <div class="ball-color"><div class="ball-dot" style="background: #00FF00;"></div> Green (5th)</div>
+                        <div class="ball-color"><div class="ball-dot" style="background: #FFA500;"></div> Orange (6th)</div>
+                    </div>
+                    <p><em>The colored bands on the stakes show the play order from top to bottom.</em></p>
+                </div>
+
+                <div class="rules-section">
+                    <h3>Court Setup</h3>
+                    <p>A standard backyard court is approximately <strong>50 feet long by 25 feet wide</strong>, but you can adjust to fit your space. The court should be set up in a double-diamond pattern:</p>
+
+                    <div class="court-diagram">
+                        <pre>
+                    [STAKE 1]
+                        |
+                       (1)
+                        |
+                (2)----(3)----(4)
+                        |
+                       (5)
+                        |
+                (6)----(7)----(8)
+                        |
+                       (9)
+                        |
+                    [STAKE 2]
+                        </pre>
+                        <p style="margin-top: 1rem; font-size: 14px;">Wickets numbered in order of play going out.<br>Return trip plays wickets in reverse: 9-8-7-6-5-4-3-2-1</p>
+                    </div>
+                </div>
+
+                <div class="rules-section">
+                    <h3>Object of the Game</h3>
+                    <p>Be the first player (or team) to navigate your ball through all 9 wickets in the correct order, hit the far stake, then return through all 9 wickets in reverse order, and finally hit the starting stake. This is a total of <strong>14 points</strong> (9 wickets out + turning stake + 9 wickets back + finishing stake = but the stakes don't count as separate points in some variations).</p>
+                </div>
+
+                <div class="rules-section">
+                    <h3>The Wicket Sequence</h3>
+                    <p>Starting from the first stake, navigate through the wickets in this order:</p>
+
+                    <h4>Outward Journey:</h4>
+                    <ol class="sequence-list">
+                        <li>First wicket (in front of starting stake)</li>
+                        <li>Left wicket of first side group</li>
+                        <li>Center wicket of first side group</li>
+                        <li>Right wicket of first side group</li>
+                        <li>Center court wicket</li>
+                        <li>Left wicket of second side group</li>
+                        <li>Center wicket of second side group</li>
+                        <li>Right wicket of second side group</li>
+                        <li>Last wicket (before turning stake)</li>
+                    </ol>
+                    <p><strong>Then:</strong> Hit the turning stake and return through wickets 9 through 1 in reverse order, finishing by hitting the starting stake.</p>
+                </div>
+
+                <div class="rules-section">
+                    <h3>Basic Rules of Play</h3>
+
+                    <h4>Starting the Game</h4>
+                    <ul>
+                        <li>All balls start from a mallet's length in front of the first stake</li>
+                        <li>Players take turns in the color order shown on the stake</li>
+                        <li>Each turn consists of one stroke, unless bonus strokes are earned</li>
+                    </ul>
+
+                    <h4>Earning Bonus Strokes</h4>
+                    <ul>
+                        <li><strong>Running a wicket:</strong> When your ball passes completely through its correct wicket in the proper direction, you earn <strong>1 bonus stroke</strong></li>
+                        <li><strong>Hitting another ball (roquet):</strong> When your ball hits another ball, you earn <strong>2 bonus strokes</strong></li>
+                    </ul>
+
+                    <h4>Taking a Roquet (Hitting Another Ball)</h4>
+                    <p>When you hit another ball, you have two options for your bonus strokes:</p>
+                    <ol>
+                        <li><strong>Take croquet:</strong> Place your ball touching the ball you hit, then strike your ball (this is the "croquet stroke"). You get one more stroke after that.</li>
+                        <li><strong>Play from where your ball stopped:</strong> Simply take your two bonus strokes from your ball's current position.</li>
+                    </ol>
+                    <p><em>Note: You can only roquet each ball once per turn. After running your next wicket, you can roquet them again.</em></p>
+                </div>
+
+                <div class="rules-section">
+                    <h3>The Croquet Stroke</h3>
+                    <p>When taking croquet, place your ball next to the ball you hit (touching it), then strike your ball. There are several techniques:</p>
+                    <ul>
+                        <li><strong>Drive shot:</strong> Both balls travel in the same direction</li>
+                        <li><strong>Split shot:</strong> Balls travel in different directions</li>
+                        <li><strong>Stop shot:</strong> Your ball stays relatively still while sending the other ball away</li>
+                    </ul>
+                    <p><strong>Foot shot rule:</strong> In casual backyard play, you may place your foot on your ball while taking croquet to keep it stationary. This makes sending the opponent's ball easier!</p>
+                </div>
+
+                <div class="rules-section">
+                    <h3>Deadness (Optional Advanced Rule)</h3>
+                    <p>In traditional 9-wicket croquet, once you roquet a ball, you are "dead" on that ball until you run your next wicket. This means you cannot earn bonus strokes by hitting that same ball again until you've scored.</p>
+                    <p><em>For casual play, many families skip this rule and allow unlimited roquets.</em></p>
+                </div>
+
+                <div class="rules-section">
+                    <h3>Boundaries</h3>
+                    <ul>
+                        <li>If a ball goes out of bounds, it is placed one mallet's length inside the boundary where it went out</li>
+                        <li>In casual play, you may simply place it where it exited</li>
+                    </ul>
+                </div>
+
+                <div class="rules-section">
+                    <h3>Winning the Game</h3>
+                    <p>The first player to complete the full course (out through all wickets, hit the turning stake, back through all wickets, and hit the starting stake) wins!</p>
+
+                    <h4>Team Play</h4>
+                    <p>For teams of 2 or 3 players:</p>
+                    <ul>
+                        <li><strong>2 players per team:</strong> Partners play balls that are next to each other in order (Blue/Red vs Black/Yellow, or Blue/Black vs Red/Yellow)</li>
+                        <li><strong>3 players per team:</strong> One team plays Blue/Black/Green, the other plays Red/Yellow/Orange</li>
+                        <li>The team whose players all finish first wins</li>
+                    </ul>
+                </div>
+
+                <div class="rules-section">
+                    <h3>Poison Ball (Optional Variation)</h3>
+                    <p>A popular backyard variation! When a player completes the course but doesn't hit the final stake:</p>
+                    <ul>
+                        <li>They become a "poison ball"</li>
+                        <li>If a poison ball hits another ball, that ball is eliminated from the game</li>
+                        <li>If a poison ball runs any wicket (even accidentally), it is eliminated</li>
+                        <li>Last ball standing wins!</li>
+                    </ul>
+                    <p><em>This variation adds exciting end-game drama and is great for parties!</em></p>
+                </div>
+
+                <div class="rules-section">
+                    <h3>Quick Reference Summary</h3>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                        <tr style="background: var(--primary-color); color: white;">
+                            <th style="padding: 0.75rem; text-align: left;">Action</th>
+                            <th style="padding: 0.75rem; text-align: left;">Bonus Strokes</th>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #ddd;">Run a wicket</td>
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #ddd;">+1 stroke</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #ddd;">Hit another ball (roquet)</td>
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #ddd;">+2 strokes</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #ddd;">Hit the turning stake</td>
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #ddd;">+1 stroke</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td style="padding: 0.75rem;">Run wicket + hit ball in same stroke</td>
+                            <td style="padding: 0.75rem;">+3 strokes total</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="game-card" style="background: linear-gradient(135deg, var(--primary-color), #2B3B2B); color: white; margin-top: 2rem;">
+                    <h3 style="color: white;">Ready to Play?</h3>
+                    <p>Nine-wicket croquet is a wonderful introduction to the sport. Once you've mastered backyard play, consider joining us at the Abbotsford Croquet Club to try Golf Croquet and Association Croquet on a proper lawn!</p>
+                    <p><a href="contact.html" style="color: #FFD700;">Contact us</a> to learn more about club sessions and lessons.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
