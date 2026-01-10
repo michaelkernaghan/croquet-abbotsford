@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowquet in Crowatia - Abbotsford Croquet Club</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="description" content="Crowquet in Crowatia - A croquet adventure featuring photos and videos from Croatia.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" role="img" aria-labelledby="logo-title logo-desc">
+                <title id="logo-title">Abbotsford Croquet Club Logo</title>
+                <desc id="logo-desc">A stylized logo featuring croquet mallets and balls in red, gold, blue, and black, with the text 'ABBOTSFORD Croquet' on a green gradient background</desc>
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="membership.html">Membership</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Learn</a>
+                    <div class="dropdown-content">
+                        <a href="lessons.html">Lessons</a>
+                        <a href="variations.html">Variations</a>
+                        <a href="resources.html">Resources</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Play</a>
+                    <div class="dropdown-content">
+                        <a href="calendar.html">Calendar</a>
+                        <a href="court-status.html">Courts</a>
+                        <a href="session-registration.html">Sign Up</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Equipment</a>
+                    <div class="dropdown-content">
+                        <a href="mallets.html">Mallets</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Crows play Crowquet with Crowbars in Crowatia at the Russell Crowe Invitational</h1>
+
+        <section class="intro-section" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 2rem; padding: 1rem;">
+            <img src="assets/images/crowatia/russell-crowe-invitational.png"
+                 alt="Russell Crowe Crowquet Invitational 2026 poster - Lake Varna, Crowatia, Jan 5-7"
+                 style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <div style="max-width: 500px; text-align: left;">
+                <p style="font-size: 1.1rem; line-height: 1.6; margin: 0 0 1rem 0;">Played in the woods near Lake Varna the Russell Crowe Invitational took place on a secluded forest court under variable conditions. The setting rewarded patience, accuracy, and an ability to adapt as light and footing changed throughout the day.</p>
+                <p style="font-size: 1.1rem; line-height: 1.6; margin: 0;">The final between Crow Kay and Crow Bar proved decisive and absorbing. Crow Bar built an early lead through assertive break play, while Crow Kay responded with disciplined positioning and a series of well-judged recoveries. Momentum shifted several times before Crow Bar ultimately converted late opportunities to secure the match. Crow Magnon and the Rook from Zagreb were the losing semifinalists.</p>
+            </div>
+        </section>
+
+        <style>
+            .gallery-grid {
+                grid-template-rows: auto auto;
+            }
+            .gallery-item {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            .gallery-item img {
+                max-height: 400px;
+                width: 100%;
+                object-fit: contain;
+                margin-bottom: 10px;
+            }
+            .image-caption {
+                margin-top: auto;
+            }
+            .video-container {
+                position: relative;
+                width: 100%;
+                padding-bottom: 56.25%;
+                margin-bottom: 1rem;
+            }
+            .video-container iframe,
+            .video-container video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .media-section {
+                margin: 2rem 0;
+            }
+            .media-section h2 {
+                margin-bottom: 1rem;
+            }
+            .placeholder-box {
+                background: #f0f0f0;
+                border: 2px dashed #999;
+                padding: 3rem;
+                text-align: center;
+                color: #666;
+                margin: 1rem 0;
+            }
+        </style>
+
+        <!-- Photos Section -->
+        <section class="media-section">
+            <h2>Photos</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/images/crowatia/crows-playing-croquet-base-image.png"
+                         alt="Crows playing crowquet in Crowatia"
+                         loading="lazy">
+                    <div class="image-caption">
+                        <p>Crows playing crowquet</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="assets/images/crowatia/croatia-crowquet-with-scoreboard.png"
+                         alt="First game of the final in Crowatia"
+                         loading="lazy">
+                    <div class="image-caption">
+                        <p>First game of the final</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="assets/images/crowatia/crowquet-plate.png"
+                         alt="Crow Magnon wins the Plate"
+                         loading="lazy">
+                    <div class="image-caption">
+                        <p>Crow Magnon wins the Plate</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="assets/images/crowatia/top_left.png"
+                         alt="Crowquet player"
+                         loading="lazy">
+                    <div class="image-caption">
+                        <p>Crow-d gathered to watch</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="assets/images/crowatia/top_right.png"
+                         alt="Crowquet player"
+                         loading="lazy">
+                    <div class="image-caption">
+                        <p>The court near Lake Vrana</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="assets/images/crowatia/crowquet-winners.png"
+                         alt="Russell Crowe Crowquet Invitational 2026 prize winners"
+                         loading="lazy">
+                    <div class="image-caption">
+                        <p>The prize winners</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Videos Section -->
+        <section class="media-section">
+            <h2>Videos</h2>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="margin-bottom: 0.5rem;">Crow Kay beats Crow Bar in the final</h3>
+                <video controls style="width: 100%; max-width: 800px;">
+                    <source src="assets/images/crowatia/crow-kay-wins-final.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="gallery.html">&larr; Back to Gallery</a>
+        </p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
