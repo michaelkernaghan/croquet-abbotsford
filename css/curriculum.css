@@ -1,0 +1,167 @@
+/* Curriculum and Resources Page Styles */
+
+.curriculum {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.curriculum h1 {
+    text-align: center;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+.intro-section {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.curriculum-content {
+    margin-top: 2rem;
+}
+
+/* Grid Layout for Cards */
+.skill-progression {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .skill-progression {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .skill-progression {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card Styling */
+.skill-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(59, 81, 59, 0.15);
+    border-top: 4px solid var(--primary-dark);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(59, 81, 59, 0.2);
+}
+
+.skill-card h3 {
+    color: var(--primary-dark);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--bg-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-card h3::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-yellow);
+    border-radius: 50%;
+}
+
+/* List Styling within Cards */
+.skill-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-card ul li {
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+    position: relative;
+}
+
+.skill-card ul li::before {
+    display: none;
+}
+
+.skill-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Link Styling */
+.skill-card a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: inline-block;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.skill-card a:hover {
+    color: var(--primary-darker);
+    border-bottom-color: var(--accent-yellow);
+}
+
+/* External link indicator */
+.skill-card a[target="_blank"]::after {
+    content: ' \2197';
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+/* Description text after links */
+.skill-card li {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Social Media Card Special Styling */
+.skill-card .social-icon {
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+}
+
+.skill-card li:has(.social-icon) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Gallery/Image Section */
+.gallery-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(59, 81, 59, 0.15);
+    max-width: 800px;
+    margin: 3rem auto 0;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.image-caption {
+    color: #666;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-top: 1rem;
+}
