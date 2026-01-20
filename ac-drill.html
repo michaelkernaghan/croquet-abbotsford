@@ -326,7 +326,10 @@
 <body>
     <header>
         <h1>AC Opening Drill</h1>
-        <div class="progress-badge" id="progress-badge">0/14</div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="progress-badge" id="progress-badge">0/14</div>
+            <button onclick="showHelp()" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer; padding: 4px;">?</button>
+        </div>
     </header>
 
     <main id="main-content">
@@ -365,6 +368,29 @@
             </div>
         </div>
     </main>
+
+    <!-- Help Modal -->
+    <div class="modal-overlay" id="help-modal">
+        <div class="modal">
+            <h2>
+                How to Use
+                <button class="modal-close" onclick="closeHelp()">&times;</button>
+            </h2>
+            <div style="color: #ccc; line-height: 1.6;">
+                <p><strong>Practice random AC opening combinations:</strong></p>
+                <ol style="padding-left: 20px; margin: 12px 0;">
+                    <li><strong>Start Drill</strong> - Get a random Blue opening + Red response</li>
+                    <li><strong>Set up the balls</strong> on court as shown</li>
+                    <li><strong>Review Black options</strong> - decide your Turn 3 play</li>
+                    <li><strong>Mark Practiced</strong> - records this combination</li>
+                    <li><strong>Next Drill</strong> - get another random combination</li>
+                </ol>
+                <p style="margin-top: 16px;"><strong>Progress:</strong> The badge shows how many of the 14 combinations you've practiced. Unpracticed combos are prioritized.</p>
+                <p style="margin-top: 12px;"><strong>Install:</strong> Tap browser menu → "Add to Home Screen" to use like an app.</p>
+                <p style="margin-top: 16px; font-size: 12px; color: #888;">Strategy details: <a href="ac-strategy.html" style="color: #64b5f6;">AC Strategy Page</a></p>
+            </div>
+        </div>
+    </div>
 
     <!-- History Modal -->
     <div class="modal-overlay" id="history-modal">
@@ -726,6 +752,15 @@
                 updateProgress();
                 closeHistory();
             }
+        }
+
+        // Help modal
+        function showHelp() {
+            document.getElementById('help-modal').classList.add('active');
+        }
+
+        function closeHelp() {
+            document.getElementById('help-modal').classList.remove('active');
         }
 
         // Initialize
