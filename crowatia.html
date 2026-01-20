@@ -18,30 +18,6 @@
     <link rel="stylesheet" href="css/gallery.css">
 </head>
 <body>
-    <!-- Password Protection -->
-    <div id="password-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #2B3B2B; z-index: 9999; display: flex; align-items: center; justify-content: center;">
-        <div style="background: white; padding: 2rem; border-radius: 8px; text-align: center; max-width: 400px;">
-            <h2 style="margin-bottom: 1rem; color: #3B513B;">Password Required</h2>
-            <p style="margin-bottom: 1rem;">Enter password to view this page:</p>
-            <input type="password" id="password-input" style="padding: 0.5rem; width: 200px; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px;">
-            <br>
-            <button onclick="checkPassword()" style="padding: 0.5rem 2rem; background: #3B513B; color: white; border: none; border-radius: 4px; cursor: pointer;">Enter</button>
-            <p id="error-msg" style="color: red; margin-top: 1rem; display: none;">Incorrect password</p>
-        </div>
-    </div>
-    <script>
-        function checkPassword() {
-            var pwd = document.getElementById("password-input").value;
-            if (pwd === "croquet") {
-                document.getElementById("password-overlay").style.display = "none";
-            } else {
-                document.getElementById("error-msg").style.display = "block";
-            }
-        }
-        document.getElementById("password-input").addEventListener("keypress", function(e) {
-            if (e.key === "Enter") checkPassword();
-        });
-    </script>
     <!-- Header with SVG logo -->
     <header>
         <div class="header-container">
@@ -123,14 +99,14 @@
     </nav>
 
     <main>
-        <h1>Russell Crowe Invitational Report</h1>
+        <h1>Rusty the Crow Invitational Report</h1>
 
         <section class="intro-section" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 2rem; padding: 1rem;">
-            <img src="assets/images/crowatia/russell-crowe-invitational.png"
-                 alt="Russell Crowe Crowquet Invitational 2026 poster - Lake Varna, Crowatia, Jan 5-7"
+            <img src="assets/images/crowatia/rusty-the-crow-invitational.png"
+                 alt="Rusty the Crow Crowquet Invitational 2026 poster - Lake Varna, Crowatia, Jan 5-7"
                  style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
             <div style="max-width: 500px; text-align: left;">
-                <p style="font-size: 1.1rem; line-height: 1.6; margin: 0 0 1rem 0;">Played in the woods near Lake Varna the Russell Crowe Invitational took place on a secluded forest court under variable conditions. The setting rewarded patience, accuracy, and an ability to adapt as light and footing changed throughout the day.</p>
+                <p style="font-size: 1.1rem; line-height: 1.6; margin: 0 0 1rem 0;">Played in the woods near Lake Varna the Rusty the Crow Invitational took place on a secluded forest court under variable conditions. The setting rewarded patience, accuracy, and an ability to adapt as light and footing changed throughout the day.</p>
                 <p style="font-size: 1.1rem; line-height: 1.6; margin: 0;">The final between Crow Kay and Crow Bar proved decisive and absorbing. Crow Bar built an early lead through assertive break play, while Crow Kay responded with disciplined positioning and a series of well-judged recoveries. Momentum shifted several times before Crow Bar ultimately converted late opportunities to secure the match. Crow Magnon and the Rook from Zagreb were the losing semifinalists.</p>
             </div>
         </section>
@@ -234,7 +210,7 @@
 
                 <div class="gallery-item">
                     <img src="assets/images/crowatia/crowquet-winners.png"
-                         alt="Russell Crowe Crowquet Invitational 2026 prize winners"
+                         alt="Rusty the Crow Crowquet Invitational 2026 prize winners"
                          loading="lazy">
                     <div class="image-caption">
                         <p>The prize winners</p>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Association Croquet Opening Strategy | Decision Tree | Abbotsford</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="description" content="Association Croquet opening strategy decision tree. Learn the standard openings, responses, and strategic considerations for AC play.">
+    <meta name="keywords" content="association croquet strategy, croquet openings, supershot, east boundary, tice, croquet tactics">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Association Croquet Opening Strategy - Abbotsford Croquet Club">
+    <meta property="og:description" content="Complete decision tree for Association Croquet openings including supershot, east boundary, standard tice, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_CA">
+
+    <!-- Breadcrumb markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://abbotsfordcroquet.ca/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resources",
+        "item": "https://abbotsfordcroquet.ca/resources.html"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AC Strategy",
+        "item": "https://abbotsfordcroquet.ca/ac-strategy.html"
+      }]
+    }
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/curriculum.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .turn-label {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 13px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .turn-1 { background: #2196F3; color: white; }
+        .turn-2 { background: #f44336; color: white; }
+        .turn-3 { background: #1a1a1a; color: white; }
+        .turn-4 { background: #FFC107; color: #1a1a1a; }
+
+        .option {
+            background: #f9f9f9;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid var(--primary-dark);
+        }
+        .option-aggressive {
+            border-left-color: #f44336;
+            background: #fff8f8;
+        }
+        .option-defensive {
+            border-left-color: #2196F3;
+            background: #f8fbff;
+        }
+
+        .opening-name {
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .strategy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        .strategy-table th,
+        .strategy-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        .strategy-table th {
+            background: var(--primary-dark);
+            color: white;
+        }
+        .strategy-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .strategy-table tr:hover {
+            background: #f0f5f0;
+        }
+
+        .dream-leave {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .dream-leave h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            border-bottom: none;
+        }
+        .dream-leave ul {
+            margin: 10px 0;
+            padding-left: 20px;
+            list-style: disc;
+        }
+        .dream-leave li::before {
+            display: none;
+        }
+
+        .arrow {
+            color: var(--primary-dark);
+            font-weight: bold;
+        }
+
+        .flow-section {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .source-credit {
+            text-align: center;
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .source-credit a {
+            color: #1a5f7a;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B" />
+                        <stop offset="100%" style="stop-color:#2B3B2B" />
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)" />
+
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000" />
+                    <circle cx="65" cy="0" r="10" fill="#FFD700" />
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1" />
+                    <circle cx="40" cy="25" r="10" fill="#000000" />
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088" />
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B" />
+                        </g>
+                    </g>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088" />
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B" />
+                        </g>
+                    </g>
+                </g>
+
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72"
+                    fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64"
+                    fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="membership.html">Membership</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="active">Learn</a>
+                    <div class="dropdown-content">
+                        <a href="lessons.html">Lessons</a>
+                        <a href="variations.html">Variations</a>
+                        <a href="resources.html">Resources</a>
+                        <a href="ac-strategy.html" class="active">AC Strategy</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Play</a>
+                    <div class="dropdown-content">
+                        <a href="calendar.html">Calendar</a>
+                        <a href="court-status.html">Courts</a>
+                        <a href="session-registration.html">Sign Up</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Equipment</a>
+                    <div class="dropdown-content">
+                        <a href="mallets.html">Mallets</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="curriculum">
+            <h1>Association Croquet Opening Strategy</h1>
+
+            <div class="intro-section">
+                <p>Master the opening moves of Association Croquet with this decision tree. Understanding openings and responses is fundamental to competitive AC play.</p>
+            </div>
+
+            <div class="curriculum-content">
+
+                <!-- Turn 1: Blue -->
+                <h2><span class="turn-label turn-1">TURN 1</span> First Ball (Blue) Placement</h2>
+
+                <div class="flow-section">
+                    <div class="option">
+                        <span class="opening-name">EAST BOUNDARY (H4-H5)</span>
+                        <div class="description">Defensive, non-threatening. Lets opponent dictate game style. Best for stronger players seeking defensive positioning.</div>
+                    </div>
+
+                    <div class="option">
+                        <span class="opening-name">IN-LAWN EAST BOUNDARY</span>
+                        <div class="description">Standard east placement but 1 yard inward. Allows Black to play behind Blue on turn 3, discourages aggressive west boundary responses.</div>
+                    </div>
+
+                    <div class="option option-aggressive">
+                        <span class="opening-name">SUPERSHOT (Center court, 2 yds W of centerline)</span>
+                        <div class="description">Most aggressive sensible option. Signals "no grey area." Creates break opportunities for either side.</div>
+                    </div>
+
+                    <div class="option">
+                        <span class="opening-name">ANTI-DUFFER (H6-peg, 1-2 yds W of E boundary)</span>
+                        <div class="description">Discourages "duffer tice" responses. Gives Black strong turn 3 break potential if opponent attempts defensive play.</div>
+                    </div>
+                </div>
+
+                <!-- Turn 2: Red -->
+                <h2><span class="turn-label turn-2">TURN 2</span> Red Responses to Blue</h2>
+
+                <h3>Responses to East Boundary Ball</h3>
+                <div class="flow-section">
+                    <div class="option">
+                        <span class="opening-name">STANDARD TICE</span>
+                        <div class="description">West boundary, 8-13 yards north of C1. Distance should match opponent's critical distance (50% hit rate) &plusmn;1 yard.</div>
+                    </div>
+
+                    <div class="option option-defensive">
+                        <span class="opening-name">C2 BALL</span>
+                        <div class="description">6 inches south of C2. Defensive positioning preventing double targets if Black misses turn 3.</div>
+                    </div>
+
+                    <div class="option option-aggressive">
+                        <span class="opening-name">DUFFER TICE</span>
+                        <div class="description">Near penultimate (2 feet north, few inches east). Aggressive: encourages gentle miss toward A baulk.</div>
+                    </div>
+
+                    <div class="option option-aggressive">
+                        <span class="opening-name">C4 BALL</span>
+                        <div class="description">6 inches north of C4. Aggressive, New Zealand-style opening signaling fourth-turn break intent.</div>
+                    </div>
+
+                    <div class="option option-aggressive">
+                        <span class="opening-name">SHOOT BLUE</span>
+                        <div class="description">Direct attack. Risk: misses may leave triple targets for Yellow.</div>
+                    </div>
+                </div>
+
+                <h3>Responses to Supershot Ball</h3>
+                <div class="flow-section">
+                    <div class="option option-defensive">
+                        <span class="opening-name">C2 RESPONSE</span>
+                        <div class="description">6 inches south of C2. Requires 13-yard Black shot; miss leaves double target for Yellow.</div>
+                    </div>
+
+                    <div class="option">
+                        <span class="opening-name">C4 RESPONSE</span>
+                        <div class="description">Mirror of C2, 6 inches north of C4. Use when peg-high or when H4 blocks croquet angles.</div>
+                    </div>
+
+                    <div class="option option-defensive">
+                        <span class="opening-name">MAX DISTANCE</span>
+                        <div class="description">East boundary near peg level. Counter against elite players &mdash; longest possible shot for Black.</div>
+                    </div>
+
+                    <div class="option">
+                        <span class="opening-name">SUPERSHOT LAG</span>
+                        <div class="description">3-4 yards east, 1-2 yards north of supershot ball. Nullifies shooting strength.</div>
+                    </div>
+
+                    <div class="option option-aggressive">
+                        <span class="opening-name">ROQUET SUPERSHOT</span>
+                        <div class="description">Hit it! Ultimate nullification. Croquet options: Blue to C2, northwest of H2, or wiring at peg.</div>
+                    </div>
+                </div>
+
+                <!-- Turn 3: Black -->
+                <h2><span class="turn-label turn-3">TURN 3</span> Black Responses</h2>
+
+                <h3>After Standard West Boundary Tice</h3>
+                <div class="flow-section">
+                    <div class="option">
+                        <span class="opening-name">SHOOT BLUE</span> from A baulk <span class="arrow">&rarr;</span> Miss leaves free shot for Yellow
+                    </div>
+                    <div class="option">
+                        <span class="opening-name">JOIN WITH RED</span> from C3 toward C4 <span class="arrow">&rarr;</span> Avoid double targets
+                    </div>
+                    <div class="option option-aggressive">
+                        <span class="opening-name">SHOOT RED</span> directly <span class="arrow">&rarr;</span> Hit achieves dream leave; miss toward C2 gives free return shot
+                    </div>
+                </div>
+
+                <h3>After C2 Ball</h3>
+                <div class="flow-section">
+                    <div class="option">
+                        <span class="opening-name">SHOOT PARTNER</span> (preferred) from A baulk leaving double target; or from C3 avoiding doubles
+                    </div>
+                    <div class="option">
+                        <span class="opening-name">SHOOT RED</span> only viable if exactly cornered
+                    </div>
+                    <div class="option">
+                        <span class="opening-name">JOIN NEAR RED</span> 3-4 feet south, no double target, good break prospects if Yellow misses
+                    </div>
+                </div>
+
+                <h3>After C4 Ball</h3>
+                <div class="flow-section">
+                    <div class="option option-aggressive">
+                        <span class="opening-name">SHOOT PARTNER</span> <span class="arrow">&rarr;</span> Hit = dream leave; miss = 13-yard Yellow shot
+                    </div>
+                    <div class="option">
+                        <span class="opening-name">SHOOT C4 FROM A BAULK</span> <span class="arrow">&rarr;</span> Hit = dream leave; miss = tricky double
+                    </div>
+                    <div class="option">
+                        <span class="opening-name">JOIN NORTH OF C4</span> <span class="arrow">&rarr;</span> No double, still 13-yard Yellow shot
+                    </div>
+                    <div class="option option-defensive">
+                        <span class="opening-name">BLACK TO C2</span> <span class="arrow">&rarr;</span> Neutralize aggression; Yellow misses yield 9-yard response
+                    </div>
+                </div>
+
+                <h3>After Duffer Tice</h3>
+                <div class="flow-section">
+                    <div class="option option-aggressive">
+                        <span class="opening-name">SHOOT RED</span> (common) &mdash; Most aggressive, reasonable break if hit
+                    </div>
+                    <div class="option option-defensive">
+                        <span class="opening-name">SHOOT FROM C3</span> &mdash; Defensive, miss toward west boundary avoids Yellow break
+                    </div>
+                    <div class="option option-aggressive">
+                        <span class="opening-name">SHOOT PARTNER FROM A BAULK</span> &mdash; Big croquet stroke to H2, risky against weak play
+                    </div>
+                </div>
+
+                <!-- Turn 4: Yellow -->
+                <h2><span class="turn-label turn-4">TURN 4</span> Yellow Responses</h2>
+
+                <div class="flow-section">
+                    <div class="option">
+                        <span class="opening-name">IGNORED WEST BOUNDARY TICE</span>
+                        <div class="description">Shoot Red from C1 (~50% hit rate). Success: roll Red toward H2 and Blue/Black.</div>
+                    </div>
+
+                    <div class="option">
+                        <span class="opening-name">MISSED WEST BOUNDARY TICE</span>
+                        <div class="description">Shoot Red from east of C1, joining if missed. Hit: roll toward C1 for next-turn rush.</div>
+                    </div>
+
+                    <div class="option option-aggressive">
+                        <span class="opening-name">IGNORED C2 BALL</span>
+                        <div class="description">Aggressive: shoot Blue/Black double from A or B baulk. Defensive: shoot C3 to C4. Weaker player: shoot 13-yard Red.</div>
+                    </div>
+
+                    <div class="option">
+                        <span class="opening-name">IGNORED DUFFER TICE</span>
+                        <div class="description">Default: shoot Red from B baulk (9-10 yard shortest shot). Alternative: shoot Blue/Black double from A baulk if joined.</div>
+                    </div>
+                </div>
+
+                <!-- Strategic Framework -->
+                <h2>Strategic Framework</h2>
+
+                <table class="strategy-table">
+                    <thead>
+                        <tr>
+                            <th>Match-up</th>
+                            <th>Recommended Style</th>
+                            <th>Key Tactics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Stronger vs Weaker</strong></td>
+                            <td>Defensive</td>
+                            <td>Grind, avoid grey areas, force opponent errors</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weaker vs Stronger</strong></td>
+                            <td>Aggressive</td>
+                            <td>Accept short-shot risks, favor in-lawn balls, pressure opponent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Evenly Matched</strong></td>
+                            <td>Personal preference</td>
+                            <td>Elite players trend toward aggressive "black and white" openings</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Dream Leave -->
+                <div class="dream-leave">
+                    <h3>Target State: "Dream Leave"</h3>
+                    <ul>
+                        <li><strong>Red:</strong> Slightly in-lawn from west boundary, north of peg-high</li>
+                        <li><strong>Blue:</strong> Positioned for rush toward Red</li>
+                        <li><strong>Yellow:</strong> No short shots available</li>
+                        <li><strong>Outcome:</strong> Yellow misses create Blue break opportunities</li>
+                    </ul>
+                </div>
+
+                <!-- Quick Reference -->
+                <h2>Quick Reference: Opening Signals</h2>
+
+                <table class="strategy-table">
+                    <thead>
+                        <tr>
+                            <th>Opening</th>
+                            <th>Signal</th>
+                            <th>Risk Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>East Boundary</td>
+                            <td>Defensive, let opponent lead</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td>Supershot</td>
+                            <td>"No grey area" &mdash; decisive game</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>C2 Response</td>
+                            <td>Defensive counter</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td>C4 Response</td>
+                            <td>Aggressive, NZ-style</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>Duffer Tice</td>
+                            <td>Aggressive trap</td>
+                            <td>Medium-High</td>
+                        </tr>
+                        <tr>
+                            <td>Standard Tice</td>
+                            <td>Neutral, test opponent</td>
+                            <td>Medium</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="source-credit">
+                    Strategy content adapted from <a href="https://croquetdev.com/openings.html" target="_blank">CroquetDev.com</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
