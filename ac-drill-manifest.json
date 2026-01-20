@@ -1,6 +1,6 @@
 {
     "name": "AC Opening Drill",
-    "short_name": "AC Drill",
+    "short_name": "AC Openings",
     "description": "Association Croquet opening practice drills",
     "start_url": "/ac-drill.html",
     "display": "standalone",
