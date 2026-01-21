@@ -1,0 +1,456 @@
+{
+  "metadata": {
+    "source": "Beyond Expert Croquet",
+    "chapter": 11,
+    "title": "Self-Development",
+    "author": "Pete Trimmer",
+    "pages": "189-209",
+    "scanned_date": "2026-01-20",
+    "total_pages": 21
+  },
+  "sections": [
+    {
+      "number": "11.1",
+      "title": "Physical Improvement",
+      "page_start": 189,
+      "page_end": 197,
+      "overview": "Physical practice approaches for improving croquet skills. Covers the key physical skills: rushing, croquet strokes, and controlled hoop running.",
+      "key_concepts": [
+        {
+          "concept": "Practice what you're worst at vs what improves odds",
+          "description": "Common advice suggests practicing weakest skills, but Trimmer argues players should practice whichever skill will most improve odds of winning matches. Sometimes this means focusing on skills you're already decent at if improving them further yields better match results."
+        },
+        {
+          "concept": "Key physical skills",
+          "description": "The three key skills are: rushing, croquet strokes, and controlled hoop running. Shooting is demoted to a supplement (Appendix D) as many players put too much time into shooting relative to improving other skills."
+        }
+      ],
+      "subsections": [
+        {
+          "title": "Rushing",
+          "page": 190,
+          "content": "Practice rushing independently. Choose a hoop to rush to, place striker's ball and rush ball, execute rushes. Focuses on starting in corner positions (corner 1, rush to hoop 1; corner 4 to hoop 4, etc.). Emphasizes varying the rush target to different hoops and practicing with different ball positions.",
+          "drills": [
+            {
+              "name": "Basic Rush Practice",
+              "setup": "Place rush ball with striker's ball nearby",
+              "goal": "Rush to specific hoop positions",
+              "variations": [
+                "Corner 1 to hoop 1, 4, etc.",
+                "Vary starting positions",
+                "Practice approach rushes (within 3 yards of target hoop)"
+              ],
+              "tips": [
+                "Note that hitting range of only 5 yards means approach rushes are most valuable",
+                "Practice with combination shots (rather than in isolation) once competent"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Croquet Strokes",
+          "page": 192,
+          "content": "Large croquet stroke practice requires more walking than rushing practice. Use additional set of balls if possible. Three measurable outcomes: angle, relative distance (ratio), and overall power. Practice from same point adjusting all three to get very good result by fourth attempt.",
+          "drills": [
+            {
+              "name": "Croquet Stroke Calibration",
+              "setup": "From near hoop 1, send ball as pioneer to hoop 3 whilst going a yard in front of hoop 2",
+              "goal": "Be very precise with intended target positions",
+              "technique_checks": [
+                "Are you balanced at end of stroke?",
+                "Do you need to free up shoulders and concentrate on feeling grounded in legs?",
+                "Is lower hand at same point on mallet shaft with each attempt?",
+                "Are you gripping mallet with same tightness?",
+                "Are you selecting mallet direction before the stroke itself?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Hoop Running",
+          "page": 192,
+          "content": "Controlled hoop running is the skill that is least well recognised by players at the top level. Two reasons for difficulty: (1) physically results are more stochastic due to tiny differences in ball-hoop contact; (2) mentally considerable discipline required to treat practice as equivalent to running hoop on real break.",
+          "key_points": [
+            "Practice controlled hoop-running by trying to not pass a line representing a ball needing to be rushed forward",
+            "Recommend trying to run hoops at a pace where if no wire were to be taken, the ball would stop at a particular position (typically further than where you'd ideally want ball to stop)",
+            "With time, learn how far you should try to run hoop if no wire were taken"
+          ],
+          "drills": [
+            {
+              "name": "Controlled Hoop Running",
+              "setup": "Ball in front of hoop with imaginary 'rush line' behind",
+              "goal": "Run hoop with control - ball stops between hoop and the line",
+              "progression": "Practice until you can run hoops with confidence as if hoop weren't there",
+              "mental_aspect": "Imagine playing at pace where if no wire taken, ball would stop at particular position"
+            }
+          ]
+        },
+        {
+          "title": "Combination Practice Routines",
+          "page": 194,
+          "content": "Practicing rushing, croquet strokes, and hoop running as separate stand-alone elements can be useful but has limitations. Each component alone is somewhat boring relative to general accomplishments like TPs. Second, mental aspects of playing a stroke are often connected with the next stroke to come.",
+          "figure": {
+            "number": "11.1",
+            "description": "Typical profile of improvement against practice. Shows skill/performance initially increasing steeply then plateauing, with occasional decreases or performance over short periods before returning to improvement trajectory."
+          },
+          "drills": [
+            {
+              "name": "Rush from Corner IV Routine",
+              "description": "Main practice routine combining skills. Starting with rush from corner IV.",
+              "sequence": [
+                "Rush from corner IV",
+                "Running hoop with control",
+                "Taking croquet",
+                "Rushing to next hoop"
+              ],
+              "purpose": "Identify improvement and maintain motivation through 2-ball break style practice"
+            },
+            {
+              "name": "2-Ball Break Practice",
+              "source": "Rob Fulford",
+              "description": "Developed to work on ability to generate 3-ball breaks from 2-ball break situations. Start with one ball in corner IV and taking croquet from a ball a yard north of it (without 4th ball on lawn). Requires great deal of controlled hoop running to obtain rushes back to corner, digging ball out a little further, and rushing to next hoop.",
+              "difficulty": "Excellent and extremely stretching routine for improvement once 3-ball break is no longer sufficiently stretching",
+              "benefit": "Added benefit of introducing difficult choices like whether to take significant wire when running hoop"
+            },
+            {
+              "name": "Reg Bamford 2-Ball Break",
+              "description": "Yet more difficult routine. Instead of all hoops, just repeatedly makes hoop 1 and hoop 3 (before rushing back to hoop 1 continued). Combination of every rush being long and every hoop approach needing to be sound - to allow another controlled hoop for next rush.",
+              "challenge": "Player must be very good to consistently make more than 3 hoops. How many can you make?"
+            },
+            {
+              "name": "Chris Clarke Controlled Hoop Practice",
+              "description": "Work on controlled hoop running, judging pull, and large croquet strokes.",
+              "setup": "Give yourself a rush (say with U on R) to hoop 1 from near corner with a pioneer Y at hoop 2",
+              "sequence": [
+                "Playing U, rush R to hoop 1",
+                "Run hoop getting the peel position (I up on R and the ball in front sending K to hoop 2-back)",
+                "Now place R 2-3 yards away from you, send Y in front of 1-back firmly, attempt 3 points for peeling 1-back and jawsing 1-back",
+                "Continue by picking up K from R and play through same process at hoop 3, then K at hoop 4"
+              ],
+              "notes": "Practice routine to 'escape ball' from 2-3 feet, easier using 5th turn single-ball style croquet strokes"
+            },
+            {
+              "name": "Full 12-Point Rush Practice",
+              "setup": "Playing U, rush R in front of hoop 1. Approach the hoop sending K in front of 2-back. Make hoop 1 and leave R in the hoop sending K in front of 1-back. Then rush R to 2-back and continue process.",
+              "sequence": [
+                "Rush to hoop 1, approach sending K to 2-back",
+                "Run hoop 1, send K to 1-back",
+                "Rush R to 2-back, continue"
+              ],
+              "scoring": "12 point routine tracking all positions and outcomes"
+            },
+            {
+              "name": "Stephen Mulliner Practice",
+              "description": "To discover how some players practice over many days. Worth noting that some players practice very differently. Stephen Mulliner maintains this approach across many days with no practice on 'matchdays'. Approach based on consistent repetition of positions and strokes rather than practice match play."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "11.2",
+      "title": "Tactical Improvement",
+      "page_start": 198,
+      "page_end": 205,
+      "overview": "Becoming a better tactician requires developing understanding of several aspects of the game: knowledge of own abilities, knowledge of opponent's abilities, and understanding how to make balanced decisions given data from both.",
+      "key_concepts": [
+        {
+          "concept": "Three aspects of good tactics",
+          "items": [
+            "Knowledge of one's own abilities (e.g., probabilities of hitting different length roquets, likelihood of taking break round from various positions)",
+            "Knowledge of opponent's abilities (including weaknesses)",
+            "Understanding how to make balanced decisions, given the data. Not purely about logic, but about gaining sense of how advantageous various positions are, relative to one another"
+          ]
+        },
+        {
+          "concept": "Logic vs Trial-and-Error",
+          "description": "Some players are good at overcoming deficiencies on logic-side by emulating good tacticians. 'In a situation like this, I've seen Clarke and Fulford do [X]; therefore I'll do [X]'. But without understanding a tactic, it is impossible to know whether it is a good tactic for you to use."
+        }
+      ],
+      "subsections": [
+        {
+          "title": "Fine-tuning",
+          "page": 198,
+          "content": "One simple method is to 'fine-tune' a particular sort of leave in a given circumstance. To improve your tactics, it is often best to talk at first as though the opponent is a good robot (ie., they will do what they 'should' do). Gives a particular opponent in mind in terms of their abilities to use your own data to come to a very useful template.",
+          "figure": {
+            "number": "11.2",
+            "description": "Thought process for improving leaves. Flowchart showing: Make own outcome more guaranteed -> Possible Leave -> Evaluate odds of success / Opponent response -> Make opponent's outcome less worthwhile"
+          },
+          "process": [
+            "Try to decide what to do - is it a leave or not",
+            "Modify the leave to make it easier for opponent to miss (e.g., make it so less clear what they should do)",
+            "Repeat steps 1 and 2 until it is unclear which would be the best option for opponent",
+            "If considering that the particular opponent is likely to do X against that leave, then consider what they are likely to do, then you can assess whether leave is good or bad"
+          ]
+        },
+        {
+          "title": "Option-spotting",
+          "page": 200,
+          "content": "Fine-tuning a particular leave (or line of play) is all very well, but sometimes the challenging part is to spot a particular (approximate) line of play before it is fine-tuned.",
+          "skills": [
+            "Think about a few situations deeply rather than many shallowly",
+            "Laying out positions, thinking through what option should be chosen, then tweaking position to make that option slightly worse - good method of engaging brain in identifying important trade-offs"
+          ],
+          "figure": {
+            "number": "11.3",
+            "description": "R&Y (both for rover) had just been handled the innings by U&K. Example tactical position with balls at specific locations showing option-spotting situation."
+          }
+        },
+        {
+          "title": "Chess-style Thinking and Openings",
+          "page": 202,
+          "content": "Croquet has often been referred to as 'chess on grass' but in many circumstances outcomes are typically stochastic (like rolling dice) rather than deterministic. Nevertheless, some aspects of game are like chess in that deterministic scenarios do occur - commonly in pegged-out games where one move is immediately followed by opponent playing likely known move.",
+          "recommendations": [
+            "Wylie provides excellent discussion of basic opening tactics with Clarke providing update for supershot tactics in Chapter 3",
+            "To develop tactics further, recommend finding practice partner of similar ability and playing sequence of little 'opening competitions': first player to make 3 hoops and have established break wins the round",
+            "Alternate who goes first. By playing numerous openings back-to-back, mind gets focused on how long tice should be laid, and when best to shoot at tice"
+          ]
+        },
+        {
+          "title": "Longer-Term Strategies: effects on opponents and oneself",
+          "page": 202,
+          "content": "Discussion of how knowledge of what a player will typically do, and thus how you can capitalise on it by tweaking the length of their strokes may have prompted you to think about giving you shorter shots (choosing defensive lines). But not taking the kind of risk that may compound benefit. Finally, having won the previous season or two, playing as you otherwise would but would advise against it.",
+          "key_insight": "Your choice of tactical style will influence your physical stroke development. The key routes to improvement over longer-term are tactically optimal and combining playing with a mix of comfort. This is one of the worthwhile attributes - that you gain, that you player commit more, committing to whatever uncertain whether it was best line of play."
+        },
+        {
+          "title": "Break Hygiene",
+          "page": 204,
+          "content": "How does one improve 'break hygiene' (tidiness of breaks; in particular, how easy is each hoop)? Surprising amount of it comes from tactical choices rather than accuracy of play - includes where to send pioneers and pivots, which side of pivot to land on with striker's ball, where to rush it, and how best to double-up with balls at hoops at times when struggling.",
+          "key_points": [
+            "Decision of how firmly to try to run a hoop is a tactical decision",
+            "The best choice trades off short-term probability of running hoop (hit it hard and get it damned well through - or the turn ends!) against future break prospects",
+            "In a delayed TP, when running 3-back with other balls waiting near penult for second peel, gaining forward rush pays huge dividends and often makes difference between finishing or not for players with handicap of -1 or -1.5",
+            "Knowing you need to run hoop with sufficient control not to run beyond other ball, we then find that when approaching the hoop from in front, it is worth approaching to a little closer than normal, as that both gives more hoop control and sends other ball further so provides more stopping room"
+          ]
+        },
+        {
+          "title": "Pure Logic (and memory of its results)",
+          "page": 204,
+          "content": "A final element of tactical ability that is occasionally useful is that of identifying which option is best from a straightforward logical perspective.",
+          "examples": [
+            {
+              "situation": "Whether you are more likely to roquet a single ball 20 yards away",
+              "analysis": "A simple diagram shows that there is no difference between required accuracies, so it would make no difference. But note that the 20 yards: this effect will typically be small (though) identifying this sort of thing can be useful"
+            },
+            {
+              "situation": "Given choice between shooting at ball a little further away with gut feel vs closer ball",
+              "analysis": "Logic tells you to hit the right-hand edge of target if half-a-ball off line on either side. Knowing the lawn conditions (7 yards in, etc) can also allow better calculation when comparing shot distances"
+            }
+          ],
+          "memory_aspect": "Once you have identified certain logical conclusions, it is worth retaining them in memory. Some players have certainly done this, though I question whether it was the best line of play."
+        }
+      ]
+    },
+    {
+      "number": "11.3",
+      "title": "Emotions and Confidence",
+      "page_start": 206,
+      "page_end": 206,
+      "overview": "Self-development includes abilities to prepare for playing (and winning!) big matches.",
+      "key_concepts": [
+        {
+          "concept": "No 'big' matches psychologically",
+          "description": "Numerous players claim that there aren't 'big' matches - and that there is no such thing as 'stress' - often motivated by their knowledge that, psychologically, there shouldn't be. But if a player were to do things differently in a 'big' match, they are instead doing something different - which is thus likely to be less effective."
+        },
+        {
+          "concept": "Yerkes-Dodson Law",
+          "description": "Performance is typically an inverted U-shape with respect to stress (or 'arousal').",
+          "figure": {
+            "number": "11.4",
+            "description": "The classic inverted U-shaped curve of performance against stress. Shows performance peaking at moderate stress levels, declining with both too little and too much stress."
+          }
+        },
+        {
+          "concept": "Practice under pressure",
+          "description": "Practice can be modified to help correct for this: by sometimes imagining oneself in a final, surrounded by crowd interested in the very next stroke. Imagine thousand eyes watching you play the stroke: will it be good? By then playing that stroke, you are practicing under slightly different mental conditions, helping to prepare."
+        }
+      ]
+    },
+    {
+      "number": "11.4",
+      "title": "Consistency, Measurement and Motivation",
+      "page_start": 207,
+      "page_end": 209,
+      "overview": "Shooting is more consistent to practice than other skills as it is immediately measureable. Performance (or ability) when it comes to shooting is comparatively measureable so the effect of any improvement is also more tangible.",
+      "key_concepts": [
+        {
+          "concept": "Measurement challenge",
+          "description": "I believe that one of the main reasons that people spend more time practicing their shooting than their croquet strokes is that shooting is immediately measurable."
+        },
+        {
+          "concept": "Consistency in stroke mechanics",
+          "description": "Reg Bamford's style (right photo in Figure 11.5) is clearly to be preferred because so little can go wrong with it by comparison to Ian Burridge's more complex set of body mechanics (left photo)."
+        },
+        {
+          "concept": "Developing a repeatable swing",
+          "description": "Having one's hands split can lead to a tiny amount of variation in body mechanics; we'll let it, in this case though, as Reg was actually playing a jump stroke. Thus then, is what a player should strive for when developing a repeatable swing to produce consistent results."
+        }
+      ],
+      "figure": {
+        "number": "11.5",
+        "description": "Ian Burridge (left) has a more complex set of body mechanics when shooting than Reg Bamford (right). Photos show each player just a moment after having struck a single-ball shot, demonstrating the difference in follow-through positions."
+      },
+      "practice_recommendations": [
+        "Practice can be modified to help correct for needing to perform under pressure",
+        "One method is to find a practice partner who is of similar level of ability and set each other croquet stroke challenges: one player lays markers out and the ball closest to each of the markers wins that player a 'point'",
+        "Playing with focus on outcome of each ball, overcoming set-back of practice being boring",
+        "In a match, croquet strokes often require prioritisation of a certain ball; this can (to some extent) be replicated by giving two points for that nominated ball during the challenge",
+        "Having specified the challenge, for each player to get couple of practice attempts at playing the stroke before they play measured attempt for the points"
+      ],
+      "motivation": {
+        "key_insight": "Good practice requires a focus on learning how to focus your mind with short practice sessions, then building from there.",
+        "final_advice": "Having read this section, I hope readers will find themselves more motivated to practice and that they are able to. My final advice: don't start 'too much', straight off the bat. Good practice requires a focus on outcome. At present, it is relatively rare for players to compete in World Championships, or turned professional croquet. To achieve that higher standard would be required to elevate players to what they devote to their development."
+      }
+    }
+  ],
+  "figures": [
+    {
+      "number": "11.1",
+      "page": 195,
+      "type": "graph",
+      "description": "Typical profile of improvement against practice showing skill plateaus and occasional dips before continued improvement"
+    },
+    {
+      "number": "11.2",
+      "page": 199,
+      "type": "flowchart",
+      "description": "Thought process for improving leaves - decision tree for tactical leave evaluation"
+    },
+    {
+      "number": "11.3",
+      "page": 201,
+      "type": "diagram",
+      "description": "R&Y tactical position example for option-spotting exercise"
+    },
+    {
+      "number": "11.4",
+      "page": 206,
+      "type": "graph",
+      "description": "Classic inverted U-shaped curve of performance against stress (Yerkes-Dodson Law)"
+    },
+    {
+      "number": "11.5",
+      "page": 208,
+      "type": "photograph",
+      "description": "Comparison of Ian Burridge (complex body mechanics) vs Reg Bamford (simpler, more consistent) shooting styles"
+    }
+  ],
+  "practice_drills_summary": [
+    {
+      "name": "Basic Rush Practice",
+      "type": "physical",
+      "skill": "rushing",
+      "difficulty": "beginner",
+      "page": 190
+    },
+    {
+      "name": "Croquet Stroke Calibration",
+      "type": "physical",
+      "skill": "croquet_strokes",
+      "difficulty": "intermediate",
+      "page": 192
+    },
+    {
+      "name": "Controlled Hoop Running",
+      "type": "physical",
+      "skill": "hoop_running",
+      "difficulty": "intermediate",
+      "page": 193
+    },
+    {
+      "name": "Rush from Corner IV Routine",
+      "type": "combination",
+      "skill": "multiple",
+      "difficulty": "intermediate",
+      "page": 194
+    },
+    {
+      "name": "Rob Fulford 2-Ball Break",
+      "type": "combination",
+      "skill": "break_building",
+      "difficulty": "advanced",
+      "page": 196
+    },
+    {
+      "name": "Reg Bamford 2-Ball Break",
+      "type": "combination",
+      "skill": "break_building",
+      "difficulty": "expert",
+      "page": 196
+    },
+    {
+      "name": "Chris Clarke Controlled Hoop Practice",
+      "type": "combination",
+      "skill": "hoop_running",
+      "difficulty": "advanced",
+      "page": 196
+    },
+    {
+      "name": "Full 12-Point Rush Practice",
+      "type": "combination",
+      "skill": "multiple",
+      "difficulty": "advanced",
+      "page": 197
+    },
+    {
+      "name": "Opening Competition",
+      "type": "tactical",
+      "skill": "openings",
+      "difficulty": "intermediate",
+      "page": 202
+    },
+    {
+      "name": "Pressure Practice (Imagined Crowd)",
+      "type": "mental",
+      "skill": "confidence",
+      "difficulty": "all_levels",
+      "page": 206
+    },
+    {
+      "name": "Croquet Stroke Challenge (Points Game)",
+      "type": "combination",
+      "skill": "croquet_strokes",
+      "difficulty": "intermediate",
+      "page": 208
+    }
+  ],
+  "key_takeaways": [
+    "Practice what improves match-winning odds, not necessarily what you're worst at",
+    "The three key physical skills are: rushing, croquet strokes, and controlled hoop running",
+    "Shooting practice is overemphasized by many players",
+    "Combination practice routines are more valuable than isolated skill practice",
+    "Good tactics require knowledge of both your own and opponent's abilities",
+    "Fine-tuning leaves through systematic position tweaking builds tactical understanding",
+    "Chess-style deterministic thinking applies mainly to openings and pegged-out games",
+    "Break hygiene comes largely from tactical choices, not just execution accuracy",
+    "The Yerkes-Dodson law explains optimal stress levels for performance",
+    "Consistency in stroke mechanics (like Reg Bamford's style) is preferable to complexity",
+    "Measurement and structured challenge games help maintain practice motivation"
+  ],
+  "referenced_players": [
+    "Rob Fulford",
+    "Reg Bamford",
+    "Chris Clarke",
+    "Ian Burridge",
+    "Stephen Mulliner",
+    "Wylie"
+  ],
+  "cross_references": [
+    {
+      "chapter": 3,
+      "topic": "Supershot tactics and openings (Clarke)"
+    },
+    {
+      "chapter": 7,
+      "topic": "Pegged-out endgames"
+    },
+    {
+      "chapter": 9,
+      "topic": "Visualisation"
+    },
+    {
+      "appendix": "D",
+      "topic": "Shooting (swing machines and single-ball accuracy)"
+    }
+  ]
+}

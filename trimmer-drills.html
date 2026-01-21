@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pete Trimmer Practice Drills | Abbotsford Croquet Club</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="description" content="Physical practice drills for Association Croquet from Pete Trimmer's Self-Development chapter in Beyond Expert Croquet.">
+    <meta name="keywords" content="croquet drills, croquet practice, Pete Trimmer, association croquet training, rushing drills, hoop running, break building">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/lessons.css">
+    <style>
+        .practice-block {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            page-break-inside: avoid;
+        }
+        .practice-block h3 {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent-yellow);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .practice-block h4 {
+            color: var(--primary-dark);
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .drill-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        .drill-table th, .drill-table td {
+            border: 1px solid #ddd;
+            padding: 0.6rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        .drill-table th {
+            background: var(--primary-dark);
+            color: white;
+            font-weight: 600;
+        }
+        .drill-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .drill-table td:first-child {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .quote-box {
+            background: #f0f7f0;
+            border-left: 4px solid var(--primary-dark);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+        .key-point {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .key-point strong {
+            color: #856404;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+        .checklist li {
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            position: relative;
+        }
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+        }
+        .steps {
+            margin: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+        .steps li {
+            margin: 0.3rem 0;
+        }
+        .difficulty {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        .difficulty-beginner { background: #d4edda; color: #155724; }
+        .difficulty-intermediate { background: #fff3cd; color: #856404; }
+        .difficulty-advanced { background: #f8d7da; color: #721c24; }
+        .difficulty-expert { background: #d6d6f7; color: #4a4a8a; }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .source-ref {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .toc h4 {
+            margin: 0 0 0.75rem 0;
+            color: var(--primary-dark);
+        }
+        .toc ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        .toc li {
+            margin: 0.25rem 0;
+        }
+        .toc a {
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .print-note {
+            background: #e7f3ff;
+            border: 1px solid #b8daff;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        @media print {
+            .back-link, .print-note, nav, footer { display: none; }
+            .practice-block { box-shadow: none; border: 1px solid #ddd; }
+            body { font-size: 11pt; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+
+                <text x="40" y="90" font-family="Arial Black, sans-serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Arial, sans-serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="membership.html">Membership</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="active">Learn</a>
+                    <div class="dropdown-content">
+                        <a href="lessons.html">Lessons</a>
+                        <a href="variations.html">Variations</a>
+                        <a href="resources.html">Resources</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Play</a>
+                    <div class="dropdown-content">
+                        <a href="calendar.html">Calendar</a>
+                        <a href="court-status.html">Courts</a>
+                        <a href="session-registration.html">Sign Up</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Equipment</a>
+                    <div class="dropdown-content">
+                        <a href="mallets.html">Mallets</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="curriculum">
+            <a href="resources.html" class="back-link">&larr; Back to Resources</a>
+
+            <h1>Pete Trimmer: Self-Development Drills</h1>
+
+            <div class="intro-section">
+                <p>Physical practice drills and tactical exercises extracted from Chapter 11: Self-Development in <em>Beyond Expert Croquet</em> (pp. 189-209). Trimmer emphasises practicing what most improves your match-winning odds, not necessarily your weakest skill.</p>
+            </div>
+
+            <div class="print-note">
+                <strong>Print this page:</strong> Use your browser's print function (Ctrl+P / Cmd+P) to create a PDF for courtside reference.
+            </div>
+
+            <div class="toc">
+                <h4>Contents</h4>
+                <ul>
+                    <li><a href="#key-principles">Key Principles</a></li>
+                    <li><a href="#rushing">Rushing Drills</a></li>
+                    <li><a href="#croquet">Croquet Stroke Drills</a></li>
+                    <li><a href="#hoops">Hoop Running Drills</a></li>
+                    <li><a href="#combination">Combination Routines</a></li>
+                    <li><a href="#tactical">Tactical Exercises</a></li>
+                    <li><a href="#mental">Mental & Consistency</a></li>
+                </ul>
+            </div>
+
+            <!-- KEY PRINCIPLES -->
+            <div class="practice-block" id="key-principles">
+                <h3>Trimmer's Key Principles</h3>
+
+                <div class="key-point">
+                    <strong>Practice Priority:</strong> "Practice whichever skill will most improve your odds of winning matches" — not necessarily your weakest skill.
+                </div>
+
+                <h4>The Three Key Physical Skills</h4>
+                <p>Trimmer identifies three skills as fundamental (in priority order):</p>
+                <ol>
+                    <li><strong>Rushing</strong> — most valuable within 5-yard hitting range; approach rushes are critical</li>
+                    <li><strong>Croquet Strokes</strong> — three measurable outcomes: angle, relative distance (ratio), and overall power</li>
+                    <li><strong>Controlled Hoop Running</strong> — "the skill least well recognised by players at the top level"</li>
+                </ol>
+
+                <div class="quote-box">
+                    "Shooting is demoted to a supplement (Appendix D) as many players put too much time into shooting relative to improving other skills."
+                </div>
+
+                <h4>Practice Philosophy</h4>
+                <ul>
+                    <li>Combination practice is more valuable than isolated skill practice</li>
+                    <li>Mental aspects of each stroke are connected to the next stroke to come</li>
+                    <li>Track and measure progress — what gets measured improves</li>
+                    <li>Practice under simulated pressure to prepare for matches</li>
+                </ul>
+            </div>
+
+            <!-- RUSHING -->
+            <div class="practice-block" id="rushing">
+                <h3>Rushing Drills</h3>
+                <p class="source-ref">Source: Trimmer pp. 190-191</p>
+
+                <table class="drill-table">
+                    <thead>
+                        <tr>
+                            <th>Drill</th>
+                            <th>Setup & Execution</th>
+                            <th>Key Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Basic Corner Rush <span class="difficulty difficulty-beginner">Beginner</span></td>
+                            <td>Place rush ball with striker's ball nearby in corner position. Rush to specific hoops:
+                                <ul class="steps">
+                                    <li>Corner 1 → Hoop 1, then Hoop 4</li>
+                                    <li>Corner 4 → Hoop 4, then Hoop 1</li>
+                                    <li>Repeat from corners 2 and 3</li>
+                                </ul>
+                            </td>
+                            <td>Vary starting positions each session. Focus on approach rushes — getting within 3 yards of target hoop.</td>
+                        </tr>
+                        <tr>
+                            <td>Approach Rush Scoring <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>Rush ball positioned 7-10 yards from target hoop. Score each rush:
+                                <ul class="steps">
+                                    <li>3 points: finishes &lt;1 yard from hoop</li>
+                                    <li>2 points: finishes &lt;2 yards</li>
+                                    <li>1 point: finishes &lt;3 yards</li>
+                                    <li>0 points: &gt;3 yards</li>
+                                </ul>
+                            </td>
+                            <td><strong>Target: 15+ points from 10 rushes.</strong> This is the most valuable rush to practice — 5-yard hitting range makes approach rushes critical.</td>
+                        </tr>
+                        <tr>
+                            <td>Distance Progression <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>Rush ball at varying distances from target: 5, 7, 10, 15 yards. Practice at each distance, noting which you're most accurate at.</td>
+                            <td>Don't practice rushing to exact hoop position — practice rushing to where you need for the approach. Calibrate for your lawn speed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="key-point">
+                    <strong>Trimmer's insight:</strong> "Note that hitting range of only 5 yards means approach rushes are most valuable."
+                </div>
+            </div>
+
+            <!-- CROQUET STROKES -->
+            <div class="practice-block" id="croquet">
+                <h3>Croquet Stroke Drills</h3>
+                <p class="source-ref">Source: Trimmer p. 192</p>
+
+                <table class="drill-table">
+                    <thead>
+                        <tr>
+                            <th>Drill</th>
+                            <th>Setup & Execution</th>
+                            <th>Key Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Three-Variable Calibration <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>From near Hoop 1, aim to send pioneer to Hoop 3 whilst going a yard in front of Hoop 2.
+                                <ul class="steps">
+                                    <li>Attempt the stroke</li>
+                                    <li>Assess: Angle correct? Ratio correct? Power correct?</li>
+                                    <li>Adjust ONE variable</li>
+                                    <li>By 4th attempt, achieve very good result</li>
+                                </ul>
+                            </td>
+                            <td>The three measurable outcomes: angle, relative distance (ratio), and overall power. Use additional balls if possible — this drill requires walking.</td>
+                        </tr>
+                        <tr>
+                            <td>Pioneer Placement <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>The fundamental break-building stroke sequence:
+                                <ul class="steps">
+                                    <li>At H1: send to H3, self to H2 approach</li>
+                                    <li>At H2: send to H4, self to H3 approach</li>
+                                    <li>At H3: send to H5, self to H4 approach</li>
+                                    <li>Continue through all hoops</li>
+                                </ul>
+                            </td>
+                            <td>This is the workhorse stroke of break play. Practice until automatic. Note accuracy of both balls.</td>
+                        </tr>
+                        <tr>
+                            <td>Ratio Series <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>Practice each ratio type deliberately:
+                                <ul class="steps">
+                                    <li>Stop shot (1:5): striker minimal, object 10 yards</li>
+                                    <li>Drive (1:3): object 9 yards, striker 3 yards</li>
+                                    <li>Half-roll (1:2): object 6 yards, striker 3 yards</li>
+                                    <li>Roll (1:1): both balls 5 yards</li>
+                                    <li>Pass-roll: striker 6 yards, object 4 yards</li>
+                                </ul>
+                            </td>
+                            <td>Adjust stance, grip position, and swing angle for each ratio type.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Trimmer's Technique Checklist</h4>
+                <p>Before each stroke, verify:</p>
+                <ul class="checklist">
+                    <li>Are you balanced at end of stroke?</li>
+                    <li>Shoulders free, grounded in legs?</li>
+                    <li>Lower hand at same point on mallet shaft?</li>
+                    <li>Grip tightness consistent?</li>
+                    <li>Mallet direction selected BEFORE the stroke?</li>
+                </ul>
+                <p><em>If getting inconsistent results, one of these is usually the culprit.</em></p>
+            </div>
+
+            <!-- HOOP RUNNING -->
+            <div class="practice-block" id="hoops">
+                <h3>Hoop Running Drills</h3>
+                <p class="source-ref">Source: Trimmer pp. 192-194, 204</p>
+
+                <div class="quote-box">
+                    "Controlled hoop running is the skill that is least well recognised by players at the top level."
+                </div>
+
+                <table class="drill-table">
+                    <thead>
+                        <tr>
+                            <th>Drill</th>
+                            <th>Setup & Execution</th>
+                            <th>Key Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Controlled Hoop Running <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>Ball 1 yard in front of hoop. Place marker 2 yards behind hoop (representing a ball needing to be rushed).
+                                <ul class="steps">
+                                    <li>Run hoop</li>
+                                    <li>Ball MUST stop before the marker</li>
+                                    <li>If ball passes marker, you've lost the rush</li>
+                                    <li>Repeat 10 times, track success rate</li>
+                                </ul>
+                            </td>
+                            <td><strong>Target: 8/10 hoops with ball stopping before marker.</strong> "Practice as though the line represents a ball needing to be rushed forward."</td>
+                        </tr>
+                        <tr>
+                            <td>Wire-Free Visualisation <span class="difficulty difficulty-advanced">Advanced</span></td>
+                            <td>Ball in front of hoop at any angle.
+                                <ul class="steps">
+                                    <li>Imagine NO wire exists</li>
+                                    <li>Decide: if no wire, where should ball stop?</li>
+                                    <li>Run hoop at that pace</li>
+                                    <li>Note where ball actually stops</li>
+                                    <li>Adjust until intention matches result</li>
+                                </ul>
+                            </td>
+                            <td>This teaches true control rather than relying on wire. Over time, learn how far you should try to run if no wire were taken.</td>
+                        </tr>
+                        <tr>
+                            <td>Close Approach Advantage <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>Approach hoop from in front with croquet ball to send.
+                                <ul class="steps">
+                                    <li>Set up approach from 3 yards — note result</li>
+                                    <li>Now set up from 2 yards — note result</li>
+                                    <li>Compare: closer = easier hoop + longer send</li>
+                                </ul>
+                            </td>
+                            <td>From break hygiene: approaching closer than normal gives MORE hoop control AND sends other ball further. Find your optimal approach distance.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="key-point">
+                    <strong>Why hoop running is hard:</strong> (1) Results are more stochastic due to tiny differences in ball-hoop contact; (2) Considerable mental discipline required to treat practice as equivalent to a real break.
+                </div>
+            </div>
+
+            <!-- COMBINATION ROUTINES -->
+            <div class="practice-block" id="combination">
+                <h3>Combination Practice Routines</h3>
+                <p class="source-ref">Source: Trimmer pp. 194-197</p>
+
+                <p>Trimmer emphasises that isolated skill practice has limitations — mental aspects of each stroke connect to the next stroke. These combination routines maintain motivation through realistic play.</p>
+
+                <table class="drill-table">
+                    <thead>
+                        <tr>
+                            <th>Drill</th>
+                            <th>Setup & Execution</th>
+                            <th>Key Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Corner IV Routine <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>One ball in Corner IV, one ball a yard north for croquet.
+                                <ul class="steps">
+                                    <li>Take croquet from ball in Corner IV</li>
+                                    <li>Rush toward Hoop 1</li>
+                                    <li>Run hoop with control</li>
+                                    <li>Take croquet, rush to Hoop 2</li>
+                                    <li>Continue as far as possible</li>
+                                </ul>
+                            </td>
+                            <td>Main combination practice routine. Combines all three key skills in realistic game sequence. <strong>How many hoops can you make?</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Rob Fulford 2-Ball Break <span class="difficulty difficulty-advanced">Advanced</span></td>
+                            <td>One ball in Corner IV, croquet from ball a yard north. <strong>NO 4th ball on lawn.</strong>
+                                <ul class="steps">
+                                    <li>Take croquet, rush toward H1</li>
+                                    <li>Run H1 with extreme control</li>
+                                    <li>Rush back toward corner</li>
+                                    <li>Dig ball out a little further</li>
+                                    <li>Rush to H2 and continue</li>
+                                </ul>
+                            </td>
+                            <td>Developed to work on generating 3-ball breaks from 2-ball situations. Extremely stretching. Introduces difficult choices like whether to take significant wire.</td>
+                        </tr>
+                        <tr>
+                            <td>Reg Bamford H1-H3 Challenge <span class="difficulty difficulty-expert">Expert</span></td>
+                            <td>Same setup as Fulford drill. But only make H1 and H3 (skipping H2).
+                                <ul class="steps">
+                                    <li>Make Hoop 1 with control</li>
+                                    <li>Rush toward H3 (not H2!)</li>
+                                    <li>Make H3</li>
+                                    <li>Rush back toward H1</li>
+                                    <li>Repeat: H1, H3, H1, H3...</li>
+                                </ul>
+                            </td>
+                            <td>Even harder than Fulford's. Every rush is long, every approach must be sound. <strong>"Player must be very good to consistently make more than 3 hoops. How many can you make?"</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Chris Clarke Peel Position <span class="difficulty difficulty-advanced">Advanced</span></td>
+                            <td>Rush to H1 from near corner, pioneer at H2 (using U, R, Y, K).
+                                <ul class="steps">
+                                    <li>Playing U, rush R to H1</li>
+                                    <li>Run hoop getting peel position</li>
+                                    <li>Send K to 2-back via croquet</li>
+                                    <li>Place R 2-3 yards away, send Y to 1-back</li>
+                                    <li>Continue through H3, H4</li>
+                                </ul>
+                            </td>
+                            <td>Works on controlled hoop running, judging pull, and large croquet strokes. Practice "escape ball" from 2-3 feet.</td>
+                        </tr>
+                        <tr>
+                            <td>12-Point Tracking <span class="difficulty difficulty-advanced">Advanced</span></td>
+                            <td>Full 4-ball break setup. Score each hoop:
+                                <ul class="steps">
+                                    <li>3 = perfect position</li>
+                                    <li>2 = good position</li>
+                                    <li>1 = acceptable</li>
+                                    <li>0 = poor</li>
+                                </ul>
+                                Track total through 12 hoops. Note which hoops/positions score lowest.
+                            </td>
+                            <td>Reveals where your break building is weakest. If H5-H6 always scores low, that's your focus area. <strong>Target: 30+ points (avg 2.5 per hoop).</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Stephen Mulliner Repetition <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>Choose ONE specific position/stroke.
+                                <ul class="steps">
+                                    <li>Practice that exact position 10 times</li>
+                                    <li>Record results</li>
+                                    <li>Repeat same position next session</li>
+                                    <li>Track improvement over days/weeks</li>
+                                </ul>
+                            </td>
+                            <td>Mulliner's approach: same positions across many days, no practice on matchdays. Pure repetition builds muscle memory. Different from match-play practice.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TACTICAL -->
+            <div class="practice-block" id="tactical">
+                <h3>Tactical Exercises</h3>
+                <p class="source-ref">Source: Trimmer pp. 198-205</p>
+
+                <div class="quote-box">
+                    "Becoming a better tactician requires developing understanding of several aspects: knowledge of your own abilities, knowledge of opponent's abilities, and understanding how to make balanced decisions given data from both."
+                </div>
+
+                <table class="drill-table">
+                    <thead>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Method</th>
+                            <th>Key Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fine-Tuning Leaves <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>
+                                <ul class="steps">
+                                    <li>Set up initial leave position</li>
+                                    <li>Ask: what SHOULD opponent do?</li>
+                                    <li>Modify to make that option less attractive</li>
+                                    <li>Repeat until no clear best option exists</li>
+                                    <li>That's your optimal leave</li>
+                                </ul>
+                            </td>
+                            <td>Treat opponent as "good robot" who does what they should. Then tweak position to make their choice harder. Use Trimmer's flowchart: Make own outcome guaranteed → Evaluate opponent response → Make opponent's outcome less worthwhile.</td>
+                        </tr>
+                        <tr>
+                            <td>Option-Spotting <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>
+                                <ul class="steps">
+                                    <li>Place 4 balls in realistic positions</li>
+                                    <li>List ALL possible lines of play</li>
+                                    <li>For each option, think through consequences</li>
+                                    <li>Tweak ONE ball position slightly</li>
+                                    <li>How does that change the options?</li>
+                                </ul>
+                            </td>
+                            <td>"Think about a few situations DEEPLY rather than many shallowly." Before you can fine-tune a leave, you need to SPOT the options.</td>
+                        </tr>
+                        <tr>
+                            <td>Opening Competition <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>Two players, standard opening positions.
+                                <ul class="steps">
+                                    <li>Player A places Turn 1 ball</li>
+                                    <li>Player B responds (Turn 2)</li>
+                                    <li>Continue alternating</li>
+                                    <li>First to 3 hoops + established break wins</li>
+                                    <li>Switch who goes first each round</li>
+                                </ul>
+                            </td>
+                            <td>"By playing numerous openings back-to-back, mind gets focused on how long tice should be laid, and when best to shoot at tice." Play best of 7 rounds.</td>
+                        </tr>
+                        <tr>
+                            <td>Break Hygiene Audit <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>During any break practice, at each hoop ask:
+                                <ul class="checklist">
+                                    <li>Where did I send the pioneer?</li>
+                                    <li>Which side of pivot did I land?</li>
+                                    <li>Where did I rush the pivot?</li>
+                                    <li>Was there a better choice?</li>
+                                    <li>Would doubling-up have helped?</li>
+                                </ul>
+                            </td>
+                            <td>Break hygiene comes more from TACTICAL choices than accuracy. "The decision of how firmly to run a hoop is TACTICAL — trades short-term success vs future break prospects."</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="key-point">
+                    <strong>On Break Hygiene:</strong> "In a delayed TP, when running 3-back with other balls waiting near penult for the second peel, gaining a forward rush pays huge dividends and often makes the difference between finishing or not for players with handicap of -1 or -1.5."
+                </div>
+            </div>
+
+            <!-- MENTAL -->
+            <div class="practice-block" id="mental">
+                <h3>Mental & Consistency Practice</h3>
+                <p class="source-ref">Source: Trimmer pp. 206-209</p>
+
+                <h4>The Yerkes-Dodson Law</h4>
+                <p>Performance follows an inverted U-shape with stress:</p>
+                <ul>
+                    <li><strong>Too relaxed</strong> = poor performance</li>
+                    <li><strong>Optimal stress</strong> = peak performance</li>
+                    <li><strong>Too stressed</strong> = poor performance</li>
+                </ul>
+
+                <table class="drill-table">
+                    <thead>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Method</th>
+                            <th>Key Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pressure Practice <span class="difficulty difficulty-beginner">All Levels</span></td>
+                            <td>Before any practice stroke:
+                                <ul class="steps">
+                                    <li>Imagine playing in a final</li>
+                                    <li>Crowd surrounding you, watching</li>
+                                    <li>Thousand eyes on this stroke</li>
+                                    <li>Will it be good?</li>
+                                    <li>Execute stroke under this mental state</li>
+                                </ul>
+                            </td>
+                            <td>This builds match readiness. "Real matches feel less stressful after pressure practice." Practice can be modified to help correct for needing to perform under pressure.</td>
+                        </tr>
+                        <tr>
+                            <td>Stress Calibration <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>
+                                <ul class="steps">
+                                    <li>Hit 5 strokes while completely relaxed</li>
+                                    <li>Hit 5 strokes with moderate focus</li>
+                                    <li>Hit 5 strokes with intense concentration</li>
+                                    <li>Note accuracy at each level</li>
+                                    <li>Which state produced best results?</li>
+                                </ul>
+                            </td>
+                            <td>Find YOUR optimal arousal level — it's different for everyone. Some play best slightly relaxed, others need intensity. Your optimal level may surprise you.</td>
+                        </tr>
+                        <tr>
+                            <td>Croquet Stroke Points Game <span class="difficulty difficulty-intermediate">Intermediate</span></td>
+                            <td>Two players, markers placed on lawn.
+                                <ul class="steps">
+                                    <li>Player A lays out markers</li>
+                                    <li>Both attempt same stroke</li>
+                                    <li>Closest ball to marker wins 1 point</li>
+                                    <li>Nominate a "priority ball" worth 2 points</li>
+                                    <li>First to 10 points wins</li>
+                                </ul>
+                            </td>
+                            <td>Creates real stakes to simulate match conditions. Each player gets couple of practice attempts before the measured attempt for points.</td>
+                        </tr>
+                        <tr>
+                            <td>Consistency Check <span class="difficulty difficulty-beginner">Beginner</span></td>
+                            <td>
+                                <ul class="steps">
+                                    <li>Set up exact same stroke 10 times</li>
+                                    <li>Execute each identically</li>
+                                    <li>Film yourself or have partner watch</li>
+                                    <li>Are your mechanics identical each time?</li>
+                                    <li>Identify and eliminate variation</li>
+                                </ul>
+                            </td>
+                            <td>Trimmer contrasts Ian Burridge (complex mechanics) with Reg Bamford (simple, consistent). <strong>"Bamford's style is preferred because so little can go wrong with it."</strong> Simplify your mechanics.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="quote-box">
+                    "Good practice requires a focus on learning how to focus your mind with short practice sessions, then building from there. Don't start 'too much', straight off the bat."
+                </div>
+            </div>
+
+            <!-- REFERENCES -->
+            <div class="practice-block">
+                <h3>Reference</h3>
+                <p><strong>Source:</strong> Pete Trimmer, "Self-Development" (Chapter 11), <em>Beyond Expert Croquet</em>, pp. 189-209.</p>
+                <p><strong>Also referenced in chapter:</strong></p>
+                <ul>
+                    <li>Rob Fulford — 2-ball break routine</li>
+                    <li>Reg Bamford — H1-H3 challenge, stroke mechanics</li>
+                    <li>Chris Clarke — Peel position practice, Chapter 3 (supershot tactics)</li>
+                    <li>Stephen Mulliner — Repetition practice method</li>
+                    <li>Ian Burridge — Stroke mechanics comparison</li>
+                    <li>Keith Wylie — Opening tactics</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Related pages:</strong></p>
+                <ul>
+                    <li><a href="ac-drill.html">AC Opening Drill App</a> — Turn 1-3 combinations</li>
+                    <li><a href="practice-routine.html">90-Minute Practice Routine</a> — Triple peel focus</li>
+                    <li><a href="ac-strategy.html">AC Strategy</a> — Opening decision trees</li>
+                </ul>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Abbotsford Croquet. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
