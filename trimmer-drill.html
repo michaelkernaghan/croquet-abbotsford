@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#1a5f1a">
+    <title>Trimmer Practice Drills</title>
+    <link rel="manifest" href="trimmer-drill-manifest.json">
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1a1a1a;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #1a5f1a;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .progress-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .help-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        main {
+            flex: 1;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            padding-bottom: 70px;
+        }
+
+        /* Filter chips */
+        .filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid #555;
+            background: transparent;
+            color: #ccc;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .chip.active {
+            background: #1a5f1a;
+            border-color: #1a5f1a;
+            color: white;
+        }
+
+        /* Drill card */
+        .card {
+            background: #2a2a2a;
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #666;
+        }
+
+        .card-rushing { border-left-color: #ff9800; }
+        .card-croquet_strokes { border-left-color: #2196F3; }
+        .card-hoop_running { border-left-color: #4caf50; }
+        .card-combination { border-left-color: #9c27b0; }
+        .card-tactical { border-left-color: #f44336; }
+        .card-mental { border-left-color: #00bcd4; }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .category-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .cat-rushing { color: #ffb74d; }
+        .cat-croquet_strokes { color: #64b5f6; }
+        .cat-hoop_running { color: #81c784; }
+        .cat-combination { color: #ce93d8; }
+        .cat-tactical { color: #ef9a9a; }
+        .cat-mental { color: #80deea; }
+
+        .drill-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .diff-beginner { background: #1b5e20; color: #a5d6a7; }
+        .diff-intermediate { background: #e65100; color: #ffcc80; }
+        .diff-advanced { background: #b71c1c; color: #ef9a9a; }
+        .diff-expert { background: #4a148c; color: #ce93d8; }
+        .diff-all_levels { background: #01579b; color: #81d4fa; }
+
+        .source-ref {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #aaa;
+            margin: 12px 0 6px 0;
+        }
+
+        .drill-setup, .drill-steps, .drill-tips {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .drill-steps ol {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+
+        .drill-steps li {
+            margin: 4px 0;
+        }
+
+        .drill-tips {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 8px;
+        }
+
+        .target-box {
+            background: #1a3a1a;
+            border: 1px solid #2e7d32;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .target-box strong {
+            color: #81c784;
+        }
+
+        /* Score input */
+        .score-section {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #444;
+        }
+
+        .score-section label {
+            font-size: 13px;
+            color: #aaa;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .score-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .score-input {
+            width: 80px;
+            padding: 8px 12px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #555;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .score-input:focus {
+            border-color: #1a5f1a;
+            outline: none;
+        }
+
+        .score-max {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.1s;
+        }
+
+        button:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+
+        .btn-primary { background: #1a5f1a; color: white; }
+        .btn-secondary { background: #444; color: white; }
+        .btn-success { background: #2e7d32; color: white; }
+
+        /* Start state */
+        .state-start {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+            gap: 16px;
+        }
+
+        .state-start h2 {
+            font-size: 26px;
+            margin: 0;
+        }
+
+        .state-start p {
+            color: #888;
+            margin: 0;
+            font-size: 15px;
+            max-width: 280px;
+        }
+
+        .start-btn {
+            padding: 18px 50px;
+            font-size: 18px;
+            background: #1a5f1a;
+            color: white;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 100;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active { display: block; }
+
+        .modal {
+            background: #2a2a2a;
+            border-radius: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .modal h2 {
+            margin: 0 0 16px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .history-item {
+            background: #1a1a1a;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .history-item .combo {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .history-item .meta {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .history-item .score-display {
+            font-size: 13px;
+            color: #81c784;
+            margin-top: 2px;
+        }
+
+        .history-empty {
+            text-align: center;
+            color: #666;
+            padding: 40px;
+        }
+
+        .clear-btn {
+            width: 100%;
+            margin-top: 16px;
+            padding: 12px;
+            background: #c62828;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Stats in history */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .stat-card {
+            background: #1a1a1a;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            background: #2a2a2a;
+            border-top: 1px solid #333;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        nav button {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #888;
+            padding: 10px;
+            font-size: 11px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            border-radius: 0;
+        }
+
+        nav button.active { color: #1a5f1a; }
+
+        nav button svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trimmer Drills</h1>
+        <div class="header-right">
+            <div class="progress-badge" id="progress-badge">0/22</div>
+            <button class="help-btn" onclick="showHelp()">?</button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Start State -->
+        <div class="state-start" id="state-start">
+            <h2>Practice Drills</h2>
+            <p>Pete Trimmer's self-development drills from Beyond Expert Croquet</p>
+            <div class="filters" id="start-filters">
+                <button class="chip active" data-cat="all" onclick="setFilter('all')">All (22)</button>
+                <button class="chip" data-cat="rushing" onclick="setFilter('rushing')">Rushing</button>
+                <button class="chip" data-cat="croquet_strokes" onclick="setFilter('croquet_strokes')">Croquet</button>
+                <button class="chip" data-cat="hoop_running" onclick="setFilter('hoop_running')">Hoops</button>
+                <button class="chip" data-cat="combination" onclick="setFilter('combination')">Combos</button>
+                <button class="chip" data-cat="tactical" onclick="setFilter('tactical')">Tactical</button>
+                <button class="chip" data-cat="mental" onclick="setFilter('mental')">Mental</button>
+            </div>
+            <button class="start-btn" onclick="startDrill()">Start Drill</button>
+        </div>
+
+        <!-- Drill State -->
+        <div id="state-drill" class="hidden">
+            <div class="filters" id="drill-filters">
+                <button class="chip active" data-cat="all" onclick="setFilter('all')">All</button>
+                <button class="chip" data-cat="rushing" onclick="setFilter('rushing')">Rush</button>
+                <button class="chip" data-cat="croquet_strokes" onclick="setFilter('croquet_strokes')">Croquet</button>
+                <button class="chip" data-cat="hoop_running" onclick="setFilter('hoop_running')">Hoops</button>
+                <button class="chip" data-cat="combination" onclick="setFilter('combination')">Combos</button>
+                <button class="chip" data-cat="tactical" onclick="setFilter('tactical')">Tactical</button>
+                <button class="chip" data-cat="mental" onclick="setFilter('mental')">Mental</button>
+            </div>
+
+            <div class="card" id="drill-card">
+                <div class="card-header">
+                    <div>
+                        <div class="category-label" id="drill-category"></div>
+                        <div class="drill-name" id="drill-name"></div>
+                    </div>
+                </div>
+                <div class="difficulty" id="drill-difficulty"></div>
+                <div class="source-ref" id="drill-source"></div>
+
+                <div class="section-label">Setup</div>
+                <div class="drill-setup" id="drill-setup"></div>
+
+                <div class="section-label">Steps</div>
+                <div class="drill-steps" id="drill-steps"></div>
+
+                <div id="drill-tips-section">
+                    <div class="section-label">Key Points</div>
+                    <div class="drill-tips" id="drill-tips"></div>
+                </div>
+
+                <div id="drill-target-section" class="hidden">
+                    <div class="target-box" id="drill-target"></div>
+                </div>
+
+                <div id="drill-score-section" class="score-section hidden">
+                    <label id="score-label">Score (optional)</label>
+                    <div class="score-row">
+                        <input type="number" class="score-input" id="score-input" min="0" placeholder="--">
+                        <span class="score-max" id="score-max"></span>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn-secondary" onclick="startDrill()">Next Drill</button>
+                    <button class="btn-success" id="btn-practiced" onclick="markPracticed()">Mark Practiced</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Help Modal -->
+    <div class="modal-overlay" id="help-modal">
+        <div class="modal">
+            <h2>
+                How to Use
+                <button class="modal-close" onclick="closeHelp()">&times;</button>
+            </h2>
+            <div style="color: #ccc; line-height: 1.6;">
+                <p><strong>Practice Pete Trimmer's drills on court:</strong></p>
+                <ol style="padding-left: 20px; margin: 12px 0;">
+                    <li><strong>Filter</strong> by category if you want to focus on a skill</li>
+                    <li><strong>Start Drill</strong> - get a random drill (unpracticed prioritized)</li>
+                    <li><strong>Set up</strong> the balls/position on court as described</li>
+                    <li><strong>Execute</strong> the steps, focusing on the key points</li>
+                    <li><strong>Record a score</strong> if the drill has a target</li>
+                    <li><strong>Mark Practiced</strong> to log this session</li>
+                </ol>
+                <p style="margin-top: 12px;"><strong>Categories:</strong></p>
+                <ul style="padding-left: 20px; margin: 8px 0; font-size: 14px;">
+                    <li><span style="color: #ffb74d;">Rushing</span> - rush accuracy and distance</li>
+                    <li><span style="color: #64b5f6;">Croquet Strokes</span> - angle, ratio, power</li>
+                    <li><span style="color: #81c784;">Hoop Running</span> - controlled hoop play</li>
+                    <li><span style="color: #ce93d8;">Combination</span> - multi-skill routines</li>
+                    <li><span style="color: #ef9a9a;">Tactical</span> - decision-making exercises</li>
+                    <li><span style="color: #80deea;">Mental</span> - pressure and consistency</li>
+                </ul>
+                <p style="margin-top: 12px;"><strong>Progress:</strong> Badge shows unique drills practiced out of 22 total.</p>
+                <p style="margin-top: 16px; padding-top: 12px; border-top: 1px solid #444;"><strong>Install on Android:</strong></p>
+                <ol style="padding-left: 20px; margin: 8px 0; font-size: 14px;">
+                    <li>Open in <strong>Chrome</strong></li>
+                    <li>Tap <strong>&#8942;</strong> menu (top right)</li>
+                    <li>Tap <strong>"Add to Home screen"</strong></li>
+                </ol>
+                <p style="font-size: 13px; color: #888;">Works offline after first load.</p>
+                <p style="margin-top: 12px; font-size: 12px; color: #888;">Source: Pete Trimmer, <em>Beyond Expert Croquet</em> Ch. 11 (pp. 189-209)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div class="modal-overlay" id="history-modal">
+        <div class="modal">
+            <h2>
+                Practice Log
+                <button class="modal-close" onclick="closeHistory()">&times;</button>
+            </h2>
+            <div id="history-stats"></div>
+            <div id="history-list"></div>
+            <button class="clear-btn" onclick="clearHistory()">Clear All History</button>
+        </div>
+    </div>
+
+    <nav>
+        <button class="active" id="nav-drill" onclick="showDrillView()">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            Drill
+        </button>
+        <button id="nav-history" onclick="showHistory()">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+            Log
+        </button>
+    </nav>
+
+    <script>
+        // All 22 drills from Trimmer Ch. 11
+        const drills = [
+            // RUSHING (3)
+            {
+                id: 'rush-basic',
+                name: 'Basic Corner Rush',
+                category: 'rushing',
+                difficulty: 'beginner',
+                page: 190,
+                setup: 'Place rush ball with striker\'s ball nearby in a corner position.',
+                steps: [
+                    'Corner 1: rush to Hoop 1, then to Hoop 4',
+                    'Corner 4: rush to Hoop 4, then to Hoop 1',
+                    'Repeat from Corners 2 and 3',
+                    'Vary starting positions each session'
+                ],
+                tips: 'Focus on approach rushes - getting within 3 yards of target hoop. Vary starting positions each session.',
+                target: null,
+                scoring: null
+            },
+            {
+                id: 'rush-scoring',
+                name: 'Approach Rush Scoring',
+                category: 'rushing',
+                difficulty: 'intermediate',
+                page: 190,
+                setup: 'Rush ball positioned 7-10 yards from target hoop. Perform 10 rushes.',
+                steps: [
+                    'Score each rush: 3 pts if <1yd from hoop',
+                    '2 pts if <2 yards',
+                    '1 pt if <3 yards',
+                    '0 pts if >3 yards',
+                    'Total your score after 10 rushes'
+                ],
+                tips: '5-yard hitting range makes approach rushes the most valuable rush to practice.',
+                target: 'Target: 15+ points from 10 rushes',
+                scoring: { label: 'Points from 10 rushes', max: 30 }
+            },
+            {
+                id: 'rush-distance',
+                name: 'Distance Progression',
+                category: 'rushing',
+                difficulty: 'intermediate',
+                page: 191,
+                setup: 'Rush ball at varying distances from target hoop.',
+                steps: [
+                    'Start at 5 yards - 5 attempts',
+                    'Move to 7 yards - 5 attempts',
+                    'Move to 10 yards - 5 attempts',
+                    'Move to 15 yards - 5 attempts',
+                    'Note which distance you\'re most accurate at'
+                ],
+                tips: 'Don\'t rush to exact hoop position - rush to where you need for the approach. Calibrate for your lawn speed.',
+                target: null,
+                scoring: null
+            },
+            // CROQUET STROKES (3)
+            {
+                id: 'croquet-calibration',
+                name: 'Three-Variable Calibration',
+                category: 'croquet_strokes',
+                difficulty: 'intermediate',
+                page: 192,
+                setup: 'From near Hoop 1, aim to send pioneer to Hoop 3 whilst going a yard in front of Hoop 2.',
+                steps: [
+                    'Attempt the stroke',
+                    'Assess: angle correct? Ratio correct? Power correct?',
+                    'Adjust ONE variable only',
+                    'By 4th attempt, achieve a very good result',
+                    'Move to different hoop positions and repeat'
+                ],
+                tips: 'Three measurable outcomes: angle, relative distance (ratio), and overall power. Use additional balls if possible - this drill requires walking.',
+                target: 'Achieve a very good result by 4th attempt each time',
+                scoring: null
+            },
+            {
+                id: 'croquet-pioneer',
+                name: 'Pioneer Placement',
+                category: 'croquet_strokes',
+                difficulty: 'intermediate',
+                page: 192,
+                setup: 'Standard break-building positions. Start at Hoop 1.',
+                steps: [
+                    'At H1: send to H3, self to H2 approach',
+                    'At H2: send to H4, self to H3 approach',
+                    'At H3: send to H5, self to H4 approach',
+                    'Continue through all hoops',
+                    'Note accuracy of BOTH balls each time'
+                ],
+                tips: 'This is the workhorse stroke of break play. Practice until automatic. The ball you\'re sending is as important as where you go.',
+                target: null,
+                scoring: null
+            },
+            {
+                id: 'croquet-ratio',
+                name: 'Ratio Series',
+                category: 'croquet_strokes',
+                difficulty: 'intermediate',
+                page: 192,
+                setup: 'Same starting position for each. Place markers at target distances.',
+                steps: [
+                    'Stop shot (1:5): striker minimal, object 10 yards',
+                    'Drive (1:3): object 9 yards, striker 3 yards',
+                    'Half-roll (1:2): object 6 yards, striker 3 yards',
+                    'Roll (1:1): both balls 5 yards',
+                    'Pass-roll: striker 6 yards, object 4 yards'
+                ],
+                tips: 'Adjust stance, grip position, and swing angle for each ratio type. Check: balanced at end? Shoulders free? Grip consistent?',
+                target: null,
+                scoring: null
+            },
+            // HOOP RUNNING (3)
+            {
+                id: 'hoop-controlled',
+                name: 'Controlled Hoop Running',
+                category: 'hoop_running',
+                difficulty: 'intermediate',
+                page: 193,
+                setup: 'Ball 1 yard in front of hoop. Place a marker 2 yards behind hoop (representing a ball needing to be rushed).',
+                steps: [
+                    'Run the hoop',
+                    'Ball MUST stop before the marker',
+                    'If ball passes the marker, you\'ve lost the rush',
+                    'Repeat 10 times',
+                    'Track your success rate'
+                ],
+                tips: '"The skill least well recognised by players at the top level." Results are stochastic due to tiny ball-hoop contact differences.',
+                target: 'Target: 8 out of 10 hoops with ball stopping before marker',
+                scoring: { label: 'Successful stops out of 10', max: 10 }
+            },
+            {
+                id: 'hoop-wirefree',
+                name: 'Wire-Free Visualisation',
+                category: 'hoop_running',
+                difficulty: 'advanced',
+                page: 193,
+                setup: 'Ball in front of hoop at any angle.',
+                steps: [
+                    'Imagine NO wire exists',
+                    'Decide: if no wire, where should ball stop?',
+                    'Run hoop at that pace',
+                    'Note where ball actually stops',
+                    'Adjust until intention matches result'
+                ],
+                tips: 'Teaches true control rather than relying on wire. Over time, learn how far you should try to run if no wire were taken.',
+                target: null,
+                scoring: null
+            },
+            {
+                id: 'hoop-approach',
+                name: 'Close Approach Advantage',
+                category: 'hoop_running',
+                difficulty: 'intermediate',
+                page: 204,
+                setup: 'Approach hoop from in front with a croquet ball to send.',
+                steps: [
+                    'Set up approach from 3 yards - note result',
+                    'Set up from 2 yards - note result',
+                    'Set up from 1.5 yards - note result',
+                    'Compare: closer = easier hoop + longer send',
+                    'Find YOUR optimal approach distance'
+                ],
+                tips: 'From break hygiene: approaching closer than normal gives MORE hoop control AND sends the other ball further.',
+                target: null,
+                scoring: null
+            },
+            // COMBINATION (6)
+            {
+                id: 'combo-corneriv',
+                name: 'Corner IV Routine',
+                category: 'combination',
+                difficulty: 'intermediate',
+                page: 194,
+                setup: 'One ball in Corner IV, one ball a yard north for croquet.',
+                steps: [
+                    'Take croquet from ball in Corner IV',
+                    'Rush toward Hoop 1',
+                    'Run hoop with control',
+                    'Take croquet, rush to Hoop 2',
+                    'Continue as far as possible'
+                ],
+                tips: 'Main combination practice routine. Combines all three key skills in realistic game sequence.',
+                target: 'How many hoops can you make?',
+                scoring: { label: 'Hoops made', max: 12 }
+            },
+            {
+                id: 'combo-fulford',
+                name: 'Rob Fulford 2-Ball Break',
+                category: 'combination',
+                difficulty: 'advanced',
+                page: 196,
+                setup: 'One ball in Corner IV, croquet from ball a yard north. NO 4th ball on lawn.',
+                steps: [
+                    'Take croquet, rush toward H1',
+                    'Run H1 with extreme control',
+                    'Rush back toward corner',
+                    'Dig ball out a little further',
+                    'Rush to H2 and continue through hoops'
+                ],
+                tips: 'Developed by Fulford to work on generating 3-ball breaks from 2-ball situations. Extremely stretching. Introduces difficult choices like whether to take significant wire.',
+                target: 'How many hoops before break collapses?',
+                scoring: { label: 'Hoops made', max: 12 }
+            },
+            {
+                id: 'combo-bamford',
+                name: 'Reg Bamford H1-H3 Challenge',
+                category: 'combination',
+                difficulty: 'expert',
+                page: 196,
+                setup: 'Same setup as Fulford drill. But only make H1 and H3 (skipping H2).',
+                steps: [
+                    'Make Hoop 1 with control',
+                    'Rush toward H3 (not H2!)',
+                    'Make H3 with control',
+                    'Rush back toward H1',
+                    'Repeat: H1, H3, H1, H3...'
+                ],
+                tips: 'Even harder than Fulford\'s. Every rush is long, every approach must be sound. "Player must be very good to consistently make more than 3 hoops."',
+                target: 'How many H1-H3 cycles?',
+                scoring: { label: 'Hoops made', max: 20 }
+            },
+            {
+                id: 'combo-clarke',
+                name: 'Chris Clarke Peel Position',
+                category: 'combination',
+                difficulty: 'advanced',
+                page: 196,
+                setup: 'Rush to H1 from near corner. Pioneer at H2. Using U, R, Y, K.',
+                steps: [
+                    'Playing U, rush R to Hoop 1',
+                    'Run hoop getting peel position (U up on R, ball in front)',
+                    'Send K to 2-back via croquet',
+                    'Place R 2-3 yards away, send Y to 1-back firmly',
+                    'Attempt peel at 1-back, then continue to H3, H4'
+                ],
+                tips: 'Works on controlled hoop running, judging pull, and large croquet strokes. Practice "escape ball" from 2-3 feet.',
+                target: null,
+                scoring: null
+            },
+            {
+                id: 'combo-12point',
+                name: '12-Point Tracking',
+                category: 'combination',
+                difficulty: 'advanced',
+                page: 197,
+                setup: 'Full 4-ball break setup. Score each of 12 hoops.',
+                steps: [
+                    'Run a full break, scoring each hoop:',
+                    '3 = perfect position after hoop',
+                    '2 = good position',
+                    '1 = acceptable',
+                    '0 = poor position',
+                    'Note which hoops/positions score lowest'
+                ],
+                tips: 'Reveals where your break building is weakest. If H5-H6 always scores low, that\'s your focus area.',
+                target: 'Target: 30+ points (avg 2.5 per hoop)',
+                scoring: { label: 'Total points (12 hoops)', max: 36 }
+            },
+            {
+                id: 'combo-mulliner',
+                name: 'Stephen Mulliner Repetition',
+                category: 'combination',
+                difficulty: 'intermediate',
+                page: 197,
+                setup: 'Choose ONE specific position or stroke to repeat.',
+                steps: [
+                    'Choose an exact position/stroke',
+                    'Practice that exact position 10 times',
+                    'Record results',
+                    'Repeat same position next session',
+                    'Track improvement over days and weeks'
+                ],
+                tips: 'Mulliner\'s approach: same positions across many days, no practice on matchdays. Pure repetition builds muscle memory.',
+                target: null,
+                scoring: { label: 'Success out of 10', max: 10 }
+            },
+            // TACTICAL (4)
+            {
+                id: 'tact-leaves',
+                name: 'Fine-Tuning Leaves',
+                category: 'tactical',
+                difficulty: 'intermediate',
+                page: 198,
+                setup: 'Set up an initial leave position on court with 4 balls.',
+                steps: [
+                    'Ask: what SHOULD opponent do against this leave?',
+                    'Modify position to make that option less attractive',
+                    'Re-ask: now what should they do?',
+                    'Repeat until no clear best option exists',
+                    'That\'s your optimal leave'
+                ],
+                tips: 'Treat opponent as "good robot" who does what they should. Use Trimmer\'s principle: make own outcome guaranteed, make opponent\'s outcome less worthwhile.',
+                target: null,
+                scoring: null
+            },
+            {
+                id: 'tact-options',
+                name: 'Option-Spotting',
+                category: 'tactical',
+                difficulty: 'intermediate',
+                page: 200,
+                setup: 'Place 4 balls in realistic mid-game positions.',
+                steps: [
+                    'List ALL possible lines of play you can see',
+                    'For each option, think through 2-3 consequences',
+                    'Tweak ONE ball position slightly',
+                    'How does that change the options?',
+                    'Think DEEPLY about few situations, not shallowly about many'
+                ],
+                tips: 'Before you can fine-tune a leave, you need to SPOT the options. "Laying out positions, thinking through options, then tweaking - engages brain in identifying important trade-offs."',
+                target: null,
+                scoring: null
+            },
+            {
+                id: 'tact-opening',
+                name: 'Opening Competition',
+                category: 'tactical',
+                difficulty: 'intermediate',
+                page: 202,
+                setup: 'Two players, standard opening positions. Best of 7 rounds.',
+                steps: [
+                    'Player A places Turn 1 ball',
+                    'Player B responds (Turn 2)',
+                    'Continue alternating turns',
+                    'First to 3 hoops + established break wins the round',
+                    'Switch who goes first each round'
+                ],
+                tips: '"By playing numerous openings back-to-back, mind gets focused on how long tice should be laid, and when best to shoot at tice."',
+                target: null,
+                scoring: { label: 'Rounds won (of 7)', max: 7 }
+            },
+            {
+                id: 'tact-hygiene',
+                name: 'Break Hygiene Audit',
+                category: 'tactical',
+                difficulty: 'intermediate',
+                page: 204,
+                setup: 'During any break practice. At each hoop, pause and audit.',
+                steps: [
+                    'Where did I send the pioneer?',
+                    'Which side of pivot did I land?',
+                    'Where did I rush the pivot?',
+                    'Was there a better choice?',
+                    'Would doubling-up have helped?'
+                ],
+                tips: 'Break hygiene comes more from TACTICAL choices than accuracy. "In a delayed TP at 3-back, gaining a forward rush pays huge dividends."',
+                target: null,
+                scoring: null
+            },
+            // MENTAL (4)
+            {
+                id: 'mental-pressure',
+                name: 'Pressure Practice',
+                category: 'mental',
+                difficulty: 'all_levels',
+                page: 206,
+                setup: 'Any practice stroke you\'re about to play.',
+                steps: [
+                    'Before the stroke, imagine playing in a final',
+                    'Crowd surrounding you, watching intently',
+                    'A thousand eyes on this exact stroke',
+                    'Will it be good?',
+                    'Execute the stroke under this mental state'
+                ],
+                tips: 'Builds match readiness. "Real matches feel less stressful after pressure practice." Based on Yerkes-Dodson Law: moderate stress = peak performance.',
+                target: null,
+                scoring: null
+            },
+            {
+                id: 'mental-stress',
+                name: 'Stress Calibration',
+                category: 'mental',
+                difficulty: 'intermediate',
+                page: 206,
+                setup: 'Choose one stroke type. You\'ll play it at three mental states.',
+                steps: [
+                    'Hit 5 strokes while completely relaxed',
+                    'Hit 5 strokes with moderate focus',
+                    'Hit 5 strokes with intense concentration',
+                    'Note accuracy at each level',
+                    'Which state produced best results?'
+                ],
+                tips: 'Find YOUR optimal arousal level - it\'s different for everyone. Some play best slightly relaxed, others need intensity.',
+                target: null,
+                scoring: null
+            },
+            {
+                id: 'mental-points',
+                name: 'Croquet Stroke Points Game',
+                category: 'mental',
+                difficulty: 'intermediate',
+                page: 208,
+                setup: 'Two players. Place markers on lawn for target positions.',
+                steps: [
+                    'Player A lays out markers',
+                    'Both get 2 practice attempts',
+                    'Then play the measured attempt',
+                    'Closest to marker wins 1 point',
+                    'Nominate a "priority ball" worth 2 points',
+                    'First to 10 points wins'
+                ],
+                tips: 'Creates real stakes to simulate match pressure. "In a match, croquet strokes often require prioritisation of a certain ball."',
+                target: null,
+                scoring: { label: 'Points scored', max: 10 }
+            },
+            {
+                id: 'mental-consistency',
+                name: 'Consistency Check',
+                category: 'mental',
+                difficulty: 'beginner',
+                page: 208,
+                setup: 'Set up the exact same stroke 10 times.',
+                steps: [
+                    'Execute each stroke identically',
+                    'Film yourself or have a partner watch',
+                    'Are your mechanics identical each time?',
+                    'Identify any variation',
+                    'Eliminate the variation and repeat'
+                ],
+                tips: 'Trimmer contrasts Burridge (complex mechanics) with Bamford (simple, consistent). "Bamford\'s style is preferred because so little can go wrong." Simplify your mechanics.',
+                target: null,
+                scoring: { label: 'Consistent strokes out of 10', max: 10 }
+            }
+        ];
+
+        const categoryNames = {
+            rushing: 'Rushing',
+            croquet_strokes: 'Croquet Strokes',
+            hoop_running: 'Hoop Running',
+            combination: 'Combination',
+            tactical: 'Tactical',
+            mental: 'Mental'
+        };
+
+        const difficultyNames = {
+            beginner: 'Beginner',
+            intermediate: 'Intermediate',
+            advanced: 'Advanced',
+            expert: 'Expert',
+            all_levels: 'All Levels'
+        };
+
+        // State
+        let currentDrill = null;
+        let activeFilter = 'all';
+        let history = JSON.parse(localStorage.getItem('trimmer-drill-history') || '[]');
+
+        function getFilteredDrills() {
+            if (activeFilter === 'all') return drills;
+            return drills.filter(d => d.category === activeFilter);
+        }
+
+        function updateProgress() {
+            const practiced = new Set(history.map(h => h.id));
+            document.getElementById('progress-badge').textContent =
+                `${practiced.size}/${drills.length}`;
+        }
+
+        function setFilter(cat) {
+            activeFilter = cat;
+            document.querySelectorAll('.chip').forEach(c => {
+                c.classList.toggle('active', c.dataset.cat === cat);
+            });
+        }
+
+        function startDrill() {
+            const pool = getFilteredDrills();
+            if (pool.length === 0) return;
+
+            // Prioritize unpracticed
+            const practiced = new Set(history.map(h => h.id));
+            const unpracticed = pool.filter(d => !practiced.has(d.id));
+            const selection = unpracticed.length > 0 ? unpracticed : pool;
+
+            // Avoid repeating same drill
+            let pick;
+            if (selection.length > 1 && currentDrill) {
+                const filtered = selection.filter(d => d.id !== currentDrill.id);
+                pick = filtered[Math.floor(Math.random() * filtered.length)];
+            } else {
+                pick = selection[Math.floor(Math.random() * selection.length)];
+            }
+            currentDrill = pick;
+
+            // Show drill view
+            document.getElementById('state-start').classList.add('hidden');
+            document.getElementById('state-drill').classList.remove('hidden');
+
+            // Set card color
+            const card = document.getElementById('drill-card');
+            card.className = 'card card-' + pick.category;
+
+            // Category label
+            const catLabel = document.getElementById('drill-category');
+            catLabel.textContent = categoryNames[pick.category];
+            catLabel.className = 'category-label cat-' + pick.category;
+
+            // Name
+            document.getElementById('drill-name').textContent = pick.name;
+
+            // Difficulty
+            const diffEl = document.getElementById('drill-difficulty');
+            diffEl.textContent = difficultyNames[pick.difficulty];
+            diffEl.className = 'difficulty diff-' + pick.difficulty;
+
+            // Source
+            document.getElementById('drill-source').textContent =
+                'Trimmer p. ' + pick.page;
+
+            // Setup
+            document.getElementById('drill-setup').textContent = pick.setup;
+
+            // Steps
+            const stepsHtml = '<ol>' + pick.steps.map(s => `<li>${s}</li>`).join('') + '</ol>';
+            document.getElementById('drill-steps').innerHTML = stepsHtml;
+
+            // Tips
+            document.getElementById('drill-tips').textContent = pick.tips;
+
+            // Target
+            const targetSection = document.getElementById('drill-target-section');
+            if (pick.target) {
+                targetSection.classList.remove('hidden');
+                document.getElementById('drill-target').innerHTML =
+                    '<strong>' + pick.target + '</strong>';
+            } else {
+                targetSection.classList.add('hidden');
+            }
+
+            // Score input
+            const scoreSection = document.getElementById('drill-score-section');
+            if (pick.scoring) {
+                scoreSection.classList.remove('hidden');
+                document.getElementById('score-label').textContent = pick.scoring.label;
+                document.getElementById('score-input').value = '';
+                document.getElementById('score-input').max = pick.scoring.max;
+                document.getElementById('score-max').textContent =
+                    'out of ' + pick.scoring.max;
+            } else {
+                scoreSection.classList.add('hidden');
+            }
+
+            // Reset button
+            const btn = document.getElementById('btn-practiced');
+            btn.textContent = 'Mark Practiced';
+            btn.style.background = '';
+
+            // Scroll to top
+            document.getElementById('main-content').scrollTop = 0;
+        }
+
+        function markPracticed() {
+            if (!currentDrill) return;
+
+            const entry = {
+                id: currentDrill.id,
+                name: currentDrill.name,
+                category: currentDrill.category,
+                timestamp: Date.now()
+            };
+
+            // Capture score if available
+            const scoreInput = document.getElementById('score-input');
+            if (currentDrill.scoring && scoreInput.value !== '') {
+                entry.score = parseInt(scoreInput.value, 10);
+                entry.scoreMax = currentDrill.scoring.max;
+            }
+
+            history.push(entry);
+            localStorage.setItem('trimmer-drill-history', JSON.stringify(history));
+            updateProgress();
+
+            // Visual feedback
+            const btn = document.getElementById('btn-practiced');
+            btn.textContent = 'Recorded!';
+            btn.style.background = '#1565c0';
+            setTimeout(() => {
+                btn.textContent = 'Mark Practiced';
+                btn.style.background = '';
+            }, 1000);
+        }
+
+        function showHistory() {
+            document.getElementById('nav-drill').classList.remove('active');
+            document.getElementById('nav-history').classList.add('active');
+
+            // Stats
+            const statsHtml = buildStats();
+            document.getElementById('history-stats').innerHTML = statsHtml;
+
+            // List
+            const list = document.getElementById('history-list');
+            if (history.length === 0) {
+                list.innerHTML = '<div class="history-empty">No practice sessions yet.</div>';
+            } else {
+                const counts = {};
+                history.forEach(h => {
+                    if (!counts[h.id]) {
+                        counts[h.id] = { ...h, count: 0, lastTime: 0, scores: [] };
+                    }
+                    counts[h.id].count++;
+                    counts[h.id].lastTime = Math.max(counts[h.id].lastTime, h.timestamp);
+                    if (h.score !== undefined) {
+                        counts[h.id].scores.push(h.score);
+                        counts[h.id].scoreMax = h.scoreMax;
+                    }
+                });
+
+                const sorted = Object.values(counts).sort((a, b) => b.lastTime - a.lastTime);
+                list.innerHTML = sorted.map(h => {
+                    let scoreHtml = '';
+                    if (h.scores.length > 0) {
+                        const best = Math.max(...h.scores);
+                        const latest = h.scores[h.scores.length - 1];
+                        scoreHtml = `<div class="score-display">Best: ${best}/${h.scoreMax}` +
+                            (h.scores.length > 1 ? ` | Latest: ${latest}/${h.scoreMax}` : '') +
+                            `</div>`;
+                    }
+                    return `
+                        <div class="history-item">
+                            <div class="combo">${h.name}</div>
+                            <div class="meta">${categoryNames[h.category]} | Practiced ${h.count}x | Last: ${formatTime(h.lastTime)}</div>
+                            ${scoreHtml}
+                        </div>`;
+                }).join('');
+            }
+
+            document.getElementById('history-modal').classList.add('active');
+        }
+
+        function buildStats() {
+            const practiced = new Set(history.map(h => h.id));
+            const total = history.length;
+            const catCounts = {};
+            history.forEach(h => {
+                catCounts[h.category] = (catCounts[h.category] || 0) + 1;
+            });
+            const topCat = Object.entries(catCounts).sort((a, b) => b[1] - a[1])[0];
+
+            return `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">${practiced.size}</div>
+                        <div class="stat-label">Drills tried</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${total}</div>
+                        <div class="stat-label">Total sessions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${drills.length - practiced.size}</div>
+                        <div class="stat-label">Still to try</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${topCat ? categoryNames[topCat[0]].split(' ')[0] : '-'}</div>
+                        <div class="stat-label">Most practiced</div>
+                    </div>
+                </div>`;
+        }
+
+        function formatTime(ts) {
+            const d = new Date(ts);
+            const now = new Date();
+            if (d.toDateString() === now.toDateString()) {
+                return 'Today ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            }
+            const diff = Math.floor((now - d) / 86400000);
+            if (diff === 1) return 'Yesterday';
+            if (diff < 7) return diff + ' days ago';
+            return d.toLocaleDateString();
+        }
+
+        function closeHistory() {
+            document.getElementById('history-modal').classList.remove('active');
+            showDrillView();
+        }
+
+        function showDrillView() {
+            document.getElementById('nav-drill').classList.add('active');
+            document.getElementById('nav-history').classList.remove('active');
+            document.getElementById('history-modal').classList.remove('active');
+        }
+
+        function clearHistory() {
+            if (confirm('Clear all practice history?')) {
+                history = [];
+                localStorage.removeItem('trimmer-drill-history');
+                updateProgress();
+                closeHistory();
+            }
+        }
+
+        function showHelp() {
+            document.getElementById('help-modal').classList.add('active');
+        }
+
+        function closeHelp() {
+            document.getElementById('help-modal').classList.remove('active');
+        }
+
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>
