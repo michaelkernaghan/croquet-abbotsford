@@ -1,12 +1,12 @@
 # robots.txt for Abbotsford Croquet Club
-# https://abbotsfordcroquet.ca
+# https://abbotsfordcroquet.com
 
 # Allow all crawlers full access
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://abbotsfordcroquet.ca/sitemap.xml
+Sitemap: https://abbotsfordcroquet.com/sitemap.xml
 
 # Allow crawling of all content types
 Allow: /*.html

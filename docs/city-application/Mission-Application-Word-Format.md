@@ -22,7 +22,7 @@ Fraser Valley Croquet Society
 
 **Email:** michael.kernaghan@gmail.com
 
-**Website:** https://abbotsfordcroquet.ca
+**Website:** https://abbotsfordcroquet.com
 
 ---
 
@@ -66,14 +66,16 @@ The Fraser Valley Croquet Society has experienced players who have participated 
 
 **Age Group:** ☑ Adults  ☑ Seniors
 
-**Days of Week:** ☑ Sat  ☑ Sun  ☑ Wed  ☑ Tue
+**Days of Week:** ☑ Mon
 
 **Maximum Participants:** 12
 
 **Start Times (at least 2 options):**
-Option 1: 10:00 AM
-Option 2: 1:00 PM
-Option 3: 9:00 AM
+Option 1: 6:00 PM
+Option 2: 6:30 PM
+
+**Course Dates:** April 20, May 4, May 11, May 25, June 1, June 8, 2026
+(No class April 27 or May 18 - Victoria Day)
 
 **Session Length:** ☑ 1.5 hours
 

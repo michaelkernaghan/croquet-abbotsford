@@ -17,7 +17,9 @@
       "Bash(cmd /c copy \"docs\\city-application\\Mission-Application-Word-Format.md\" \"%USERPROFILE%\\Desktop\\Mission-Croquet-Application.txt\")",
       "Bash(where:*)",
       "Bash(where AcroRd64.exe 2)",
-      "Bash(start:*)"
+      "Bash(start:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ],
     "deny": [],
     "ask": []

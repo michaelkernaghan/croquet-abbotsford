@@ -21,7 +21,7 @@
 
 **Email:** [Your email address]
 
-**Website:** https://abbotsfordcroquet.ca (Abbotsford chapter)
+**Website:** https://abbotsfordcroquet.com (Abbotsford chapter)
 
 ---
 

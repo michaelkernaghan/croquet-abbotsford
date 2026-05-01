@@ -1,0 +1,323 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{fontawesome5}
+
+% Colors
+\definecolor{hoopcolor}{RGB}{34, 139, 34}
+\definecolor{breakcolor}{RGB}{70, 130, 180}
+\definecolor{leavecolor}{RGB}{148, 103, 189}
+\definecolor{warmupcolor}{RGB}{255, 140, 0}
+\definecolor{aitoncolor}{RGB}{178, 34, 34}
+
+% Section formatting
+\titleformat{\section}{\Large\bfseries\color{hoopcolor}}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Croquet Practice Drills}}
+\rhead{Courtside Reference}
+\cfoot{\thepage}
+
+% Compact lists
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=*}
+\setlist[enumerate]{noitemsep, topsep=2pt, leftmargin=*}
+
+% Box styles
+\tcbset{
+    drillbox/.style={colback=gray!5, colframe=gray!50,
+        fonttitle=\bfseries, boxrule=0.5pt, arc=2pt,
+        left=4pt, right=4pt, top=2pt, bottom=2pt}
+}
+
+\begin{document}
+
+\begin{center}
+{\Huge\bfseries\color{hoopcolor} Croquet Practice Drills}\\[0.3em]
+{\large Courtside Quick Reference}\\[0.5em]
+{\small Compiled from Keith Aiton, Wylie, and FVCS Course Materials}
+\end{center}
+
+\vspace{0.5em}
+
+%==============================================================================
+\section{Warm-Up Routines}
+%==============================================================================
+
+\begin{multicols}{2}
+
+\begin{tcolorbox}[drillbox, title={\color{warmupcolor}\faStopwatch~5-Minute Quick}]
+\begin{enumerate}
+    \item 10 practice swings (no ball)
+    \item 5 straight shots at 1m
+    \item 5 shots at 2m
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[drillbox, title={\color{warmupcolor}\faStopwatch~10-Minute Full}]
+\begin{enumerate}
+    \item 10 swings focusing on rhythm
+    \item Straight: 5 at 1m, 5 at 2m, 5 at 3m
+    \item Clock face: 1 shot each position
+    \item 3 roquets at 3m
+\end{enumerate}
+\end{tcolorbox}
+
+\end{multicols}
+
+%==============================================================================
+\section{Fundamental Drills}
+%==============================================================================
+
+\begin{tabular}{@{}p{3.5cm}p{7cm}p{4cm}@{}}
+\toprule
+\textbf{Drill} & \textbf{How To} & \textbf{Goal} \\
+\midrule
+\textbf{Pendulum Swing} & Swing without ball, smooth backswing \& follow-through & Clean, repeatable motion \\
+\textbf{Stop and Stare} & Hit ball, freeze, count to 3 before looking up & Train head stillness \\
+\textbf{1m Straight Shot} & Through hoop from 1m, progress when 7/10 & Build confidence \\
+\textbf{The Ladder} & Hit to 1m, 2m, 3m, 4m, 5m markers and back & Distance control \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+
+%==============================================================================
+\section{Hoop Running}
+%==============================================================================
+
+\begin{multicols}{2}
+
+\begin{tcolorbox}[drillbox, title={Clock Face Drill}]
+\begin{itemize}
+    \item Place markers at 12, 3, 6, 9 o'clock
+    \item 2 metres from hoop
+    \item Shoot from each position
+    \item 3 full rotations
+    \item Track weak angles
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[drillbox, colframe=aitoncolor!70, title={\color{aitoncolor}Aiton's Approach}]
+\textbf{Ideal position:} 1 yard in front, straight on\\[0.3em]
+\textit{``Running hoops with control directs your ball to specific positions for advantageous rushes.''}
+\end{tcolorbox}
+
+\end{multicols}
+
+%==============================================================================
+\section{Roquet \& Rush}
+%==============================================================================
+
+\begin{tabular}{@{}p{3.5cm}p{5.5cm}p{5.5cm}@{}}
+\toprule
+\textbf{Drill} & \textbf{Setup} & \textbf{Progression} \\
+\midrule
+\textbf{Roquet Practice} & Target ball 2m away, 10 attempts & 2m $\rightarrow$ 3m $\rightarrow$ 4m \\
+\textbf{Straight Rush} & Hit directly through centre & Short to long distance \\
+\textbf{Cut Rush} & Angle to hit off-centre (like pool) & Gentle cuts $\rightarrow$ sharper \\
+\textbf{Roquet Rally} & 2 players, first to 10 roquets wins & Game format practice \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+
+%==============================================================================
+\section{Croquet Shot Types}
+%==============================================================================
+
+\begin{tabular}{@{}p{2.5cm}cp{9cm}@{}}
+\toprule
+\textbf{Shot} & \textbf{Ratio} & \textbf{Technique} \\
+\midrule
+\textbf{Takeoff} & --- & Object stays, striker travels (thin vs thick) \\
+\textbf{Stop Shot} & 1:5--1:10 & Strike below centerline, no follow-through \\
+\textbf{Drive} & 1:3 & Normal stroke---foundation of break play \\
+\textbf{Half Roll} & 1:2 & Downward strike, hands lower, stand forward \\
+\textbf{Full Roll} & 1:1 & Both balls equal distance, apply topspin \\
+\textbf{Pass Roll} & >1:1 & Steep downward angle---difficult shot \\
+\textbf{Split Shot} & varies & Aim halfway between destinations (90\textdegree{} max) \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+
+%==============================================================================
+\section{Break Play}
+%==============================================================================
+
+\begin{multicols}{2}
+
+\subsection*{Key Positions}
+\begin{itemize}
+    \item \textbf{Pilot/Reception}: Near current hoop
+    \item \textbf{Pioneer}: At your NEXT hoop
+    \item \textbf{Pivot}: Mid-court recovery ball
+\end{itemize}
+
+\subsection*{Triangle Drill (3-Ball)}
+\begin{enumerate}
+    \item Set balls in triangle near hoop
+    \item Roquet first, take croquet
+    \item Roquet second, take croquet
+    \item Position and run hoop
+\end{enumerate}
+\textbf{Goal:} Minimum strokes
+
+\end{multicols}
+
+\begin{tcolorbox}[drillbox, colframe=aitoncolor!70, title={\color{aitoncolor}Aiton on Breaks}]
+\begin{itemize}
+    \item Rush toward useful balls rather than directly to hoops
+    \item Plan pioneer establishment before making first hoop
+    \item Identify closest opponent ball to next hoop as intended pilot
+    \item ``Shoot at the back ball'' when opponents cluster
+\end{itemize}
+\end{tcolorbox}
+
+\newpage
+
+%==============================================================================
+\section{Leaves}
+%==============================================================================
+
+\begin{tabular}{@{}p{2.8cm}p{6.5cm}p{5cm}@{}}
+\toprule
+\textbf{Leave} & \textbf{Setup} & \textbf{Notes} \\
+\midrule
+\textbf{NSL} & Opponent NE of H4 (wired), other as H3 pioneer & Bread and butter \\
+\textbf{DSL} & Opponents diagonal, partner east as escape & Most forgiving \\
+\textbf{MSL} & NSL variant, west ball on H2 wire & Superior pioneer \\
+\textbf{Bryant} & One at H4, other 1cm north of H1 & Ultra-aggressive \\
+\textbf{Summer} & Ball between H3--4, wired by peg & Most forcing \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+
+\begin{tcolorbox}[drillbox, colframe=leavecolor!70, title={\color{leavecolor}Leave Golden Rules}]
+\begin{enumerate}
+    \item Final roquet should be your \textbf{partner ball} (organize quality rush)
+    \item Complete final hoop off an \textbf{opponent's ball} (partner stays positioned)
+    \item Create \textbf{no short shots} for opponent
+\end{enumerate}
+\end{tcolorbox}
+
+%==============================================================================
+\section{Openings (Turns 1--4)}
+%==============================================================================
+
+\begin{multicols}{2}
+
+\subsection*{First Ball}
+\begin{tabular}{@{}ll@{}}
+\textbf{East Boundary} & H4--H5 level (standard) \\
+\textbf{Supershot} & Mid-court, aggressive \\
+\textbf{Anti-Duffer} & H6 to peg, defensive \\
+\end{tabular}
+
+\subsection*{Second Ball (Tices)}
+\begin{tabular}{@{}ll@{}}
+\textbf{Standard} & West, 8--13yd from C1 \\
+\textbf{Duffer} & 2ft N of penultimate \\
+\textbf{Micro} & 2--3yd from A baulk \\
+\textbf{Super Duper} & Response to wide super \\
+\end{tabular}
+
+\end{multicols}
+
+%==============================================================================
+\section{Triple Peel Practice}
+%==============================================================================
+
+\begin{multicols}{2}
+
+\begin{tcolorbox}[drillbox, colframe=breakcolor!70, title={\color{breakcolor}Standard TP (17 min)}]
+Setup from NSL position\\
+Full sequence: 4-back, penult, rover peels
+\end{tcolorbox}
+
+\begin{tcolorbox}[drillbox, colframe=breakcolor!70, title={\color{breakcolor}Delayed TP (18 min)}]
+Start from DSL\\
+Opponent in Corner 4
+\end{tcolorbox}
+
+\end{multicols}
+
+\begin{tcolorbox}[drillbox, title={Delayed Double Peel---ESSENTIAL}]
+\textit{``The Penult peel after 3-back, followed by the Rover peel after Penult is one of the most important things for you to practise. Practise it regularly!''}
+\end{tcolorbox}
+
+\subsection*{Recovery Drills (Plan B)}
+\begin{tabular}{@{}p{4cm}p{10.5cm}@{}}
+\textbf{Jawsed Peel} & Recovery options; intentional jawsing for later completion \\
+\textbf{Peel Short} & Options to continue break \\
+\textbf{Peel Too Far} & Break adjustment techniques \\
+\textbf{Abandon Safely} & Set up good leave when peels fail \\
+\end{tabular}
+
+%==============================================================================
+\section{Practice Games}
+%==============================================================================
+
+\begin{tabular}{@{}p{3cm}ccp{7cm}@{}}
+\toprule
+\textbf{Game} & \textbf{Players} & \textbf{Time} & \textbf{Focus} \\
+\midrule
+\textbf{First to Five} & 2--4 & 15--20 min & Same hoop, first to 5 wins---hoop confidence \\
+\textbf{Roquet Rally} & 2 & 10 min & Take turns roqueting, first to 10---accuracy \\
+\textbf{Golf Croquet} & 2--4 & 20--30 min & First 6 hoops contested---game flow \\
+\bottomrule
+\end{tabular}
+
+\vspace{1em}
+
+%==============================================================================
+\begin{center}
+\fbox{\parbox{0.95\textwidth}{
+\centering
+\textbf{\color{aitoncolor}\large Keith Aiton's Wisdom}\\[0.5em]
+\textit{``The gifted amateur practices until he can do it,\\
+whereas the professional practices until he cannot NOT do it.''}
+}}
+\end{center}
+
+\vspace{0.5em}
+
+%==============================================================================
+\section*{6-Week Schedule}
+%==============================================================================
+
+\begin{tabular}{@{}clp{9cm}@{}}
+\toprule
+\textbf{Week} & \textbf{Focus} & \textbf{Key Drills} \\
+\midrule
+1 & Fundamentals & Stance/Grip, 1m Straight Shot, Stop and Stare \\
+2 & Accuracy & Increase distance, Clock Face introduction \\
+3 & Distance \& Roquet & The Ladder, Roquet Practice \\
+4 & Two-Ball Play & Two-Ball Sequence, Roquet Rally \\
+5 & Advanced & The Triangle, Croquet Shot Control \\
+6 & Strategy & Hoop and Position, Tactical Positioning \\
+\bottomrule
+\end{tabular}
+
+\vfill
+
+\begin{center}
+{\small\textit{Sources: Keith Aiton ``The Basics'', Keith Wylie ``Expert Croquet Tactics'',\\
+Fraser Valley Croquet Society, Tame the Triple ePractice Pack}}
+\end{center}
+
+\end{document}

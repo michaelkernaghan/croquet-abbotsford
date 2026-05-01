@@ -2,7 +2,7 @@
 
 Official website for the Abbotsford Croquet Club, located in Mill Lake Park, Abbotsford, BC, Canada.
 
-**Live Site:** [abbotsfordcroquet.ca](https://abbotsfordcroquet.ca)
+**Live Site:** [abbotsfordcroquet.com](https://abbotsfordcroquet.com)
 
 ## About This Repository
 

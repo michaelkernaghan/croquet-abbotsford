@@ -1,0 +1,786 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.8)  20 JAN 2026 07:05
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./croquet-drills.tex
+(croquet-drills.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/base\articl
+e.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/base\size11
+.clo
+File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/geometry\ge
+ometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\ke
+yval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifv
+tex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ift
+ex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count195
+\Gm@cntv=\count196
+\c@Gm@tempcnt=\count197
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
+\Gm@dimlist=\toks18
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/geometry\ge
+ometry.cfg))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\bo
+oktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen149
+\lightrulewidth=\dimen150
+\cmidrulewidth=\dimen151
+\belowrulesep=\dimen152
+\belowbottomsep=\dimen153
+\aboverulesep=\dimen154
+\abovetopsep=\dimen155
+\cmidrulesep=\dimen156
+\cmidrulekern=\dimen157
+\defaultaddspace=\dimen158
+\@cmidla=\count198
+\@cmidlb=\count199
+\@aboverulesep=\dimen159
+\@belowrulesep=\dimen160
+\@thisruleclass=\count266
+\@lastruleclass=\count267
+\@thisrulewidth=\dimen161
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/tools\array
+.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen162
+\ar@mcellbox=\box51
+\extrarowheight=\dimen163
+\NC@list=\toks19
+\extratabsurround=\skip50
+\backup@length=\skip51
+\ar@cellbox=\box52
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcol
+or.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cf
+g\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-de
+f\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\ma
+thcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/fronten
+dlayer\tikz.sty
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basicla
+yer\pgf.sty
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utiliti
+es\pgfrcs.sty
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utili
+ties\pgfutil-common.tex
+\pgfutil@everybye=\toks20
+\pgfutil@tempdima=\dimen164
+\pgfutil@tempdimb=\dimen165
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utili
+ties\pgfutil-latex.def
+\pgfutil@abb=\box53
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utili
+ties\pgfrcs.code.tex
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.r
+evision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basicla
+yer\pgfcore.sty
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\gr
+aphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\gr
+aphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\tr
+ig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cf
+g\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen166
+\Gin@req@width=\dimen167
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systeml
+ayer\pgfsys.sty
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/syste
+mlayer\pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utili
+ties\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks21
+\pgfkeys@temptoks=\toks22
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utili
+ties\pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks23
+))
+\pgf@x=\dimen168
+\pgf@y=\dimen169
+\pgf@xa=\dimen170
+\pgf@ya=\dimen171
+\pgf@xb=\dimen172
+\pgf@yb=\dimen173
+\pgf@xc=\dimen174
+\pgf@yc=\dimen175
+\pgf@xd=\dimen176
+\pgf@yd=\dimen177
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count268
+\c@pgf@countb=\count269
+\c@pgf@countc=\count270
+\c@pgf@countd=\count271
+\t@pgf@toka=\toks24
+\t@pgf@tokb=\toks25
+\t@pgf@tokc=\toks26
+\pgf@sys@id@count=\count272
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/syste
+mlayer\pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/syste
+mlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/syste
+mlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/syste
+mlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count273
+\pgfsyssoftpath@bigbuffer@items=\count274
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/syste
+mlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmath.code.tex
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathutil.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathparser.code.tex
+\pgfmath@dimen=\dimen178
+\pgfmath@count=\count275
+\pgfmath@box=\box54
+\pgfmath@toks=\toks27
+\pgfmath@stack@operand=\toks28
+\pgfmath@stack@operation=\toks29
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfunctions.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfunctions.basic.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfunctions.trigonometric.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfunctions.random.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfunctions.comparison.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfunctions.base.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfunctions.round.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfunctions.misc.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfunctions.integerarithmetics.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathcalc.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count276
+))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfint.code.tex)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen179
+\pgf@picmaxx=\dimen180
+\pgf@picminy=\dimen181
+\pgf@picmaxy=\dimen182
+\pgf@pathminx=\dimen183
+\pgf@pathmaxx=\dimen184
+\pgf@pathminy=\dimen185
+\pgf@pathmaxy=\dimen186
+\pgf@xx=\dimen187
+\pgf@xy=\dimen188
+\pgf@yx=\dimen189
+\pgf@yy=\dimen190
+\pgf@zx=\dimen191
+\pgf@zy=\dimen192
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen193
+\pgf@path@lasty=\dimen194
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen195
+\pgf@shorten@start@additional=\dimen196
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box55
+\pgf@hbox=\box56
+\pgf@layerbox@main=\box57
+\pgf@picture@serial@count=\count277
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen197
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen198
+\pgf@pt@y=\dimen199
+\pgf@pt@temp=\dimen256
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen257
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen258
+\pgf@sys@shading@range@num=\count278
+\pgf@shadingcount=\count279
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box58
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basic
+layer\pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modul
+es\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box59
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modul
+es\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compati
+bility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen259
+\pgf@nodesepend=\dimen260
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compati
+bility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utiliti
+es\pgffor.sty
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utiliti
+es\pgfkeys.sty
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utili
+ties\pgfkeys.code.tex))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pg
+fmath.sty
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\
+pgfmath.code.tex))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utili
+ties\pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen261
+\pgffor@skip=\dimen262
+\pgffor@stack=\toks30
+\pgffor@toks=\toks31
+))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/front
+endlayer/tikz\tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libra
+ries\pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count280
+\pgfplotmarksize=\dimen263
+)
+\tikz@lastx=\dimen264
+\tikz@lasty=\dimen265
+\tikz@lastxsaved=\dimen266
+\tikz@lastysaved=\dimen267
+\tikz@lastmovetox=\dimen268
+\tikz@lastmovetoy=\dimen269
+\tikzleveldistance=\dimen270
+\tikzsiblingdistance=\dimen271
+\tikz@figbox=\box60
+\tikz@figbox@bg=\box61
+\tikz@tempbox=\box62
+\tikz@tempbox@bg=\box63
+\tikztreelevel=\count281
+\tikznumberofchildren=\count282
+\tikznumberofcurrentchild=\count283
+\tikz@fig@count=\count284
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modul
+es\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count285
+\pgfmatrixcurrentcolumn=\count286
+\pgf@matrix@numberofcolumns=\count287
+)
+\tikz@expandcount=\count288
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\en
+umitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip52
+\enit@outerparindent=\dimen272
+\enit@toks=\toks32
+\enit@inbox=\box64
+\enit@count@id=\count289
+\enitdp@description=\count290
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fa
+ncyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip53
+\f@nch@offset@elh=\skip54
+\f@nch@offset@erh=\skip55
+\f@nch@offset@olh=\skip56
+\f@nch@offset@orh=\skip57
+\f@nch@offset@elf=\skip58
+\f@nch@offset@erf=\skip59
+\f@nch@offset@olf=\skip60
+\f@nch@offset@orf=\skip61
+\f@nch@height=\skip62
+\f@nch@footalignment=\skip63
+\f@nch@widthL=\skip64
+\f@nch@widthC=\skip65
+\f@nch@widthR=\skip66
+\@temptokenb=\toks33
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\ti
+tlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box65
+\beforetitleunit=\skip67
+\aftertitleunit=\skip68
+\ttl@plus=\dimen273
+\ttl@minus=\dimen274
+\ttl@toksa=\toks34
+\titlewidth=\dimen275
+\titlewidthlast=\dimen276
+\titlewidthfirst=\dimen277
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/tools\multi
+col.sty
+Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
+\c@tracingmulticols=\count291
+\mult@box=\box66
+\multicol@leftmargin=\dimen278
+\c@unbalance=\count292
+\c@collectmore=\count293
+\doublecol@number=\count294
+\multicoltolerance=\count295
+\multicolpretolerance=\count296
+\full@width=\dimen279
+\page@free=\dimen280
+\premulticols=\dimen281
+\postmulticols=\dimen282
+\multicolsep=\skip69
+\multicolbaselineskip=\skip70
+\partial@page=\box67
+\last@line=\box68
+\mc@boxedresult=\box69
+\maxbalancingoverflow=\dimen283
+\mult@rightbox=\box70
+\mult@grightbox=\box71
+\mult@firstbox=\box72
+\mult@gfirstbox=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\c@minrows=\count297
+\c@columnbadness=\count298
+\c@finalcolumnbadness=\count299
+\last@try=\dimen284
+\multicolovershoot=\dimen285
+\multicolundershoot=\dimen286
+\mult@nat@firstbox=\box110
+\colbreak@box=\box111
+\mc@col@check@num=\count300
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\t
+colorbox.sty
+Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/tools\verba
+tim.sty
+Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks35
+\verbatim@line=\toks36
+\verbatim@in@stream=\read3
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/environ\env
+iron.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\
+trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+\@envbody=\toks37
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\et
+oolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count301
+)
+\tcb@titlebox=\box112
+\tcb@upperbox=\box113
+\tcb@lowerbox=\box114
+\tcb@phantombox=\box115
+\c@tcbbreakpart=\count302
+\c@tcblayer=\count303
+\c@tcolorbox@number=\count304
+\l__tcobox_tmpa_box=\box116
+\l__tcobox_tmpa_dim=\dimen287
+\tcb@temp=\box117
+\tcb@temp=\box118
+\tcb@temp=\box119
+\tcb@temp=\box120
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome
+5\fontawesome5.sty
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\ex
+pl3.sty
+Package: expl3 2024-01-04 L3 programming layer (loader) 
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l
+3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count305
+\l__pdf_internal_box=\box121
+))
+Package: fontawesome5 2022/05/02 v5.15.4 Font Awesome 5
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/
+l3keys2e\l3keys2e.sty
+Package: l3keys2e 2023-10-10 LaTeX2e option processing using LaTeX3 keys
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/
+xparse\xparse.sty
+Package: xparse 2023-10-10 L3 Experimental document command parser
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome
+5\fontawesome5-generic-helper.sty
+Package: fontawesome5-generic-helper 2022/05/02 v5.15.4 non-uTeX helper for fon
+tawesome5
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome
+5\fontawesome5-mapping.def))) (croquet-drills.aux)
+\openout1 = `croquet-drills.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(54.2025pt, 489.10287pt, 54.2025pt)
+* v-part:(T,H,B)=(54.2025pt, 736.64185pt, 54.2025pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=489.10287pt
+* \textheight=736.64185pt
+* \oddsidemargin=-18.06749pt
+* \evensidemargin=-18.06749pt
+* \topmargin=-55.06749pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/context/base/mkii
+\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count306
+\scratchdimen=\dimen288
+\scratchbox=\box122
+\nofMPsegments=\count307
+\nofMParguments=\count308
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count309
+\MPscratchDim=\dimen289
+\MPnumerator=\count310
+\makeMPintoPDFobject=\count311
+\everyMPtoPDFconversion=\toks39
+)
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pk
+g\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\ep
+stopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on i
+nput line 61.
+
+(C:\Users\Michael Kernaghan\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome
+5\ufontawesomefree3.fd)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 84.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 84.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 84.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[1{C:/Users/Michael Kernaghan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+{C:/Users/Michael Kernaghan/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fonta
+wesome5/fa5free3.enc}]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[2]
+Underfull \hbox (badness 4378) in paragraph at lines 280--281
+[]|\OT1/cmr/m/n/10.95 Take turns roquet-ing, first to 10---
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[3]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[4] (croquet-drills.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 19132 strings out of 474486
+ 410670 string characters out of 5738055
+ 1946542 words of memory out of 5000000
+ 41163 multiletter control sequences out of 15000+600000
+ 564250 words of font info for 56 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 102i,11n,107p,418b,540s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Michael Kernaghan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\tcrm1095.pk><C:/Users/Michael Kernaghan/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/Michael Ker
+naghan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+<C:/Users/Michael Kernaghan/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb><C:/Users/Michael Kernaghan/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Michael Kernaghan/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Michael 
+Kernaghan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb><C:/Users/Michael Kernaghan/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmti10.pfb>
+Output written on croquet-drills.pdf (4 pages, 134403 bytes).
+PDF statistics:
+ 60 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+

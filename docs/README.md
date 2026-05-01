@@ -80,7 +80,7 @@ These materials are maintained by the Abbotsford Croquet Club. For questions or 
 
 This `/docs` folder was created to separate development and project materials from the live website files. The website files remain in the repository root to maintain compatibility with Netlify deployment.
 
-**Website files (in root):** Public-facing content deployed to abbotsfordcroquet.ca
+**Website files (in root):** Public-facing content deployed to abbotsfordcroquet.com
 **Documentation files (in /docs):** Internal materials, not deployed
 
 ---
