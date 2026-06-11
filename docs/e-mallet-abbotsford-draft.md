@@ -16,7 +16,9 @@ The Fraser Valley Croquet Society was registered as a BC non-profit in 2023
 (S0075824), with its founding home in Mission. Like most clubs of recent
 vintage, it began modestly — a handful of players, one set of mallets older
 than at least two of them, and the long-standing Canadian conviction that
-anything worth doing on grass is worth doing slowly.
+anything worth doing on grass is worth doing slowly. In 2024 the society
+found a more durable home at Mill Lake Park in Abbotsford, and the
+Abbotsford Croquet Club was born.
 
 ## A Mainland Echo of the Victoria Model
 
@@ -34,36 +36,38 @@ sprinklers, and adults who already understood the importance of flat shoes.
 A partnership was duly struck.
 
 Today, "Abbotsford Croquet Club" operates as the society's public-facing
-brand at Mill Lake Park. The lawn bowlers continue their delicate
-choreography on one rink while croquet players wage their slower, more
-plotting campaigns on another. The two sports get along admirably,
-provided no one mentions the difference between a roll-up and a draw shot.
+brand at Mill Lake Park. The two sports share a single full-size green —
+35 by 28 yards of patient turf — separated by schedule rather than fence-line.
+Thirty bowlers keep their tradition alive on their evenings; seven croquet
+players wage slower, more plotting campaigns on theirs. The arrangement
+gets along admirably, provided no one mentions the difference between a
+roll-up and a draw shot.
 
 ![Two players at the May 2025 Golf Croquet tournament](https://abbotsfordcroquet.com/assets/images/gc-tourney-may31-2025-two-players.jpg)
 *Tournament play at Mill Lake — the moment just before someone says "I think that's still in."*
 
 ## A Course in Mission, A Return to the Source
 
-In 2026 the society is doing something it had been quietly planning for
-some time: returning to Mission, the community where it all started. From
-**April 20 to June 8**, the Mission Leisure Centre will host a six-week
-*Introduction to Croquet for Adults and Seniors*, taught Monday evenings
-in 90-minute sessions. No previous experience is required, and equipment
-is provided — although enthusiasm, sensible footwear, and a willingness to
-be gently corrected are encouraged.
+In the spring of 2026 the society did something it had been quietly
+planning for some time: it returned to Mission, the community where it
+all started. From **April 20 to June 8**, the Mission Leisure Centre
+hosted a six-week *Introduction to Croquet for Adults and Seniors*,
+taught Monday evenings in 90-minute sessions. No previous experience was
+required, and equipment was provided — although enthusiasm, sensible
+footwear, and a willingness to be gently corrected were encouraged.
 
-The course is part recreation programming and part community outreach. It
-is also, in a small way, a homecoming. The society's founding documents
-list a Mission address; bringing the sport back to its place of origin —
-this time as a public course rather than a private experiment — feels both
-fitting and overdue.
+The course was part recreation programming and part community outreach.
+It was also, in a small way, a homecoming. The society's founding
+documents list a Mission address; bringing the sport back to its place
+of origin — this time as a public course rather than a private experiment
+— felt both fitting and overdue.
 
 ## Mill Lake Play in 2026
 
 Once the lawns at Mill Lake reopen for the season, regular play settles
 into a familiar rhythm:
 
-- **Tuesday and Thursday evenings, 5:30 PM** — May through September
+- **Tuesday and Thursday evenings, 6:00 PM** — April through September
 - **Selected Saturdays** for Open Houses, club tournaments, and the kind
   of round-robin events that begin politely and end with someone insisting
   the wind moved their ball
@@ -71,9 +75,20 @@ into a familiar rhythm:
   borrowed mallets and the patient encouragement of members who have
   forgotten how confusing the rules sound the first time
 
-Equipment is provided, instruction is freely given, and the standard club
-welcome applies: come once, stay for tea, return the following Tuesday
-having quietly bought your own mallet from Oakley Woods.
+Equipment is tournament-grade and freely shared: Foxy hoops, Invictus
+balls (with Sunshiny in reserve), and a row of introductory mallets from
+Oakley Woods. Instruction is freely given, and the standard club welcome
+applies: come once, stay for tea, return the following Tuesday having
+quietly bought your own mallet — most of the regulars now play a Predator,
+with one holdout swearing by his Trimmer.
+
+Club play is mostly Golf Croquet, with the occasional brave soul
+practising Association Croquet alone in a corner. The solitary practice
+appears to work: in June 2026 a club member won the A Flight at the
+Croquet Canada National Championship in Bayfield, Ontario. The May 2025
+Golf Croquet club tournament drew the full membership and a handful of
+visitors; a second tournament in September 2026 is under quiet
+discussion.
 
 ![Mallets gathered for the May 2025 tournament](https://abbotsfordcroquet.com/assets/images/gc-tourney-may31-2025-lots-of-mallets.jpg)
 *A serious quorum of mallets — proof that croquet, once it arrives, tends to stay.*
