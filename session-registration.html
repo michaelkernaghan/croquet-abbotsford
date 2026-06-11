@@ -189,6 +189,7 @@
                     <a href="#">About</a>
                     <div class="dropdown-content">
                         <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
                         <a href="gallery.html">Gallery</a>
                         <a href="membership.html">Membership</a>
                         <a href="contact.html">Contact</a>
@@ -244,7 +245,7 @@
         <div class="signup-container">
             <h1>Session Registration Form</h1>
             
-            <p>Complete the form below to register for our regular croquet sessions starting April 7, 2026. Sessions are held on Tuesdays and Thursdays at 5:30 PM, with a maximum of 8 players per session.</p>
+            <p>Complete the form below to register for our regular croquet sessions starting April 7, 2026. Sessions are held on Tuesdays and Thursdays at 6:00 PM, with a maximum of 8 players per session.</p>
             
             <div class="signup-form">
                 <h2>Player Information</h2>
@@ -268,8 +269,8 @@
                         <label for="sessionType">Session Type:</label>
                         <select id="sessionType" name="sessionType" required>
                             <option value="">Select a session type</option>
-                            <option value="tuesday">Tuesday Evening (5:30 PM)</option>
-                            <option value="thursday">Thursday Evening (5:30 PM)</option>
+                            <option value="tuesday">Tuesday Evening (6:00 PM)</option>
+                            <option value="thursday">Thursday Evening (6:00 PM)</option>
                         </select>
                     </div>
                     
@@ -455,7 +456,7 @@
                     sessionDetails.innerHTML = `
                         <p><strong>Session Details:</strong></p>
                         <p>Date: ${dateStr}</p>
-                        <p>Time: 5:30 PM</p>
+                        <p>Time: 6:00 PM</p>
                         <p>Players: ${selectedSession.registrations.length} / ${selectedSession.spotsTotal}</p>
                     `;
                     

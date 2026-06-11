@@ -4,76 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Croquet Mallets for Rent & Sale | Oakley Woods Equipment | Abbotsford</title>
-    
+    <title>Club News | Abbotsford Croquet Club</title>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    
-    <meta name="description" content="Rent or buy quality Oakley Woods croquet mallets in Abbotsford. Traditional ash and modern compound designs available. Free use for beginners, seasonal rentals, and purchase options.">
-    <meta name="keywords" content="croquet mallets, Oakley Woods, croquet equipment, mallet rental, mallet sale, Abbotsford sports equipment, ash mallets, compound mallets">
+
+    <meta name="description" content="News from the Abbotsford Croquet Club - tournament results, club achievements, and events at Mill Lake Park.">
+    <meta name="keywords" content="Abbotsford croquet news, croquet tournament results, Canadian National Croquet Championship, Fraser Valley croquet">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Croquet Mallets for Rent & Sale - Abbotsford Croquet Club">
-    <meta property="og:description" content="Quality Oakley Woods croquet mallets available for rent or purchase. Free use for beginners, seasonal rentals from $20, used mallets for sale.">
+    <meta property="og:title" content="Club News - Abbotsford Croquet Club">
+    <meta property="og:description" content="News from the Abbotsford Croquet Club - tournament results, club achievements, and events at Mill Lake Park.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_CA">
-    
+
     <!-- Schema.org markup for Google -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Croquet Mallets",
-      "description": "Quality Oakley Woods croquet mallets available for rent or purchase at Mill Lake Park in Abbotsford",
-      "brand": {
-        "@type": "Brand",
-        "name": "Oakley Woods"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "Sport Mallet",
-            "description": "Ash wood with square head",
-            "category": "Sporting Goods"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": "20.00",
-            "priceCurrency": "CAD",
-            "description": "Seasonal rental"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "Used Mallet",
-            "category": "Sporting Goods"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": "50.00",
-            "priceCurrency": "CAD",
-            "description": "Purchase price"
-          }
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Height Options",
-          "value": ["32 inches", "34 inches", "36 inches"]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Available Models",
-          "value": ["Sport", "Grange", "Extreme", "Predator"]
-        }
-      ],
+      "@type": "CollectionPage",
+      "name": "Abbotsford Croquet Club News",
+      "description": "News from the Abbotsford Croquet Club - tournament results, club achievements, and events",
       "provider": {
         "@type": "SportsClub",
         "name": "Abbotsford Croquet Club",
@@ -87,6 +40,32 @@
             "addressCountry": "CA"
           }
         }
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "NewsArticle",
+              "headline": "Abbotsford Club Member Wins A Flight at the 2026 Canadian National Croquet Championship",
+              "datePublished": "2026-06-11",
+              "about": {
+                "@type": "SportsEvent",
+                "name": "2026 Croquet Canada National Championship",
+                "startDate": "2026-06-04",
+                "endDate": "2026-06-07",
+                "location": {
+                  "@type": "Place",
+                  "addressLocality": "Bayfield",
+                  "addressRegion": "ON",
+                  "addressCountry": "CA"
+                }
+              }
+            }
+          }
+        ]
       }
     }
     </script>
@@ -104,14 +83,40 @@
       },{
         "@type": "ListItem",
         "position": 2,
-        "name": "Mallets",
-        "item": "https://abbotsfordcroquet.com/mallets.html"
+        "name": "News",
+        "item": "https://abbotsfordcroquet.com/news.html"
       }]
     }
     </script>
-    
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/curriculum.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .news-date {
+            color: var(--primary-dark);
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-photo {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 1.5rem auto 0.5rem auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .news-caption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -161,10 +166,10 @@
         <div class="nav-container">
             <ul>
                 <li class="dropdown">
-                    <a href="#">About</a>
+                    <a href="#" class="active">About</a>
                     <div class="dropdown-content">
                         <a href="index.html">Home</a>
-                        <a href="news.html">News</a>
+                        <a href="news.html" class="active">News</a>
                         <a href="gallery.html">Gallery</a>
                         <a href="membership.html">Membership</a>
                         <a href="contact.html">Contact</a>
@@ -176,6 +181,7 @@
                         <a href="lessons.html">Lessons</a>
                         <a href="variations.html">Variations</a>
                         <a href="resources.html">Resources</a>
+                        <a href="top-canadian-players.html">Top Players</a>
                     </div>
                 </li>
                 <li class="dropdown">
@@ -187,9 +193,9 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="active">Equipment</a>
+                    <a href="#">Equipment</a>
                     <div class="dropdown-content">
-                        <a href="mallets.html" class="active">Mallets</a>
+                        <a href="mallets.html">Mallets</a>
                     </div>
                 </li>
             </ul>
@@ -198,41 +204,33 @@
 
     <main>
         <section class="curriculum">
-            <h1>Croquet Mallets</h1>
-            
+            <h1>Club News</h1>
+
             <div class="intro-section">
-                <p>We provide <a href="https://oakleywoods.com" target="_blank">Oakley Woods</a> croquet mallets for both use during play and purchase. Our selection includes both traditional ash mallets and modern compound designs.</p>
+                <p>Tournament results, club achievements, and happenings from the Abbotsford Croquet Club.</p>
             </div>
 
             <div class="curriculum-content">
-                <div class="skill-progression">
-                    <div class="skill-card">
-                        <h3>Mallet Use</h3>
-                        <ul>
-                            <li>Free use during your first two trial visits</li>
-                            <li>Free use during your first lesson</li>
-                            <li>Seasonal rental: $20 per season</li>
-                            <li>Purchase option: $50 for used mallets</li>
-                            <li>All mallets sanitized before storage</li>
-                        </ul>
-                    </div>
+                <article class="skill-card">
+                    <p class="news-date">June 2026</p>
+                    <h2>Abbotsford Club Member Wins National Championship A Flight</h2>
 
-                    <div class="skill-card">
-                        <h3>Available Mallets</h3>
-                        <ul>
-                            <li>Sport - Ash wood with square head</li>
-                            <li>Grange - Ash wood with square head</li>
-                            <li>Extreme - Plastic compound with round head</li>
-                            <li>Predator - Ash wood with square head</li>
-                        </ul>
-                        <p class="note">Available in 32", 34", or 36" heights</p>
-                    </div>
-                </div>
-                
-                <!-- Tournament Mallets Image -->
-                <div class="gallery-item" style="max-width: 800px; margin: 3rem auto 0;">
-                    <img src="assets/images/gc-tourney-may31-2025-lots-of-mallets.jpg" alt="Variety of croquet mallets at Golf Croquet Tournament" style="width: 100%; height: auto; border-radius: 8px; box-shadow: var(--shadow);">
-                </div>
+                    <p>Abbotsford Croquet Club member Michael Kernaghan won the A Flight at the 2026 Croquet Canada
+                        National Championship, held June 4&ndash;7 in Bayfield, Ontario.</p>
+
+                    <img src="assets/images/nationals-2026-a-flight-prize.png"
+                        alt="Prize presentation for the A Flight at the 2026 Canadian National Croquet Championship"
+                        class="news-photo" loading="lazy">
+                    <p class="news-caption">Prize presentation at the 2026 Croquet Canada National Championship,
+                        Bayfield, Ontario.</p>
+
+                    <h3>Tournament Details</h3>
+                    <ul>
+                        <li><a href="https://croquetscores.com/2026/ac/croquet-canada-national-championship/competition/a-flight-knockout"
+                                target="_blank">A Flight knockout results</a> &ndash; full draw and scores on
+                            CroquetScores.com</li>
+                    </ul>
+                </article>
             </div>
         </section>
     </main>
@@ -247,4 +245,5 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
