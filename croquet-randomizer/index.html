@@ -27,7 +27,8 @@
   .ball { stroke: #000; stroke-width: 0.08; }
   .ball-black { stroke: #9a9a9a; }
   .clip { stroke: #000; stroke-width: 0.06; }
-  .jaws { font-size: 0.58px; font-weight: 700; text-anchor: middle;
+  /* font-size comes from render.js so it always tracks the ball radius */
+  .jaws { font-weight: 700; text-anchor: middle;
           dominant-baseline: central; pointer-events: none; }
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
   th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid #333; }
@@ -311,7 +312,12 @@
 
   const BALL_FILL = { blue: '#3d7fd6', red: '#d1453c',
                       black: '#111111', yellow: '#e8c020' };
-  const BALL_R = 0.42;   // drawn larger than life so it reads on a phone
+  // Drawn far larger than life (a real ball is 0.101 yd across) so it reads on a phone.
+  // Raising this is not free: `spread` must push overlapping balls further apart, so the
+  // picture drifts further from the true positions. Measured over 8,000 layouts, worst
+  // displacement is 1.08 yd at 0.42, 1.73 at 0.55, 2.73 at 0.75. Past about 0.6 a ball
+  // can sit more than a mallet's length from where it belongs, which misleads.
+  const BALL_R = 0.55;
 
   // Yellow needs dark ink; the other three are dark enough to take white.
   const JAWS_INK = { blue: '#ffffff', red: '#ffffff', black: '#ffffff', yellow: '#111111' };
@@ -415,6 +421,7 @@
       // Being in the jaws is the one thing position alone cannot show.
       if (p.jaws)
         out.push(`<text class="jaws" x="${p.sx}" y="${p.sy}" ` +
+                 `font-size="${CD.r3(BALL_R * 1.32)}" ` +
                  `fill="${JAWS_INK[p.colour]}">J</text>`);
     }
 
