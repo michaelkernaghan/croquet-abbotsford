@@ -23,21 +23,23 @@
   .lawn { fill: #14401a; }
   .yardline { fill: none; stroke: #3f7a45; stroke-width: 0.12; stroke-dasharray: 0.5 0.5; }
   .hoop { fill: #e8e8e8; }
-  .hooplabel { fill: #8fbf95; font-size: 1.1px; text-anchor: middle; }
-  .peg { fill: #d1c04a; }
+  .peg { fill: #ffffff; }   /* white, so it is never taken for the yellow ball */
   .ball { stroke: #000; stroke-width: 0.08; }
   .ball-black { stroke: #9a9a9a; }
   .clip { stroke: #000; stroke-width: 0.06; }
+  .jaws { font-size: 0.58px; font-weight: 700; text-anchor: middle;
+          dominant-baseline: central; pointer-events: none; }
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
   th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid #333; }
   th { color: #8fbf95; font-weight: 600; }
   .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 50%;
             margin-right: 6px; vertical-align: -1px; border: 1px solid #000; }
-  .verdict { background: #14401a; border-left: 4px solid #1a5f1a; padding: 10px 12px;
-             border-radius: 6px; margin: 12px 0; font-size: 15px; }
-  .views { display: flex; gap: 8px; margin-bottom: 8px; }
-  .views button { flex: 1; background: #2a2a2a; }
-  .views button[aria-current="true"] { background: #1a5f1a; }
+  .banner { border-radius: 8px; padding: 14px 16px; margin: 0 0 4px; }
+  .banner strong { display: block; font-size: 19px; letter-spacing: .6px; line-height: 1.25; }
+  .banner span { display: block; margin-top: 5px; font-size: 13px; opacity: .85; }
+  .banner-ry { background: #4d1c19; border-left: 5px solid #d1453c; }
+  .banner-kb { background: #14294d; border-left: 5px solid #3d7fd6; }
+  .banner-dead { background: #3a3418; border-left: 5px solid #d1c04a; }
   .linkish { background: none; padding: 10px 0; font-size: 14px; font-weight: 400;
              color: #8fbf95; text-decoration: underline; }
   .linkish:active { background: none; color: #b8d9bc; }
@@ -47,24 +49,13 @@
 </style>
 </head>
 <body>
-<header><h1>Croquet Randomizer</h1><button onclick="roll()">Roll</button></header>
+<header><h1>Croquet Randomizer</h1><button onclick="randomize()">Randomize</button></header>
 <main>
-  <div class="views">
-    <button id="tab-roll" aria-current="true" onclick="show('roll')">Roll</button>
-    <button id="tab-check" aria-current="false" onclick="show('check')">Check</button>
-  </div>
-  <section id="view-roll">
-    <div id="court"></div>
-    <div id="verdict" class="verdict"></div>
-    <table id="reading"></table>
-    <button id="toggle-roll" class="linkish" aria-expanded="false"
-            onclick="toggleRoll()">show the roll</button>
-  </section>
-  <section id="view-check" hidden>
-    <p>Rolls 10,000 layouts and compares the result against the spec.</p>
-    <button onclick="check()">Run 10,000</button>
-    <div id="stats"></div>
-  </section>
+  <div id="banner"></div>
+  <div id="court"></div>
+  <table id="reading"></table>
+  <button id="toggle-roll" class="linkish" aria-expanded="false"
+          onclick="toggleRoll()">show the numbers</button>
   <details class="install">
     <summary>Use it on the lawn</summary>
     <p>In Chrome, open the menu and tap <strong>Add to Home screen</strong>. It then
@@ -322,6 +313,11 @@
                       black: '#111111', yellow: '#e8c020' };
   const BALL_R = 0.42;   // drawn larger than life so it reads on a phone
 
+  // Yellow needs dark ink; the other three are dark enough to take white.
+  const JAWS_INK = { blue: '#ffffff', red: '#ffffff', black: '#ffffff', yellow: '#111111' };
+
+  const SIDE_WORDS = { RY: 'RED &amp; YELLOW', KB: 'BLACK &amp; BLUE' };
+
   // SVG y grows downward; court y grows north. Flip so north is up.
   // Round through CD.r3: 35 - 24.589 is 10.411000000000001 in binary floating point,
   // which would leak into every attribute and break the renderer's own tests.
@@ -342,7 +338,9 @@
   function spread(balls) {
     const pts = balls.map(b => {
       const p = toSvg(b);
-      return { colour: b.colour, sx: p.sx, sy: p.sy };
+      // `place`, not `d8`: a second face-1 ball at the same hoop is re-read as "at
+      // hoop" while its die still shows 1, and it is NOT in the jaws.
+      return { colour: b.colour, sx: p.sx, sy: p.sy, jaws: b.place === 'jaws' };
     });
     const MIN = BALL_R * 2 + SPREAD_GAP;
     const LO = BALL_R, HI_X = CD.COURT.width - BALL_R, HI_Y = CD.COURT.height - BALL_R;
@@ -370,7 +368,7 @@
       }
       if (!moved) break;
     }
-    return pts.map(p => ({ colour: p.colour, sx: CD.r3(p.sx), sy: CD.r3(p.sy) }));
+    return pts.map(p => ({ colour: p.colour, jaws: p.jaws, sx: CD.r3(p.sx), sy: CD.r3(p.sy) }));
   }
 
   function courtSVG(layout) {
@@ -414,10 +412,29 @@
     for (const p of spread(layout.balls)) {
       out.push(`<circle cx="${p.sx}" cy="${p.sy}" r="${BALL_R}" ` +
                `class="ball ball-${p.colour}" fill="${BALL_FILL[p.colour]}"/>`);
+      // Being in the jaws is the one thing position alone cannot show.
+      if (p.jaws)
+        out.push(`<text class="jaws" x="${p.sx}" y="${p.sy}" ` +
+                 `fill="${JAWS_INK[p.colour]}">J</text>`);
     }
 
     out.push('</svg>');
     return out.join('');
+  }
+
+  // Who plays, stated so it can be read at arm's length on the lawn rather than
+  // parsed out of a sentence.
+  function inningsBanner(innings) {
+    if (!innings || !innings.side)
+      return '<div class="banner banner-dead"><strong>DEAD HEAT</strong>' +
+             `<span>${innings ? innings.redYellow : 0} each, and the clips match ` +
+             '&mdash; randomize again</span></div>';
+    const note = innings.rule === 'lowest'
+      ? ' &mdash; level on sum, decided by the lowest clip' : '';
+    return `<div class="banner banner-${innings.side.toLowerCase()}">` +
+           `<strong>${SIDE_WORDS[innings.side]} TO PLAY</strong>` +
+           `<span>R+Y ${innings.redYellow} &nbsp;&middot;&nbsp; ` +
+           `K+B ${innings.blackBlue}${note}</span></div>`;
   }
 
   const pct = v => (v * 100).toFixed(2) + '%';
@@ -461,61 +478,38 @@
     return '<table>' + rows.join('') + '</table>';
   }
 
-  return { toSvg, courtSVG, BALL_FILL, BALL_R, statsTable, readingTable };
+  return { toSvg, courtSVG, BALL_FILL, BALL_R, statsTable, readingTable, inningsBanner };
 });
 </script>
 <script>
 const CD = window.CroquetDice, R = window.CroquetRender;
 let layout = null;
 
-// The dice are gone as a product but remain the mechanism underneath. Off by
-// default; on when a position looks wrong and you want to see what produced it.
+// The underlying faces are the mechanism, not the product. Off by default; on when a
+// position looks wrong and you want to see what produced it.
 let showRoll = false;
-
-function show(which) {
-  document.getElementById('view-roll').hidden = which !== 'roll';
-  document.getElementById('view-check').hidden = which !== 'check';
-  document.getElementById('tab-roll').setAttribute('aria-current', which === 'roll');
-  document.getElementById('tab-check').setAttribute('aria-current', which === 'check');
-}
 
 function toggleRoll() {
   showRoll = !showRoll;
   const btn = document.getElementById('toggle-roll');
-  btn.textContent = showRoll ? 'hide the roll' : 'show the roll';
+  btn.textContent = showRoll ? 'hide the numbers' : 'show the numbers';
   btn.setAttribute('aria-expanded', String(showRoll));
   paint();
 }
 
 function paint() {
+  document.getElementById('banner').innerHTML = R.inningsBanner(layout.innings);
   document.getElementById('court').innerHTML = R.courtSVG(layout);
   document.getElementById('reading').outerHTML =
     R.readingTable(layout, { showRoll }).replace('<table>', '<table id="reading">');
-
-  const i = layout.innings;
-  const side = i.side === 'RY' ? 'Red and yellow'
-             : i.side === 'KB' ? 'Black and blue' : null;
-  document.getElementById('verdict').textContent = side
-    ? `${side} play. Red + yellow ${i.redYellow}, black + blue ${i.blackBlue}` +
-      (i.rule === 'lowest' ? ' - tied on sum, decided by the lowest clip.' : '.')
-    : `Dead heat at ${i.redYellow} each, with matching clips. Roll again.`;
 }
 
-function roll() {
+function randomize() {
   layout = CD.rollLayout(CD.mulberry32((Math.random() * 4294967296) >>> 0));
   paint();
 }
 
-function check() {
-  const el = document.getElementById('stats');
-  el.textContent = 'Running...';
-  setTimeout(() => {
-    const s = CD.analyse(10000, CD.mulberry32((Math.random() * 4294967296) >>> 0));
-    el.innerHTML = R.statsTable(s);
-  }, 0);
-}
-
-roll();
+randomize();
 
 if ('serviceWorker' in navigator)
   navigator.serviceWorker.register('sw.js', { scope: '/croquet-randomizer/' }).catch(() => {});
