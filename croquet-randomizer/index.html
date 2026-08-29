@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a5f1a">
+<title>Croquet Randomizer</title>
+<link rel="manifest" href="manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         margin: 0; background: #1a1a1a; color: #fff; min-height: 100vh; }
+  header { background: #1a5f1a; padding: 12px 16px; display: flex;
+           justify-content: space-between; align-items: center; }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  main { padding: 12px; max-width: 640px; margin: 0 auto; }
+  button { background: #1a5f1a; color: #fff; border: 0; border-radius: 8px;
+           padding: 12px 20px; font-size: 16px; font-weight: 600; cursor: pointer; }
+  button:active { background: #144a14; }
+  .court { width: 100%; height: auto; display: block; margin: 12px 0; }
+  .lawn { fill: #14401a; }
+  .yardline { fill: none; stroke: #3f7a45; stroke-width: 0.12; stroke-dasharray: 0.5 0.5; }
+  .hoop { fill: #e8e8e8; }
+  .hooplabel { fill: #8fbf95; font-size: 1.1px; text-anchor: middle; }
+  .peg { fill: #d1c04a; }
+  .ball { stroke: #000; stroke-width: 0.08; }
+  .ball-black { stroke: #9a9a9a; }
+  .clip { stroke: #000; stroke-width: 0.06; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid #333; }
+  th { color: #8fbf95; font-weight: 600; }
+  .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 50%;
+            margin-right: 6px; vertical-align: -1px; border: 1px solid #000; }
+  .verdict { background: #14401a; border-left: 4px solid #1a5f1a; padding: 10px 12px;
+             border-radius: 6px; margin: 12px 0; font-size: 15px; }
+  .views { display: flex; gap: 8px; margin-bottom: 8px; }
+  .views button { flex: 1; background: #2a2a2a; }
+  .views button[aria-current="true"] { background: #1a5f1a; }
+  .linkish { background: none; padding: 10px 0; font-size: 14px; font-weight: 400;
+             color: #8fbf95; text-decoration: underline; }
+  .linkish:active { background: none; color: #b8d9bc; }
+  .install { margin: 18px 0 4px; color: #8fbf95; font-size: 13px; }
+  .install summary { cursor: pointer; padding: 6px 0; }
+  .install p { color: #cfcfcf; line-height: 1.5; margin: 4px 0 0; }
+</style>
+</head>
+<body>
+<header><h1>Croquet Randomizer</h1><button onclick="roll()">Roll</button></header>
+<main>
+  <div class="views">
+    <button id="tab-roll" aria-current="true" onclick="show('roll')">Roll</button>
+    <button id="tab-check" aria-current="false" onclick="show('check')">Check</button>
+  </div>
+  <section id="view-roll">
+    <div id="court"></div>
+    <div id="verdict" class="verdict"></div>
+    <table id="reading"></table>
+    <button id="toggle-roll" class="linkish" aria-expanded="false"
+            onclick="toggleRoll()">show the roll</button>
+  </section>
+  <section id="view-check" hidden>
+    <p>Rolls 10,000 layouts and compares the result against the spec.</p>
+    <button onclick="check()">Run 10,000</button>
+    <div id="stats"></div>
+  </section>
+  <details class="install">
+    <summary>Use it on the lawn</summary>
+    <p>In Chrome, open the menu and tap <strong>Add to Home screen</strong>. It then
+    opens like an app and keeps working with no signal.</p>
+  </details>
+</main>
+<script>
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports) module.exports = factory();
+  else root.CroquetDice = factory();
+})(typeof self !== 'undefined' ? self : this, function () {
+  'use strict';
+
+  const COURT = { width: 28, height: 35 };
+  const PEG = { x: 14, y: 17.5 };
+  const HOOPS = {
+    1: { x: 7, y: 7 }, 2: { x: 7, y: 28 }, 3: { x: 21, y: 28 },
+    4: { x: 21, y: 7 }, 5: { x: 14, y: 10.5 }, 6: { x: 14, y: 24.5 }
+  };
+  const CORNERS = {
+    1: { x: 1, y: 1 }, 2: { x: 1, y: 34 }, 3: { x: 27, y: 34 }, 4: { x: 27, y: 1 }
+  };
+  const YARD = { xmin: 1, xmax: 27, ymin: 1, ymax: 34 };
+  const JAWS = 0.15, TOUCH = 0.25, MALLET = 1.0;
+
+  const r3 = n => Math.round(n * 1000) / 1000;
+
+  // Face 7: each corner owns the boundary running clockwise out of it, and the ball
+  // sits a QUARTER of the way along, measured from that corner.
+  //
+  // It was the midpoint until 2026-08-29, which was wrong twice over. Balls come to
+  // rest near where they crossed and the yard-line rule clusters them corner-ward, so
+  // mid-side is the least likely stretch of boundary, not the most - yet this put one
+  // ball in eight on four exact midpoints. Worse, two of those midpoints were already
+  // face 6's hoop-5 and hoop-6 outcomes, so (14, 1) and (14, 34) were each produced by
+  // two different places and drew double traffic.
+  const CLOCKWISE_NEXT = { 1: 2, 2: 3, 3: 4, 4: 1 };
+  const QUARTER_BOUNDARY = {};
+  for (const qc of [1, 2, 3, 4]) {
+    const a = CORNERS[qc], b = CORNERS[CLOCKWISE_NEXT[qc]];
+    QUARTER_BOUNDARY[qc] = { x: r3(a.x + (b.x - a.x) / 4), y: r3(a.y + (b.y - a.y) / 4) };
+  }
+
+  // Step `dist` yards from `from` toward corner spot `d4`.
+  function toward(from, d4, dist) {
+    const c = CORNERS[d4];
+    const dx = c.x - from.x, dy = c.y - from.y;
+    const n = Math.hypot(dx, dy);
+    return { x: r3(from.x + dx / n * dist), y: r3(from.y + dy / n * dist) };
+  }
+
+  // First exit of the yard-line rectangle along the ray from -> through.
+  function yardLineExit(from, through) {
+    const dx = through.x - from.x, dy = through.y - from.y;
+    const ts = [];
+    if (dx > 0) ts.push((YARD.xmax - from.x) / dx);
+    if (dx < 0) ts.push((YARD.xmin - from.x) / dx);
+    if (dy > 0) ts.push((YARD.ymax - from.y) / dy);
+    if (dy < 0) ts.push((YARD.ymin - from.y) / dy);
+    const t = Math.min.apply(null, ts.filter(v => v > 0));
+    return { x: r3(from.x + dx * t), y: r3(from.y + dy * t) };
+  }
+
+  const PLACES = {
+    1: { place: 'jaws',          usesD6: true,  usesD4: true,
+         at: (h, c) => toward(h, c, JAWS) },
+    2: { place: 'against hoop',  usesD6: true,  usesD4: true,
+         at: (h, c) => toward(h, c, TOUCH) },
+    3: { place: 'at hoop',       usesD6: true,  usesD4: true,
+         at: (h, c) => toward(h, c, MALLET) },
+    4: { place: 'mid-court',     usesD6: true,  usesD4: false,
+         at: h => ({ x: r3((h.x + PEG.x) / 2), y: r3((h.y + PEG.y) / 2) }) },
+    5: { place: 'peg',           usesD6: false, usesD4: true,
+         at: (h, c) => toward(PEG, c, MALLET) },
+    6: { place: 'boundary',      usesD6: true,  usesD4: false,
+         at: h => yardLineExit(PEG, h) },
+    7: { place: 'half-boundary', usesD6: false, usesD4: true,
+         at: (h, c) => ({ x: QUARTER_BOUNDARY[c].x, y: QUARTER_BOUNDARY[c].y }) },
+    8: { place: 'corner',        usesD6: false, usesD4: true,
+         at: (h, c) => ({ x: CORNERS[c].x, y: CORNERS[c].y }) }
+  };
+
+  function place(roll) {
+    const spec = PLACES[roll.d8];
+    if (!spec) throw new RangeError('d8 out of range: ' + roll.d8);
+    const pt = spec.at(HOOPS[roll.d6], roll.d4);
+    return { x: pt.x, y: pt.y, place: spec.place,
+             usesD6: spec.usesD6, usesD4: spec.usesD4 };
+  }
+
+  const CLIP_NAMES = ['1', '2', '3', '4', '5', '6',
+    '1-back', '2-back', '3-back', '4-back', 'penultimate', 'rover'];
+  // Second circuit re-runs the same hoops in reverse, paired 1<->2, 3<->4, 5<->6.
+  const CLIP_HOOPS = [1, 2, 3, 4, 5, 6, 2, 1, 4, 3, 6, 5];
+
+  const clipName = d12 => CLIP_NAMES[d12 - 1];
+  const clipHoop = d12 => CLIP_HOOPS[d12 - 1];
+
+  function innings(clips) {
+    const ry = clips.red + clips.yellow;
+    const kb = clips.black + clips.blue;
+    const out = { redYellow: ry, blackBlue: kb, side: null, rule: 'sum' };
+    if (ry !== kb) { out.side = ry < kb ? 'RY' : 'KB'; return out; }
+    const lowRy = Math.min(clips.red, clips.yellow);
+    const lowKb = Math.min(clips.black, clips.blue);
+    if (lowRy !== lowKb) {
+      out.rule = 'lowest';
+      out.side = lowRy < lowKb ? 'RY' : 'KB';
+      return out;
+    }
+    out.rule = 'dead heat';
+    return out;
+  }
+
+  const ORDER = ['blue', 'red', 'black', 'yellow'];
+  const BALL_D = 0.101;  // ball diameter in yards (3 5/8 inches)
+
+  // Small deterministic PRNG so tests and the Check mode are reproducible.
+  function mulberry32(seed) {
+    let a = seed >>> 0;
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      let t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  const d = (rng, sides) => Math.floor(rng() * sides) + 1;
+
+  // Faces 6, 7 and 8 already sit ON the yard-line, so pushing them away from an
+  // interior anchor would send them off the court. They displace clockwise round
+  // the yard-line instead, exactly as the spec says.
+  const ON_YARDLINE = { 6: true, 7: true, 8: true };
+
+  // Clockwise runs corner 1 -> 2 -> 3 -> 4. Corners 2, 3 and 4 turn onto the next
+  // edge, so they are matched before the edge tests; corner 1 continues north.
+  function clockwise(p) {
+    if (p.x === YARD.xmin && p.y === YARD.ymax) return { dx: 1, dy: 0 };
+    if (p.x === YARD.xmax && p.y === YARD.ymax) return { dx: 0, dy: -1 };
+    if (p.x === YARD.xmax && p.y === YARD.ymin) return { dx: -1, dy: 0 };
+    if (p.x === YARD.xmin) return { dx: 0, dy: 1 };
+    if (p.y === YARD.ymax) return { dx: 1, dy: 0 };
+    if (p.x === YARD.xmax) return { dx: 0, dy: -1 };
+    return { dx: -1, dy: 0 };
+  }
+
+  // Move `ball` one ball-diameter. Distance from the anchor strictly increases (or
+  // the ball advances clockwise), so repeated calls always terminate.
+  function nudge(ball) {
+    if (ON_YARDLINE[ball.d8]) {
+      const c = clockwise(ball);
+      ball.x = r3(ball.x + c.dx * BALL_D);
+      ball.y = r3(ball.y + c.dy * BALL_D);
+    } else {
+      const a = ball.d8 === 5 ? PEG : HOOPS[ball.d6];
+      const dx = ball.x - a.x, dy = ball.y - a.y;
+      const n = Math.hypot(dx, dy) || 1;
+      ball.x = r3(ball.x + dx / n * BALL_D);
+      ball.y = r3(ball.y + dy / n * BALL_D);
+    }
+    ball.nudged = true;
+  }
+
+  function rollLayout(rng) {
+    const balls = ORDER.map(colour => {
+      const roll = { d12: d(rng, 12), d8: d(rng, 8), d6: d(rng, 6), d4: d(rng, 4) };
+      const p = place(roll);
+      return Object.assign({ colour }, roll, {
+        clip: clipName(roll.d12), clipHoop: clipHoop(roll.d12),
+        place: p.place, x: p.x, y: p.y, nudged: false
+      });
+    });
+
+    // Invariant: `d8` is the face the physical die shows and is NEVER rewritten —
+    // the reading table must always agree with the die in front of the player, and
+    // Task 4's `analyse` tallies `faces[b.d8 - 1]`, so mutating d8 would bias the
+    // reported face distribution away from uniform. `place`/`x`/`y` carry where the
+    // ball actually ended up. The jaws rule below is precisely the case where the
+    // two differ: the jaws hold one ball, so a second `1` at the same hoop resolves
+    // its POSITION as if it had rolled `3`, while its `d8` deliberately stays `1`.
+    for (let i = 1; i < balls.length; i++)
+      for (let j = 0; j < i; j++)
+        if (balls[i].d8 === 1 && balls[j].d8 === 1 &&
+            balls[i].d6 === balls[j].d6) {
+          const p = place({ d8: 3, d6: balls[i].d6, d4: balls[i].d4 });
+          Object.assign(balls[i], { place: p.place, x: p.x, y: p.y, nudged: true });
+        }
+
+    // Any ball left within a ball's width of an earlier one yields.
+    //
+    // This tests DISTANCE, not coordinate equality. Equality only ever caught balls
+    // on the identical spot, so it never fired on faces 1 and 2 at the same hoop and
+    // corner - jaws sits 0.15 from the hoop, against-hoop 0.25, a tenth of a yard
+    // apart when a ball is 0.101 wide. 7.4% of layouts could not be set out on grass,
+    // and on screen the near ball simply hid the far one.
+    for (let i = 1; i < balls.length; i++) {
+      let guard = 0;
+      while (balls.slice(0, i).some(b =>
+             Math.hypot(b.x - balls[i].x, b.y - balls[i].y) < BALL_D - 1e-9)) {
+        nudge(balls[i]);
+        if (++guard > 20) throw new Error('nudge failed to separate balls');
+      }
+    }
+
+    const clips = {};
+    for (const b of balls) clips[b.colour] = b.d12;
+    return { balls, innings: innings(clips) };
+  }
+
+  const ZONE = { 1: 'hoop', 2: 'hoop', 3: 'hoop', 4: 'middle',
+                 5: 'middle', 6: 'edge', 7: 'edge', 8: 'edge' };
+
+  function analyse(n, rng) {
+    const faces = new Array(8).fill(0);
+    const zones = { hoop: 0, middle: 0, edge: 0 };
+    let ties = 0, dead = 0, collided = 0, ballCount = 0;
+    for (let i = 0; i < n; i++) {
+      const lay = rollLayout(rng);
+      if (lay.innings.rule !== 'sum') ties++;
+      if (lay.innings.rule === 'dead heat') dead++;
+      // Counts layouts where any ball's position changed, whether by a genuine
+      // two-balls-on-one-spot separation OR by the jaws rule's face-3 re-read (no
+      // overlap ever occurred there) — NOT a ball-on-ball overlap/collision rate.
+      if (lay.balls.some(b => b.nudged)) collided++;
+      for (const b of lay.balls) {
+        faces[b.d8 - 1]++; zones[ZONE[b.d8]]++; ballCount++;
+      }
+    }
+    return {
+      n,
+      faceShare: faces.map(c => c / ballCount),
+      zoneShare: { hoop: zones.hoop / ballCount, middle: zones.middle / ballCount,
+                   edge: zones.edge / ballCount },
+      tieRate: ties / n, deadHeatRate: dead / n, movedRate: collided / n
+    };
+  }
+
+  return { COURT, PEG, HOOPS, CORNERS, YARD, JAWS, TOUCH, MALLET,
+           QUARTER_BOUNDARY, r3, place,
+           clipName, clipHoop, innings, CLIP_NAMES, CLIP_HOOPS,
+           ORDER, BALL_D, mulberry32, clockwise, rollLayout,
+           ZONE, analyse };
+});
+</script>
+<script>
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports)
+    module.exports = factory(require('./rules.js'));
+  else root.CroquetRender = factory(root.CroquetDice);
+})(typeof self !== 'undefined' ? self : this, function (CD) {
+  'use strict';
+
+  const BALL_FILL = { blue: '#3d7fd6', red: '#d1453c',
+                      black: '#111111', yellow: '#e8c020' };
+  const BALL_R = 0.42;   // drawn larger than life so it reads on a phone
+
+  // SVG y grows downward; court y grows north. Flip so north is up.
+  // Round through CD.r3: 35 - 24.589 is 10.411000000000001 in binary floating point,
+  // which would leak into every attribute and break the renderer's own tests.
+  const toSvg = p => ({ sx: CD.r3(p.x), sy: CD.r3(CD.COURT.height - p.y) });
+
+  // Balls are drawn about eight times life size so they read on a phone. Two balls
+  // that legally touch on the lawn - jaws and against-hoop are 0.10 yd apart, and a
+  // ball is 0.101 wide - would then be drawn as one blob with the far one completely
+  // hidden. That is what "I cannot see the red ball" looked like.
+  //
+  // So overlapping DRAWN circles are pushed apart for the picture only. The layout's
+  // own x/y are never touched, and the reading table remains the authority on where a
+  // ball actually goes. Shrinking the balls instead does not work: the nearest-pair
+  // distance is bimodal (p10 = 0.10 yd, p25 = 1.57), so 14% of layouts have balls in
+  // contact at ANY draw scale above life size, and life size is about one pixel.
+  const SPREAD_GAP = 0.04;   // a hair of daylight between rims
+
+  function spread(balls) {
+    const pts = balls.map(b => {
+      const p = toSvg(b);
+      return { colour: b.colour, sx: p.sx, sy: p.sy };
+    });
+    const MIN = BALL_R * 2 + SPREAD_GAP;
+    const LO = BALL_R, HI_X = CD.COURT.width - BALL_R, HI_Y = CD.COURT.height - BALL_R;
+
+    for (let pass = 0; pass < 24; pass++) {
+      let moved = false;
+      for (let a = 0; a < pts.length; a++)
+        for (let b = a + 1; b < pts.length; b++) {
+          let dx = pts[b].sx - pts[a].sx, dy = pts[b].sy - pts[a].sy;
+          let d = Math.hypot(dx, dy);
+          if (d >= MIN) continue;
+          if (d < 1e-9) {   // exactly coincident: fan by index so the result is stable
+            dx = Math.cos(a * 2.39996); dy = Math.sin(a * 2.39996); d = 1;
+          }
+          const push = (MIN - d) / 2;
+          pts[a].sx -= dx / d * push; pts[a].sy -= dy / d * push;
+          pts[b].sx += dx / d * push; pts[b].sy += dy / d * push;
+          moved = true;
+        }
+      // Clamp inside the loop, so a ball pushed off the lawn is re-separated next pass
+      // rather than being left overlapping at the boundary.
+      for (const p of pts) {
+        p.sx = Math.min(Math.max(p.sx, LO), HI_X);
+        p.sy = Math.min(Math.max(p.sy, LO), HI_Y);
+      }
+      if (!moved) break;
+    }
+    return pts.map(p => ({ colour: p.colour, sx: CD.r3(p.sx), sy: CD.r3(p.sy) }));
+  }
+
+  function courtSVG(layout) {
+    const out = [];
+    out.push('<svg viewBox="-2 -2 32 39" class="court" ' +
+             'xmlns="http://www.w3.org/2000/svg">');
+    out.push('<rect class="lawn" x="0" y="0" width="28" height="35"/>');
+    out.push('<rect class="yardline" x="1" y="1" width="26" height="33"/>');
+
+    for (const n of Object.keys(CD.HOOPS)) {
+      const p = toSvg(CD.HOOPS[n]);
+      out.push(`<rect class="hoop" x="${p.sx - 0.35}" y="${p.sy - 0.12}" ` +
+               `width="0.7" height="0.24" rx="0.1"/>`);
+    }
+
+    const peg = toSvg(CD.PEG);
+    out.push(`<circle class="peg" cx="${peg.sx}" cy="${peg.sy}" r="0.3"/>`);
+
+    // Clips sit on the hoop each ball is for, fanned so they never overlap.
+    //
+    // The two circuits share six hoops: CLIP_HOOPS maps 2-back onto hoop 1 just as
+    // clip 1 is, so position alone cannot say which lap a clip is on. Real croquet
+    // settles it by where the clip goes - first lap upright on the crown, second lap
+    // flat against the side of the upright - and this draws it the same way. Drawing
+    // both the same collapsed twelve hoop points into six and made the second lap
+    // look absent entirely.
+    const fan = {};
+    for (const b of layout.balls) {
+      const h = toSvg(CD.HOOPS[b.clipHoop]);
+      const lap = b.d12 > 6 ? 2 : 1;
+      const key = b.clipHoop + '-' + lap;
+      const i = (fan[key] = (fan[key] || 0) + 1) - 1;
+      const x = lap === 1 ? h.sx - 0.52 + i * 0.42 : h.sx + 0.45;
+      const y = lap === 1 ? h.sy - 0.95 : h.sy - 0.62 + i * 0.42;
+      out.push(`<rect class="clip clip-${b.colour} clip-lap${lap}" ` +
+               `x="${CD.r3(x)}" y="${CD.r3(y)}" ` +
+               `width="${lap === 1 ? 0.35 : 0.7}" height="${lap === 1 ? 0.7 : 0.35}" ` +
+               `fill="${BALL_FILL[b.colour]}"/>`);
+    }
+
+    for (const p of spread(layout.balls)) {
+      out.push(`<circle cx="${p.sx}" cy="${p.sy}" r="${BALL_R}" ` +
+               `class="ball ball-${p.colour}" fill="${BALL_FILL[p.colour]}"/>`);
+    }
+
+    out.push('</svg>');
+    return out.join('');
+  }
+
+  const pct = v => (v * 100).toFixed(2) + '%';
+
+  function statsTable(s) {
+    const rows = [`<tr><th>Over ${s.n} layouts</th><th>Share</th><th>Expected</th></tr>`];
+    for (let f = 0; f < 8; f++)
+      rows.push(`<tr><td>face ${f + 1}</td><td>${pct(s.faceShare[f])}</td>` +
+                `<td>12.50%</td></tr>`);
+    rows.push(`<tr><td>hoop zone</td><td>${pct(s.zoneShare.hoop)}</td><td>37.50%</td></tr>`);
+    rows.push(`<tr><td>middle zone</td><td>${pct(s.zoneShare.middle)}</td><td>25.00%</td></tr>`);
+    rows.push(`<tr><td>edge zone</td><td>${pct(s.zoneShare.edge)}</td><td>37.50%</td></tr>`);
+    rows.push(`<tr><td>Tie rate</td><td>${pct(s.tieRate)}</td><td>5.58%</td></tr>`);
+    rows.push(`<tr><td>Dead heat</td><td>${pct(s.deadHeatRate)}</td><td>1.33%</td></tr>`);
+    rows.push(`<tr><td>Any ball moved</td><td>${pct(s.movedRate)}</td><td>~12.7%</td></tr>`);
+    return '<table>' + rows.join('') + '</table>';
+  }
+
+  // The dice retired as the product when the app replaced them, but they survive
+  // as the internal vocabulary: rules.js still speaks d12/d8/d6/d4, and `analyse`
+  // tallies faces off `d8`. The default view spares a reader who never held them;
+  // `showRoll` brings the roll back as the audit trail for a layout that looks
+  // wrong on the lawn.
+  function readingTable(layout, opts) {
+    const showRoll = !!(opts && opts.showRoll);
+    const head = ['<th>Ball</th>', '<th>Clip</th>', '<th>Place</th>'];
+    if (showRoll) head.push('<th>d12</th>', '<th>d8</th>', '<th>d6</th>', '<th>d4</th>');
+    const rows = ['<tr>' + head.join('') + '</tr>'];
+    for (const b of layout.balls) {
+      const cells = [
+        `<td><span class="swatch" style="background:${BALL_FILL[b.colour]}">` +
+          `</span>${b.colour}</td>`,
+        `<td>${b.clip}</td>`,
+        `<td>${b.place}${b.nudged ? ' (nudged)' : ''}</td>`
+      ];
+      if (showRoll)
+        cells.push(`<td>${b.d12}</td>`, `<td>${b.d8}</td>`,
+                   `<td>${b.d6}</td>`, `<td>${b.d4}</td>`);
+      rows.push('<tr>' + cells.join('') + '</tr>');
+    }
+    return '<table>' + rows.join('') + '</table>';
+  }
+
+  return { toSvg, courtSVG, BALL_FILL, BALL_R, statsTable, readingTable };
+});
+</script>
+<script>
+const CD = window.CroquetDice, R = window.CroquetRender;
+let layout = null;
+
+// The dice are gone as a product but remain the mechanism underneath. Off by
+// default; on when a position looks wrong and you want to see what produced it.
+let showRoll = false;
+
+function show(which) {
+  document.getElementById('view-roll').hidden = which !== 'roll';
+  document.getElementById('view-check').hidden = which !== 'check';
+  document.getElementById('tab-roll').setAttribute('aria-current', which === 'roll');
+  document.getElementById('tab-check').setAttribute('aria-current', which === 'check');
+}
+
+function toggleRoll() {
+  showRoll = !showRoll;
+  const btn = document.getElementById('toggle-roll');
+  btn.textContent = showRoll ? 'hide the roll' : 'show the roll';
+  btn.setAttribute('aria-expanded', String(showRoll));
+  paint();
+}
+
+function paint() {
+  document.getElementById('court').innerHTML = R.courtSVG(layout);
+  document.getElementById('reading').outerHTML =
+    R.readingTable(layout, { showRoll }).replace('<table>', '<table id="reading">');
+
+  const i = layout.innings;
+  const side = i.side === 'RY' ? 'Red and yellow'
+             : i.side === 'KB' ? 'Black and blue' : null;
+  document.getElementById('verdict').textContent = side
+    ? `${side} play. Red + yellow ${i.redYellow}, black + blue ${i.blackBlue}` +
+      (i.rule === 'lowest' ? ' - tied on sum, decided by the lowest clip.' : '.')
+    : `Dead heat at ${i.redYellow} each, with matching clips. Roll again.`;
+}
+
+function roll() {
+  layout = CD.rollLayout(CD.mulberry32((Math.random() * 4294967296) >>> 0));
+  paint();
+}
+
+function check() {
+  const el = document.getElementById('stats');
+  el.textContent = 'Running...';
+  setTimeout(() => {
+    const s = CD.analyse(10000, CD.mulberry32((Math.random() * 4294967296) >>> 0));
+    el.innerHTML = R.statsTable(s);
+  }, 0);
+}
+
+roll();
+
+if ('serviceWorker' in navigator)
+  navigator.serviceWorker.register('sw.js', { scope: '/croquet-randomizer/' }).catch(() => {});
+</script>
+</body>
+</html>
