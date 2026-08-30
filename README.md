@@ -40,7 +40,6 @@ croquet-abbotsford/
 - **calendar.html** - Event calendar
 - **contact.html** - Contact information
 - **membership.html** - Membership details
-- **gallery.html** - Photo gallery
 - **lessons.html** - Croquet lessons
 - **resources.html** - Learning resources
 - **mallets.html** - Equipment information

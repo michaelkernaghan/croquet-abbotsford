@@ -52,24 +52,6 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- Gallery - Regular content updates -->
-    <url>
-        <loc>https://abbotsfordcroquet.com/gallery.html</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-        <image:image>
-            <image:loc>https://abbotsfordcroquet.com/assets/images/croquet-action-hoop-shot.jpg</image:loc>
-            <image:title>Tournament gameplay at Mill Lake Park</image:title>
-            <image:caption>Michael Essick demonstrating advanced croquet techniques during a tournament</image:caption>
-        </image:image>
-        <image:image>
-            <image:loc>https://abbotsfordcroquet.com/assets/images/mayor.png</image:loc>
-            <image:title>Mayor's visit to Abbotsford Croquet Club</image:title>
-            <image:caption>Abbotsford Mayor visiting the croquet club and observing a demonstration game</image:caption>
-        </image:image>
-    </url>
-
     <!-- Mallets - Equipment information -->
     <url>
         <loc>https://abbotsfordcroquet.com/mallets.html</loc>

@@ -1,0 +1,166 @@
+/* Heritage Lawn — homepage pilot overlay.
+   Loads after styles.css on index.html only. Once approved for the
+   whole site, fold these tokens into styles.css and delete this file.
+   Palette: ivory ground, deep lawn green, old gold accent. */
+
+:root {
+    --bg-light: #F7F3E9;          /* ivory ground (was #f0f5f0) */
+    --card-ground: #FFFDF7;       /* warm white for cards */
+    --accent-gold: #B8912E;       /* old gold (replaces #FFD700 accents) */
+    --accent-gold-soft: rgba(184, 145, 46, 0.18);
+    --text-dark: #2B2B26;         /* warm near-black */
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: Georgia, "Times New Roman", serif;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.125rem;          /* 18px — readable for all ages */
+    line-height: 1.7;
+}
+
+/* Display typography: strong serif, big jumps between levels */
+h1 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 3.25rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 2.5rem 0 1.25rem;
+}
+
+/* Gold rule under the page title — the letterhead moment */
+h1::after {
+    content: "";
+    display: block;
+    width: 5.5rem;
+    height: 3px;
+    background: var(--accent-gold);
+    margin: 1.25rem auto 0;
+}
+
+h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+/* Cards — the homepage never loaded curriculum.css, so these
+   also serve as the missing .skill-card definitions */
+.curriculum-content {
+    margin-top: 2rem;
+}
+
+.skill-progression {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    margin: 1.75rem 0;
+}
+
+.skill-card {
+    background: var(--card-ground);
+    border-radius: 6px;
+    padding: 1.75rem;
+    box-shadow: 0 3px 10px rgba(43, 59, 43, 0.12);
+    border-top: 3px solid var(--primary-dark);
+}
+
+.skill-card h3 {
+    color: var(--primary-dark);
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--accent-gold-soft);
+}
+
+/* Deep green panel: the one dramatic block on the page */
+.advanced-card {
+    background: linear-gradient(to bottom right, var(--primary-dark), var(--primary-darker));
+    color: #F2EDDF;
+    border-radius: 6px;
+    padding: 2.5rem 2rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.advanced-card h3 {
+    color: #F2EDDF;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.advanced-card p {
+    max-width: 34rem;
+    margin: 0 auto;
+}
+
+/* Gold-outline call to action */
+.cta-section {
+    border-top: none;
+    margin-top: 2rem;
+    padding-top: 0;
+}
+
+.cta-button {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: transparent;
+    border: 2px solid var(--accent-gold);
+    color: #F2EDDF;
+    border-radius: 3px;
+    padding: 0.9rem 2.25rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--accent-gold);
+    color: var(--primary-darker);
+}
+
+/* Nav: gold replaces the raw #FFD700 tint */
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: var(--accent-gold-soft);
+}
+
+.dropdown-content a.active {
+    background-color: var(--accent-gold-soft);
+}
+
+/* One orchestrated page-load reveal, oldest-member friendly */
+.welcome h1,
+.welcome .curriculum-content > * {
+    opacity: 0;
+    animation: heritageReveal 0.7s ease-out forwards;
+}
+
+.welcome h1 { animation-delay: 0.05s; }
+.welcome .curriculum-content > *:nth-child(1) { animation-delay: 0.15s; }
+.welcome .curriculum-content > *:nth-child(2) { animation-delay: 0.25s; }
+.welcome .curriculum-content > *:nth-child(3) { animation-delay: 0.35s; }
+.welcome .curriculum-content > *:nth-child(4) { animation-delay: 0.45s; }
+.welcome .curriculum-content > *:nth-child(5) { animation-delay: 0.55s; }
+
+@keyframes heritageReveal {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .welcome h1,
+    .welcome .curriculum-content > * {
+        opacity: 1;
+        animation: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .skill-progression {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+}
