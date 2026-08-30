@@ -80,72 +80,78 @@
     1: { x: 1, y: 1 }, 2: { x: 1, y: 34 }, 3: { x: 27, y: 34 }, 4: { x: 27, y: 1 }
   };
   const YARD = { xmin: 1, xmax: 27, ymin: 1, ymax: 34 };
-  const JAWS = 0.15, TOUCH = 0.25, MALLET = 1.0;
 
   const r3 = n => Math.round(n * 1000) / 1000;
 
-  // Face 7: each corner owns the boundary running clockwise out of it, and the ball
-  // sits a QUARTER of the way along, measured from that corner.
-  //
-  // It was the midpoint until 2026-08-29, which was wrong twice over. Balls come to
-  // rest near where they crossed and the yard-line rule clusters them corner-ward, so
-  // mid-side is the least likely stretch of boundary, not the most - yet this put one
-  // ball in eight on four exact midpoints. Worse, two of those midpoints were already
-  // face 6's hoop-5 and hoop-6 outcomes, so (14, 1) and (14, 34) were each produced by
-  // two different places and drew double traffic.
-  const CLOCKWISE_NEXT = { 1: 2, 2: 3, 3: 4, 4: 1 };
-  const QUARTER_BOUNDARY = {};
-  for (const qc of [1, 2, 3, 4]) {
-    const a = CORNERS[qc], b = CORNERS[CLOCKWISE_NEXT[qc]];
-    QUARTER_BOUNDARY[qc] = { x: r3(a.x + (b.x - a.x) / 4), y: r3(a.y + (b.y - a.y) / 4) };
+
+
+
+  // Weighted categories replace the eight fixed places. The weights are a judgement
+  // about croquet, not an artifact of a die: hoops and boundaries are where balls
+  // actually come to rest, midcourt happens, the peg is a late-turn artifact, and a
+  // ball stuck in the jaws is uncommon.
+  const CAT_W = [
+    ['hoop', 0.35], ['boundary', 0.28], ['midcourt', 0.27], ['peg', 0.06], ['jaws', 0.04]
+  ];
+
+  // Distance from the hoop centre. `near` and `off` together are the failed-hoop
+  // shape: one ball close in, the next a little farther out.
+  const BAND = { near: [0.35, 1.20], off: [1.60, 4.00], away: [0.40, 2.50] };
+
+  const FOCUS_BIAS = 0.70;
+  const JAWS_D = 0.15;
+  const PEG_BAND = [0.50, 2.00];
+  const OPEN_CLEAR = 2.0;
+
+  const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
+  const clampPt = p => ({ x: r3(clamp(p.x, YARD.xmin, YARD.xmax)),
+                          y: r3(clamp(p.y, YARD.ymin, YARD.ymax)) });
+
+  function drawCategory(rng) {
+    let r = rng();
+    for (const [name, w] of CAT_W) { if (r < w) return name; r -= w; }
+    return CAT_W[CAT_W.length - 1][0];   // floating-point tail
   }
 
-  // Step `dist` yards from `from` toward corner spot `d4`.
-  function toward(from, d4, dist) {
-    const c = CORNERS[d4];
-    const dx = c.x - from.x, dy = c.y - from.y;
-    const n = Math.hypot(dx, dy);
-    return { x: r3(from.x + dx / n * dist), y: r3(from.y + dy / n * dist) };
+  function ringPoint(rng, centre, lo, hi) {
+    const a = rng() * Math.PI * 2;
+    const d = lo + rng() * (hi - lo);
+    return clampPt({ x: centre.x + Math.cos(a) * d, y: centre.y + Math.sin(a) * d });
   }
 
-  // First exit of the yard-line rectangle along the ray from -> through.
-  function yardLineExit(from, through) {
-    const dx = through.x - from.x, dy = through.y - from.y;
-    const ts = [];
-    if (dx > 0) ts.push((YARD.xmax - from.x) / dx);
-    if (dx < 0) ts.push((YARD.xmin - from.x) / dx);
-    if (dy > 0) ts.push((YARD.ymax - from.y) / dy);
-    if (dy < 0) ts.push((YARD.ymin - from.y) / dy);
-    const t = Math.min.apply(null, ts.filter(v => v > 0));
-    return { x: r3(from.x + dx * t), y: r3(from.y + dy * t) };
+  const SIDES = ['S', 'N', 'W', 'E'];
+
+  // Push mass toward both ends of the side: leaves go to corners, not to mid-boundary.
+  function cornerBias(t) {
+    return t < 0.5 ? Math.pow(t * 2, 1.8) / 2 : 1 - Math.pow((1 - t) * 2, 1.8) / 2;
   }
 
-  const PLACES = {
-    1: { place: 'jaws',          usesD6: true,  usesD4: true,
-         at: (h, c) => toward(h, c, JAWS) },
-    2: { place: 'against hoop',  usesD6: true,  usesD4: true,
-         at: (h, c) => toward(h, c, TOUCH) },
-    3: { place: 'at hoop',       usesD6: true,  usesD4: true,
-         at: (h, c) => toward(h, c, MALLET) },
-    4: { place: 'mid-court',     usesD6: true,  usesD4: false,
-         at: h => ({ x: r3((h.x + PEG.x) / 2), y: r3((h.y + PEG.y) / 2) }) },
-    5: { place: 'peg',           usesD6: false, usesD4: true,
-         at: (h, c) => toward(PEG, c, MALLET) },
-    6: { place: 'boundary',      usesD6: true,  usesD4: false,
-         at: h => yardLineExit(PEG, h) },
-    7: { place: 'half-boundary', usesD6: false, usesD4: true,
-         at: (h, c) => ({ x: QUARTER_BOUNDARY[c].x, y: QUARTER_BOUNDARY[c].y }) },
-    8: { place: 'corner',        usesD6: false, usesD4: true,
-         at: (h, c) => ({ x: CORNERS[c].x, y: CORNERS[c].y }) }
-  };
-
-  function place(roll) {
-    const spec = PLACES[roll.d8];
-    if (!spec) throw new RangeError('d8 out of range: ' + roll.d8);
-    const pt = spec.at(HOOPS[roll.d6], roll.d4);
-    return { x: pt.x, y: pt.y, place: spec.place,
-             usesD6: spec.usesD6, usesD4: spec.usesD4 };
+  function boundaryPoint(rng) {
+    const side = SIDES[Math.floor(rng() * 4)];
+    const t = cornerBias(rng());
+    const w = YARD.xmax - YARD.xmin, h = YARD.ymax - YARD.ymin;
+    let p;
+    if (side === 'S') p = { x: YARD.xmin + t * w, y: YARD.ymin };
+    else if (side === 'N') p = { x: YARD.xmin + t * w, y: YARD.ymax };
+    else if (side === 'W') p = { x: YARD.xmin, y: YARD.ymin + t * h };
+    else p = { x: YARD.xmax, y: YARD.ymin + t * h };
+    return Object.assign(clampPt(p), { side });
   }
+
+  function pegPoint(rng) { return ringPoint(rng, PEG, PEG_BAND[0], PEG_BAND[1]); }
+
+  // Rejection sampling: "open court" has to actually be open, so a midcourt ball is
+  // redrawn if it lands in a hoop's or the peg's neighbourhood.
+  function midcourtPoint(rng) {
+    const anchors = Object.values(HOOPS).concat([PEG]);
+    for (let tries = 0; tries < 200; tries++) {
+      const p = clampPt({ x: 2 + rng() * 24, y: 2 + rng() * 31 });
+      if (anchors.every(a => Math.hypot(p.x - a.x, p.y - a.y) >= OPEN_CLEAR)) return p;
+    }
+    return clampPt({ x: 4, y: 17.5 });   // unreachable in practice; never loop forever
+  }
+
+
 
   const CLIP_NAMES = ['1', '2', '3', '4', '5', '6',
     '1-back', '2-back', '3-back', '4-back', 'penultimate', 'rover'];
@@ -188,118 +194,141 @@
   const d = (rng, sides) => Math.floor(rng() * sides) + 1;
 
   // Faces 6, 7 and 8 already sit ON the yard-line, so pushing them away from an
-  // interior anchor would send them off the court. They displace clockwise round
-  // the yard-line instead, exactly as the spec says.
-  const ON_YARDLINE = { 6: true, 7: true, 8: true };
 
-  // Clockwise runs corner 1 -> 2 -> 3 -> 4. Corners 2, 3 and 4 turn onto the next
-  // edge, so they are matched before the edge tests; corner 1 continues north.
-  function clockwise(p) {
-    if (p.x === YARD.xmin && p.y === YARD.ymax) return { dx: 1, dy: 0 };
-    if (p.x === YARD.xmax && p.y === YARD.ymax) return { dx: 0, dy: -1 };
-    if (p.x === YARD.xmax && p.y === YARD.ymin) return { dx: -1, dy: 0 };
-    if (p.x === YARD.xmin) return { dx: 0, dy: 1 };
-    if (p.y === YARD.ymax) return { dx: 1, dy: 0 };
-    if (p.x === YARD.xmax) return { dx: 0, dy: -1 };
-    return { dx: -1, dy: 0 };
+
+  const gap = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+
+  // Preferred displacement, so a nudged ball still reads as the same kind of position:
+  // a hoop or peg ball moves outward from its anchor, a boundary ball slides ALONG its
+  // yard-line away from the ball it hit, and a midcourt ball moves away from it too.
+  //
+  // Sliding away from the other ball rather than "toward the middle of the side" is
+  // load-bearing: two boundary balls straddling the midpoint would both be pushed
+  // inward, converge, and never separate.
+  function pushDir(ball, other) {
+    if (ball.cat === 'boundary') {
+      const horiz = ball.side === 'S' || ball.side === 'N';
+      const delta = horiz ? ball.x - other.x : ball.y - other.y;
+      const away = delta >= 0 ? 1 : -1;
+      return horiz ? { dx: away, dy: 0 } : { dx: 0, dy: away };
+    }
+    const anchor = (ball.cat === 'peg') ? PEG
+                 : (ball.hoop !== null) ? HOOPS[ball.hoop]
+                 : other;
+    const dx = ball.x - anchor.x, dy = ball.y - anchor.y;
+    const n = Math.hypot(dx, dy);
+    if (n < 1e-9) return { dx: 1, dy: 0 };
+    return { dx: dx / n, dy: dy / n };
   }
 
-  // Move `ball` one ball-diameter. Distance from the anchor strictly increases (or
-  // the ball advances clockwise), so repeated calls always terminate.
-  function nudge(ball) {
-    if (ON_YARDLINE[ball.d8]) {
-      const c = clockwise(ball);
-      ball.x = r3(ball.x + c.dx * BALL_D);
-      ball.y = r3(ball.y + c.dy * BALL_D);
-    } else {
-      const a = ball.d8 === 5 ? PEG : HOOPS[ball.d6];
-      const dx = ball.x - a.x, dy = ball.y - a.y;
-      const n = Math.hypot(dx, dy) || 1;
-      ball.x = r3(ball.x + dx / n * BALL_D);
-      ball.y = r3(ball.y + dy / n * BALL_D);
+  // Spiral outward from where the ball wanted to be, trying the preferred bearing
+  // first and sweeping away from it in 30-degree steps at growing radius.
+  //
+  // An earlier version stepped one ball-width at a time away from whichever ball it
+  // was currently touching. That is not a monotone measure: a ball pushed clear of A
+  // lands on B, is pushed back onto A, and cycles until the guard fires - which it did,
+  // once in about 55,000 layouts. Radius-from-origin only ever grows, so this ends.
+  function separate(balls) {
+    for (let i = 1; i < balls.length; i++) {
+      const me = balls[i];
+      const others = balls.slice(0, i);
+      const clear = p => others.every(o => gap(o, p) >= BALL_D - 1e-9);
+      const hit = others.find(o => gap(o, me) < BALL_D - 1e-9);
+      if (!hit) continue;
+
+      const pref = pushDir(me, hit);
+      const base = Math.atan2(pref.dy, pref.dx);
+      const origin = { x: me.x, y: me.y };
+      let placed = false;
+
+      for (let step = 1; step <= 120 && !placed; step++) {
+        const r = step * BALL_D;
+        for (let k = 0; k < 12 && !placed; k++) {
+          const a = base + (k % 2 ? -1 : 1) * Math.ceil(k / 2) * (Math.PI / 6);
+          const cand = {
+            x: r3(clamp(origin.x + Math.cos(a) * r, YARD.xmin, YARD.xmax)),
+            y: r3(clamp(origin.y + Math.sin(a) * r, YARD.ymin, YARD.ymax))
+          };
+          if (clear(cand)) { me.x = cand.x; me.y = cand.y; me.nudged = true; placed = true; }
+        }
+      }
+      if (!placed) throw new Error('separation could not find room for a ball');
     }
-    ball.nudged = true;
   }
 
   function rollLayout(rng) {
+    const focus = 1 + Math.floor(rng() * 6);
+    let jawsUsed = false, atFocus = 0;
+
     const balls = ORDER.map(colour => {
-      const roll = { d12: d(rng, 12), d8: d(rng, 8), d6: d(rng, 6), d4: d(rng, 4) };
-      const p = place(roll);
-      return Object.assign({ colour }, roll, {
-        clip: clipName(roll.d12), clipHoop: clipHoop(roll.d12),
-        place: p.place, x: p.x, y: p.y, nudged: false
-      });
+      const d12 = d(rng, 12);
+      let cat = drawCategory(rng);
+      // Hard cap, not a probability: two balls stuck in hoops at once is not a
+      // position that arises, so a second draw becomes an ordinary hoop ball.
+      if (cat === 'jaws' && jawsUsed) cat = 'hoop';
+      if (cat === 'jaws') jawsUsed = true;
+
+      let hoop = null, band = null, side = null, p;
+      if (cat === 'hoop' || cat === 'jaws') {
+        const onFocus = rng() < FOCUS_BIAS;
+        hoop = onFocus ? focus : 1 + Math.floor(rng() * 6);
+        if (cat === 'jaws') {
+          p = ringPoint(rng, HOOPS[hoop], JAWS_D, JAWS_D);
+        } else {
+          // Keyed on whether this IS the focus hoop, not on how it was chosen. The
+          // 30% branch can land on the focus hoop by chance, and such a ball still
+          // belongs to the cluster - it is standing at the same hoop as the others.
+          band = (hoop === focus) ? (atFocus++ === 0 ? 'near' : 'off') : 'away';
+          p = ringPoint(rng, HOOPS[hoop], BAND[band][0], BAND[band][1]);
+        }
+      } else if (cat === 'boundary') {
+        p = boundaryPoint(rng); side = p.side;
+      } else if (cat === 'peg') {
+        p = pegPoint(rng);
+      } else {
+        p = midcourtPoint(rng);
+      }
+
+      return { colour, d12, clip: clipName(d12), clipHoop: clipHoop(d12),
+               cat, place: cat, hoop, band, side, x: p.x, y: p.y, nudged: false };
     });
 
-    // Invariant: `d8` is the face the physical die shows and is NEVER rewritten —
-    // the reading table must always agree with the die in front of the player, and
-    // Task 4's `analyse` tallies `faces[b.d8 - 1]`, so mutating d8 would bias the
-    // reported face distribution away from uniform. `place`/`x`/`y` carry where the
-    // ball actually ended up. The jaws rule below is precisely the case where the
-    // two differ: the jaws hold one ball, so a second `1` at the same hoop resolves
-    // its POSITION as if it had rolled `3`, while its `d8` deliberately stays `1`.
-    for (let i = 1; i < balls.length; i++)
-      for (let j = 0; j < i; j++)
-        if (balls[i].d8 === 1 && balls[j].d8 === 1 &&
-            balls[i].d6 === balls[j].d6) {
-          const p = place({ d8: 3, d6: balls[i].d6, d4: balls[i].d4 });
-          Object.assign(balls[i], { place: p.place, x: p.x, y: p.y, nudged: true });
-        }
-
-    // Any ball left within a ball's width of an earlier one yields.
-    //
-    // This tests DISTANCE, not coordinate equality. Equality only ever caught balls
-    // on the identical spot, so it never fired on faces 1 and 2 at the same hoop and
-    // corner - jaws sits 0.15 from the hoop, against-hoop 0.25, a tenth of a yard
-    // apart when a ball is 0.101 wide. 7.4% of layouts could not be set out on grass,
-    // and on screen the near ball simply hid the far one.
-    for (let i = 1; i < balls.length; i++) {
-      let guard = 0;
-      while (balls.slice(0, i).some(b =>
-             Math.hypot(b.x - balls[i].x, b.y - balls[i].y) < BALL_D - 1e-9)) {
-        nudge(balls[i]);
-        if (++guard > 20) throw new Error('nudge failed to separate balls');
-      }
-    }
+    separate(balls);
 
     const clips = {};
     for (const b of balls) clips[b.colour] = b.d12;
-    return { balls, innings: innings(clips) };
+    return { balls, focus, innings: innings(clips) };
   }
 
-  const ZONE = { 1: 'hoop', 2: 'hoop', 3: 'hoop', 4: 'middle',
-                 5: 'middle', 6: 'edge', 7: 'edge', 8: 'edge' };
-
   function analyse(n, rng) {
-    const faces = new Array(8).fill(0);
-    const zones = { hoop: 0, middle: 0, edge: 0 };
-    let ties = 0, dead = 0, collided = 0, ballCount = 0;
+    const cats = { hoop: 0, boundary: 0, midcourt: 0, peg: 0, jaws: 0 };
+    let ties = 0, dead = 0, moved = 0, jawsAny = 0, jawsMulti = 0, cluster = 0, ballCount = 0;
     for (let i = 0; i < n; i++) {
       const lay = rollLayout(rng);
       if (lay.innings.rule !== 'sum') ties++;
       if (lay.innings.rule === 'dead heat') dead++;
-      // Counts layouts where any ball's position changed, whether by a genuine
-      // two-balls-on-one-spot separation OR by the jaws rule's face-3 re-read (no
-      // overlap ever occurred there) — NOT a ball-on-ball overlap/collision rate.
-      if (lay.balls.some(b => b.nudged)) collided++;
-      for (const b of lay.balls) {
-        faces[b.d8 - 1]++; zones[ZONE[b.d8]]++; ballCount++;
-      }
+      if (lay.balls.some(b => b.nudged)) moved++;
+      const j = lay.balls.filter(b => b.cat === 'jaws').length;
+      if (j >= 1) jawsAny++;
+      if (j > 1) jawsMulti++;
+      if (lay.balls.filter(b => b.hoop === lay.focus).length >= 2) cluster++;
+      for (const b of lay.balls) { cats[b.cat]++; ballCount++; }
     }
+    const share = {};
+    for (const k of Object.keys(cats)) share[k] = cats[k] / ballCount;
     return {
-      n,
-      faceShare: faces.map(c => c / ballCount),
-      zoneShare: { hoop: zones.hoop / ballCount, middle: zones.middle / ballCount,
-                   edge: zones.edge / ballCount },
-      tieRate: ties / n, deadHeatRate: dead / n, movedRate: collided / n
+      n, catShare: share,
+      jawsAnyRate: jawsAny / n, jawsMultiRate: jawsMulti / n,
+      focusClusterRate: cluster / n,
+      tieRate: ties / n, deadHeatRate: dead / n, movedRate: moved / n
     };
   }
 
-  return { COURT, PEG, HOOPS, CORNERS, YARD, JAWS, TOUCH, MALLET,
-           QUARTER_BOUNDARY, r3, place,
-           clipName, clipHoop, innings, CLIP_NAMES, CLIP_HOOPS,
-           ORDER, BALL_D, mulberry32, clockwise, rollLayout,
-           ZONE, analyse };
+  return { CAT_W, BAND, FOCUS_BIAS, JAWS_D, drawCategory, ringPoint,
+           boundaryPoint, midcourtPoint, pegPoint,
+           COURT, PEG, HOOPS, CORNERS, YARD, BALL_D, r3, mulberry32, ORDER,
+           clipName, clipHoop, CLIP_NAMES, CLIP_HOOPS, innings,
+           rollLayout, analyse };
 });
 </script>
 <script>
@@ -444,56 +473,90 @@
            `K+B ${innings.blackBlue}${note}</span></div>`;
   }
 
-  const pct = v => (v * 100).toFixed(2) + '%';
 
-  function statsTable(s) {
-    const rows = [`<tr><th>Over ${s.n} layouts</th><th>Share</th><th>Expected</th></tr>`];
-    for (let f = 0; f < 8; f++)
-      rows.push(`<tr><td>face ${f + 1}</td><td>${pct(s.faceShare[f])}</td>` +
-                `<td>12.50%</td></tr>`);
-    rows.push(`<tr><td>hoop zone</td><td>${pct(s.zoneShare.hoop)}</td><td>37.50%</td></tr>`);
-    rows.push(`<tr><td>middle zone</td><td>${pct(s.zoneShare.middle)}</td><td>25.00%</td></tr>`);
-    rows.push(`<tr><td>edge zone</td><td>${pct(s.zoneShare.edge)}</td><td>37.50%</td></tr>`);
-    rows.push(`<tr><td>Tie rate</td><td>${pct(s.tieRate)}</td><td>5.58%</td></tr>`);
-    rows.push(`<tr><td>Dead heat</td><td>${pct(s.deadHeatRate)}</td><td>1.33%</td></tr>`);
-    rows.push(`<tr><td>Any ball moved</td><td>${pct(s.movedRate)}</td><td>~12.7%</td></tr>`);
-    return '<table>' + rows.join('') + '</table>';
+  const COMPASS = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+  const SIDE_NAME = { S: 'south', N: 'north', W: 'west', E: 'east' };
+
+  // Court y grows north, so bearing 0 is north and the index runs clockwise.
+  function bearing(from, to) {
+    const a = Math.atan2(to.y - from.y, to.x - from.x);
+    const i = ((Math.round((Math.PI / 2 - a) / (Math.PI / 4)) % 8) + 8) % 8;
+    return COMPASS[i];
   }
 
-  // The dice retired as the product when the app replaced them, but they survive
-  // as the internal vocabulary: rules.js still speaks d12/d8/d6/d4, and `analyse`
-  // tallies faces off `d8`. The default view spares a reader who never held them;
-  // `showRoll` brings the roll back as the audit trail for a layout that looks
-  // wrong on the lawn.
+  function howFar(d) {
+    if (d < 0.8) return 'just';
+    if (d < 1.5) return 'a yard';
+    if (d < 2.5) return 'a couple of yards';
+    return 'a few yards';
+  }
+
+  function anchorOf(b) {
+    if (b.cat === 'peg') return CD.PEG;
+    if (b.hoop !== null && b.hoop !== undefined) return CD.HOOPS[b.hoop];
+    return null;
+  }
+
+  // The court drawing is the instruction; this is a gloss, not a recipe. Positions are
+  // continuous now, so there is no name to look up - half a yard out does not matter.
+  function describe(b) {
+    if (b.cat === 'jaws') return `in the jaws of hoop ${b.hoop}`;
+    if (b.cat === 'boundary') {
+      const c = Object.keys(CD.CORNERS)
+        .map(k => [k, Math.hypot(CD.CORNERS[k].x - b.x, CD.CORNERS[k].y - b.y)])
+        .sort((p, q) => p[1] - q[1])[0];
+      return `${SIDE_NAME[b.side]} boundary, ` +
+             (c[1] < 6 ? `near corner ${c[0]}` : `well out from corner ${c[0]}`);
+    }
+    const a = anchorOf(b);
+    if (b.cat === 'peg') {
+      const d = Math.hypot(b.x - a.x, b.y - a.y);
+      return `${howFar(d)} ${bearing(a, b)} of the peg`;
+    }
+    if (b.cat === 'hoop') {
+      const d = Math.hypot(b.x - a.x, b.y - a.y);
+      return `${howFar(d)} ${bearing(a, b)} of hoop ${b.hoop}`;
+    }
+    return `open court, ${bearing(CD.PEG, b)} of the peg`;
+  }
+
   function readingTable(layout, opts) {
     const showRoll = !!(opts && opts.showRoll);
-    const head = ['<th>Ball</th>', '<th>Clip</th>', '<th>Place</th>'];
-    if (showRoll) head.push('<th>d12</th>', '<th>d8</th>', '<th>d6</th>', '<th>d4</th>');
+    const head = ['<th>Ball</th>', '<th>Clip</th>', '<th>Where</th>'];
+    if (showRoll) head.push('<th>Category</th>', '<th>Anchor</th>',
+                            '<th>Distance</th>', '<th>(x, y)</th>');
     const rows = ['<tr>' + head.join('') + '</tr>'];
     for (const b of layout.balls) {
       const cells = [
         `<td><span class="swatch" style="background:${BALL_FILL[b.colour]}">` +
           `</span>${b.colour}</td>`,
         `<td>${b.clip}</td>`,
-        `<td>${b.place}${b.nudged ? ' (nudged)' : ''}</td>`
+        `<td>${describe(b)}${b.nudged ? ' (moved clear)' : ''}</td>`
       ];
-      if (showRoll)
-        cells.push(`<td>${b.d12}</td>`, `<td>${b.d8}</td>`,
-                   `<td>${b.d6}</td>`, `<td>${b.d4}</td>`);
+      if (showRoll) {
+        const a = anchorOf(b);
+        const d = a ? CD.r3(Math.hypot(b.x - a.x, b.y - a.y)) : '';
+        const anchorName = b.cat === 'peg' ? 'peg'
+                         : (b.hoop !== null && b.hoop !== undefined) ? `hoop ${b.hoop}`
+                         : b.side ? `${b.side} yard-line` : 'open';
+        cells.push(`<td>${b.cat}${b.band ? ' / ' + b.band : ''}</td>`,
+                   `<td>${anchorName}</td>`, `<td>${d === '' ? '&mdash;' : d + ' yd'}</td>`,
+                   `<td>${b.x}, ${b.y}</td>`);
+      }
       rows.push('<tr>' + cells.join('') + '</tr>');
     }
     return '<table>' + rows.join('') + '</table>';
   }
 
-  return { toSvg, courtSVG, BALL_FILL, BALL_R, statsTable, readingTable, inningsBanner };
+  return { toSvg, courtSVG, BALL_FILL, BALL_R, readingTable, inningsBanner, describe };
 });
 </script>
 <script>
 const CD = window.CroquetDice, R = window.CroquetRender;
 let layout = null;
 
-// The underlying faces are the mechanism, not the product. Off by default; on when a
-// position looks wrong and you want to see what produced it.
+// The category, anchor and coordinate behind a position. Off by default; on when a
+// layout looks wrong on the lawn and you want to see what produced it.
 let showRoll = false;
 
 function toggleRoll() {

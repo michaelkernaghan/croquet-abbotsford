@@ -5,7 +5,7 @@
 // byte-identical worker, no new install fired, and installed phones kept serving the
 // first version they ever cached. The club build now derives CACHE from a hash of the
 // built page (build.js), so a changed app always means a changed worker.
-const CACHE = 'croquet-randomizer-club-b98cd2410cb0';
+const CACHE = 'croquet-randomizer-club-b27ab6c98ae8';
 
 // The printable pocket card is deliberately absent: it was retired when the app
 // replaced the dice, and test/pwa.test.js asserts nothing shipped still links it.
