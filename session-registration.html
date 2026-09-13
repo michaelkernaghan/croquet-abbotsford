@@ -53,22 +53,19 @@
             background-color: #2B3B2B;
         }
         
-        .confirmation-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 20px;
-            display: none;
+        /* Netlify honeypot - hidden from people, visible to bots */
+        .hidden-field {
+            position: absolute;
+            left: -9999px;
         }
-        
-        .error-message {
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 4px;
+
+        .form-note {
             margin-top: 20px;
-            display: none;
+            padding: 15px;
+            background-color: #f0f8f0;
+            border-left: 4px solid #3B513B;
+            border-radius: 4px;
+            color: #333;
         }
         
         /* Status Panel Styles */
@@ -248,7 +245,17 @@
             
             <div class="signup-form">
                 <h2>Player Information</h2>
-                <form id="sessionSignupForm">
+                <form id="sessionSignupForm"
+                      name="session-registration"
+                      method="POST"
+                      action="/thank-you.html"
+                      data-netlify="true"
+                      netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="session-registration">
+                    <p class="hidden-field">
+                        <label>Leave this field empty: <input name="bot-field"></label>
+                    </p>
+
                     <div class="form-group">
                         <label for="playerName">Name:</label>
                         <input type="text" id="playerName" name="playerName" required>
@@ -297,14 +304,11 @@
                     <button type="submit" class="signup-button">Register for Session</button>
                 </form>
                 
-                <div id="confirmationMessage" class="confirmation-message">
-                    Thank you for signing up! We look forward to seeing you at the session. You'll receive a confirmation email shortly.
-                    <div id="sessionDetails"></div>
-                </div>
-                
-                <div id="errorMessage" class="error-message">
-                    Sorry, there was an error processing your registration. Please try again or contact us directly.
-                </div>
+                <p class="form-note">
+                    Registrations go to the club directly. If you do not hear back within
+                    a couple of days, email
+                    <a href="mailto:abbotsfordcroquet@gmail.com">abbotsfordcroquet@gmail.com</a>.
+                </p>
             </div>
         </div>
     </main>
@@ -355,10 +359,7 @@
                 sessions.push({
                     id: `tue-${i}`,
                     type: 'tuesday',
-                    date: new Date(tuesdayDate),
-                    spotsTotal: 8,
-                    spotsAvailable: 8,
-                    registrations: []
+                    date: new Date(tuesdayDate)
                 });
                 
                 // Thursday sessions
@@ -371,10 +372,7 @@
                 sessions.push({
                     id: `thu-${i}`,
                     type: 'thursday',
-                    date: new Date(thursdayDate),
-                    spotsTotal: 8,
-                    spotsAvailable: 8,
-                    registrations: []
+                    date: new Date(thursdayDate)
                 });
             }
             
@@ -388,10 +386,9 @@
                 
                 if (selectedType) {
                     const currentDate = new Date();
-                    const filteredSessions = sessions.filter(session => 
-                        session.type === selectedType && 
-                        session.date > currentDate &&
-                        session.spotsAvailable > 0
+                    const filteredSessions = sessions.filter(session =>
+                        session.type === selectedType &&
+                        session.date > currentDate
                     );
                     
                     filteredSessions.forEach(session => {
@@ -407,68 +404,6 @@
                         option.textContent = dateStr;
                         sessionDateSelect.appendChild(option);
                     });
-                }
-            });
-            
-            // Handle form submission
-            const signupForm = document.getElementById('sessionSignupForm');
-            const confirmationMessage = document.getElementById('confirmationMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            signupForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const playerName = document.getElementById('playerName').value;
-                const playerEmail = document.getElementById('playerEmail').value;
-                const sessionId = document.getElementById('sessionDate').value;
-                
-                if (!sessionId) {
-                    errorMessage.textContent = 'Please select a valid session date.';
-                    errorMessage.style.display = 'block';
-                    confirmationMessage.style.display = 'none';
-                    return;
-                }
-                
-                // Find the selected session
-                const selectedSession = sessions.find(session => session.id === sessionId);
-                
-                if (selectedSession && selectedSession.spotsAvailable > 0) {
-                    // Register the player (in a real app, this would send data to a server)
-                    selectedSession.registrations.push({
-                        name: playerName,
-                        email: playerEmail,
-                        timestamp: new Date()
-                    });
-                    
-                    selectedSession.spotsAvailable--;
-                    
-                    // Format the date for confirmation
-                    const dateStr = selectedSession.date.toLocaleDateString('en-US', { 
-                        weekday: 'long', 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                    });
-                    
-                    // Add session details to confirmation
-                    const sessionDetails = document.getElementById('sessionDetails');
-                    sessionDetails.innerHTML = `
-                        <p><strong>Session Details:</strong></p>
-                        <p>Date: ${dateStr}</p>
-                        <p>Time: 6:00 PM</p>
-                        <p>Players: ${selectedSession.registrations.length} / ${selectedSession.spotsTotal}</p>
-                    `;
-                    
-                    // Show confirmation
-                    confirmationMessage.style.display = 'block';
-                    errorMessage.style.display = 'none';
-                    
-                    // Reset form
-                    signupForm.reset();
-                } else {
-                    errorMessage.textContent = 'Sorry, this session is already full.';
-                    errorMessage.style.display = 'block';
-                    confirmationMessage.style.display = 'none';
                 }
             });
         });
