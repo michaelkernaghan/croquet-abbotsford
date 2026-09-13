@@ -7,3 +7,8 @@
 # Retired: advertised a one-off open day on 10 May 2025.
 /brochure         /calendar       301
 /brochure.html    /calendar       301
+
+# Was a meta-refresh stub, which only redirects in a browser - crawlers and
+# anything non-browser got a 200 and an empty page. This is a real 301.
+/signup           /court-status   301
+/signup.html      /court-status   301

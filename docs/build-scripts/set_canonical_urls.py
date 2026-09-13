@@ -26,9 +26,9 @@ EXTENSIONLESS = True
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
 # Pages that should point at a different page rather than at themselves.
-POINTS_AT = {
-    'signup.html': 'court-status.html',   # meta-refresh redirect stub
-}
+# Currently empty: signup.html used to live here, but it is now a real 301 in
+# _redirects rather than a page, so there is nothing to canonicalise.
+POINTS_AT = {}
 
 # The error page is served at whatever URL the visitor mistyped, so it has no
 # stable address of its own. A canonical tag here would be a lie.
