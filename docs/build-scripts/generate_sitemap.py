@@ -16,6 +16,10 @@ import pathlib
 import re
 import subprocess
 
+# single source of truth for the URL form, so the sitemap can never disagree
+# with the canonical tags - see set_canonical_urls.py for why it matters
+from set_canonical_urls import EXTENSIONLESS, url_for
+
 SITE = 'https://abbotsfordcroquet.com'
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
@@ -59,7 +63,7 @@ def main() -> None:
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
     for p in included:
-        loc = f'{SITE}/' + ('' if p.name == 'index.html' else p.name)
+        loc = url_for(p.name)
         lines += ['    <url>',
                   f'        <loc>{loc}</loc>',
                   f'        <lastmod>{lastmod(p)}</lastmod>',

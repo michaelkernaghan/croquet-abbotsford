@@ -16,8 +16,17 @@ Application materials and guidance for offering a public recreation course throu
 **Purpose:** To organize all materials needed to apply for and run a city-sponsored croquet instruction course for adults and seniors.
 
 ### [/build-scripts](./build-scripts/)
-Utility scripts for development and maintenance:
-- `generate_favicons.sh` - Generates favicon files from logo source
+Utility scripts for development and maintenance. Each carries a docstring saying
+what it does and when to run it - read the file rather than trusting a list here,
+which goes stale. Run the Python ones from the repo root:
+
+```
+python docs/build-scripts/<script>.py
+```
+
+The sitemap and canonical-URL scripts share one `EXTENSIONLESS` flag (defined in
+`set_canonical_urls.py`) so they cannot disagree about URL form. Re-run both after
+adding or removing a page.
 
 ### [/design-assets](./design-assets/)
 Original design files and source graphics not used directly on the website.
