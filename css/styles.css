@@ -260,6 +260,18 @@ footer {
     padding: 0 1rem;
 }
 
+/* No global link colour is set, so footer links would fall back to browser
+   default blue on the dark green ground. Accent yellow gives 6.1:1 contrast. */
+footer a {
+    color: var(--accent-yellow);
+    text-decoration: underline;
+}
+
+footer a:hover,
+footer a:focus {
+    color: white;
+}
+
 /* Responsive Design */
 @media (max-width: 850px) {
     .main-nav a {

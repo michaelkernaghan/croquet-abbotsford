@@ -11,6 +11,7 @@ with a stated reason.
 the commit history: a site-wide change such as a meta-tag pass will reset every
 date to that day. That is accurate, if less informative.
 """
+import datetime
 import pathlib
 import re
 import subprocess
@@ -29,10 +30,17 @@ EXCLUDE = {
 
 
 def lastmod(path: pathlib.Path) -> str:
+    """Last git commit date, falling back to the file's mtime.
+
+    The fallback matters: a page added but not yet committed has no git date,
+    and dating it 1970 would tell search engines it is ancient.
+    """
     out = subprocess.run(
         ['git', 'log', '-1', '--format=%ad', '--date=short', '--', path.name],
         capture_output=True, text=True, cwd=ROOT).stdout.strip()
-    return out or '1970-01-01'
+    if out:
+        return out
+    return datetime.date.fromtimestamp(path.stat().st_mtime).isoformat()
 
 
 def main() -> None:
