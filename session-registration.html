@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session Registration | Abbotsford Croquet Club</title>
+    <title>Join a Session | Abbotsford Croquet Club</title>
     <link rel="canonical" href="https://abbotsfordcroquet.com/session-registration">
     
     <!-- Favicon -->
@@ -12,14 +12,14 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     
-    <meta name="description" content="Register for croquet sessions at Abbotsford Croquet Club. Reserve your spot for Tuesday and Thursday evening sessions at Mill Lake Park.">
+    <meta name="description" content="Come and play croquet at Mill Lake Park, Abbotsford. Tuesday and Thursday evenings from April to September, mallets provided, no experience needed.">
 
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Abbotsford Croquet Club">
     <meta property="og:locale" content="en_CA">
-    <meta property="og:title" content="Session Registration | Abbotsford Croquet Club">
-    <meta property="og:description" content="Register for croquet sessions at Abbotsford Croquet Club. Reserve your spot for Tuesday and Thursday evening sessions at Mill Lake Park.">
+    <meta property="og:title" content="Join a Session | Abbotsford Croquet Club">
+    <meta property="og:description" content="Come and play croquet at Mill Lake Park, Abbotsford. Tuesday and Thursday evenings from April to September, mallets provided, no experience needed.">
     <meta property="og:url" content="https://abbotsfordcroquet.com/session-registration.html">
     <meta property="og:image" content="https://abbotsfordcroquet.com/assets/images/og-cover.jpg">
     <meta property="og:image:width" content="1200">
@@ -34,54 +34,47 @@
             padding: 20px;
         }
         
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
+        .email-cta {
+            background-color: #f0f8f0;
+            border-left: 5px solid #3B513B;
             border-radius: 4px;
-            font-size: 1rem;
-        }
-        
-        button.signup-button {
-            background-color: #3B513B;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        button.signup-button:hover {
-            background-color: #2B3B2B;
-        }
-        
-        /* Netlify honeypot - hidden from people, visible to bots */
-        .hidden-field {
-            position: absolute;
-            left: -9999px;
+            padding: 22px 26px;
+            margin: 30px 0;
         }
 
-        .form-note {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f0f8f0;
-            border-left: 4px solid #3B513B;
-            border-radius: 4px;
-            color: #333;
+        .email-cta h2 {
+            margin-top: 0;
         }
-        
+
+        .email-button {
+            display: inline-block;
+            background-color: #3B513B;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+            padding: 14px 26px;
+            border-radius: 4px;
+            margin: 6px 0 14px;
+            word-break: break-word;
+            transition: background-color 0.2s;
+        }
+
+        .email-button:hover,
+        .email-button:focus {
+            background-color: #2B3B2B;
+        }
+
+        .email-note {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .session-list li {
+            margin-bottom: 6px;
+        }
+
         /* Status Panel Styles */
         .status-container {
             max-width: 800px;
@@ -218,7 +211,7 @@
                     <div class="dropdown-content">
                         <a href="calendar.html">Calendar</a>
                         <a href="court-status.html">Courts</a>
-                        <a href="session-registration.html" class="active">Sign Up</a>
+                        <a href="session-registration.html" class="active">Join a Session</a>
                     </div>
                 </li>
                 <li class="dropdown">
@@ -253,77 +246,42 @@
         </div>
 
         <div class="signup-container">
-            <h1>Session Registration Form</h1>
-            
-            <p>Complete the form below to register for our regular croquet sessions starting April 7, 2026. Sessions are held on Tuesdays and Thursdays at 6:00 PM, with a maximum of 8 players per session.</p>
-            
-            <div class="signup-form">
-                <h2>Player Information</h2>
-                <form id="sessionSignupForm"
-                      name="session-registration"
-                      method="POST"
-                      action="/thank-you.html"
-                      data-netlify="true"
-                      netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="session-registration">
-                    <p class="hidden-field">
-                        <label>Leave this field empty: <input name="bot-field"></label>
-                    </p>
+            <h1>Join a Session</h1>
 
-                    <div class="form-group">
-                        <label for="playerName">Name:</label>
-                        <input type="text" id="playerName" name="playerName" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="playerEmail">Email:</label>
-                        <input type="email" id="playerEmail" name="playerEmail" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="playerPhone">Phone (optional):</label>
-                        <input type="tel" id="playerPhone" name="playerPhone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="sessionType">Session Type:</label>
-                        <select id="sessionType" name="sessionType" required>
-                            <option value="">Select a session type</option>
-                            <option value="tuesday">Tuesday Evening (6:00 PM)</option>
-                            <option value="thursday">Thursday Evening (6:00 PM)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="sessionDate">Session Date:</label>
-                        <select id="sessionDate" name="sessionDate" required>
-                            <option value="">First select a session type</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="playerLevel">Experience Level:</label>
-                        <select id="playerLevel" name="playerLevel">
-                            <option value="beginner">Beginner</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="playerComments">Comments or Questions:</label>
-                        <input type="text" id="playerComments" name="playerComments">
-                    </div>
-                    
-                    <button type="submit" class="signup-button">Register for Session</button>
-                </form>
-                
-                <p class="form-note">
-                    Registrations go to the club directly. If you do not hear back within
-                    a couple of days, email
-                    <a href="mailto:abbotsfordcroquet@gmail.com">abbotsfordcroquet@gmail.com</a>.
+            <p class="intro">
+                We play Tuesdays and Thursdays at 6:00 PM from April to September at Mill
+                Lake Park, with room for about eight players a session. Mallets and balls
+                are provided and no experience is needed - beginners are genuinely
+                welcome, and someone will show you how to play.
+            </p>
+
+            <div class="email-cta">
+                <h2>Let us know you are coming</h2>
+                <p>
+                    Email us and we will look out for you on the day. Tell us which
+                    evening suits you and whether you have played before.
+                </p>
+                <a class="email-button"
+                   href="mailto:abbotsfordcroquet@gmail.com?subject=Coming%20to%20a%20croquet%20session">
+                    abbotsfordcroquet@gmail.com
+                </a>
+                <p class="email-note">
+                    Prefer to just turn up? That is fine too. Arrive a few minutes before
+                    6:00 and introduce yourself.
                 </p>
             </div>
+
+            <h2>Upcoming sessions</h2>
+            <ul id="upcomingSessions" class="session-list">
+                <li>Tuesdays and Thursdays at 6:00 PM, April to September.</li>
+            </ul>
+
+            <h2>What to bring</h2>
+            <ul>
+                <li>Flat-soled shoes, to protect the lawn - no heels or spikes</li>
+                <li>Something for the weather; we play in light rain but not heavy</li>
+                <li>Nothing else - mallets, balls and hoops are all provided</li>
+            </ul>
         </div>
     </main>
 
@@ -390,36 +348,24 @@
                 });
             }
             
-            // Populate date dropdown based on session type selection
-            const sessionTypeSelect = document.getElementById('sessionType');
-            const sessionDateSelect = document.getElementById('sessionDate');
-            
-            sessionTypeSelect.addEventListener('change', function() {
-                const selectedType = this.value;
-                sessionDateSelect.innerHTML = '<option value="">Select a date</option>';
-                
-                if (selectedType) {
-                    const currentDate = new Date();
-                    const filteredSessions = sessions.filter(session =>
-                        session.type === selectedType &&
-                        session.date > currentDate
-                    );
-                    
-                    filteredSessions.forEach(session => {
-                        const dateStr = session.date.toLocaleDateString('en-US', { 
-                            weekday: 'long', 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                        });
-                        
-                        const option = document.createElement('option');
-                        option.value = session.id;
-                        option.textContent = dateStr;
-                        sessionDateSelect.appendChild(option);
-                    });
-                }
-            });
+            // List the next few sessions as text (there is no form to fill any more)
+            const list = document.getElementById('upcomingSessions');
+            const now = new Date();
+            const upcoming = sessions
+                .filter(s => s.date > now)
+                .sort((a, b) => a.date - b.date)
+                .slice(0, 6);
+
+            if (upcoming.length) {
+                list.innerHTML = '';
+                upcoming.forEach(s => {
+                    const li = document.createElement('li');
+                    li.textContent = s.date.toLocaleDateString('en-CA', {
+                        weekday: 'long', month: 'long', day: 'numeric'
+                    }) + ' at 6:00 PM';
+                    list.appendChild(li);
+                });
+            }
         });
     </script>
     <!-- Cloudflare Web Analytics (no cookies, no cross-site tracking) -->
