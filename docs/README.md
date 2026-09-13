@@ -20,9 +20,20 @@ Utility scripts for development and maintenance:
 - `generate_favicons.sh` - Generates favicon files from logo source
 
 ### [/design-assets](./design-assets/)
-Original design files and assets not used directly on the website:
-- `abby-croquet-cover.png` - Cover image (9.5 MB)
-- Source files for graphics
+Original design files and source graphics not used directly on the website.
+
+**Currently empty.** Site images were converted to WebP on 2026-09-13; the
+full-resolution originals were not copied here, they live in git history. To
+recover one:
+
+```
+git log --oneline --all -- <path/to/original.png>
+git show <commit>~1:<path/to/original.png> > recovered.png
+```
+
+Note the `~1`: the commit `git log` reports is the one that *removed* the file,
+so the content lives in its parent. Verified 2026-09-13 against
+`abby-croquet-cover.png` (recovered 4032x2268, 9,874,700 bytes).
 
 ### [/promotional](./promotional/)
 Promotional materials and campaign assets:
