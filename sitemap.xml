@@ -1,79 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
-        http://www.google.com/schemas/sitemap-image/1.1
-        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
-
-    <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://abbotsfordcroquet.com/</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-        <image:image>
-            <image:loc>https://abbotsfordcroquet.com/assets/images/onthelawn.jpg</image:loc>
-            <image:title>Members playing croquet at Mill Lake Park</image:title>
-            <image:caption>Active croquet game on the well-maintained lawn at Mill Lake Park in Abbotsford</image:caption>
-        </image:image>
+        <loc>https://abbotsfordcroquet.com/2026-golf-player-package.html</loc>
+        <lastmod>2026-03-29</lastmod>
     </url>
-
-    <!-- Calendar - High Priority due to regular updates -->
+    <url>
+        <loc>https://abbotsfordcroquet.com/ac-drill.html</loc>
+        <lastmod>2026-01-19</lastmod>
+    </url>
+    <url>
+        <loc>https://abbotsfordcroquet.com/ac-strategy.html</loc>
+        <lastmod>2026-08-30</lastmod>
+    </url>
+    <url>
+        <loc>https://abbotsfordcroquet.com/backyard-croquet.html</loc>
+        <lastmod>2026-08-30</lastmod>
+    </url>
     <url>
         <loc>https://abbotsfordcroquet.com/calendar.html</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2026-08-30</lastmod>
     </url>
-
-    <!-- Membership - High Priority for conversions -->
-    <url>
-        <loc>https://abbotsfordcroquet.com/membership.html</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <!-- Contact - High Priority for user engagement -->
     <url>
         <loc>https://abbotsfordcroquet.com/contact.html</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2026-09-13</lastmod>
     </url>
-
-    <!-- Curriculum - Important for new players -->
     <url>
-        <loc>https://abbotsfordcroquet.com/curriculum.html</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://abbotsfordcroquet.com/court-status.html</loc>
+        <lastmod>2026-08-30</lastmod>
     </url>
-
-    <!-- Mallets - Equipment information -->
+    <url>
+        <loc>https://abbotsfordcroquet.com/</loc>
+        <lastmod>2026-09-13</lastmod>
+    </url>
+    <url>
+        <loc>https://abbotsfordcroquet.com/lessons.html</loc>
+        <lastmod>2026-09-13</lastmod>
+    </url>
     <url>
         <loc>https://abbotsfordcroquet.com/mallets.html</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <lastmod>2026-09-13</lastmod>
     </url>
-
-    <!-- Game Variations -->
     <url>
-        <loc>https://abbotsfordcroquet.com/variations.html</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <loc>https://abbotsfordcroquet.com/membership.html</loc>
+        <lastmod>2026-09-13</lastmod>
     </url>
-
-    <!-- Resources -->
+    <url>
+        <loc>https://abbotsfordcroquet.com/news.html</loc>
+        <lastmod>2026-09-13</lastmod>
+    </url>
+    <url>
+        <loc>https://abbotsfordcroquet.com/practice-routine.html</loc>
+        <lastmod>2026-08-30</lastmod>
+    </url>
     <url>
         <loc>https://abbotsfordcroquet.com/resources.html</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
+        <lastmod>2026-08-30</lastmod>
     </url>
-
-</urlset> 
+    <url>
+        <loc>https://abbotsfordcroquet.com/session-registration.html</loc>
+        <lastmod>2026-09-13</lastmod>
+    </url>
+    <url>
+        <loc>https://abbotsfordcroquet.com/top-canadian-players.html</loc>
+        <lastmod>2026-09-13</lastmod>
+    </url>
+    <url>
+        <loc>https://abbotsfordcroquet.com/trimmer-drills.html</loc>
+        <lastmod>2026-08-30</lastmod>
+    </url>
+    <url>
+        <loc>https://abbotsfordcroquet.com/variations.html</loc>
+        <lastmod>2026-09-13</lastmod>
+    </url>
+</urlset>

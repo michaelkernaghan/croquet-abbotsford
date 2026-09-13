@@ -35,3 +35,6 @@ abbotsfordlawnbowling/
 croquet-brochure/
 croquet-game/
 Croquet/ 
+# Python bytecode (docs/build-scripts/)
+__pycache__/
+*.pyc
