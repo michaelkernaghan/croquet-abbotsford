@@ -30,6 +30,10 @@ POINTS_AT = {
     'signup.html': 'court-status.html',   # meta-refresh redirect stub
 }
 
+# The error page is served at whatever URL the visitor mistyped, so it has no
+# stable address of its own. A canonical tag here would be a lie.
+NO_CANONICAL = {'404.html'}
+
 CANONICAL = re.compile(r'[ \t]*<link\s+rel="canonical"[^>]*>\n', re.I)
 
 
@@ -45,6 +49,12 @@ def main() -> None:
     for p in sorted(ROOT.glob('*.html')):
         txt = original = p.read_text(encoding='utf-8', errors='ignore')
         txt = CANONICAL.sub('', txt)
+
+        if p.name in NO_CANONICAL:
+            if txt != original:
+                p.write_text(txt, encoding='utf-8', newline='')
+                changed += 1
+            continue
 
         target = POINTS_AT.get(p.name, p.name)
         tag = f'    <link rel="canonical" href="{url_for(target)}">\n'

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Abbotsford Croquet Club</title>
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="description" content="That page could not be found on the Abbotsford Croquet Club website.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .notfound {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 50px 20px 70px;
+            text-align: center;
+        }
+
+        .notfound h1 {
+            color: #3B513B;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 10px;
+        }
+
+        .notfound .lead {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+            max-width: 52ch;
+            margin: 0 auto 35px;
+        }
+
+        .notfound .wandered {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 35px;
+        }
+
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .destinations a {
+            display: block;
+            background-color: #f0f8f0;
+            border-left: 5px solid #3B513B;
+            border-radius: 4px;
+            padding: 16px 18px;
+            text-decoration: none;
+            color: #3B513B;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .destinations a:hover,
+        .destinations a:focus {
+            background-color: #e0eee0;
+        }
+
+        .destinations a span {
+            display: block;
+            font-weight: normal;
+            color: #555;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .notfound .help {
+            color: #555;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with SVG logo -->
+    <header>
+        <div class="header-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" role="img" aria-labelledby="logo-title logo-desc">
+                <title id="logo-title">Abbotsford Croquet Club Logo</title>
+                <desc id="logo-desc">A stylized logo featuring croquet mallets and balls in red, gold, blue, and black, with the text 'ABBOTSFORD Croquet' on a green gradient background</desc>
+                <defs>
+                    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3B513B"/>
+                        <stop offset="100%" style="stop-color:#2B3B2B"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#bgGradient)"/>
+                
+                <g transform="translate(600, 100) scale(1.2)">
+                    <circle cx="15" cy="0" r="10" fill="#FF0000"/>
+                    <circle cx="65" cy="0" r="10" fill="#FFD700"/>
+                    <circle cx="40" cy="-25" r="10" fill="#4169E1"/>
+                    <circle cx="40" cy="25" r="10" fill="#000000"/>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(-45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                    
+                    <g transform="translate(40, 0)">
+                        <g transform="rotate(45)">
+                            <rect x="-2.5" y="-45" width="5" height="70" fill="#E8B088"/>
+                            <rect x="-8" y="25" width="16" height="12" fill="#C68E5B"/>
+                        </g>
+                    </g>
+                </g>
+                
+                <text x="40" y="90" font-family="Playfair Display, Georgia, serif" font-weight="900" font-size="72" fill="white">ABBOTSFORD</text>
+                <text x="40" y="160" font-family="Playfair Display, Georgia, serif" font-weight="300" font-size="64" fill="white">Croquet</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="membership.html">Membership</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Learn</a>
+                    <div class="dropdown-content">
+                        <a href="lessons.html">Lessons</a>
+                        <a href="variations.html">Variations</a>
+                        <a href="resources.html">Resources</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="active">Play</a>
+                    <div class="dropdown-content">
+                        <a href="calendar.html">Calendar</a>
+                        <a href="court-status.html">Courts</a>
+                        <a href="session-registration.html" class="active">Sign Up</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Equipment</a>
+                    <div class="dropdown-content">
+                        <a href="mallets.html">Mallets</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="notfound">
+            <h1>That page has gone out of bounds</h1>
+            <p class="lead">
+                We could not find the page you asked for. It may have been renamed,
+                or the link that brought you here may be out of date.
+            </p>
+
+            <div class="destinations">
+                <a href="index.html">Home
+                    <span>What the club is and where we play</span></a>
+                <a href="calendar.html">Calendar
+                    <span>Sessions, open houses and tournaments</span></a>
+                <a href="session-registration.html">Sign Up
+                    <span>Register for a Tuesday or Thursday session</span></a>
+                <a href="lessons.html">Lessons
+                    <span>New to croquet? Start here</span></a>
+                <a href="membership.html">Membership
+                    <span>How to join the club</span></a>
+                <a href="contact.html">Contact
+                    <span>Find us at Mill Lake Park</span></a>
+            </div>
+
+            <p class="help">
+                Still stuck, or think something is genuinely broken? Email
+                <a href="mailto:abbotsfordcroquet@gmail.com">abbotsfordcroquet@gmail.com</a>
+                and tell us which link sent you here.
+            </p>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Abbotsford Croquet. All rights reserved. &middot; <a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+    <!-- Cloudflare Web Analytics (no cookies, no cross-site tracking) -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_BEACON_TOKEN"}'></script>
+</body>
+</html>
