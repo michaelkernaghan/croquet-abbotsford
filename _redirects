@@ -1,0 +1,9 @@
+# Old page removed in the 2026-09 site pass. It was indexed for a long time, so a
+# 301 sends visitors and any accumulated search signal to the page that replaced it
+# rather than to the 404.
+/curriculum       /lessons        301
+/curriculum.html  /lessons        301
+
+# Retired: advertised a one-off open day on 10 May 2025.
+/brochure         /calendar       301
+/brochure.html    /calendar       301

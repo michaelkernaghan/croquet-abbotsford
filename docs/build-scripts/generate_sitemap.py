@@ -29,7 +29,6 @@ EXCLUDE = {
     'brochure.html': 'advertises a past event (Open Fun Day, May 2025)',
     'croquet-open-day-poster.html': 'print poster, not a web page',
     'tournament-schedule-template.html': 'blank template, not content',
-    'trimmer-drill.html': 'orphaned near-duplicate of trimmer-drills.html',
 }
 
 
